@@ -2,28 +2,17 @@
 layout: default
 ---
 
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-<!DOCTYPE html>
-<html>
-<title>Dzklavier</title>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-<head>
-	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-</head>
-<body>
-	<h1>dzed.me</h1>
-		<p> My name is DZ.
-		    UWaterloo CS Undergrad.  
-			1A. Having so much fun with Racket and what-not.</p>
-		
-		<ul>
-			<li><a href="http://dzed.me/blog">Blog</a></li>
-			<li><a href="http://dzed.me/projects">Projects</a></li>
-			<li><a href="https://github.com/dzklavier">GitHub</a></li>
-			<li><a href=/DZResume.pdf>Resume</a></li>
-			<li><a href="mailto:dzklavier@gmail.com">Email</a></li>
-			<li><a href="http://dzed.me/about">About</a></li>
-		</ul>
-		
-</body>
-</html>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
