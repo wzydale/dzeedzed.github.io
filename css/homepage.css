@@ -1,0 +1,28 @@
+.tall {
+  height: 602px;
+}
+
+.fixed-bar {
+  position: fixed;
+}
+
+#full-size {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  height: 1.75vw;
+}
+
+img.hp-image {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 25%;
+  height: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-	</head>
-	<title>
-		Blog | dzed.me
-	</title>
-	<body>
-		<h1>dzed.me</h1>
-		<h1>Blog</h1>
-		<div class="post">
-			<h2><a href="/blog/2015-10-21-first-post">My First Movie Ever(from 2013)!</a></h2>
-			
-			<a href="/blog/" class="post-thumbnail">Read full post...</a>
-			
-			<p> My video. </p> 
-			
-			<div class="post-info">
-				<ul>
-					<li class="date">18th August 2011</li>
-					<li class="category">Posted in <a href="#">Reviews</a></li>
-					<li class="read-more"><a href="/blog/"">Back to top</a></li>
-				</ul>
-			</div>
-		</div>
+---
+layout: page
+title: Blog
+---
 
-		<ul class="pagination">
-			<li class="arrow unavailable"><a href="">&laquo;</a></li>
-			<li class="current"><a href="">1</a></li>
-			<li><a href="">2</a></li>
-			<li><a href="">3</a></li>
-			<li><a href="">4</a></li>
-			<li class="unavailable"><a href="">&hellip;</a></li>
-			<li><a href="">12</a></li>
-			<li><a href="">13</a></li>
-			<li class="arrow"><a href="">&raquo;</a></li>
-		</ul>
-	</body>
-	
-	
-</html>
+<div class="tile-preview">
+{% for post in paginator.posts %}
+    <article>
+        <div class="tile-preview-content">
+            <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+            <h2><time datetime="{{ post.date | date_to_string }}">{{ post.date | date: "%B %-d, %Y" }}</time></h2>
+            {{ post.excerpt }}
+        </div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="tile-preview-status read-more">Continue Reading</a>
+    </article>
+{% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<section class="pagination">
+    {% if paginator.next_page %}<a class="pagination-link" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>{% else %}<span class="pagination-link">Older</span>{% endif %}
+    {% if paginator.previous_page %}<a class="pagination-link" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>{% else %}<span class="pagination-link">Newer</span>{% endif %}
+</section>
+{% endif %}
