@@ -17,6 +17,22 @@ h4 {
   height: 1.75vw;
 }
 
+#blog-img {
+  background: url("../img/airport.jpg");
+  background-position: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+#go-img {
+  background: url("../img/go-game1.jpg");
+  background-position: fixed;
+  background-size: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
 img.hp-image {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -25,4 +41,22 @@ img.hp-image {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+img.icons {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 20%;
+  height: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img.android {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 50%;
+  height: auto;
 }
