@@ -3,16 +3,30 @@ layout: page
 title: Dream List
 ---
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1mXY1W7pOUcyTMIsOVxOeeqRkcP0" width="640" height="480"></iframe>
+## TRAVEL: ##
+* Visit Germany
+* Visit Norway
+* JavaZone in Oslo, Norway (5990 kr as of 29 Feb 2016)
+* Go to I kveld med Ylvis Live
+* Go to a Hozier concert
+* Go to a game at Old Trafford
 
-Hi tehre
+<iframe src="https://www.google.com/maps/d/embed?mid=1mXY1W7pOUcyTMIsOVxOeeqRkcP0" 
+frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscreen></iframe>
+
+## LANGUAGES: ##
+
+* Can watch IKMY without subtitles
+* Can watch Skavlan without subtitles
+* Pass JLPT N2 
+* Pass JLPT N1 (maybe Dec 2017)
 
 ## WATERLOO: ##
 
 * Find a co-op job before my 20th birthday
 * Pull an all-nighter
-* ~~Go to a hackathon~~ ()
-* ~~Win a hackathon~~ ()
+* ~~Go to a hackathon~~ ([WaterlooHacks, January 22-24, 2016](https://waterloohacks.io))
+* ~~Win a hackathon~~ ([MyoMuse @ WaterlooHacks, January 22-24, 2016](http://news.communitech.ca/news/communitech/myo-music-app-wins-waterloo-hacks/))
 * Eat at all Plaza restaurants
 * Cook for an entire week
 * Wear a Blue Jays T-shirt to an interview
