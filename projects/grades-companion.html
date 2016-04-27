@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AYY LMAO</title>
+
+	<style>
+		th {
+			font-weight: bold;
+			text-align: left;
+		}
+
+	</style>
+
+	<script>
+		function calculate() {
+			var vtarget = document.getElementById("target");
+			var vasswei = document.getElementById("aw");
+			var va1 = document.getElementById("a1");
+			var va2 = document.getElementById("a2");
+			var va3 = document.getElementById("a3");
+			var va4 = document.getElementById("a4");
+			var va5 = document.getElementById("a5");
+			var vm1 = document.getElementById("m1");
+			var vm2 = document.getElementById("m2");
+			var vm1w = document.getElementById("m1w");
+			var vm2w = document.getElementById("m2w");
+			var projected = document.getElementById("projected");
+			var need = document.getElementById("need");
+
+			var target = parseFloat(vtarget.value);
+			var asswei = parseFloat(vasswei.value);
+			var a1 = parseFloat(va1.value);
+			var a2 = parseFloat(va2.value);
+			var a3 = parseFloat(va3.value);
+			var a4 = parseFloat(va4.value);
+			var a5 = parseFloat(va5.value);
+			var m1 = parseFloat(vm1.value);
+			var m2 = parseFloat(vm2.value);
+			var m1w = parseFloat(vm1w.value);
+			var m2w = parseFloat(vm2w.value);
+
+
+			var assgrade = (a1 + a2 + a3 + a4 + a5) / 5 * asswei;
+			var midgrade = (m1 * m1w + m2 * m2w);
+			var projectedGrade = (midgrade + assgrade) / (asswei + m1w + m2w) * 100;
+			var final = (target - assgrade - midgrade) / (100 - asswei - m1w - m2w) * 100;
+
+			if (isFinite(projectedGrade)) {
+				projected.innerHTML = projectedGrade.toFixed(2);
+				need.innerHTML = final.toFixed(2);
+			} else {
+				projected.innerHTML = "";
+				need.innerHTML = "";
+			}
+
+
+		}
+
+		// function save(amount, apr, years, zipcode) {
+		// 	if (window.localStorage) {
+		// 		localStorage.loan_amount = amount;
+		// 		localStorage.loan_apr = apr;
+		// 		localStorage.loan_years = years;
+		// 		localStorage.loan_zipcode = zipcode;
+		// 	}
+		// }
+
+		// window.onload = function() {
+		// 	if (window.localStorage && localStorage.loan_amount) {
+		// 		document.getElementById("amount").value = localStorage.loan_amount;
+		// 		document.getElementById("apr").value = localStorage.loan_apr;
+		// 		document.getElementById("years").value = localStorage.loan_years;
+		// 		document.getElementById("zipcode").value = localStorage.loan_zipcode;
+		// 	}
+		// };
+
+	</script>
+
+
+</head>
+
+
+<body>
+	<table>
+
+		<tr>
+			<th>Target Grade in the Course: </th>
+			<td><input id="target" onchange="calculate();"></input></td>
+		</tr>
+
+		<tr><th>Assignments</th></tr>
+		<tr>
+			<td>Assignment Weight: </td>
+			<td><input id="aw" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Assignment 1: </td>
+			<td><input id="a1" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Assignment 2: </td>
+			<td><input id="a2" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Assignment 3: </td>
+			<td><input id="a3" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Assignment 4: </td>
+			<td><input id="a4" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Assignment 5: </td>
+			<td><input id="a5" onchange="calculate();"></input></td>
+		</tr>
+
+		<tr><th>Midterms</th></tr>
+		<tr>
+			<td>Midterm 1: </td>
+			<td><input id="m1" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Midterm 1 Weight: </td>
+			<td><input id="m1w" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Midterm 2: </td>
+			<td><input id="m2" onchange="calculate();"></input></td>
+		</tr>
+		<tr>
+			<td>Midterm 2 Weight: </td>
+			<td><input id="m2w" onchange="calculate();"></input></td>
+		</tr>
+
+		<tr><th>Calculate:</th>
+			<td><button onclick="calculate();">Go!</button></td></tr>
+
+		<tr><td>Projected Grade: </td>
+			<td><span id="projected"></span>%</td></tr>
+
+
+		<tr><th>Need to get: </th>
+			<td><span id="need"></span>%</td></tr>
+
+	</table>
+</body>
+
+
+</html>
+

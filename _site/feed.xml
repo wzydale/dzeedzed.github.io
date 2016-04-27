@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dadi &quot;D.Z.&quot; Zhang</title>
+    <description>Dadi &quot;D.Z.&quot; Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
+</description>
+    <link>http://dzed.me/</link>
+    <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 26 Apr 2016 20:05:33 -0400</pubDate>
+    <lastBuildDate>Tue, 26 Apr 2016 20:05:33 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>What I Did Before University</title>
+        <description>
+</description>
+        <pubDate>Tue, 26 Apr 2016 18:20:00 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/04/26/what-i-did-before-uni.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/04/26/what-i-did-before-uni.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>The Chronicle of My First Year @ UW</title>
+        <description>&lt;p&gt;I wrote the last exam (GER 101) of my first year at Waterloo two days ago. I was busy moving out or rez yesterday, and I just got some of my 1B marks on Quest. Thought I should write a blog post to wrap up my first year at UW. It was pretty lit: met a bunch of cool kids, joined a handful of clubs, played intramurals, pulled an (almost) all-nighter, got smashed twice, and had tons of fun in (some of) my classes while studying my butt off in the process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/1a-snow.jpg&quot; alt=&quot;RCH&quot; /&gt;
+&lt;small&gt;RCH (left) is my favorite building, because it’s always empty late at night (I’m looking at you, QNC), and I can enjoy a few hours of solitary studying time there every day.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The transition from high school to university was easier and smoother than I thought. Before coming to university, I heard a lot of scary things about the workload in first year, especially many MATH 135 horror stories. But everything turned out fine, thankfully. And I honestly really like the campus. There is something I like about the campus being enclosed by Ring Road and constantly patrolled by geese. It’s not as big and nice as UBC, but it feels intimate.&lt;/p&gt;
+
+&lt;p&gt;The university residence I picked (UWP) was not that nice though. The room is really small and the walls aren’t soundproof. There was also a pretty serious ant infection in our unit, which was really annoying. But living on campus in first year was definitely worth it! Because there are so many co-op sequences in Math and Engineering, some of us will eventually be off-stream (i.e. I will be on co-op while some friends will have a study term, and vice versa), and first year is really (sadly) our only chance to meet people from all sequences.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;a&quot;&gt;1A&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/1a-welcome.jpg&quot; alt=&quot;Warrior Welcome&quot; /&gt;
+&lt;small&gt;I am not gonna lie, I was pretty pumped after the ceremony!&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;As a frequent lurker on &lt;a href=&quot;http://www.reddit.com/r/uwaterloo&quot;&gt;/r/uwaterloo&lt;/a&gt; even before I got accepted into UW, I thought I had a pretty good idea of what my first semester would be like. But you have to actually experience it to know what it’s really like. Almost lost my voice during Orientation Week from constantly screaming, laughing, and cheering. Exploring campus and bantering about baseball with people in my orientation group were great.&lt;/p&gt;
+
+&lt;p&gt;I still remember on the first day of classes I woke up an hour before my first lecture and wore a black Waterloo hoodie feeling like a smarty. After my first midterm, I finally realized that I am not in high school anymore. I also learned that sprinting from MC to PAS in 10 minutes is not fun, and that employer info sessions are where I get free sunglasses, keychains, and T-shirts (JK people actually go there for the free food).&lt;/p&gt;
+
+&lt;p&gt;I played in the intramural slo-pitch league and in my first game, struck out with the bases loaded (2-4 for the day though). For some weird reason, I started a habit of working on my CS assignments on Friday night till 3 in the morning in Grand Commons, and waking up at 3pm the next day still feeling exhausted. I went to Mr. Paninos for real and really loved their beef noodles, and then proceeded to eat there for the rest of the week. NOT a good idea. I feel like throwing up whenever I see a Panino meme on Reddit now. I tried out almost all the restaurants in the plaza (RIP Panda King I will miss you forever), and fell in love with the $1.99 BK nuggets. I felt like a total noob.&lt;/p&gt;
+
+&lt;p&gt;I worked really hard this term. Got the wake-up call after my first midterm, started doing assignments the day they were assigned and reading relevant materials the day before class. So I managed to get decent grades, but I think I should’ve gone out more and tried to meet more people.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/1a-schedule.jpg&quot; alt=&quot;1A Schedule&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;math-135&quot;&gt;MATH 135&lt;/h3&gt;
+
+&lt;p&gt;I can say that I thoroughly enjoyed this course. Did pretty well, and getting 98% on my second-ever university exam was an amazing feeling. Had to Work through hard proof assignment questions like there’s no tomorrow though. I was really keen and sat in the first row every single class. That’s my philosophy: always sit in the front. Proving something like there are infinite number of primes and whether 2&lt;sup&gt;63&lt;/sup&gt;+3&lt;sup&gt;315&lt;/sup&gt; is divisble by 7 were definitely highlights of this course as well. The prof, Ian, was awesome and made the class very enjoyable for me. The final was not hard and similar to the sample final they gave us. Carmen Bruni’s final exam Twitch stream on MATH 135 was the icing on the cake.&lt;/p&gt;
+
+&lt;h3 id=&quot;math-137&quot;&gt;MATH 137&lt;/h3&gt;
+
+&lt;p&gt;Mike Eden literally taught this course in sarcasm. Hilarious prof. I already learned derivatives and integrations back in high school so this course is mostly review, but this course was still pretty interesting. I like how Eden asked us to never forget to write “By Limit Laws”, but then promptly forgot it himself while doing examples. Midterm was unexpectedly hard, but the final was alright.&lt;/p&gt;
+
+&lt;h3 id=&quot;cs-135&quot;&gt;CS 135&lt;/h3&gt;
+&lt;p&gt;I didn’t really enjoy coding in Racket (a dialect of Scheme) until after the second midterm. But boy, foldr and lambdas are love. Functional programming is something truly special and amazing, I have to say. When recursion becomes your second nature, you will really appreciate its elegance. The assignments are really wordy though, and don’t even get me started on lambda tracing. It’s just so tedious. Dr Racket became a meme on the CS 135 Facebook group, and Dave Tompkins (a.k.a Quest God, Dancin’ DJ Dave) achieved celebrity status for his dank CS jokes.&lt;/p&gt;
+
+&lt;h3 id=&quot;engl-109&quot;&gt;ENGL 109&lt;/h3&gt;
+&lt;p&gt;A fairly standard communication course. Apparently starting from this year (Fall 2015) all Math and CS kids have to take two communication courses before they graduate, which I think is a good idea. This course is mostly essay writing (we wrote 3 major essays over the term, and some smaller written exercises), and the prof was very enthusiastic about teaching. I really liked the technical report assignment, where I got to talk about the differences between objected-oriented and functional programming using layperson’s terms.&lt;/p&gt;
+
+&lt;h3 id=&quot;econ-101&quot;&gt;ECON 101&lt;/h3&gt;
+&lt;p&gt;Oh the fabled “ultimate bird course”. Its honestly not that birdy, you still need to put in the effort to read the study guide and do the multiple choice questions in order to do well on exams. But yes, it’s mostly rote memoriztaion, though some concepts like game theory are very interesting. I think it did teach me some economic literacy.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;b&quot;&gt;1B&lt;/h2&gt;
+
+&lt;p&gt;I felt a lot relaxed and confident after my 1A term, so I signed up for 6 courses this term. It was definitely more work than I anticipated, but it was worth it. I met a lot of people in the UWCLEC Russian Club and had tons of fun. We would all bring food and drinks to the Russian tutor’s place in UWP and have small potlucks basically.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/1b-schedule.jpg&quot; alt=&quot;1B Schedule&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;math-136&quot;&gt;MATH 136&lt;/h3&gt;
+
+&lt;p&gt;MEME 136! MATH 136 will always be a part of me: Yongqiang “Yeezus” Zhao, the definition of a basis (“Whaaaat, is the definition of a baaaasis?” “A linearly independent spanning set!” “Wow, that was beautiful!”), “plug into a matrix and row reduce”, Wolfram Alpha, and Dan Wolczuk (a.k.a Dr Dan).&lt;/p&gt;
+
+&lt;p&gt;I even compiled a “MATH 136 in a nutshell” (basically all the catchphrases we use while proving theorems):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“It is intuitively obvious that…”&lt;/li&gt;
+  &lt;li&gt;“Clearly/Obviously”&lt;/li&gt;
+  &lt;li&gt;“Immediately true by inspection, as required. ∎”&lt;/li&gt;
+  &lt;li&gt;“Without loss of generality (WLOG Moite)”&lt;/li&gt;
+  &lt;li&gt;“Similarly, same argument applies”&lt;/li&gt;
+  &lt;li&gt;“By the System-Rank Theorem”&lt;/li&gt;
+  &lt;li&gt;“Trivial” you know what’s trivial? c&lt;sub&gt;1&lt;/sub&gt; = c&lt;sub&gt;2&lt;/sub&gt;  = c&lt;sub&gt;3&lt;/sub&gt;  = … =
+c&lt;sub&gt;n&lt;/sub&gt;  = 0 as n approaches infinity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Oh fun times. Linear algebra gets extremely abstract sometimes, but in the end everything made sense.&lt;/p&gt;
+
+&lt;h3 id=&quot;math-138&quot;&gt;MATH 138&lt;/h3&gt;
+
+&lt;p&gt;I also made a “MATH 138 in a nutshell”:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Eventually, for large n, an/bn &amp;lt; 1” Hand-wavvvvvy&lt;/li&gt;
+  &lt;li&gt;“Counterexample: let an = 1/n, bn = 1/n, cn = 1/n…”&lt;/li&gt;
+  &lt;li&gt;“Upper bound of error, by Taylor’s Inequality is above 9001, since 9001 &amp;gt;= (0.0001)^5*(1/e)^6/6!” Yo you gotta have le equal sign bruh&lt;/li&gt;
+  &lt;li&gt;“It diverges since it is the harmonic series” Jordy Hams be like first published in 1962&lt;/li&gt;
+  &lt;li&gt;“It converges since it is the alternating harmonic series”&lt;/li&gt;
+  &lt;li&gt;“By IBP/Ratio Test/Limit Comparison Test”&lt;/li&gt;
+  &lt;li&gt;“(2n-1)(2n-3)…(5)(3)(1) for n from 0 to infinity”&lt;/li&gt;
+  &lt;li&gt;“DO NOT EVALUATE THE INTEGRAL” PRAISE THE LORD&lt;/li&gt;
+  &lt;li&gt;“DO NOT USE L’HOPITAL’S RULE” U WOT M8&lt;/li&gt;
+  &lt;li&gt;“Use the washer/disk method”&lt;/li&gt;
+  &lt;li&gt;“Include all initial conditions”&lt;/li&gt;
+  &lt;li&gt;“1+½^2+⅓^2+… = pi&lt;sup&gt;2&lt;/sup&gt;/6” (TRIGGERED)&lt;/li&gt;
+  &lt;li&gt;“It is a telescoping series…”&lt;/li&gt;
+  &lt;li&gt;RATIO TEST RETURNS 1 and LIMIT COMPARISON TEST RETURNS INFINITY -&amp;gt; TURBOTRIGGERED&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Calculus 2: basically a continuation of MATH 137 (Calculus 1). Lots of sequences, series, and Taylor polynomials, mixed with some easy proofs. Probably my last calculus class in undergrad, if I choose not to take upper year Statistics courses.&lt;/p&gt;
+
+&lt;h3 id=&quot;cs-136&quot;&gt;CS 136&lt;/h3&gt;
+&lt;p&gt;Fairly easy intro course to C. Definitely not as fun as CS 135 to be honest. We learned some basic data structures (Arrays, binary trees, linked lists etc.), algorithms (Quicksort, mergesort), and the C memory model. Assignments were pretty boring and tedious, and memory leaks caused me some trouble. The Russian Club afterparties would sometimes turn into code parties (awks). Only fun stuff I remember about this course is that my prof was basically constanly bashing the slides for poor style and code quality.&lt;/p&gt;
+
+&lt;h3 id=&quot;engl-119&quot;&gt;ENGL 119&lt;/h3&gt;
+&lt;p&gt;ENGL 119 wasn’t interesting at all. Did learn some useful presentation techniques and aspects of technical writing, but it was so disorganized. Second mandatory communication course. Now I think about it, I should’ve sticked it out and kept Public Speaking.&lt;/p&gt;
+
+&lt;h3 id=&quot;ger-101&quot;&gt;GER 101&lt;/h3&gt;
+&lt;p&gt;Pretty chill class. Prof was chill. Kinda felt like a high school French class. The video project was awesome. We had to move two monitors back and forth for three straight days, and we didn’t have a tripod or anything fancy to film it properly, but it was worth it. I feel that I could’ve learned more German from this class (I really liked the in-class activities). Midterm and final were both very short and easy.&lt;/p&gt;
+
+&lt;h3 id=&quot;stat-230&quot;&gt;STAT 230&lt;/h3&gt;
+&lt;p&gt;My favorite course this term by far. Really enjoyed learning all the random variable distributions and argument counting techniques. This course made me interested in data science, analytics, and just statistics in general. Diana is a great prof, and we made the negative binomial distribution into a meme. The final was way harder than I anticipated, but still managed a decent overall mark.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Apr 2016 00:44:00 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/04/25/Official-End-of-First-Year.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/04/25/Official-End-of-First-Year.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Go Tutorial 3&amp;#58 Basic Rules (Part 1)</title>
+        <description>&lt;p&gt;So in this tutorial, you will learn the basic rules of Go. Trust me, it is way easier than chess.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Apr 2016 22:37:00 -0400</pubDate>
+        <link>http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</link>
+        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</guid>
+        
+        
+        <category>gotutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>Go Tutorial 2&amp;#58 Where Can You Play Go?</title>
+        <description>&lt;p&gt;So in this tutorial, I will tell you where you can actually play Go and be a part of the Go community.&lt;/p&gt;
+
+&lt;p&gt;You can play online (there are tons of Go clients/platforms, which I will talk about in detail in this tutorial) or join a local or univeristy Go club. Either way, you will get to meet a lot of people who are enthusiastic about Go and improve your Go skills. Personally, I’ve played at least 1500 Go games online in my life so far. I would say that without these games, I would not be where I am today. Go has taught me a lot, about concentration, perseverance, respect, and humility. If you are really dedicated to Go, it will be a huge time sink, but it’s definitely rewarding and satisfying.&lt;/p&gt;
+
+&lt;p&gt;If it is possible, it is better for you to start learning Go with actual Go boards (Chinese: 棋盘 qipan; Japanese: 碁盤 goban) and Go stones (Chinese: 棋子 qizi; Japanese: 碁石 goishi, or simply 石 ishi). They just feel better and more intimate. Most North American univeristies have active Go clubs.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 17 Apr 2016 22:31:00 -0400</pubDate>
+        <link>http://dzed.me/gotutorials/2016/04/17/where-you-can-play-go.html</link>
+        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/17/where-you-can-play-go.html</guid>
+        
+        
+        <category>gotutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>How Will the Jays Pitchers Do This Year?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/ballgame.jpg&quot; alt=&quot;Rogers Centre&quot; /&gt;
+&lt;sup&gt;BP before my first Jays game, September 1, 2015. Ryan Goins hit a walk-off homerun later that game.&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+So the 2016 MLB Season is now underway.The Toronto Blue Jays are now 5-7 and trailing the Orioles (8-2) and Red Sox (6-4). I couldn’t go to the Jays home opener unfortunately, because of my hectic final exam schedule. But now that exams are (almost) over, here’s my opinion on the Jays pitching staff and how they will perform this year.&lt;/p&gt;
+
+&lt;h3 id=&quot;starting-pitchers&quot;&gt;Starting Pitchers&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Marcus Stroman&lt;/strong&gt;: I can see him having a stellar season after last year’s outstanding performance in the postseason. He had an astonishing 239 ERA+ last season (although a fairly small sample size), and his fielding abilities, athleticism, and passion are valuable assets to the Jays. His sinker has a really good movement that makes me wow every time. He is the true ace of this team.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction: 15-5, 3.00 ERA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Marco Estrada&lt;/strong&gt;: Personally, signing Marco Estrada to a $28M, 2 year deal is my favorite deal of the offseason made by Shapiro-Atkins. Marco had a breakout seasons last year despite starting the year in the bullpen, but he was also very consistent in the Brewers organization (his ERA never went over 4.4 in his 4 seasons with the Beermakers). However, Estrada is a pretty extreme flyball pitcher, with an average flyball rate (FB/BIP) of 47.6% in his career. Given that Rogers Centre is fairly hitter-friendly, he needs to keep his pitchers down in the zone.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction: 14-7, 3.15 ERA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;R.A. Dickey&lt;/strong&gt;: Dickey really is an unpredictable pitcher, because of his reliance on his knuckleball. I would say he has been mediocre since he came over from the Mets (he has a .494 winning percentage and an elevated FIP with the Jays). This is his age 41 season, but he’s a true workhorse, pitching more than 200 innings for the past 5 seasons. I can see him as a solid mid-rotation pitcher, though he really needs to suppress his walk rates.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction: 9-10, 4.00 ERA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;J.A. Happ&lt;/strong&gt;: I am a bit skeptical about Happ. He left as a free agent in 2014, and he seemed shaky at best during his previous tenure with the Jays (elevated ERA, K/9 below average at 7.5). Though he did perform exceptionally well in Pittsburgh and Seattle, I doubt he can replicate his success here, although as the only southpaw in the Jays rotation, he might see more actions than, say, Gavin Floyd and Drew Hutchison.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction: 9-12, 4.50 ERA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Aaron Sanchez&lt;/strong&gt;: Sanchez is a very promising pitcher with great stuff. We saw in the last 2 seasons that he is an effective reliever. In my opinion, he needs to work on his control and command more. His BB/9 last season was 4.3 and K/9 5.9, which is clearly not desirable for a starting pitcher. If he can fix his commmand issues, then he would be a solid piece in the Jays pitching staff. Still, if I were John Gibbons, I would put Sanchez in the bullpen, because 1. Sanchez is only 23 and 2. Jays bullpen is in shambles after the departures of Lowe and Hawkins and the injury of Loup.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction: 8-8, 4.00 ERA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bullpen&quot;&gt;Bullpen&lt;/h3&gt;
+
+&lt;p&gt;Our bullpen is mediocre at best. Roberto Osuna and Brett Cecil are the only reliable pitchers that Gibbons actually trusts. But even Osuna, despite his great success as the closer last season (K/BB at 4.69 and 2.58 ERA), has the tendency to give up homeruns in tight situations. He’s only 21 after all for goodness’ sake, but he needs to keep the balls low in the zone and control his flyball ratio (currently above 40%).&lt;/p&gt;
+
+&lt;p&gt;Brett Cecil, the only lefty in the ‘pen, is also under immense pressure. His scoreless streak is still intact, and his impressive 5.38 K/BB ratio makes him one of the most elite relievers in all of baseball. He should be used exclusively in high leverage situations.&lt;/p&gt;
+
+&lt;p&gt;I don’t know much about Drew Storen, although to be honest, trading Revere for Storen was a wise move (trading an area of strength for an area of weakness). Making Storen the setup man would be ideal, if he could put up his 29-save performance from last season.&lt;/p&gt;
+
+&lt;p&gt;Jesse Chavez and Gavin Floyd are both former starters, which means they don’t have too much experience in the bullpen. Chavez should be used in low-leverage situations or even as a mop-up man, while Floyd might perform well enough to warrant several spot starts in the rotation in case the starters get a bit overworked.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 16 Apr 2016 22:29:27 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/04/16/how-will-the-jays-do.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/04/16/how-will-the-jays-do.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Go Tutorial 1&amp;#58 What is Go?</title>
+        <description>&lt;p&gt;Hello there! Welcome to your very first Go tutorial!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/go-game1.jpg&quot; alt=&quot;Go Game&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, you will not only learn about the rules, techniques, and various strategies of Go, but also many other interesting and fun things about Go! Go is so much more than a casual board game.&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Go is an ancient board game that originated in China sometime around 1000 BC. It reached Korea in 500 AD, and Japan in 700 AD. It is vastly popular in East Asia, and there are over 40 million Go players worldwide. There are approximately 20 million Go players in China. According to the Japanese &lt;a href=&quot;https://ja.wikipedia.org/wiki/囲碁#.E6.AD.B4.E5.8F.B2&quot;&gt;Wikipedia&lt;/a&gt;, there are 2.8 million Go players in Japan as of 2013.&lt;/p&gt;
+
+&lt;p&gt;There is actually a surprising amount of Go events and tournaments in Canada. If you live in Canada, here is a &lt;a href=&quot;https://go-canada.org/Event/List&quot;&gt;list&lt;/a&gt; of all the tournaments and events the Canadian Go Association (CGA) hosts. The &lt;a href=&quot;http://www.usgo.org&quot;&gt;American Go Association&lt;/a&gt; also hosts a variety of Go tournaments year round.&lt;/p&gt;
+
+&lt;h2 id=&quot;etiquettes&quot;&gt;Etiquettes&lt;/h2&gt;
+
+&lt;p&gt;So etiquettes are huge in Go. Basically be humble, respect your opponent, don’t brag about it when you win. If you are know a thing or two about MLB, you probably know that the majority of bat flips and showboating&lt;/p&gt;
+
+&lt;h3 id=&quot;before-game&quot;&gt;Before Game:&lt;/h3&gt;
+&lt;p&gt;After tsukami (Chinese: 猜子 caizi; Japanese: 掴み tsukami)&lt;/p&gt;
+
+&lt;p&gt;I remember Magnus Carlsen said that he was just “alright” on multiple occasions (Play Magnus trailer and on Golden Goal). For God’s sake he is the best chess player ever in the history of chess. That’s a holy world full of gods I dare not enter.&lt;/p&gt;
+
+&lt;p&gt;My Go Experience
+I started attending Go classes at Hangzhou Qiyuan (Hangzhou Go Association) at the age of 6.&lt;/p&gt;
+
+&lt;p&gt;I went to the Vancouver Open and Canada Open (which was also in Vancouver) in 2014, and met a lot of amazing players there.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Apr 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/gotutorials/2016/04/16/introduction1.html</link>
+        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/16/introduction1.html</guid>
+        
+        
+        <category>gotutorials</category>
+        
+      </item>
+    
+  </channel>
+</rss>

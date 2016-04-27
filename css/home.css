@@ -1,0 +1,59 @@
+.hp-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18vw;
+    height: auto;
+}
+
+#full-size {
+  height: 90vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#game-img {
+  background: url("/img/ballgame.jpg");
+  background-position: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+#blog-img {
+  background: url("/img/airport.jpg");
+  background-position: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+#go-img {
+  background: url("/img/go-game1.jpg");
+  background-position: fixed;
+  background-size: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.facebook-color {
+  color: #3B5998 !important;
+}
+
+.linkedin-color {
+  color: #4875B4 !important;
+}
+
+.github-color {
+  color: #000000 !important;
+}
+
+.summary-color {
+  color: #000000 !important;
+}
+
+.mail-color {
+  color: #990000 !important;
+}
