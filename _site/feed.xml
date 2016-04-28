@@ -6,21 +6,27 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Apr 2016 18:06:07 -0400</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2016 18:06:07 -0400</lastBuildDate>
+    <pubDate>Thu, 28 Apr 2016 01:51:04 -0400</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2016 01:51:04 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
-        <title>Life Before University</title>
+        <title>Life Before University &amp; [Admission] How I Got into Waterloo</title>
         <description>&lt;p&gt;Time flies at university. High school already feels like ages ago, seriously.&lt;/p&gt;
 
 &lt;p&gt;Looking back, I feel that I had a lot of crazy ideas when I was younger. Before deciding to go in to computer science, I really wanted to go into biology and become a pharmacologist. It all started in the summer of 2013, when I took the grade 11 level biology class in summer school in Vancouver. We got to dissect frogs, earthworms, and sashimi grade squids. Almost everyone else there was repelled by the scents of preserving alcohol and food remnants in the specimen’s cavities. Except me. I thoroughly enjoyed it. During a field trip to the Vancouver General Hospital Disease Centre, I was the only one daring to look at a severed toe infected by gout. It was truly intriguing.&lt;/p&gt;
 
-&lt;p&gt;People told me that “biology is not a real science” because most of it is, supposedly, just rote memorization of obscure Latin and Greek names of phyla and proteins. But I didn’t think so, and finished the entire curriculum of grade 12 biology on my own in just two weeks after summer was over. Then I found out about a national biology competition, and promptly signed up for it. I read university textbooks on biochemistry, evolution, and cell biology. In my free time, I watched YouTube videos made by high school biology teachers.  I found a volunteering job as a museum educator at the &lt;a href=&quot;http://beatymuseum.ubc.ca&quot;&gt;Beaty Biodiversity Museum&lt;/a&gt; at the University of British Columbia (UBC).&lt;/p&gt;
+&lt;p&gt;People told me that “biology is not a real science” because most of it is, supposedly, just rote memorization of obscure Latin and Greek names of phyla and proteins. But I didn’t think so, and finished the entire curriculum of grade 12 biology on my own in just two weeks after summer was over. Then I found out about the National Biology Competition hosted by the University of Toronto, and promptly signed up for it. For the next two months, I read university textbooks on biochemistry, evolution, and cell biology, and in my free time, I watched YouTube videos made by high school biology teachers. I was ranked 106th in the country in the competition. I found a volunteering job as a museum educator at the &lt;a href=&quot;http://beatymuseum.ubc.ca&quot;&gt;Beaty Biodiversity Museum&lt;/a&gt; at the University of British Columbia (UBC).&lt;/p&gt;
 
-&lt;p&gt;And then I became interested in filmmaking and took the film and drama course.&lt;/p&gt;
+&lt;p&gt;I was also very interested in filmmaking in grade 11 and took the film and drama course. Here’s my very first short film.&lt;/p&gt;
 
 &lt;iframe width=&quot;740&quot; height=&quot;500&quot; src=&quot;https://www.youtube.com/embed/Igydkgl4FdQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;admission&quot;&gt;[Admission]&lt;/h2&gt;
+
+&lt;p&gt;I didn’t know how competitive university application was until the end of grade 11. Before that, I thought a high 80 would suffice for most top Canadian universities, at least that’s what was advertised on most university pamphlets and viewbooks. But during the summer before my grade 12 year, I stumbled upon the StudentAwards forum (now called Yconic) and was absolutely terrified by the “Admission Average” threads. Apparently the (rumored) cutoff for CS was 93%? That’s ridiculous.&lt;/p&gt;
+
+&lt;p&gt;So I worked my butt off in grade 12, aiming for both Software Engineering (SE, another great program) and Computer Science (CS) at UW. Admission averages are calculated differently for these programs, though. SE requires 6 BC academic courses, and 5 of them have to be English 12, Pre-Calculus 12, Calculus 12, Physics 12, and Chemistry 12. On the other hand, CS is much more lenient in terms of required courses. You only need English 12, Pre-Calculus 12, Calculus 12, and two other academically accepted courses (in my case, I picked Biology 12 and Computer Programming 12).&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 26 Apr 2016 18:20:00 -0400</pubDate>
@@ -155,30 +161,25 @@ c&lt;sub&gt;n&lt;/sub&gt;  = 0 as n approaches infinity&lt;/li&gt;
       </item>
     
       <item>
-        <title>Go Tutorial 3&amp;#58 Basic Rules (Part 1)</title>
-        <description>&lt;p&gt;So in this tutorial, you will learn the basic rules of Go. Trust me, it is way easier than chess.&lt;/p&gt;
+        <title>Go Tutorial 2&amp;#58 The Basics (Part 1 - Etiquettes)</title>
+        <description>&lt;p&gt;So starting from this tutorial, you will learn the basic etiquettes and rules of Go. Trust me, Go is way easier to learn than chess (at least the basics).&lt;/p&gt;
+
+&lt;h2 id=&quot;etiquettes&quot;&gt;Etiquettes&lt;/h2&gt;
+
+&lt;p&gt;So etiquettes are huge in Go. Basically be humble, respect your opponent, don’t brag or showboat when you win. But there are also a bunch of formalities you need to keep in mind while playing Go. Typically, these etiquettes are strictly followed in Japan by all Japanese players, while in China they only serve as a general guideline. However, in the professional world, all the players practice these etiquettes without fail.&lt;/p&gt;
+
+&lt;h3 id=&quot;before-game&quot;&gt;Before Game:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Nigiri (Chinese: 猜子 caizi, lit. “guessing stones”; Japanese: ニギリ nigiri, lit. “grabbing (stones)”):&lt;/strong&gt; There needs to be a fair way to decide who plays first (black), if the two players are of the same rank, and Nigiri is the answer. If both players are of the same rank, the game is said to be Tagai-sen (Chinese: 互先 huxian, lit. “mutually first”; Japanese: 互い先, tagaisen, lit. “mutually first”).&lt;/p&gt;
+
+&lt;p&gt;Nigiri is equivalent to flipping a coin. How it works is this: One player (almost always the older of the two players) grabs a handful of white (always) stones and puts his clinched hand on the centre of the Go board. The other player would have to guess the parity (odd or even) of the number of stones hidden in the fist of the player, by placing either one (for odd) or two (for even) black stone(s) on the Go board.&lt;/p&gt;
+
+&lt;p&gt;The first player would then release all the white stones in his hand, and both players would count them. If the player guesses the parity correctly, then it is customary for him/her to take black stones (although under some rules, such as Ing or in amateur games, the player can also choose his/her preferred color instead. I’ve only done that once, choosing white instead of black after I won the Nigiri. But I was later scolded by my teacher later. This is not recommended)&lt;/p&gt;
+
+&lt;p&gt;If the players are not of the same rank, the player with the lower rank automatically gets to play black if their ranks differ by 1 or 2, and if the rank discrepency exceeds 2, then there is a set of rules for giving out handicap stones. Also,&lt;/p&gt;
 </description>
         <pubDate>Sun, 17 Apr 2016 22:37:00 -0400</pubDate>
         <link>http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</link>
         <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</guid>
-        
-        
-        <category>gotutorials</category>
-        
-      </item>
-    
-      <item>
-        <title>Go Tutorial 2&amp;#58 Where Can You Play Go?</title>
-        <description>&lt;p&gt;So in this tutorial, I will tell you where you can actually play Go and be a part of the Go community.&lt;/p&gt;
-
-&lt;p&gt;You can play online (there are tons of Go clients/platforms, which I will talk about in detail in this tutorial) or join a local or univeristy Go club. Either way, you will get to meet a lot of people who are enthusiastic about Go and improve your Go skills. Personally, I’ve played at least 1500 Go games online in my life so far. I would say that without these games, I would not be where I am today. Go has taught me a lot, about concentration, perseverance, respect, and humility. If you are really dedicated to Go, it will be a huge time sink, but it’s definitely rewarding and satisfying.&lt;/p&gt;
-
-&lt;p&gt;If it is possible, it is better for you to start learning Go with actual Go boards (Chinese: 棋盘 qipan; Japanese: 碁盤 goban) and Go stones (Chinese: 棋子 qizi; Japanese: 碁石 goishi, or simply 石 ishi). They just feel better and more intimate. Most North American univeristies have active Go clubs.&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 17 Apr 2016 22:31:00 -0400</pubDate>
-        <link>http://dzed.me/gotutorials/2016/04/17/where-you-can-play-go.html</link>
-        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/17/where-you-can-play-go.html</guid>
         
         
         <category>gotutorials</category>
@@ -253,25 +254,20 @@ So the 2016 MLB Season is now underway.The Toronto Blue Jays are now 5-7 and tra
 
 &lt;p&gt;Here, you will not only learn about the rules, techniques, and various strategies of Go, but also many other interesting and fun things about Go! Go is so much more than a casual board game.&lt;/p&gt;
 
-&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Go is an ancient board game that originated in China sometime around 1000 BC. It reached Korea in 500 AD, and Japan in 700 AD. It is vastly popular in East Asia, and there are over 40 million Go players worldwide. There are approximately 20 million Go players in China. According to the Japanese &lt;a href=&quot;https://ja.wikipedia.org/wiki/囲碁#.E6.AD.B4.E5.8F.B2&quot;&gt;Wikipedia&lt;/a&gt;, there are 2.8 million Go players in Japan as of 2013.&lt;/p&gt;
 
-&lt;p&gt;There is actually a surprising amount of Go events and tournaments in Canada. If you live in Canada, here is a &lt;a href=&quot;https://go-canada.org/Event/List&quot;&gt;list&lt;/a&gt; of all the tournaments and events the Canadian Go Association (CGA) hosts. The &lt;a href=&quot;http://www.usgo.org&quot;&gt;American Go Association&lt;/a&gt; also hosts a variety of Go tournaments year round.&lt;/p&gt;
+&lt;p&gt;There is actually a surprising amount of Go events and tournaments in Canada. If you live in Canada, here is a &lt;a href=&quot;https://go-canada.org/Event/List&quot;&gt;list&lt;/a&gt; of all the tournaments and events the Canadian Go Association (CGA) hosts. The &lt;a href=&quot;http://www.usgo.org&quot;&gt;American Go Association&lt;/a&gt; also hosts a variety of Go tournaments year round. There are tons of Go resources online for you: &lt;a href=&quot;http://senseis.xmp.net/&quot;&gt;Sensei’s Library&lt;/a&gt; is a great one for learning all the Go terminologies.&lt;/p&gt;
 
-&lt;h2 id=&quot;etiquettes&quot;&gt;Etiquettes&lt;/h2&gt;
+&lt;p&gt;You can play online (there are tons of Go clients/platforms, which I will talk about in detail in this tutorial) or join a local or univeristy Go club (Most North American univeristies have active Go clubs). Either way, you will get to meet a lot of people who are enthusiastic about Go and improve your Go skills. Personally, I’ve played at least 1500 Go games online in my life so far. I would say that without these games, I would not be where I am today. Go has taught me a lot, about concentration, perseverance, respect, and humility. If you are really dedicated to Go, it will be a huge time sink, but it’s definitely rewarding and satisfying.&lt;/p&gt;
 
-&lt;p&gt;So etiquettes are huge in Go. Basically be humble, respect your opponent, don’t brag about it when you win. If you are know a thing or two about MLB, you probably know that the majority of bat flips and showboating&lt;/p&gt;
+&lt;p&gt;If it is possible, it is better for you to start learning Go with actual Go boards (Chinese: 棋盘 qipan, lit. “chess board”; Japanese: 碁盤 goban, lit. “Go board”) and Go stones (Chinese: 棋子 qizi, lit. “chess pieces”; Japanese: 碁石 goishi, lit.”Go stones”, or simply 石 ishi, lit. “stones”). They just feel better and more intimate. Go is almost always played between two players (there are exceptions though, such as Pair Go, where each side has two players and the two players have to alternate).&lt;/p&gt;
 
-&lt;h3 id=&quot;before-game&quot;&gt;Before Game:&lt;/h3&gt;
-&lt;p&gt;After tsukami (Chinese: 猜子 caizi; Japanese: 掴み tsukami)&lt;/p&gt;
+&lt;p&gt;If you know English, KGS and Tygem are your best choices when it comes to online Go clients. Some professional players are on KGS, though most of them play on Tygem because Tygem has versions in Chinese, Japanese, and Korean. Most players on KGS are European and North American, while Tygem is predominantly East Asian. A good thing about KGS is that you don’t start with a fixed rank, which means that the very first few games you play on KGS will decide what rank you are most likely to be. The user interface is not that great, but it will suffice. You can check out KGS &lt;a href=&quot;https://www.gokgs.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I remember Magnus Carlsen said that he was just “alright” on multiple occasions (Play Magnus trailer and on Golden Goal). For God’s sake he is the best chess player ever in the history of chess. That’s a holy world full of gods I dare not enter.&lt;/p&gt;
+&lt;p&gt;Tygem, on the other hand, is the most popular Go clients in East Asia. You will need to pick your country when you register for an account. You can choose your rank as well, but the highest rank you can pick is 3-dan, which is kind of tedious for me whenever I need to make a new account, because I need to win at least 30 games in a row to get directly promoted to 7-dan. However, since you are only beginning to learn Go, rank shouldn’t be a problem. The lowest rank on Tygem is 18 Kyu, and the highest rank achievable by an amateur is 9-dan (which is not the case in real life, by the way). Professional players register for P accounts, meaning their usernames are followed by a “(P)”. You can download Tygem &lt;a href=&quot;http://www.tygemgo.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;My Go Experience
-I started attending Go classes at Hangzhou Qiyuan (Hangzhou Go Association) at the age of 6.&lt;/p&gt;
-
-&lt;p&gt;I went to the Vancouver Open and Canada Open (which was also in Vancouver) in 2014, and met a lot of amazing players there.&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Apr 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/gotutorials/2016/04/16/introduction1.html</link>

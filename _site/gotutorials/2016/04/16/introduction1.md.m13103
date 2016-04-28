@@ -14,11 +14,11 @@
 
     
 
-  <title>Go Tutorial 2&amp;#58 Where Can You Play Go?</title>
-  <meta name="description" content="So in this tutorial, I will tell you where you can actually play Go and be a part of the Go community.">
+  <title>Go Tutorial 1&amp;#58 What is Go?</title>
+  <meta name="description" content="Hello there! Welcome to your very first Go tutorial!">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://dzed.me/gotutorials/2016/04/17/where-you-can-play-go.html">
+  <link rel="canonical" href="http://dzed.me/gotutorials/2016/04/16/introduction1.md.m13103">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
   
   <!-- Fonts -->
@@ -183,12 +183,36 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Go Tutorial 2&#58 Where Can You Play Go?</h1>
-    <p class="post-meta"><time datetime="2016-04-17T22:31:00-04:00" itemprop="datePublished">Apr 17, 2016</time></p>
+    <h1 class="post-title" itemprop="name headline">Go Tutorial 1&#58 What is Go?</h1>
+    <p class="post-meta"><time datetime="2016-04-16T18:56:00-04:00" itemprop="datePublished">Apr 16, 2016</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>So in this tutorial, I will tell you where you can actually play Go and be a part of the Go community.</p>
+    Hello there! Welcome to your very first Go tutorial!
+
+![Go Game](/img/go-game1.jpg)
+
+Here, you will not only learn about the rules, techniques, and various strategies of Go, but also many other interesting and fun things about Go! Go is so much more than a casual board game. 
+
+## Introduction
+
+Go is an ancient board game that originated in China sometime around 1000 BC. It reached Korea in 500 AD, and Japan in 700 AD. It is vastly popular in East Asia, and there are over 40 million Go players worldwide. There are approximately 20 million Go players in China. According to the Japanese [Wikipedia](https://ja.wikipedia.org/wiki/囲碁#.E6.AD.B4.E5.8F.B2), there are 2.8 million Go players in Japan as of 2013. 
+
+There is actually a surprising amount of Go events and tournaments in Canada. If you live in Canada, here is a [list](https://go-canada.org/Event/List) of all the tournaments and events the Canadian Go Association (CGA) hosts. The [American Go Association](http://www.usgo.org) also hosts a variety of Go tournaments year round. There are tons of Go resources online for you: [Sensei's Library](http://senseis.xmp.net/) is a great one for learning all the Go terminologies.
+
+You can play online (there are tons of Go clients/platforms, which I will talk about in detail in this tutorial) or join a local or univeristy Go club (Most North American univeristies have active Go clubs). Either way, you will get to meet a lot of people who are enthusiastic about Go and improve your Go skills. Personally, I've played at least 1500 Go games online in my life so far. I would say that without these games, I would not be where I am today. Go has taught me a lot, about concentration, perseverance, respect, and humility. If you are really dedicated to Go, it will be a huge time sink, but it's definitely rewarding and satisfying.
+
+If it is possible, it is better for you to start learning Go with actual Go boards (Chinese: 棋盘 qipan; Japanese: 碁盤 goban) and Go stones (Chinese: 棋子 qizi; Japanese: 碁石 goishi, or simply 石 ishi). They just feel better and more intimate. Go is almost always played between two players (there are exceptions though, such as Pair Go, where each side has two players and the two players have to alternate), 
+
+## Etiquettes
+
+So etiquettes are huge in Go. Basically be humble, respect your opponent, don’t brag or showboat when you win. But there are also a bunch of formalities you need to keep in mind while playing Go. Typically, these etiquettes are strictly followed in Japan by all Japanese players, while in China they only serve as a guideline. However, in the professional world, all the players practice these etiquettes without fail. 
+
+### Before Game:
+Nigiri (Chinese: 猜子 caizi, lit. "guessing stones"; Japanese: ニギリ nigiri, lit. "grabbing (stones)"): There needs to be a fair way to decide who plays first (black), if the two players are of the same rank. If they are not of the same rank, the player with the lower rank automatically gets to play black in most cases. Also, 
+
+### Resign:
+When you feel that you can no longer win the game and wish to surrender/resign, 
 
 
   </div>
