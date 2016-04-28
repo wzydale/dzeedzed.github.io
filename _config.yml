@@ -7,13 +7,13 @@
 
 # Site settings
 title: Dadi "D.Z." Zhang
-email: dzklavier@gmail.com
+email: d236zhan@uwaterloo.ca
 description: > # this means to ignore newlines until "baseurl:"
   Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://dzed.me" # the base hostname & protocol for your site
 twitter_username: 
-github_username:  dzklavier
+github_username:  dzeedzed
 
 # Build settings
 markdown: kramdown
