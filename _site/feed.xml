@@ -6,9 +6,231 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Apr 2016 01:51:04 -0400</pubDate>
-    <lastBuildDate>Thu, 28 Apr 2016 01:51:04 -0400</lastBuildDate>
+    <pubDate>Tue, 03 May 2016 00:38:02 -0400</pubDate>
+    <lastBuildDate>Tue, 03 May 2016 00:38:02 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>STAT 231 - Statistics</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;STAT 231 - Statistics
+Instructor: Surya Banerjee
+Location: DC 1350
+Time: Mondays and Wednesdays 2:30am - 3:50pm
+Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-2-2016---lecture-1&quot;&gt;May 2, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;Email: s22baner@uwaterloo.ca or suryabanerjee@gmail.com&lt;/p&gt;
+
+&lt;p&gt;Course Marking Scheme: 3 Tutorial Quizzes (TQ) and 2 Midterms&lt;/p&gt;
+
+&lt;p&gt;STAT 231 is the reverse of STAT 230. E.g. We toss a coin 100 times, we get 60 heads. In STAT 230, we calculate the probability of that happening (binomial distribution, 100 and 0.5, P(X=60)) with all the parameters given (P = 0.5 to get a head for a fair coin). In STAT 231, we try to find the parameters by experiments, and try to infer what we can say about the “fairness” of the coin.&lt;/p&gt;
+
+&lt;p&gt;MLB: Between 1901-1941, batters with BA .400+: 11. 1941 onwards: 0. Why? Use statistics to find out.&lt;/p&gt;
+
+&lt;p&gt;Kansas Weathermen: They are correct about whether it will rain the next day about 85% of the time. Good record, right? However, it only rains about 10% of the time in Kansas. So if I go to the weather broadcasting station and say “no rain tomorrow” and then go home, I will be statistically more accuarate that these meteorologists.&lt;/p&gt;
+
+&lt;p&gt;Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin.&lt;/p&gt;
+
+&lt;p&gt;In STAT 231, we learn how to test claims and check for correlation and causation. How can we make the leap from correlation to causation? (Recommended reading: Freakanomics)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction-to-data-analysis&quot;&gt;Introduction to Data Analysis&lt;/h2&gt;
+
+&lt;p&gt;Data can be classified into two categories: numerical and categorical (non-numerical).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Numerical Data&lt;/strong&gt; is either discrete or continuous. Discrete data (e.g. number of accidents) takes integer values, while continuous data (e.g. height, weight) measure non-integer values.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categorical Data&lt;/strong&gt; is either ordinal (if there’s an underlying order, e.g. on a scale from 1 to 10, 1 being least satisfied and 10 being most satisfied) or non-ordinal (no order, e.g. nationality, favorite color).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Transformation&lt;/strong&gt; {x&lt;sub&gt;1&lt;/sub&gt;, x&lt;sub&gt;2&lt;/sub&gt;,…, x&lt;sub&gt;n&lt;/sub&gt;}&lt;br /&gt;
+y&lt;sub&gt;i&lt;/sub&gt; = f(x&lt;sub&gt;i&lt;/sub&gt;) is a transformation.&lt;/p&gt;
+
+&lt;p&gt;An affine transformation is a linear transformation: y&lt;sub&gt;i&lt;/sub&gt; = ax&lt;sub&gt;i&lt;/sub&gt; + b&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt; is the conversion of categorical data into numerical data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;data-summaries&quot;&gt;Data Summaries&lt;/h2&gt;
+
+&lt;p&gt;We want to extract important information about data.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Numerical: come up with numbers that represent different properties of the data set&lt;/li&gt;
+  &lt;li&gt;Graphical: graph that tells us the shape of the data set&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are some properties of interest:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Centre of the data set -&amp;gt; &lt;strong&gt;Central Tendency&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How volatile is the data set -&amp;gt; &lt;strong&gt;Dispersion&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the data set is symmetric -&amp;gt; &lt;strong&gt;Measures of Symmetry&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How “fat” the tails of the data set are (i.e. the size of extrema) -&amp;gt; &lt;strong&gt;Kurtosis&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;measures-of-central-tendency&quot;&gt;Measures of Central Tendency&lt;/h2&gt;
+
+&lt;p&gt;Data set: {y&lt;sub&gt;1&lt;/sub&gt;, y&lt;sub&gt;2&lt;/sub&gt;,…, y&lt;sub&gt;n&lt;/sub&gt;}&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Mean:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Property: The sum of the deviations of the observations from the sample mean is 0.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Geometric Mean&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harmonic Mean&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Stat-231.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Stat-231.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>PSYCH 101 - Introductory Psychology</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PSYCH 101 - Introductory Psychology
+Instructor: Dr. John Campbell
+Location: AL 116
+Time: Mondays 6:30pm - 9:20pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-2-2016---lecture-1&quot;&gt;May 2, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Psychology = Study of the behaviour and the mind&lt;/strong&gt;&lt;br /&gt;
+Behaviour = actions and responses&lt;br /&gt;
+Mind = internal states and processes&lt;/p&gt;
+
+&lt;p&gt;Psychology is a science. It is a systematic gathering of empirical evidence.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4 Central Goals of Psychology&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Describe how people and animals behave&lt;/li&gt;
+  &lt;li&gt;Explain and understand causes of these behaviours&lt;/li&gt;
+  &lt;li&gt;Predict behaviours&lt;/li&gt;
+  &lt;li&gt;Influence/Control behaviours through knowledge and control of its causes to enhance human welfare&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Wundt -&amp;gt; First psychology lab with Titchener -&amp;gt; Founded the &lt;strong&gt;Structuralism&lt;/strong&gt; approach&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mind -&amp;gt; basic components&lt;/li&gt;
+  &lt;li&gt;Used “introspection” to study sensations&lt;/li&gt;
+  &lt;li&gt;Gave way to &lt;strong&gt;functionalism&lt;/strong&gt; (functions of consciousness)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-psychodynamic-perspective&quot;&gt;The Psychodynamic Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Searches for causes of behaviours within the inner workings of our personality&lt;/li&gt;
+  &lt;li&gt;Emphasizes the role of consciousness&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Psychoanalysis&lt;/strong&gt; is the analysis of internal and primarily unconscious psychological forces&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-behavioural-perspective&quot;&gt;The Behavioural Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Focuses on the role of the external environment in governing our actions&lt;/li&gt;
+  &lt;li&gt;John Locke -&amp;gt; Tabula Rasa -&amp;gt; Human nature is shaped by our environment&lt;/li&gt;
+  &lt;li&gt;Notable figures: Pavlov, Thorndike, Watson (Little Albert experiment), Skinner&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-humanistic-perspective&quot;&gt;The Humanistic Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Emphasizes free will, personal growth, self-actualization&lt;/li&gt;
+  &lt;li&gt;Rejects psychodynamics&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;Postive Psychology Movement&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Notable figures: Maslow, Rogers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-cognitive-perspective&quot;&gt;The Cognitive Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Examins nature of mind&lt;/li&gt;
+  &lt;li&gt;How mental processes influence behaviours&lt;/li&gt;
+  &lt;li&gt;Notable figures: Ebbinghaus -&amp;gt; Gestalt Psychology (1920s)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;modern-cognitive-psychology&quot;&gt;Modern Cognitive Psychology&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Notable figure: Elizabeth Loftus&lt;/li&gt;
+  &lt;li&gt;The Misinformation Effect -&amp;gt; Eyewitness memory and testimony&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Psych-101.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Psych-101.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>MATH 237 - Calculus 3 for Honours Mathematics</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MATH 237 - Calculus 3 for Honours Mathematics
+Instructor: Joseph J. West
+Location: MC 4059
+Time: Mondays, Wednesdays, Fridays 10:30am - 11:20pm
+Tutorials: M3 1006 Mondays 12:30pm - 1:20pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-2-2016---lecture-1&quot;&gt;May 2, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;Midterm (25%): 4:30pm-6:15pm, June 14&lt;br /&gt;
+Assignments are due at 10:23am every WEDNESDAY&lt;br /&gt;
+Email: jjwest@uwaterloo.ca&lt;br /&gt;
+Office Hours this week: MW 11:30-12:00, 2:30-3:00&lt;/p&gt;
+
+&lt;p&gt;MATH 138: x -&amp;gt; f(x)&lt;br /&gt;
+MATH 237: (x, y) -&amp;gt; f(x, y) or (x, y, z) -&amp;gt; f(x, y, z)&lt;br /&gt;
+Output: Real number&lt;/p&gt;
+
+&lt;p&gt;Definition: A &lt;strong&gt;scalar function&lt;/strong&gt; f is a rule which assigns each ordered pair of real numbers (x, y) in a set D (called the domain) in R&lt;sup&gt;2&lt;/sup&gt; a unique real number z = f(x, y). The set is the range.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Math-237.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Math-237.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
     
       <item>
         <title>Life Before University &amp; [Admission] How I Got into Waterloo</title>

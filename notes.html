@@ -1,0 +1,17 @@
+---
+layout: default
+title: Notes
+--- 
+
+  <h1 class="page-heading">Notes</h1>
+
+  <ul class="post-list">
+    {% for post in site.categories.notes %}
+      <li>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
