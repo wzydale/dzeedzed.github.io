@@ -5,13 +5,14 @@ title: Dream List
 
 ## TRAVEL: ##
 * Visit Fukuoka, Japan again
-* Visit the capital of every single Canadian province (Victoria, Edmonton, Regina, Winnipeg, Toronto, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit) and Ottawa and Montréal
+* Visit the capital of every single Canadian province (~~Victoria~~, Edmonton, Regina, Winnipeg, ~~Toronto~~, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit) and Ottawa and Montréal
 * Visit Germany
 * Visit Norway
 * Go to JavaZone Conference in Oslo, Norway (5990 kr as of 29 Feb 2016)
 * Go to I kveld med Ylvis Live
 * Go to a Hozier concert
 * Go to a Yakult Swallows game in Tokyo
+* Go to a Jays playoff game
 * Go to a match at Old Trafford in Manchester
 * Go to a game at Busch Stadium in St. Louis
 * Reach South Pole
@@ -39,13 +40,13 @@ frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscre
 * Wear a Blue Jays T-shirt to an interview
 * Get so drunk that I don't remember anything
 * Play in intramural baseball and have a BA of .400 over 30+ PA
-* Make a diving catch
+* Make a diving catch in a baseball game
 * Play in intramural football/soccer and score a volley
 * Learn how to ski and snowboard
 * Learn how to play ball hockey
 * Learn how to play ice hockey
 * ~~Start a blog~~
-* Make a Go tutorial
+* ~~Make a Go tutorial~~
 * Graduate (~~1A~~ ~~1B~~ 2A coop 2B coop 3A coop 3B coop 4A coop 4B)
 * Publish 10 apps on Google Play
 * Get Dean's Honours List every term (~~1A~~ ~~1B~~ 2A coop 2B coop 3A coop 3B coop 4A coop 4B)
