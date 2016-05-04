@@ -6,11 +6,27 @@ title: Notes
   <h1 class="page-heading">Notes</h1>
 
   <ul class="post-list">
+
+  	{% for post in site.categories.notes %}
+  		{% if post.categories contains 'top' %}
+	      <li>
+	        <h2>
+	          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	        </h2>
+	      </li>
+  		{% endif %}
+  	{% endfor %}
+
+    <hr>
+    <br />
+
     {% for post in site.categories.notes %}
-      <li>
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+    	{% unless post.categories contains 'top' %}
+	      <li>
+	        <h2>
+	          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	        </h2>
+	      </li>
+  		{% endunless %}
     {% endfor %}
   </ul>

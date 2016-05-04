@@ -14,12 +14,11 @@
 
     
 
-  <title>Notes</title>
-  <meta name="description" content="Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
-">
+  <title>Course Planning</title>
+  <meta name="description" content="May 5, 2016 - Lecture 1-----------------------">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://dzed.me/notes.html">
+  <link rel="canonical" href="http://dzed.me/notes/top/2016/05/02/course-planning.md.C21534">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
   
   <!-- Fonts -->
@@ -193,87 +192,51 @@
 
     <div class="page-content">
       <div class="wrapper">
-          <h1 class="page-heading">Notes</h1>
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Course Planning</h1>
+    <p class="post-meta">
+    
 
-  	
-  		
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/top/2016/05/02/course-planning.html">Courses I Plan to Take at UWaterloo (BCS & Data Science)</a>
-	        </h2>
-	      </li>
-  		
-  	
-  		
-  	
-  		
-  	
-  		
-  	
-  		
-  	
-  		
-  	
-  		
-  	
+    </p>
+  </header>
 
-    <hr>
-    <br />
+  <div class="post-content" itemprop="articleBody">
+    May 5, 2016 - Lecture 1
+-----------------------
 
-    
-    	
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Stat-231.html">STAT 231 - Statistics</a>
-	        </h2>
-	      </li>
-  		
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Psych-101.html">PSYCH 101 - Introductory Psychology</a>
-	        </h2>
-	      </li>
-  		
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Music-140.html">MUSIC 140 - Popular Music and Culture</a>
-	        </h2>
-	      </li>
-  		
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Math-237.html">MATH 237 - Calculus 3 for Honours Mathematics</a>
-	        </h2>
-	      </li>
-  		
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Cs-246.html">CS 246 - Object-Oriented Software Development</a>
-	        </h2>
-	      </li>
-  		
-    
-    	
-	      <li>
-	        <h2>
-	          <a class="post-link" href="/notes/2016/05/02/Cs-245.html">CS 245 - Logic and Computation</a>
-	        </h2>
-	      </li>
-  		
-    
-  </ul>
+
+
+
+
+
+  </div>
+
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//dzklavier.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
       </div>
     </div>
 
