@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 May 2016 00:38:02 -0400</pubDate>
-    <lastBuildDate>Tue, 03 May 2016 00:38:02 -0400</lastBuildDate>
+    <pubDate>Tue, 03 May 2016 21:18:42 -0400</pubDate>
+    <lastBuildDate>Tue, 03 May 2016 21:18:42 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -117,26 +117,44 @@ Term: Spring 2016
 &lt;h2 id=&quot;may-2-2016---lecture-1&quot;&gt;May 2, 2016 - Lecture 1&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Psychology = Study of the behaviour and the mind&lt;/strong&gt;&lt;br /&gt;
-Behaviour = actions and responses&lt;br /&gt;
-Mind = internal states and processes&lt;/p&gt;
+Behaviour = actions and responses
+Mind = internal states and processes, such as thoughts and feelings&lt;/p&gt;
 
-&lt;p&gt;Psychology is a science. It is a systematic gathering of empirical evidence.&lt;/p&gt;
+&lt;p&gt;Psychology is a science. It is a systematic gathering and evaluating of empirical evidence.&lt;/p&gt;
+
+&lt;p&gt;Subfields: Biopsychology, developmental, experimental, industrial-organizational, personality, social etc.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;4 Central Goals of Psychology&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Describe how people and animals behave&lt;/li&gt;
   &lt;li&gt;Explain and understand causes of these behaviours&lt;/li&gt;
-  &lt;li&gt;Predict behaviours&lt;/li&gt;
+  &lt;li&gt;Predict behaviours under certain conditions&lt;/li&gt;
   &lt;li&gt;Influence/Control behaviours through knowledge and control of its causes to enhance human welfare&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Wundt -&amp;gt; First psychology lab with Titchener -&amp;gt; Founded the &lt;strong&gt;Structuralism&lt;/strong&gt; approach&lt;/p&gt;
+&lt;p&gt;Psychology can be made up of different perspectives.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-structuralism-perspective&quot;&gt;The Structuralism Perspective&lt;/h1&gt;
+
+&lt;p&gt;Wilhelm Wundt -&amp;gt; First psychology lab with Titchener -&amp;gt; Founded the &lt;strong&gt;Structuralism&lt;/strong&gt; approach&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Mind -&amp;gt; basic components&lt;/li&gt;
+  &lt;li&gt;Mind -&amp;gt; studied by breaking it into basic components&lt;/li&gt;
   &lt;li&gt;Used “introspection” to study sensations&lt;/li&gt;
   &lt;li&gt;Gave way to &lt;strong&gt;functionalism&lt;/strong&gt; (functions of consciousness)&lt;/li&gt;
+  &lt;li&gt;“Describe inner experiences”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;the-functionalism-perspective&quot;&gt;The Functionalism Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Our hands -&amp;gt; “Why do we have hands”&lt;/li&gt;
+  &lt;li&gt;Ask similar questions about mental processes and behaviours&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -164,10 +182,10 @@ Mind = internal states and processes&lt;/p&gt;
 &lt;h1 id=&quot;the-humanistic-perspective&quot;&gt;The Humanistic Perspective&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Emphasizes free will, personal growth, self-actualization&lt;/li&gt;
+  &lt;li&gt;Emphasizes free will, personal growth, self-actualization, and the attempt to find meaning in one’s existence&lt;/li&gt;
   &lt;li&gt;Rejects psychodynamics&lt;/li&gt;
-  &lt;li&gt;The &lt;strong&gt;Postive Psychology Movement&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Notable figures: Maslow, Rogers&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;Postive Psychology Movement&lt;/strong&gt; -&amp;gt; focusing on strengths and fulfillments&lt;/li&gt;
+  &lt;li&gt;Notable figures: Maslow (Hierarchy of Needs), Rogers&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -175,9 +193,18 @@ Mind = internal states and processes&lt;/p&gt;
 &lt;h1 id=&quot;the-cognitive-perspective&quot;&gt;The Cognitive Perspective&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Examins nature of mind&lt;/li&gt;
+  &lt;li&gt;Examines nature of mind&lt;/li&gt;
+  &lt;li&gt;Perceptions are organized so that “the whole is greater than the sum of its parts”&lt;/li&gt;
   &lt;li&gt;How mental processes influence behaviours&lt;/li&gt;
   &lt;li&gt;Notable figures: Ebbinghaus -&amp;gt; Gestalt Psychology (1920s)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gestalt&lt;/strong&gt; = perception and problem solving
+    &lt;ul&gt;
+      &lt;li&gt;figure-ground&lt;/li&gt;
+      &lt;li&gt;closure&lt;/li&gt;
+      &lt;li&gt;proximity&lt;/li&gt;
+      &lt;li&gt;similarity&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -186,12 +213,36 @@ Mind = internal states and processes&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Notable figure: Elizabeth Loftus&lt;/li&gt;
-  &lt;li&gt;The Misinformation Effect -&amp;gt; Eyewitness memory and testimony&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;Misinformation Effect&lt;/strong&gt; -&amp;gt; Impacts eyewitness memory and testimony&lt;/li&gt;
+  &lt;li&gt;Factors can distort memory&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Psych-101.html</link>
         <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Psych-101.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>MUSIC 140 - Popular Music and Culture</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MUSIC 140 - Popular Music and Culture
+Instructor: Simon Wood
+Section: 001
+Location: STP 105
+Time: Thursdays 7:00pm - 9:50pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-5-2016---lecture-1&quot;&gt;May 5, 2016 - Lecture 1&lt;/h2&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Music-140.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Music-140.html</guid>
         
         
         <category>notes</category>
@@ -226,6 +277,239 @@ Output: Real number&lt;/p&gt;
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Math-237.html</link>
         <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Math-237.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>CS 246 - Object-Oriented Software Development</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CS 246 - Object-Oriented Software Development
+Instructor: Brad Lushman
+Section: 001
+Location: MC 4045
+Time: Tuesdays and Thursdays 10:00am - 11:20am
+Tutorials: MC 4060 Wednesdays 1:30pm - 2:20pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-3-2016---lecture-1&quot;&gt;May 3, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Grading Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Assignments - 0(A0) 7 7 7 7 12(project) = 40%&lt;/li&gt;
+  &lt;li&gt;Midterm (4:30pm - 6:20pm, June 23 (Th), 2016) = 20%&lt;/li&gt;
+  &lt;li&gt;Final = 40%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This course requires you to work in Linux. There are several options:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lab machines&lt;/li&gt;
+  &lt;li&gt;Install Linux on your own machines&lt;/li&gt;
+  &lt;li&gt;Make SSH connection to school machines (Use Putty (putty.exe) on Windows, winscp for file transfer, XMing for Xwindows)&lt;/li&gt;
+  &lt;li&gt;Download cygwin - Linux-like environment for Windows&lt;/li&gt;
+  &lt;li&gt;Get a Mac&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;4 Modules in this Course:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linux Shell (2 weeks)&lt;/li&gt;
+  &lt;li&gt;C++ Language, C++14 (10 weeks)&lt;/li&gt;
+  &lt;li&gt;Tools&lt;/li&gt;
+  &lt;li&gt;Software Engineering (design etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;“Homework”: Go on Piazza -&amp;gt; Linux Reference Sheet -&amp;gt; Save and print&lt;/p&gt;
+
+&lt;h2 id=&quot;module-1-linux-shell&quot;&gt;Module 1: Linux Shell&lt;/h2&gt;
+
+&lt;p&gt;A shell is an interface to the operating system, i.e. how we get the OS to do things (run programs, manage files etc.). There are two kinds of shells: graphical (with icons and clicking) and the command line. The shell we will use is Bash. Check if you are using Bash, login to shell and type in:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ echo $0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It should return “bash”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux file system: working with files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cat&lt;/strong&gt; - short for concatenate; display contents of a file (e.g. cat user/share/dict/words). In Linux, a directory is considered a special kind of file&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ls&lt;/strong&gt; - list files in the current directory (non-hidden files)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ls -a&lt;/strong&gt; - list all files (including hidden; hidden files start with a “.”)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;pwd&lt;/strong&gt; - print current directory (pwd = print working directory)&lt;/p&gt;
+
+&lt;p&gt;What happens when we only type in “cat”? It just kind of sits there, waiting for input. It’s kinda like a parrot, repeating what you typed in. If we can capture the output into a file…&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat &amp;gt; output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It would capture the input. NOT RECOMMENDED: ^C. It would prevent cat from doing clean-up. Let it finish on its own: ^D at the beginning of a line sends an “EOF” signal to cat.&lt;/p&gt;
+
+&lt;p&gt;One greater than sign replaces, two appends.&lt;br /&gt;
+In general, command args &amp;gt; file
+executes command args + captures the output in file -&amp;gt; called &lt;strong&gt;output redirection&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using less than sign, takes in input from the file.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat &amp;lt; output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The line above displays the file. Seems to be equivalent to what we have before. Are these two things the same? NO. The reason is very important:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;cat input.txt -&amp;gt; passes the NAME input.txt to cat as an argument. Cat opens input.txt and displays its contents&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cat &amp;lt; input.txt -&amp;gt; the shell opens the file and passes the contents to cat IN PLACE of keyboard input&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt; - word count, displays numbers of lines, words, and characters of a file&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cat *.txt&lt;/strong&gt; - *.txt globbing pattern&lt;/p&gt;
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Cs-246.html</guid>
+        
+        
+        <category>notes</category>
+        
+      </item>
+    
+      <item>
+        <title>CS 245 - Logic and Computation</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CS 245 - Logic and Computation
+Instructor: Collin Roberts
+Section: 003
+Location: MC 2034
+Time: Tuesdays and Thursdays 1:00pm - 2:20pm
+Tutorials: MC 2035 Fridays 8:30am - 9:20am
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-3-2016---lecture-1&quot;&gt;May 3, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;Section 003&lt;br /&gt;
+Email: cd2rober@uwaterloo.ca&lt;br /&gt;
+Office: DC 2128&lt;/p&gt;
+
+&lt;p&gt;CS 245 -&amp;gt; Formal Logic&lt;/p&gt;
+
+&lt;p&gt;1) Propositional&lt;br /&gt;
+2) Predicate (aka First-Order) &amp;lt;= THE REAL GOAL&lt;/p&gt;
+
+&lt;p&gt;Crowdmark for assignments.&lt;br /&gt;
+Assignments DUE AT 12:00 ON WEDNESDAYS&lt;br /&gt;
+Recommended Text: Logic in Computer Science, 2nd Ed. by Huth and Ryan&lt;/p&gt;
+
+&lt;p&gt;Learn: Course Outline, Notes, Additional Notes - Roberts&lt;br /&gt;
+Refer to the Course Schedule&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Grading Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Assignments (10 in total, best 9 out of 10) - 20%&lt;/li&gt;
+  &lt;li&gt;Midterm (4:30pm - 6:20pm, June 9, 2016) - 35 %&lt;/li&gt;
+  &lt;li&gt;Final - 45%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Week 1: Introduction, Basic examples, formal syntax and semantics, and properties via induction.&lt;br /&gt;
+Reading: HR 1.1, 1.3, 1.4.2, Slides to p51&lt;/p&gt;
+
+&lt;h2 id=&quot;propositional-logic&quot;&gt;Propositional Logic&lt;/h2&gt;
+
+&lt;p&gt;LOGIC = systematic study of the principles of reasoning and inference&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To model the computer hardware, software, and embedded systems we create/encounter, in order to reason about those objects in a rigorous manner&lt;/li&gt;
+  &lt;li&gt;To understand how to develop systems that can themselves apply reason and make inferences (AI)&lt;/li&gt;
+  &lt;li&gt;To define a computer required logic (Turing 1936)&lt;/li&gt;
+  &lt;li&gt;CS gave the first definition of “rigorous argument” (an argument that may be checked by a machine; machine returns true if proof is correct)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; If the train arrives late and there are no taxis at the station, then John is late for his meeting.&lt;/p&gt;
+
+&lt;p&gt;John is not late for his meeting.&lt;/p&gt;
+
+&lt;p&gt;The train did arrive late.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Therefore&lt;/strong&gt;, there were taxis at the station.&lt;/p&gt;
+
+&lt;p&gt;Q: Is this argument &lt;strong&gt;valid&lt;/strong&gt;? Why/Why not?&lt;/p&gt;
+
+&lt;p&gt;Q: What is the structure of this argument?&lt;br /&gt;
+A: If p and not q, then r. Not r. p. Therefore q.&lt;/p&gt;
+
+&lt;p&gt;p = “the train arrives late”&lt;br /&gt;
+q = “there are taxis at the station”&lt;br /&gt;
+r = “John is late for his meeting”&lt;/p&gt;
+
+&lt;p&gt;What if we reassign meanings to p, q, and r? We will get an equally valid argument.&lt;/p&gt;
+
+&lt;p&gt;The factual content of statements (p, q, r) doesn’t matter. The relationships among the statements govern the argument.&lt;/p&gt;
+
+&lt;p&gt;So what constitutes a “statement”?&lt;br /&gt;
+What do logical relationships mean?&lt;/p&gt;
+
+&lt;p&gt;We shall start with &lt;strong&gt;Propositional Logic&lt;/strong&gt;, a basic form of logic.&lt;/p&gt;
+
+&lt;p&gt;A &lt;strong&gt;proposition&lt;/strong&gt; is a declarative sentence that is either &lt;strong&gt;true&lt;/strong&gt; or &lt;strong&gt;false&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Either the proposition is true, or the proposition is false. It is never both true and false.&lt;/p&gt;
+
+&lt;p&gt;e.g. If Kathleen Wynne is a Liberal, then Stephen Harper is a Tory.&lt;/p&gt;
+
+&lt;p&gt;p-&amp;gt;q: If p then q; p is sufficient for q, q is necessary for p.&lt;/p&gt;
+
+&lt;p&gt;p &amp;lt;-&amp;gt; q: p if and only if q (p iff q); p is equivalent to q; p exactly if q; p is necessary and sufficient for q.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Translating from English to propositional logic examples:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;She is clever and hard-working&lt;br /&gt;
+Let p be “she is clever” and q be “she is hard-working”&lt;br /&gt;
+Then we get (p ^ q)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If he does not study hard then he will fail&lt;br /&gt;
+Let p be “he studies hard” and q be “he will fail”&lt;br /&gt;
+Then we get ((NOT p) -&amp;gt; q)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If it rains, he will be at home; otherwsie he will go to the market or to school.&lt;br /&gt;
+Let p be “it rains”, q be “he will be at home”, r be “he will go to the market”, s be “he will go to school”&lt;br /&gt;
+Then we get ((p -&amp;gt; q) ^ ((NOT p) -&amp;gt; (r v s)))&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Some sentences are not propositions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;interrogative: where shall we go to eat?&lt;/li&gt;
+  &lt;li&gt;imperative: please pass the salt&lt;/li&gt;
+  &lt;li&gt;ambiguous: time flies like an arrow&lt;/li&gt;
+  &lt;li&gt;nonsense: uwgod&lt;/li&gt;
+  &lt;li&gt;otherwise problematic: This sentence is false&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
+        <link>http://dzed.me/notes/2016/05/02/Cs-245.html</link>
+        <guid isPermaLink="true">http://dzed.me/notes/2016/05/02/Cs-245.html</guid>
         
         
         <category>notes</category>
@@ -465,38 +749,6 @@ So the 2016 MLB Season is now underway.The Toronto Blue Jays are now 5-7 and tra
         
         
         <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Go Tutorial 1&amp;#58 What is Go?</title>
-        <description>&lt;p&gt;Hello there! Welcome to your very first Go tutorial!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/go-game1.jpg&quot; alt=&quot;Go Game&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here, you will not only learn about the rules, techniques, and various strategies of Go, but also many other interesting and fun things about Go! Go is so much more than a casual board game.&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;Go is an ancient board game that originated in China sometime around 1000 BC. It reached Korea in 500 AD, and Japan in 700 AD. It is vastly popular in East Asia, and there are over 40 million Go players worldwide. There are approximately 20 million Go players in China. According to the Japanese &lt;a href=&quot;https://ja.wikipedia.org/wiki/囲碁#.E6.AD.B4.E5.8F.B2&quot;&gt;Wikipedia&lt;/a&gt;, there are 2.8 million Go players in Japan as of 2013.&lt;/p&gt;
-
-&lt;p&gt;There is actually a surprising amount of Go events and tournaments in Canada. If you live in Canada, here is a &lt;a href=&quot;https://go-canada.org/Event/List&quot;&gt;list&lt;/a&gt; of all the tournaments and events the Canadian Go Association (CGA) hosts. The &lt;a href=&quot;http://www.usgo.org&quot;&gt;American Go Association&lt;/a&gt; also hosts a variety of Go tournaments year round. There are tons of Go resources online for you: &lt;a href=&quot;http://senseis.xmp.net/&quot;&gt;Sensei’s Library&lt;/a&gt; is a great one for learning all the Go terminologies.&lt;/p&gt;
-
-&lt;p&gt;You can play online (there are tons of Go clients/platforms, which I will talk about in detail in this tutorial) or join a local or univeristy Go club (Most North American univeristies have active Go clubs). Either way, you will get to meet a lot of people who are enthusiastic about Go and improve your Go skills. Personally, I’ve played at least 1500 Go games online in my life so far. I would say that without these games, I would not be where I am today. Go has taught me a lot, about concentration, perseverance, respect, and humility. If you are really dedicated to Go, it will be a huge time sink, but it’s definitely rewarding and satisfying.&lt;/p&gt;
-
-&lt;p&gt;If it is possible, it is better for you to start learning Go with actual Go boards (Chinese: 棋盘 qipan, lit. “chess board”; Japanese: 碁盤 goban, lit. “Go board”) and Go stones (Chinese: 棋子 qizi, lit. “chess pieces”; Japanese: 碁石 goishi, lit.”Go stones”, or simply 石 ishi, lit. “stones”). They just feel better and more intimate. Go is almost always played between two players (there are exceptions though, such as Pair Go, where each side has two players and the two players have to alternate).&lt;/p&gt;
-
-&lt;p&gt;If you know English, KGS and Tygem are your best choices when it comes to online Go clients. Some professional players are on KGS, though most of them play on Tygem because Tygem has versions in Chinese, Japanese, and Korean. Most players on KGS are European and North American, while Tygem is predominantly East Asian. A good thing about KGS is that you don’t start with a fixed rank, which means that the very first few games you play on KGS will decide what rank you are most likely to be. The user interface is not that great, but it will suffice. You can check out KGS &lt;a href=&quot;https://www.gokgs.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Tygem, on the other hand, is the most popular Go clients in East Asia. You will need to pick your country when you register for an account. You can choose your rank as well, but the highest rank you can pick is 3-dan, which is kind of tedious for me whenever I need to make a new account, because I need to win at least 30 games in a row to get directly promoted to 7-dan. However, since you are only beginning to learn Go, rank shouldn’t be a problem. The lowest rank on Tygem is 18 Kyu, and the highest rank achievable by an amateur is 9-dan (which is not the case in real life, by the way). Professional players register for P accounts, meaning their usernames are followed by a “(P)”. You can download Tygem &lt;a href=&quot;http://www.tygemgo.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 16 Apr 2016 18:56:00 -0400</pubDate>
-        <link>http://dzed.me/gotutorials/2016/04/16/introduction1.html</link>
-        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/16/introduction1.html</guid>
-        
-        
-        <category>gotutorials</category>
         
       </item>
     
