@@ -15,10 +15,10 @@
     
 
   <title>CS 246 - Object-Oriented Software Development</title>
-  <meta name="description" content="CS 246 - Object-Oriented Software DevelopmentInstructor: Brad LushmanSection: 001Location: MC 4045Time: Tuesdays and Thursdays 10:00am - 11:20amTutorials: MC...">
+  <meta name="description" content="    CS 246 - Object-Oriented Software Development    Instructor: Brad Lushman    Section: 001    Location: MC 4045    Time: Tuesdays and Thursdays 10:00am - ...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Cs-246.html">
+  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Cs-246.md.W11204">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
   
   <!-- Fonts -->
@@ -203,139 +203,92 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><pre class="highlight"><code>CS 246 - Object-Oriented Software Development
-Instructor: Brad Lushman
-Section: 001
-Location: MC 4045
-Time: Tuesdays and Thursdays 10:00am - 11:20am
-Tutorials: MC 4060 Wednesdays 1:30pm - 2:20pm
-Term: Spring 2016
-</code></pre>
-</div>
+        CS 246 - Object-Oriented Software Development
+    Instructor: Brad Lushman
+    Section: 001
+    Location: MC 4045
+    Time: Tuesdays and Thursdays 10:00am - 11:20am
+    Tutorials: MC 4060 Wednesdays 1:30pm - 2:20pm
+    Term: Spring 2016
+    
 
-<h2 id="may-3-2016---lecture-1">May 3, 2016 - Lecture 1</h2>
+May 3, 2016 - Lecture 1
+-----------------------
 
-<p><strong>Grading Scheme</strong></p>
+**Grading Scheme**
 
-<ul>
-  <li>Assignments - 0(A0) 7 7 7 7 12(project) = 40%</li>
-  <li>Midterm (4:30pm - 6:20pm, June 23 (Th), 2016) = 20%</li>
-  <li>Final = 40%</li>
-</ul>
++ Assignments - 0(A0) 7 7 7 7 12(project) = 40%  
++ Midterm (4:30pm - 6:20pm, June 23 (Th), 2016) = 20%   
++ Final = 40%
 
-<p>This course requires you to work in Linux. There are several options:</p>
+This course requires you to work in Linux. There are several options:
 
-<ol>
-  <li>Lab machines</li>
-  <li>Install Linux on your own machines</li>
-  <li>Make SSH connection to school machines (Use Putty (putty.exe) on Windows, winscp for file transfer, XMing for Xwindows)</li>
-  <li>Download cygwin - Linux-like environment for Windows</li>
-  <li>Get a Mac</li>
-</ol>
+1. Lab machines  
+2. Install Linux on your own machines  
+3. Make SSH connection to school machines (Use Putty (putty.exe) on Windows, winscp for file transfer, XMing for Xwindows)  
+4. Download cygwin - Linux-like environment for Windows
+5. Get a Mac
 
-<p><strong>4 Modules in this Course:</strong></p>
+**4 Modules in this Course:**
 
-<ul>
-  <li>Linux Shell (2 weeks)</li>
-  <li>C++ Language, C++14 (10 weeks)</li>
-  <li>Tools</li>
-  <li>Software Engineering (design etc.)</li>
-</ul>
+* Linux Shell (2 weeks)
+* C++ Language, C++14 (10 weeks)  
+* Tools 
+* Software Engineering (design etc.) 
 
-<p>“Homework”: Go on Piazza -&gt; Linux Reference Sheet -&gt; Save and print</p>
+"Homework": Go on Piazza -> Linux Reference Sheet -> Save and print
 
-<h2 id="module-1-linux-shell">Module 1: Linux Shell</h2>
+Module 1: Linux Shell
+---------------------
 
-<p>A shell is an interface to the operating system, i.e. how we get the OS to do things (run programs, manage files etc.). There are two kinds of shells: graphical (with icons and clicking) and the command line. The shell we will use is Bash. Check if you are using Bash, login to shell and type in:</p>
+A shell is an interface to the operating system, i.e. how we get the OS to do things (run programs, manage files etc.). There are two kinds of shells: graphical (with icons and clicking) and the command line. The shell we will use is Bash. Check if you are using Bash, login to shell and type in:
+    
+    $ echo $0
+    
+It should return "bash".
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ echo $0
-</code></pre>
-</div>
+**Linux file system: working with files**
 
-<p>It should return “bash”.</p>
+**cat** - short for concatenate; display contents of a file (e.g. cat user/share/dict/words). In Linux, a directory is considered a special kind of file
 
-<p><strong>Linux file system: working with files</strong></p>
+**ls** - list files in the current directory (non-hidden files)
 
-<p><strong>cat</strong> - short for concatenate; display contents of a file (e.g. cat user/share/dict/words). In Linux, a directory is considered a special kind of file</p>
+**ls -a** - list all files (including hidden; hidden files start with a ".")
 
-<p><strong>ls</strong> - list files in the current directory (non-hidden files)</p>
+**pwd** - print current directory (pwd = print working directory)
 
-<p><strong>ls -a</strong> - list all files (including hidden; hidden files start with a “.”)</p>
+What happens when we only type in "cat"? It just kind of sits there, waiting for input. It's kinda like a parrot, repeating what you typed in. If we can capture the output into a file...
 
-<p><strong>pwd</strong> - print current directory (pwd = print working directory)</p>
+    $ cat > output.txt
+    
+It would capture the input. NOT RECOMMENDED: ^C. It would prevent cat from doing clean-up. Let it finish on its own: ^D at the beginning of a line sends an "EOF" signal to cat.
 
-<p>What happens when we only type in “cat”? It just kind of sits there, waiting for input. It’s kinda like a parrot, repeating what you typed in. If we can capture the output into a file…</p>
+One greater than sign replaces, two appends.  
+In general, command args > file
+executes command args + captures the output in file -> called **output redirection**.
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat &gt; output.txt
-</code></pre>
-</div>
+Using less than sign, takes in input from the file.
 
-<p>It would capture the input. NOT RECOMMENDED: ^C. It would prevent cat from doing clean-up. Let it finish on its own: ^D at the beginning of a line sends an “EOF” signal to cat.</p>
+    $ cat < output.txt
+    
+The line above displays the file. Seems to be equivalent to what we have before. Are these two things the same? NO. The reason is very important: 
 
-<p>One greater than sign replaces, two appends.<br />
-In general, command args &gt; file
-executes command args + captures the output in file -&gt; called <strong>output redirection</strong>.</p>
+* cat input.txt -> passes the NAME input.txt to cat as an argument. Cat opens input.txt and displays its contents
 
-<p>Using less than sign, takes in input from the file.</p>
+* cat < input.txt -> the shell opens the file and passes the contents to cat IN PLACE of keyboard input
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat &lt; output.txt
-</code></pre>
-</div>
+**wc** - word count, displays numbers of lines, words, and characters of a file
 
-<p>The line above displays the file. Seems to be equivalent to what we have before. Are these two things the same? NO. The reason is very important:</p>
+**cat *.txt** - *.txt globbing pattern -> matches any sequence of characters (the shell finds all files that mathch the pattern)
 
-<ul>
-  <li>
-    <p>cat input.txt -&gt; passes the NAME input.txt to cat as an argument. Cat opens input.txt and displays its contents</p>
-  </li>
-  <li>
-    <p>cat &lt; input.txt -&gt; the shell opens the file and passes the contents to cat IN PLACE of keyboard input</p>
-  </li>
-</ul>
+**cat < *.txt** - ERROR! The shell will only attach one file to cat's input stream
 
-<p><strong>wc</strong> - word count, displays numbers of lines, words, and characters of a file</p>
+Many (but not all) commands take both kinds of inputs:
 
-<p><strong>cat *.txt</strong> - *.txt globbing pattern -&gt; matches any sequence of characters (the shell finds all files that mathch the pattern)</p>
+**cat < input.txt > output.txt** - sends chars from input.txt to output.txt; effectively a copy-paste action
 
-<p><strong>cat &lt; *.txt</strong> - ERROR! The shell will only attach one file to cat’s input stream</p>
-
-<p>Many (but not all) commands take both kinds of inputs:</p>
-
-<p><strong>cat &lt; input.txt &gt; output.txt</strong> - sends chars from input.txt to output.txt; effectively a copy-paste action</p>
-
-<p>Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -&gt; program -&gt; stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
-&lt; connects stdin to file, &gt; connects stdout to file, 2&gt; stdrr. Stderr separates output stream from error messages, so that output error messages can go to different places, and that error messages don’t cut/block output files.</p>
-
-<p>Also, stdout may be <strong>buffered</strong>. System may assemble characters before displaying. However, stderr isn’t buffered, because user needs to see error messages immediately.</p>
-
-<p><strong>Pipes</strong>: Make one program’s output(stdout) another program’s input(stdin). Example: How many words occur in the first 20 lines of sample.txt?</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>head -n file
-</code></pre>
-</div>
-
-<p>gives the first n lines of file</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>wc -w
-</code></pre>
-</div>
-
-<p>counts words (just print the word count)</p>
-
-<p>so</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>head -20 sample.txt | wc -w
-</code></pre>
-</div>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Here,</td>
-      <td>(the pipe symbol) makes the output of the command before it the input of the command after it.</td>
-    </tr>
-  </tbody>
-</table>
+Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -> program -> stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
+< connects stdin to file, > connects stdout to file, 2> stdrr.
 
   </div>
 

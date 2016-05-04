@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 May 2016 21:18:42 -0400</pubDate>
-    <lastBuildDate>Tue, 03 May 2016 21:18:42 -0400</lastBuildDate>
+    <pubDate>Tue, 03 May 2016 21:55:28 -0400</pubDate>
+    <lastBuildDate>Tue, 03 May 2016 21:55:28 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -377,7 +377,47 @@ executes command args + captures the output in file -&amp;gt; called &lt;strong&
 
 &lt;p&gt;&lt;strong&gt;wc&lt;/strong&gt; - word count, displays numbers of lines, words, and characters of a file&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;cat *.txt&lt;/strong&gt; - *.txt globbing pattern&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;cat *.txt&lt;/strong&gt; - *.txt globbing pattern -&amp;gt; matches any sequence of characters (the shell finds all files that mathch the pattern)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cat &amp;lt; *.txt&lt;/strong&gt; - ERROR! The shell will only attach one file to cat’s input stream&lt;/p&gt;
+
+&lt;p&gt;Many (but not all) commands take both kinds of inputs:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;cat &amp;lt; input.txt &amp;gt; output.txt&lt;/strong&gt; - sends chars from input.txt to output.txt; effectively a copy-paste action&lt;/p&gt;
+
+&lt;p&gt;Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -&amp;gt; program -&amp;gt; stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
+&amp;lt; connects stdin to file, &amp;gt; connects stdout to file, 2&amp;gt; stdrr. Stderr separates output stream from error messages, so that output error messages can go to different places, and that error messages don’t cut/block output files.&lt;/p&gt;
+
+&lt;p&gt;Also, stdout may be &lt;strong&gt;buffered&lt;/strong&gt;. System may assemble characters before displaying. However, stderr isn’t buffered, because user needs to see error messages immediately.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pipes&lt;/strong&gt;: Make one program’s output(stdout) another program’s input(stdin). Example: How many words occur in the first 20 lines of sample.txt?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;head -n file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;gives the first n lines of file&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wc -w
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;counts words (just print the word count)&lt;/p&gt;
+
+&lt;p&gt;so&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;head -20 sample.txt | wc -w
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Here,&lt;/td&gt;
+      &lt;td&gt;(the pipe symbol) makes the output of the command before it the input of the command after it.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
