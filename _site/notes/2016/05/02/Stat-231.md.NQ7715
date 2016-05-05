@@ -14,11 +14,11 @@
 
     
 
-  <title>CS 246 - Object-Oriented Software Development</title>
-  <meta name="description" content="CS 246 - Object-Oriented Software DevelopmentInstructor: Brad LushmanSection: 001Location: MC 4045Time: Tuesdays and Thursdays 10:00am - 11:20amTutorials: MC...">
+  <title>STAT 231 - Statistics</title>
+  <meta name="description" content="    STAT 231 - Statistics    Instructor: Surya Banerjee    Location: DC 1350    Time: Mondays and Wednesdays 2:30am - 3:50pm    Tutorials: DC 1351 Mondays 5:...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Cs-246.html">
+  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Stat-231.md.NQ7715">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
   
   <!-- Fonts -->
@@ -195,7 +195,7 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">CS 246 - Object-Oriented Software Development</h1>
+    <h1 class="post-title" itemprop="name headline">STAT 231 - Statistics</h1>
     <p class="post-meta">
     
 
@@ -203,161 +203,104 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><pre class="highlight"><code>CS 246 - Object-Oriented Software Development
-Instructor: Brad Lushman
-Section: 001
-Location: MC 4045
-Time: Tuesdays and Thursdays 10:00am - 11:20am
-Tutorials: MC 4060 Wednesdays 1:30pm - 2:20pm
-Term: Spring 2016
-</code></pre>
-</div>
+        STAT 231 - Statistics
+    Instructor: Surya Banerjee
+    Location: DC 1350
+    Time: Mondays and Wednesdays 2:30am - 3:50pm
+    Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
+    Term: Spring 2016
+    
 
-<h2 id="may-3-2016---lecture-1">May 3, 2016 - Lecture 1</h2>
+## May 2, 2016 - Lecture 1 ##
 
-<p><strong>Grading Scheme</strong></p>
+Email: s22baner@uwaterloo.ca or suryabanerjee@gmail.com
 
-<ul>
-  <li>Assignments - 0(A0) 7 7 7 7 12(project) = 40%</li>
-  <li>Midterm (4:30pm - 6:20pm, June 23 (Th), 2016) = 20%</li>
-  <li>Final = 40%</li>
-</ul>
+Course Marking Scheme: 3 Tutorial Quizzes (TQ) and 2 Midterms
 
-<p>This course requires you to work in Linux. There are several options:</p>
+STAT 231 is the reverse of STAT 230. E.g. We toss a coin 100 times, we get 60 heads. In STAT 230, we calculate the probability of that happening (binomial distribution, 100 and 0.5, P(X=60)) with all the parameters given (P = 0.5 to get a head for a fair coin). In STAT 231, we try to find the parameters by experiments, and try to infer what we can say about the "fairness" of the coin.
 
-<ol>
-  <li>Lab machines</li>
-  <li>Install Linux on your own machines</li>
-  <li>Make SSH connection to school machines (Use Putty (putty.exe) on Windows, winscp for file transfer, XMing for Xwindows)</li>
-  <li>Download cygwin - Linux-like environment for Windows</li>
-  <li>Get a Mac</li>
-</ol>
+MLB: Between 1901-1941, batters with BA .400+: 11. 1941 onwards: 0. Why? Use statistics to find out.
 
-<p><strong>4 Modules in this Course:</strong></p>
+Kansas Weathermen: They are correct about whether it will rain the next day about 85% of the time. Good record, right? However, it only rains about 10% of the time in Kansas. So if I go to the weather broadcasting station and say "no rain tomorrow" and then go home, I will be statistically more accuarate that these meteorologists.
 
-<ul>
-  <li>Linux Shell (2 weeks)</li>
-  <li>C++ Language, C++14 (10 weeks)</li>
-  <li>Tools</li>
-  <li>Software Engineering (design etc.)</li>
-</ul>
+Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin. 
 
-<p>“Homework”: Go on Piazza -&gt; Linux Reference Sheet -&gt; Save and print</p>
+In STAT 231, we learn how to test claims and check for correlation and causation. How can we make the leap from correlation to causation? (Recommended reading: Freakanomics)
 
-<h2 id="module-1-linux-shell">Module 1: Linux Shell</h2>
+<br />
 
-<p>A shell is an interface to the operating system, i.e. how we get the OS to do things (run programs, manage files etc.). There are two kinds of shells: graphical (with icons and clicking) and the command line. The shell we will use is Bash. Check if you are using Bash, login to shell and type in:</p>
+## Introduction to Data Analysis ##
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ echo $0
-</code></pre>
-</div>
+Data can be classified into two categories: numerical and categorical (non-numerical).
 
-<p>It should return “bash”.</p>
+**Numerical Data** is either discrete or continuous. Discrete data (e.g. number of accidents) takes integer values, while continuous data (e.g. height, weight) measure non-integer values.
 
-<p><strong>Linux file system: working with files</strong></p>
+**Categorical Data** is either ordinal (if there's an underlying order, e.g. on a scale from 1 to 10, 1 being least satisfied and 10 being most satisfied) or non-ordinal (no order, e.g. nationality, favorite color).
 
-<p><strong>cat</strong> - short for concatenate; display contents of a file (e.g. cat user/share/dict/words). In Linux, a directory is considered a special kind of file</p>
+**Transformation** {x<sub>1</sub>, x<sub>2</sub>,..., x<sub>n</sub>}  
+y<sub>i</sub> = f(x<sub>i</sub>) is a transformation.
 
-<p><strong>ls</strong> - list files in the current directory (non-hidden files)</p>
 
-<p><strong>ls -a</strong> - list all files (including hidden; hidden files start with a “.”)</p>
+An affine transformation is a linear transformation: y<sub>i</sub> = ax<sub>i</sub> + b
 
-<p><strong>pwd</strong> - print current directory (pwd = print working directory)</p>
+**Coding** is the conversion of categorical data into numerical data.
 
-<p>What happens when we only type in “cat”? It just kind of sits there, waiting for input. It’s kinda like a parrot, repeating what you typed in. If we can capture the output into a file…</p>
+<br />
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat &gt; output.txt
-</code></pre>
-</div>
+Data Summaries
+--------------
 
-<p>It would capture the input. NOT RECOMMENDED: ^C. It would prevent cat from doing clean-up. Let it finish on its own: ^D at the beginning of a line sends an “EOF” signal to cat.</p>
+We want to extract important information about data.
 
-<p>One greater than sign replaces, two appends.<br />
-In general, command args &gt; file
-executes command args + captures the output in file -&gt; called <strong>output redirection</strong>.</p>
+1. Numerical: come up with numbers that represent different properties of the data set
+2. Graphical: graph that tells us the shape of the data set
 
-<p>Using less than sign, takes in input from the file.</p>
+There are some properties of interest:
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cat &lt; output.txt
-</code></pre>
-</div>
++ Centre of the data set -> **Central Tendency**
 
-<p>The line above displays the file. Seems to be equivalent to what we have before. Are these two things the same? NO. The reason is very important:</p>
++ How volatile is the data set -> **Dispersion**
 
-<ul>
-  <li>
-    <p>cat input.txt -&gt; passes the NAME input.txt to cat as an argument. Cat opens input.txt and displays its contents</p>
-  </li>
-  <li>
-    <p>cat &lt; input.txt -&gt; the shell opens the file and passes the contents to cat IN PLACE of keyboard input</p>
-  </li>
-</ul>
++ If the data set is symmetric -> **Measures of Symmetry**
 
-<p><strong>wc</strong> - word count, displays numbers of lines, words, and characters of a file</p>
++ How "fat" the tails of the data set are (i.e. the size of extrema) -> **Kurtosis**
 
-<p><strong>cat *.txt</strong> - *.txt globbing pattern -&gt; matches any sequence of characters (the shell finds all files that mathch the pattern)</p>
+## Measures of Central Tendency
 
-<p><strong>cat &lt; *.txt</strong> - ERROR! The shell will only attach one file to cat’s input stream</p>
+Data set: {y<sub>1</sub>, y<sub>2</sub>,..., y<sub>n</sub>}
 
-<p>Many (but not all) commands take both kinds of inputs:</p>
+**Sample Mean:** 
 
-<p><strong>cat &lt; input.txt &gt; output.txt</strong> - sends chars from input.txt to output.txt; effectively a copy-paste action</p>
+Property: The sum of the deviations of the observations from the sample mean is 0.
 
-<p>Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -&gt; program -&gt; stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
-&lt; connects stdin to file, &gt; connects stdout to file, 2&gt; stdrr. Stderr separates output stream from error messages, so that output error messages can go to different places, and that error messages don’t cut/block output files.</p>
+**Geometric Mean**
 
-<p>Also, stdout may be <strong>buffered</strong>. System may assemble characters before displaying. However, stderr isn’t buffered, because user needs to see error messages immediately.</p>
+**Harmonic Mean**
 
-<p><strong>Pipes</strong>: Make one program’s output(stdout) another program’s input(stdin). Example: How many words occur in the first 20 lines of sample.txt?</p>
+<br />
 
-<div class="highlighter-rouge"><pre class="highlight"><code>head -n file
-</code></pre>
-</div>
+May 4, 2016 - Lecture 2
+---
 
-<p>gives the first n lines of file</p>
+Lecture notes will be posted every weekend.  
+Practice questions (with solutions) will be osted this week. First tutuorial quiz on May 17 (T), 2016 (11:25am).
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wc -w
-</code></pre>
-</div>
+**Outline**
 
-<p>counts words (just print the word count)</p>
++ measures of central tendency: medias, quartiles, mode  
++ measures of variability: range, IQR, variance
 
-<p>so</p>
+Sample -> Predictions about the population
 
-<div class="highlighter-rouge"><pre class="highlight"><code>head -20 sample.txt | wc -w
-</code></pre>
-</div>
+Data Summaries
+===
 
-<table>
-  <tbody>
-    <tr>
-      <td>Here,</td>
-      <td>(the pipe symbol) makes the output of the command before it the input of the command after it.</td>
-    </tr>
-  </tbody>
-</table>
++ Centre: CENTRAL TENDENCY  
++ Variability: DISPERSION  
++ Tails are similar: SYMMETRY  
++ Frequency of Extreme Obersevations: KURTOSIS
 
-<p><br /></p>
-
-<h2 id="may-4-2016---tutorial-1">May 4, 2016 - Tutorial 1</h2>
-
-<p>To zip your assignment files, do:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>zip (directory where your files are).zip *
-</code></pre>
-</div>
-
-<p>in the directory where the files are.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>marmoset_submit cs246 (question, e.g a0) (file you want to submit, zipped)
-</code></pre>
-</div>
-
-<p>is how you submit assignments to Marmoset.</p>
-
-<p><br /></p>
-
-<h2 id="may-5-2016---lecture-2">May 5, 2016 - Lecture 2</h2>
+Numerical and Graphical Summaries
 
   </div>
 
