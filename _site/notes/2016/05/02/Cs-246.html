@@ -359,6 +359,272 @@ executes command args + captures the output in file -&gt; called <strong>output 
 
 <h2 id="may-5-2016---lecture-2">May 5, 2016 - Lecture 2</h2>
 
+<p>Suppose we have files words1.txt, words2.txt…, and each of them has one word per line. We want: A duplicate-free list of all the words used in any of these files</p>
+
+<p>We need the following:</p>
+
+<ul>
+  <li>sort - sorts lines (man: Write sorted concatenation of all FILES(s) to standard output)</li>
+  <li>uniq - remove consecutive duplicate lines from input (man: filter adjacent matching lines from INPUT, writing to OUTPUT)</li>
+</ul>
+
+<p>One possibility:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cat words*.txt | uniq
+</code></pre>
+</div>
+
+<p>What’s the problem with this? We must sort our input first, because for aabaacd, it would produce abacd, with duplicates.</p>
+
+<p>This should work:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cat words*.txt | sort | uniq
+</code></pre>
+</div>
+
+<p>Sort it first, then call uniq. But there’s still a problem: it’s way too inefficient, beacuse it cat(s) all the files together FIRST, and then sorts it.</p>
+
+<p>This is better:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sort words*.txt | uniq
+</code></pre>
+</div>
+
+<p>Q: Is it possible to use the output onf one program as a <strong>parameter</strong> to another?</p>
+
+<p>Yes. E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo "Today is $(date) and I am $(whoami)"
+</code></pre>
+</div>
+
+<p>The shell executes date and whoami, and subsitutes the results into the command line.</p>
+
+<p>WARNING:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo 'Today is $(date) and I am $(whoami)'
+</code></pre>
+</div>
+
+<p>This will print the <strong>LITERAL</strong> interpretation, i.e. Today is $(date) and I am $(whoami)<br />
+Single quotes do not execute the substitution.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo "$(ls words*.txt)"
+</code></pre>
+</div>
+
+<p>prints a list of names of the text files:<br />
+words1.txt<br />
+words2.txt<br />
+…</p>
+
+<p><strong>Pattern Matching in Text Files</strong><br />
+Use egrep (extended global regular expression print) = grep -E</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep pattern file
+</code></pre>
+</div>
+
+<p>returns all lines that contain the pattern.</p>
+
+<p>E.g. print lines that contain “cs246”</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep cs246 index.html
+</code></pre>
+</div>
+
+<p>What about “cs246” OR “CS246”?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep "cs246|CS246" index.html
+</code></pre>
+</div>
+
+<p>The vertical bar (|) means “OR”, and the double quotes prevent the shell from interpreting the bar as a pipe.</p>
+
+<p>We can use parentheses to group subexpressions together:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep "(cs|CS)246" index.html
+</code></pre>
+</div>
+
+<p>The patterns that egrep understands are called <strong>regular expressions</strong>. NOT globbing patterns.</p>
+
+<p>“(c|C)(s|S)246” is equivalent to “[cC][sS]246”</p>
+
+<p><strong>[…]</strong> syntax says to match any SINGLE character in he square brackets. (a|1|c|2) is equivalent to [a1c2].</p>
+
+<p><strong>[^…]</strong> matches any 1 character not in the square brackets.</p>
+
+<p>“[cC][sS] ?246” allows for an optional space before the 246. ? syntax says to match 0 or 1 occurrences of the preceding expression.</p>
+
+<p>* syntax which matches 0 or more of the preceding expression. So (cs)*246 -&gt; 246, cs246, cscs246, cscscs246…<br />
+cs(cs)*246 matches at least one cs at the front (eliminating the zero case)</p>
+
+<p>(cs)+246 is equivalent to cs(cs)*246. The + syntax matches 1 or more of the preceding expression.</p>
+
+<p>.* will match any sequence of characters</p>
+
+<p>.+ will match any non-empty sequence of characters</p>
+
+<p>“cs *246” matches any string starting with cs, followed by any string, followed by 246.</p>
+
+<p>^ matches beginning of line</p>
+
+<p>$ matches the end of line</p>
+
+<p>^cs246 line starts with cs246</p>
+
+<p>cs246$ line ends with cs246</p>
+
+<p>Want all lines of even length</p>
+
+<p>^(..)*$</p>
+
+<h1 id="the-other-section">The Other Section</h1>
+
+<p>Pipes allow us to hook the stdin of one program to the stdout of another. This is done using the pipe character | between commands</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cmd1 args1 | cmd2 args2
+</code></pre>
+</div>
+
+<p><strong>Regex Rules</strong>:</p>
+
+<ul>
+  <li>Can use parentheses for a sub-pattern</li>
+  <li>Can use square brackets to match any one character in the square brackets</li>
+  <li>[^…] matches any one character EXCEPT those in the square brackets</li>
+  <li>A ? after a pattern or character represents 0 or 1 of that pattern/character</li>
+  <li>A * after a pattern/character represents 0 or more of that pattern/character</li>
+  <li>A + “1 or more”</li>
+  <li>. matches any SINGLE character</li>
+  <li>^ and $ match the start and end of line respectively</li>
+</ul>
+
+<p>E.g.<br />
+.* - anything<br />
+.+ - non-empty string<br />
+^.+$ - all non-empty lines<br />
+^.*$ - all lines</p>
+
+<p>^(..)*$ - grabs all lines with even number of characters</p>
+
+<p><strong>Permissions</strong></p>
+
+<ul>
+  <li>ls -l gives the long form listing of the files in the current directory</li>
+  <li>First 3 bits: Owner r-read w-write x-execute</li>
+  <li>Middle 3 bits: Group</li>
+  <li>Last 3 bits: Others</li>
+  <li>r: ordinary files-&gt; can be read, directories-&gt; contents can be read, globbing workds, ls works</li>
+  <li>w: ordinary files-&gt;can be modified, directories-&gt; contents can be modified, add/remove</li>
+  <li>x: file’s contents can be executed as a program, directories-&gt;directories can be navigated (can cd into the directory)</li>
+</ul>
+
+<p><strong>Changing Permissions</strong></p>
+
+<ul>
+  <li>
+    <p>to change permissions use chmod</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  chmod mode file
+</code></pre>
+    </div>
+  </li>
+  <li>mode is broken up to 3 parts - user, operator, and permissions</li>
+  <li>user is either u (owner), g (group), o (other), or a (all)</li>
+  <li>operator is either + (add), - (remove), = (set exactly)</li>
+  <li>permissions are r, w, x</li>
+</ul>
+
+<p>E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod o+r filename
+</code></pre>
+</div>
+
+<p>gives other group read access to the file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod o-r filename
+</code></pre>
+</div>
+
+<p>is the reverse</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod a-r filename
+</code></pre>
+</div>
+
+<p>then nobody can read it</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod u=rwx filename
+</code></pre>
+</div>
+
+<p>then the owner can do anything with it.</p>
+
+<p><strong>Shell Scripts</strong></p>
+
+<p>A shell script is a file containing sequences of shell commands execueted as a program. For example if we wanted to print the date, current user, current dir.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash (this header tells the OS that this is a Bash script; allows the OS to interpret it the following as bash commands)</span>
+date
+whoami
+<span class="nb">pwd</span>
+</code></pre>
+</div>
+
+<p>.sh is the standard extension of a bash script, but you can put whatever you want. Don’t forget permissions. Needs to be executable. Use chmod to give it executation rights.</p>
+
+<p><strong>Variables</strong></p>
+
+<ul>
+  <li>Variables can be assigned with single equals.</li>
+  <li>x=1 (NO SPACES!!!)</li>
+  <li>use echo &amp;{x} to grab the value of the variable x (parentheses run what’s inside it in a “subshell”) (curly braces are important: good practice)</li>
+</ul>
+
+<p><strong>Shell Script Example</strong></p>
+
+<p>Write a script that takes in a string to check if it is BAD. A string that can be found in a dict is bad.
+General format of conditional statements in bash:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if [ cond ]; then // the square brackets cannot "touch" what's inside
+...
+elif [ cond ]; then
+...
+else
+...
+fi
+</code></pre>
+</div>
+
+<p><strong>$?</strong> contains the return value of the last-run command. 
+<strong>$1</strong> retrieves the first parameter</p>
+
+<p>Create a .sh script as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+egrep <span class="s2">"^</span><span class="nv">$1</span><span class="s2">$"</span> /usr/share/dict/words &gt; /dev/null  <span class="c"># /dev/null is where data goes to DIE</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq 0 <span class="o">]</span>; <span class="k">then</span> //-eq compares
+<span class="nb">echo </span>Bad password
+<span class="k">else 
+</span><span class="nb">echo </span>Maybe not the worst
+<span class="k">fi</span>
+</code></pre>
+</div>
+
+<p>And before you run it,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod u+x goodpass.sh
+</code></pre>
+</div>
+
+<p>In bash, the pound symbol (#) starts a comment.</p>
+
+
   </div>
 
 </article>

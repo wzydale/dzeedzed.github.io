@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 May 2016 20:55:48 -0400</pubDate>
-    <lastBuildDate>Wed, 04 May 2016 20:55:48 -0400</lastBuildDate>
+    <pubDate>Thu, 05 May 2016 15:48:05 -0400</pubDate>
+    <lastBuildDate>Thu, 05 May 2016 15:48:05 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -549,6 +549,272 @@ executes command args + captures the output in file -&amp;gt; called &lt;strong&
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;may-5-2016---lecture-2&quot;&gt;May 5, 2016 - Lecture 2&lt;/h2&gt;
+
+&lt;p&gt;Suppose we have files words1.txt, words2.txt…, and each of them has one word per line. We want: A duplicate-free list of all the words used in any of these files&lt;/p&gt;
+
+&lt;p&gt;We need the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;sort - sorts lines (man: Write sorted concatenation of all FILES(s) to standard output)&lt;/li&gt;
+  &lt;li&gt;uniq - remove consecutive duplicate lines from input (man: filter adjacent matching lines from INPUT, writing to OUTPUT)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One possibility:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat words*.txt | uniq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What’s the problem with this? We must sort our input first, because for aabaacd, it would produce abacd, with duplicates.&lt;/p&gt;
+
+&lt;p&gt;This should work:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat words*.txt | sort | uniq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Sort it first, then call uniq. But there’s still a problem: it’s way too inefficient, beacuse it cat(s) all the files together FIRST, and then sorts it.&lt;/p&gt;
+
+&lt;p&gt;This is better:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sort words*.txt | uniq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Q: Is it possible to use the output onf one program as a &lt;strong&gt;parameter&lt;/strong&gt; to another?&lt;/p&gt;
+
+&lt;p&gt;Yes. E.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;Today is $(date) and I am $(whoami)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The shell executes date and whoami, and subsitutes the results into the command line.&lt;/p&gt;
+
+&lt;p&gt;WARNING:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &#39;Today is $(date) and I am $(whoami)&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This will print the &lt;strong&gt;LITERAL&lt;/strong&gt; interpretation, i.e. Today is $(date) and I am $(whoami)&lt;br /&gt;
+Single quotes do not execute the substitution.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;$(ls words*.txt)&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;prints a list of names of the text files:&lt;br /&gt;
+words1.txt&lt;br /&gt;
+words2.txt&lt;br /&gt;
+…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pattern Matching in Text Files&lt;/strong&gt;&lt;br /&gt;
+Use egrep (extended global regular expression print) = grep -E&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep pattern file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;returns all lines that contain the pattern.&lt;/p&gt;
+
+&lt;p&gt;E.g. print lines that contain “cs246”&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep cs246 index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What about “cs246” OR “CS246”?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep &quot;cs246|CS246&quot; index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The vertical bar (|) means “OR”, and the double quotes prevent the shell from interpreting the bar as a pipe.&lt;/p&gt;
+
+&lt;p&gt;We can use parentheses to group subexpressions together:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep &quot;(cs|CS)246&quot; index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The patterns that egrep understands are called &lt;strong&gt;regular expressions&lt;/strong&gt;. NOT globbing patterns.&lt;/p&gt;
+
+&lt;p&gt;“(c|C)(s|S)246” is equivalent to “[cC][sS]246”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[…]&lt;/strong&gt; syntax says to match any SINGLE character in he square brackets. (a|1|c|2) is equivalent to [a1c2].&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[^…]&lt;/strong&gt; matches any 1 character not in the square brackets.&lt;/p&gt;
+
+&lt;p&gt;“[cC][sS] ?246” allows for an optional space before the 246. ? syntax says to match 0 or 1 occurrences of the preceding expression.&lt;/p&gt;
+
+&lt;p&gt;* syntax which matches 0 or more of the preceding expression. So (cs)*246 -&amp;gt; 246, cs246, cscs246, cscscs246…&lt;br /&gt;
+cs(cs)*246 matches at least one cs at the front (eliminating the zero case)&lt;/p&gt;
+
+&lt;p&gt;(cs)+246 is equivalent to cs(cs)*246. The + syntax matches 1 or more of the preceding expression.&lt;/p&gt;
+
+&lt;p&gt;.* will match any sequence of characters&lt;/p&gt;
+
+&lt;p&gt;.+ will match any non-empty sequence of characters&lt;/p&gt;
+
+&lt;p&gt;“cs *246” matches any string starting with cs, followed by any string, followed by 246.&lt;/p&gt;
+
+&lt;p&gt;^ matches beginning of line&lt;/p&gt;
+
+&lt;p&gt;$ matches the end of line&lt;/p&gt;
+
+&lt;p&gt;^cs246 line starts with cs246&lt;/p&gt;
+
+&lt;p&gt;cs246$ line ends with cs246&lt;/p&gt;
+
+&lt;p&gt;Want all lines of even length&lt;/p&gt;
+
+&lt;p&gt;^(..)*$&lt;/p&gt;
+
+&lt;h1 id=&quot;the-other-section&quot;&gt;The Other Section&lt;/h1&gt;
+
+&lt;p&gt;Pipes allow us to hook the stdin of one program to the stdout of another. This is done using the pipe character | between commands&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmd1 args1 | cmd2 args2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Regex Rules&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Can use parentheses for a sub-pattern&lt;/li&gt;
+  &lt;li&gt;Can use square brackets to match any one character in the square brackets&lt;/li&gt;
+  &lt;li&gt;[^…] matches any one character EXCEPT those in the square brackets&lt;/li&gt;
+  &lt;li&gt;A ? after a pattern or character represents 0 or 1 of that pattern/character&lt;/li&gt;
+  &lt;li&gt;A * after a pattern/character represents 0 or more of that pattern/character&lt;/li&gt;
+  &lt;li&gt;A + “1 or more”&lt;/li&gt;
+  &lt;li&gt;. matches any SINGLE character&lt;/li&gt;
+  &lt;li&gt;^ and $ match the start and end of line respectively&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;E.g.&lt;br /&gt;
+.* - anything&lt;br /&gt;
+.+ - non-empty string&lt;br /&gt;
+^.+$ - all non-empty lines&lt;br /&gt;
+^.*$ - all lines&lt;/p&gt;
+
+&lt;p&gt;^(..)*$ - grabs all lines with even number of characters&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Permissions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ls -l gives the long form listing of the files in the current directory&lt;/li&gt;
+  &lt;li&gt;First 3 bits: Owner r-read w-write x-execute&lt;/li&gt;
+  &lt;li&gt;Middle 3 bits: Group&lt;/li&gt;
+  &lt;li&gt;Last 3 bits: Others&lt;/li&gt;
+  &lt;li&gt;r: ordinary files-&amp;gt; can be read, directories-&amp;gt; contents can be read, globbing workds, ls works&lt;/li&gt;
+  &lt;li&gt;w: ordinary files-&amp;gt;can be modified, directories-&amp;gt; contents can be modified, add/remove&lt;/li&gt;
+  &lt;li&gt;x: file’s contents can be executed as a program, directories-&amp;gt;directories can be navigated (can cd into the directory)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Changing Permissions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;to change permissions use chmod&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  chmod mode file
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;mode is broken up to 3 parts - user, operator, and permissions&lt;/li&gt;
+  &lt;li&gt;user is either u (owner), g (group), o (other), or a (all)&lt;/li&gt;
+  &lt;li&gt;operator is either + (add), - (remove), = (set exactly)&lt;/li&gt;
+  &lt;li&gt;permissions are r, w, x&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;E.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod o+r filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;gives other group read access to the file&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod o-r filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;is the reverse&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod a-r filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then nobody can read it&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod u=rwx filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then the owner can do anything with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell Scripts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A shell script is a file containing sequences of shell commands execueted as a program. For example if we wanted to print the date, current user, current dir.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash (this header tells the OS that this is a Bash script; allows the OS to interpret it the following as bash commands)&lt;/span&gt;
+date
+whoami
+&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;.sh is the standard extension of a bash script, but you can put whatever you want. Don’t forget permissions. Needs to be executable. Use chmod to give it executation rights.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Variables&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Variables can be assigned with single equals.&lt;/li&gt;
+  &lt;li&gt;x=1 (NO SPACES!!!)&lt;/li&gt;
+  &lt;li&gt;use echo &amp;amp;{x} to grab the value of the variable x (parentheses run what’s inside it in a “subshell”) (curly braces are important: good practice)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell Script Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Write a script that takes in a string to check if it is BAD. A string that can be found in a dict is bad.
+General format of conditional statements in bash:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if [ cond ]; then // the square brackets cannot &quot;touch&quot; what&#39;s inside
+...
+elif [ cond ]; then
+...
+else
+...
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;$?&lt;/strong&gt; contains the return value of the last-run command. 
+&lt;strong&gt;$1&lt;/strong&gt; retrieves the first parameter&lt;/p&gt;
+
+&lt;p&gt;Create a .sh script as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+egrep &lt;span class=&quot;s2&quot;&gt;&quot;^&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;$&quot;&lt;/span&gt; /usr/share/dict/words &amp;gt; /dev/null  &lt;span class=&quot;c&quot;&gt;# /dev/null is where data goes to DIE&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt; -eq 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; //-eq compares
+&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Bad password
+&lt;span class=&quot;k&quot;&gt;else 
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;Maybe not the worst
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And before you run it,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod u+x goodpass.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In bash, the pound symbol (#) starts a comment.&lt;/p&gt;
+
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
@@ -676,6 +942,97 @@ Then we get ((p -&amp;gt; q) ^ ((NOT p) -&amp;gt; (r v s)))&lt;/p&gt;
   &lt;li&gt;nonsense: uwgod&lt;/li&gt;
   &lt;li&gt;otherwise problematic: This sentence is false&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-5-2016&quot;&gt;May 5, 2016&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Administrivia&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A01 posted, due May 11&lt;/li&gt;
+  &lt;li&gt;A01 study exercises posted on Learn. Not to be handed in, extra practice&lt;/li&gt;
+  &lt;li&gt;Course staff office hours posted on Learn&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Goals for Today&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Up to Slide 50, at least up to truth tables&lt;/li&gt;
+  &lt;li&gt;Syntax - Propositional&lt;/li&gt;
+  &lt;li&gt;Semantics - Propositional&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Atomic and Compound Propositions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In propositional logic, simple &lt;strong&gt;atomic&lt;/strong&gt; propositions are the basic building blocks. We connect atomic propositions into &lt;strong&gt;compound&lt;/strong&gt; propositions, and then analyze sets of interrelated propositions. Typical questions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Does a given sequence of propositions form a valid argument?&lt;/li&gt;
+  &lt;li&gt;Can all propositions in a given set be true simultaneously?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;First, we must answer the Q: What is a proposition?&lt;br /&gt;
+Propositions are represented by &lt;strong&gt;formulas&lt;/strong&gt;. A formula consists of a sequence of &lt;strong&gt;symbols&lt;/strong&gt;. There are 3 kinds of symbols:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Propositional variables: usually lower case Latin  letters (e.g. p, q, r) perhaps with subscripts&lt;/li&gt;
+  &lt;li&gt;Connectives: We shall use negation, ^(and), v(or), -&amp;gt; and &amp;lt;-&amp;gt; (Others are possible)&lt;/li&gt;
+  &lt;li&gt;Punctuation: Only two, ( and ) (we could avoid them)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Every formula is a sequence of symbols, but not every sequence of symbols is a formula. We call an arbitrary finite sequence of symbols an &lt;strong&gt;expression&lt;/strong&gt; (or &lt;strong&gt;string&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;An expression is a finite sequence of symbols. The &lt;strong&gt;length&lt;/strong&gt; of an expression is its number of symbols. We often use a letter that is not formally a symbol in order to name an expression. For example, alpha. This is an example of a “meta-symbol”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some terminology for expressions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Two expressions a and b are &lt;strong&gt;equal&lt;/strong&gt; written as a=b, iff they are of the same length, say n, and if n&amp;gt;0,&lt;/p&gt;
+
+&lt;p&gt;Let P be a set of propositional variables. We define the set of formulas over P inductively as follows.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;An expression consisting of a single symbol of P is a formula&lt;/li&gt;
+  &lt;li&gt;If phi is a formula, then the negation of phi is a formula&lt;/li&gt;
+  &lt;li&gt;If phi is a formula and eta is a formula, then each of (phi and eta), (phi or eta), (phi -&amp;gt; eta), and (phi &amp;lt;-&amp;gt; eta) is a formula&lt;/li&gt;
+  &lt;li&gt;Nothing else is a formula&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;(Note the use of meta-symbols phi and eta)&lt;/p&gt;
+
+&lt;p&gt;The following are well-formed formulas.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;p,q,r,s (rule 1)&lt;/li&gt;
+  &lt;li&gt;(not p) (rule 2, from #1)&lt;/li&gt;
+  &lt;li&gt;(r ^ q) (rule 3, from #1)&lt;/li&gt;
+  &lt;li&gt;((not p) -&amp;gt; s) (rule 3, from #2 and #1)&lt;/li&gt;
+  &lt;li&gt;((r ^ q) v ((not p) -&amp;gt; s)) (rule 3, from #3 and #4)&lt;/li&gt;
+  &lt;li&gt;(not (r ^ q)) (rule 2, from #3)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;From the definition, we see that there are six kinds of formulas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A propositional variable = ATOM&lt;/li&gt;
+  &lt;li&gt;A formula (not phi) = NEGATION&lt;/li&gt;
+  &lt;li&gt;A formula (phi ^ eta) = CONJUNCTION&lt;/li&gt;
+  &lt;li&gt;A formula (phi v eta) = DISJUNCTION&lt;/li&gt;
+  &lt;li&gt;A formula (phi -&amp;gt; eta) = IMPLICATION&lt;/li&gt;
+  &lt;li&gt;A formula (phi &amp;lt;-&amp;gt; eta) = EQUIVALENCE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Q: Can a formula have two or more kinds? No.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Semantics of Propositional Logic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;semantics&lt;/strong&gt; of a logic describes how to interpret the well-formed formulas of the logic. The semantics of propositional logic is “compositional”: the meaning of a whole formula derives from the meaning of its parts. In propositional logic, we need to give meaning to atoms, connectives, and formulae. For example, the interpretation of the formula (p ^ q) depends on three things, the meaning of p, the meaning of q, and the meaning of ^.&lt;/p&gt;
+
+&lt;p&gt;Definition: A &lt;strong&gt;truth evaluation&lt;/strong&gt; is a function (P -&amp;gt; {T, F}) with the set of all proposition symbols as domain and {F, T} as range. A truth eval assigns a value to every propositional variable. If t(p) = T, then we say “t makes p true”, if t(p) = F, then we say “t makes p false”. A propositional variable has no intrinsic meaning. It gets a meaning only via an evaluation.&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; : “Truth is Preserved”&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>

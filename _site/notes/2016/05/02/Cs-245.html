@@ -319,6 +319,97 @@ Then we get ((p -&gt; q) ^ ((NOT p) -&gt; (r v s)))</p>
   <li>otherwise problematic: This sentence is false</li>
 </ul>
 
+<p><br /></p>
+
+<h2 id="may-5-2016">May 5, 2016</h2>
+
+<p><strong>Administrivia</strong></p>
+
+<ul>
+  <li>A01 posted, due May 11</li>
+  <li>A01 study exercises posted on Learn. Not to be handed in, extra practice</li>
+  <li>Course staff office hours posted on Learn</li>
+</ul>
+
+<p><strong>Goals for Today</strong></p>
+
+<ul>
+  <li>Up to Slide 50, at least up to truth tables</li>
+  <li>Syntax - Propositional</li>
+  <li>Semantics - Propositional</li>
+</ul>
+
+<p><strong>Atomic and Compound Propositions</strong></p>
+
+<p>In propositional logic, simple <strong>atomic</strong> propositions are the basic building blocks. We connect atomic propositions into <strong>compound</strong> propositions, and then analyze sets of interrelated propositions. Typical questions:</p>
+
+<ul>
+  <li>Does a given sequence of propositions form a valid argument?</li>
+  <li>Can all propositions in a given set be true simultaneously?</li>
+</ul>
+
+<p>First, we must answer the Q: What is a proposition?<br />
+Propositions are represented by <strong>formulas</strong>. A formula consists of a sequence of <strong>symbols</strong>. There are 3 kinds of symbols:</p>
+
+<ul>
+  <li>Propositional variables: usually lower case Latin  letters (e.g. p, q, r) perhaps with subscripts</li>
+  <li>Connectives: We shall use negation, ^(and), v(or), -&gt; and &lt;-&gt; (Others are possible)</li>
+  <li>Punctuation: Only two, ( and ) (we could avoid them)</li>
+</ul>
+
+<p>Every formula is a sequence of symbols, but not every sequence of symbols is a formula. We call an arbitrary finite sequence of symbols an <strong>expression</strong> (or <strong>string</strong>)</p>
+
+<p>An expression is a finite sequence of symbols. The <strong>length</strong> of an expression is its number of symbols. We often use a letter that is not formally a symbol in order to name an expression. For example, alpha. This is an example of a “meta-symbol”.</p>
+
+<p><strong>Some terminology for expressions</strong></p>
+
+<p>Two expressions a and b are <strong>equal</strong> written as a=b, iff they are of the same length, say n, and if n&gt;0,</p>
+
+<p>Let P be a set of propositional variables. We define the set of formulas over P inductively as follows.</p>
+
+<ol>
+  <li>An expression consisting of a single symbol of P is a formula</li>
+  <li>If phi is a formula, then the negation of phi is a formula</li>
+  <li>If phi is a formula and eta is a formula, then each of (phi and eta), (phi or eta), (phi -&gt; eta), and (phi &lt;-&gt; eta) is a formula</li>
+  <li>Nothing else is a formula</li>
+</ol>
+
+<p>(Note the use of meta-symbols phi and eta)</p>
+
+<p>The following are well-formed formulas.</p>
+
+<ol>
+  <li>p,q,r,s (rule 1)</li>
+  <li>(not p) (rule 2, from #1)</li>
+  <li>(r ^ q) (rule 3, from #1)</li>
+  <li>((not p) -&gt; s) (rule 3, from #2 and #1)</li>
+  <li>((r ^ q) v ((not p) -&gt; s)) (rule 3, from #3 and #4)</li>
+  <li>(not (r ^ q)) (rule 2, from #3)</li>
+</ol>
+
+<p>From the definition, we see that there are six kinds of formulas:</p>
+
+<ul>
+  <li>A propositional variable = ATOM</li>
+  <li>A formula (not phi) = NEGATION</li>
+  <li>A formula (phi ^ eta) = CONJUNCTION</li>
+  <li>A formula (phi v eta) = DISJUNCTION</li>
+  <li>A formula (phi -&gt; eta) = IMPLICATION</li>
+  <li>A formula (phi &lt;-&gt; eta) = EQUIVALENCE</li>
+</ul>
+
+<p>Q: Can a formula have two or more kinds? No.</p>
+
+<p><br /></p>
+
+<p><strong>Semantics of Propositional Logic</strong></p>
+
+<p>The <strong>semantics</strong> of a logic describes how to interpret the well-formed formulas of the logic. The semantics of propositional logic is “compositional”: the meaning of a whole formula derives from the meaning of its parts. In propositional logic, we need to give meaning to atoms, connectives, and formulae. For example, the interpretation of the formula (p ^ q) depends on three things, the meaning of p, the meaning of q, and the meaning of ^.</p>
+
+<p>Definition: A <strong>truth evaluation</strong> is a function (P -&gt; {T, F}) with the set of all proposition symbols as domain and {F, T} as range. A truth eval assigns a value to every propositional variable. If t(p) = T, then we say “t makes p true”, if t(p) = F, then we say “t makes p false”. A propositional variable has no intrinsic meaning. It gets a meaning only via an evaluation.</p>
+
+<p>-&gt; : “Truth is Preserved”</p>
+
 
   </div>
 

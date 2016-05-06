@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+  <style>
+      p, ul {
+        font-size: 1.25rem;
+      }
+  </style>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+  <title>CS 246 - Object-Oriented Software Development</title>
+  <meta name="description" content="    CS 246 - Object-Oriented Software Development    Instructor: Brad Lushman    Section: 001    Location: MC 4045    Time: Tuesdays and Thursdays 10:00am - ...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Cs-246.md.hm1879">
+  <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+  <body>
+
+    <!-- 
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/homepage.css" type="text/css" rel="stylesheet"/>
+  <link href="/css/genericons/genericons.css" type="text/css" rel="stylesheet"/>
+ -->
+<!-- <header class="site-header">
+
+    <nav class="white site-header" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="" class="brand-logo">Dadi "DZ" Zhang</a>
+
+        <ul class="right hide-on-med-and-down">       
+          
+            
+            <a class="page-link" href="/blog.html">Blog</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/dreamlist.html">Dream List</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/gotutorials.html">Go Tutorials</a>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+            <a class="page-link" href="/notes.html">Notes</a>
+            
+          
+            
+            <a class="page-link" href="/projects.html">Projects</a>
+            
+          
+        </ul>
+      </div>
+    </nav>
+    
+</header> -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+<style>
+
+/* Fade */
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: black;
+  color: white;
+}
+
+.page-link {   
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 14px;
+    padding-left: 14px;
+    margin-left: -24.5px;
+    margin-right: -24.5px;
+}
+
+
+.site-title:hover {   
+    text-decoration: none;
+}
+
+.page-link:hover {
+    text-decoration: none;
+}
+
+.site-title {
+  font-family: "Liberation Serif", serif;
+  font-size: 2rem;
+}
+
+.trigger a {
+  font-family: "Liberation Serif", serif;
+}
+
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Dadi "D.Z." Zhang</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        
+
+      <div class="trigger">
+        
+          
+          <a class="page-link hvr-fade" href="/blog.html">Blog</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/dreamlist.html">Dream List</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/gotutorials.html">Go Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/notes.html">Notes</a>
+          
+        
+          
+          <a class="page-link hvr-fade" href="/projects.html">Projects</a>
+          
+        
+          <a class="page-link hvr-fade" href="/resume/resume.pdf">R&eacutesum&eacute</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">CS 246 - Object-Oriented Software Development</h1>
+    <p class="post-meta">
+    
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+        CS 246 - Object-Oriented Software Development
+    Instructor: Brad Lushman
+    Section: 001
+    Location: MC 4045
+    Time: Tuesdays and Thursdays 10:00am - 11:20am
+    Tutorials: MC 4060 Wednesdays 1:30pm - 2:20pm
+    Term: Spring 2016
+    
+
+May 3, 2016 - Lecture 1
+-----------------------
+
+**Grading Scheme**
+
++ Assignments - 0(A0) 7 7 7 7 12(project) = 40%  
++ Midterm (4:30pm - 6:20pm, June 23 (Th), 2016) = 20%   
++ Final = 40%
+
+This course requires you to work in Linux. There are several options:
+
+1. Lab machines  
+2. Install Linux on your own machines  
+3. Make SSH connection to school machines (Use Putty (putty.exe) on Windows, winscp for file transfer, XMing for Xwindows)  
+4. Download cygwin - Linux-like environment for Windows
+5. Get a Mac
+
+**4 Modules in this Course:**
+
+* Linux Shell (2 weeks)
+* C++ Language, C++14 (10 weeks)  
+* Tools 
+* Software Engineering (design etc.) 
+
+"Homework": Go on Piazza -> Linux Reference Sheet -> Save and print
+
+Module 1: Linux Shell
+---------------------
+
+A shell is an interface to the operating system, i.e. how we get the OS to do things (run programs, manage files etc.). There are two kinds of shells: graphical (with icons and clicking) and the command line. The shell we will use is Bash. Check if you are using Bash, login to shell and type in:
+    
+    $ echo $0
+    
+It should return "bash".
+
+**Linux file system: working with files**
+
+**cat** - short for concatenate; display contents of a file (e.g. cat user/share/dict/words). In Linux, a directory is considered a special kind of file
+
+**ls** - list files in the current directory (non-hidden files)
+
+**ls -a** - list all files (including hidden; hidden files start with a ".")
+
+**pwd** - print current directory (pwd = print working directory)
+
+What happens when we only type in "cat"? It just kind of sits there, waiting for input. It's kinda like a parrot, repeating what you typed in. If we can capture the output into a file...
+
+    $ cat > output.txt
+    
+It would capture the input. NOT RECOMMENDED: ^C. It would prevent cat from doing clean-up. Let it finish on its own: ^D at the beginning of a line sends an "EOF" signal to cat.
+
+One greater than sign replaces, two appends.  
+In general, command args > file
+executes command args + captures the output in file -> called **output redirection**.
+
+Using less than sign, takes in input from the file.
+
+    $ cat < output.txt
+    
+The line above displays the file. Seems to be equivalent to what we have before. Are these two things the same? NO. The reason is very important: 
+
+* cat input.txt -> passes the NAME input.txt to cat as an argument. Cat opens input.txt and displays its contents
+
+* cat < input.txt -> the shell opens the file and passes the contents to cat IN PLACE of keyboard input
+
+**wc** - word count, displays numbers of lines, words, and characters of a file
+
+**cat *.txt** - *.txt globbing pattern -> matches any sequence of characters (the shell finds all files that mathch the pattern)
+
+**cat < *.txt** - ERROR! The shell will only attach one file to cat's input stream
+
+Many (but not all) commands take both kinds of inputs:
+
+**cat < input.txt > output.txt** - sends chars from input.txt to output.txt; effectively a copy-paste action
+
+Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -> program -> stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
+< connects stdin to file, > connects stdout to file, 2> stdrr. Stderr separates output stream from error messages, so that output error messages can go to different places, and that error messages don't cut/block output files.
+
+Also, stdout may be **buffered**. System may assemble characters before displaying. However, stderr isn't buffered, because user needs to see error messages immediately. 
+
+**Pipes**: Make one program's output(stdout) another program's input(stdin). Example: How many words occur in the first 20 lines of sample.txt? 
+
+    head -n file
+    
+gives the first n lines of file
+
+    wc -w
+    
+counts words (just print the word count)
+
+so
+
+    head -20 sample.txt | wc -w
+    
+Here, | (the pipe symbol) makes the output of the command before it the input of the command after it.
+
+<br />
+
+May 4, 2016 - Tutorial 1
+---
+
+To zip your assignment files, do:
+
+    zip (directory where your files are).zip *
+    
+in the directory where the files are.
+
+
+    marmoset_submit cs246 (question, e.g a0) (file you want to submit, zipped)
+    
+is how you submit assignments to Marmoset.
+
+<br />
+
+May 5, 2016 - Lecture 2
+---
+
+Suppose we have files words1.txt, words2.txt..., and each of them has one word per line. We want: A duplicate-free list of all the words used in any of these files
+
+We need the following:
+
++ sort - sorts lines (man: Write sorted concatenation of all FILES(s) to standard output)
++ uniq - remove consecutive duplicate lines from input (man: filter adjacent matching lines from INPUT, writing to OUTPUT)
+
+One possibility:
+
+    cat words*.txt | uniq
+    
+What's the problem with this? We must sort our input first, because for aabaacd, it would produce abacd, with duplicates.
+
+This should work:
+
+    cat words*.txt | sort | uniq
+    
+Sort it first, then call uniq. But there's still a problem: it's way too inefficient, beacuse it cat(s) all the files together FIRST, and then sorts it.
+
+This is better:
+
+    sort words*.txt | uniq
+    
+Q: Is it possible to use the output onf one program as a __parameter__ to another?
+
+Yes. E.g.
+
+    echo "Today is $(date) and I am $(whoami)"
+    
+The shell executes date and whoami, and subsitutes the results into the command line.
+
+WARNING: 
+
+    echo 'Today is $(date) and I am $(whoami)'
+    
+This will print the **LITERAL** interpretation, i.e. Today is $(date) and I am $(whoami)  
+Single quotes do not execute the substitution.
+
+    echo "$(ls words*.txt)"
+    
+prints a list of names of the text files:  
+words1.txt  
+words2.txt  
+...
+
+**Pattern Matching in Text Files**  
+Use egrep (extended global regular expression print) = grep -E
+
+    egrep pattern file
+    
+returns all lines that contain the pattern.
+
+E.g. print lines that contain "cs246"
+
+    egrep cs246 index.html
+    
+What about "cs246" OR "CS246"?
+
+    egrep "cs246|CS246" index.html
+    
+The vertical bar (\|) means "OR", and the double quotes prevent the shell from interpreting the bar as a pipe.
+
+We can use parentheses to group subexpressions together:
+
+    egrep "(cs|CS)246" index.html
+    
+The patterns that egrep understands are called **regular expressions**. NOT globbing patterns.
+
+"(c\|C)(s\|S)246" is equivalent to "[cC][sS]246"
+
+**[...]** syntax says to match any SINGLE character in he square brackets. (a\|1\|c\|2) is equivalent to [a1c2].
+
+**[^...]** matches any 1 character not in the square brackets.
+
+"[cC][sS] ?246" allows for an optional space before the 246. ? syntax says to match 0 or 1 occurrences of the preceding expression.
+
+\* syntax which matches 0 or more of the preceding pattern. So (cs)*246 -> 246, cs246, cscs246, cscscs246...  
+cs(cs)*246 matches at least one cs at the front (eliminating the zero case)
+
+  </div>
+
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//dzklavier.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77018906-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+
+    <footer class="site-footer">
+
+  <style>
+    .footer-col-3 p, .contact-list {
+      font-size: 1rem;
+    } 
+  </style>
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list social-media-list">
+          <li>Dadi "D.Z." Zhang</li>
+          <li><a href="mailto:d236zhan@uwaterloo.ca">d236zhan@uwaterloo.ca</a></li>
+          
+          <li>
+            <a href="https://github.com/dzeedzed"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">dzeedzed</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
