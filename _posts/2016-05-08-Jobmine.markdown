@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title:  "Jobm=Mine Updates - Spring 2016"
 date:   2016-5-8 02:20:00 -0400
