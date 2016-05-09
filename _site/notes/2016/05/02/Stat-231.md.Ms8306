@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+  <style>
+      p, ul {
+        font-size: 1.25rem;
+      }
+  </style>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+  <title>STAT 231 - Statistics</title>
+  <meta name="description" content="    STAT 231 - Statistics    Instructor: Surya Banerjee    Location: DC 1350    Time: Mondays and Wednesdays 2:30am - 3:50pm    Tutorials: DC 1351 Mondays 5:...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Stat-231.md.Ms8306">
+  <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+  <body>
+
+    <!-- 
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/homepage.css" type="text/css" rel="stylesheet"/>
+  <link href="/css/genericons/genericons.css" type="text/css" rel="stylesheet"/>
+ -->
+<!-- <header class="site-header">
+
+    <nav class="white site-header" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="" class="brand-logo">Dadi "DZ" Zhang</a>
+
+        <ul class="right hide-on-med-and-down">       
+          
+            
+            <a class="page-link" href="/blog.html">Blog</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/dreamlist.html">Dream List</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/gotutorials.html">Go Tutorials</a>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+            <a class="page-link" href="/notes.html">Notes</a>
+            
+          
+            
+            <a class="page-link" href="/projects.html">Projects</a>
+            
+          
+        </ul>
+      </div>
+    </nav>
+    
+</header> -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+<style>
+
+/* Fade */
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: black;
+  color: white;
+}
+
+.page-link {   
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 14px;
+    padding-left: 14px;
+    margin-left: -24.5px;
+    margin-right: -24.5px;
+}
+
+
+.site-title:hover {   
+    text-decoration: none;
+}
+
+.page-link:hover {
+    text-decoration: none;
+}
+
+.site-title {
+  font-family: "Liberation Serif", serif;
+  font-size: 2rem;
+}
+
+.trigger a {
+  font-family: "Liberation Serif", serif;
+}
+
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Dadi "D.Z." Zhang</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        
+
+      <div class="trigger">
+        
+          
+          <a class="page-link hvr-fade" href="/blog.html">Blog</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/dreamlist.html">Dream List</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/gotutorials.html">Go Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/notes.html">Notes</a>
+          
+        
+          
+          <a class="page-link hvr-fade" href="/projects.html">Projects</a>
+          
+        
+          <a class="page-link hvr-fade" href="/resume/resume.pdf">R&eacutesum&eacute</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">STAT 231 - Statistics</h1>
+    <p class="post-meta">
+    
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+        STAT 231 - Statistics
+    Instructor: Surya Banerjee
+    Location: DC 1350
+    Time: Mondays and Wednesdays 2:30am - 3:50pm
+    Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
+    Term: Spring 2016
+    
+
+## May 2, 2016 - Lecture 1 ##
+
+Email: s22baner@uwaterloo.ca or suryabanerjee@gmail.com
+
+Course Marking Scheme: 3 Tutorial Quizzes (TQ) and 2 Midterms
+
+STAT 231 is the reverse of STAT 230. E.g. We toss a coin 100 times, we get 60 heads. In STAT 230, we calculate the probability of that happening (binomial distribution, 100 and 0.5, P(X=60)) with all the parameters given (P = 0.5 to get a head for a fair coin). In STAT 231, we try to find the parameters by experiments, and try to infer what we can say about the "fairness" of the coin.
+
+MLB: Between 1901-1941, batters with BA .400+: 11. 1941 onwards: 0. Why? Use statistics to find out.
+
+Kansas Weathermen: They are correct about whether it will rain the next day about 85% of the time. Good record, right? However, it only rains about 10% of the time in Kansas. So if I go to the weather broadcasting station and say "no rain tomorrow" and then go home, I will be statistically more accuarate that these meteorologists.
+
+Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin. 
+
+In STAT 231, we learn how to test claims and check for correlation and causation. How can we make the leap from correlation to causation? (Recommended reading: Freakanomics)
+
+<br />
+
+## Introduction to Data Analysis ##
+
+Data can be classified into two categories: numerical and categorical (non-numerical).
+
+**Numerical Data** is either discrete or continuous. Discrete data (e.g. number of accidents) takes integer values, while continuous data (e.g. height, weight) measure non-integer values.
+
+**Categorical Data** is either ordinal (if there's an underlying order, e.g. on a scale from 1 to 10, 1 being least satisfied and 10 being most satisfied) or non-ordinal (no order, e.g. nationality, favorite color).
+
+**Transformation** {x<sub>1</sub>, x<sub>2</sub>,..., x<sub>n</sub>}  
+y<sub>i</sub> = f(x<sub>i</sub>) is a transformation.
+
+
+An affine transformation is a linear transformation: y<sub>i</sub> = ax<sub>i</sub> + b
+
+**Coding** is the conversion of categorical data into numerical data.
+
+<br />
+
+Data Summaries
+--------------
+
+We want to extract important information about data.
+
+1. Numerical: come up with numbers that represent different properties of the data set
+2. Graphical: graph that tells us the shape of the data set
+
+There are some properties of interest:
+
++ Centre of the data set -> **Central Tendency**
+
++ How volatile is the data set -> **Dispersion**
+
++ If the data set is symmetric -> **Measures of Symmetry**
+
++ How "fat" the tails of the data set are (i.e. the size of extrema) -> **Kurtosis**
+
+## Measures of Central Tendency
+
+Data set: {y<sub>1</sub>, y<sub>2</sub>,..., y<sub>n</sub>}
+
+**Sample Mean:** 
+
+Property: The sum of the deviations of the observations from the sample mean is 0.
+
+**Geometric Mean**
+
+**Harmonic Mean**
+
+<br />
+
+May 4, 2016 - Lecture 2
+---
+
+Lecture notes will be posted every weekend.  
+Practice questions (with solutions) will be osted this week. First tutuorial quiz on May 17 (T), 2016 (11:25am).
+
+**Outline**
+
++ measures of central tendency: medias, quartiles, mode  
++ measures of variability: range, IQR, variance
+
+Sample -> Predictions about the population
+
+Data Summaries
+===
+
++ Centre: CENTRAL TENDENCY  
++ Variability: DISPERSION  
++ Tails are similar: SYMMETRY  
++ Frequency of Extreme Obersevations: KURTOSIS
+
+Numerical and Graphical Summaries
+===
+
+{y<sub>1</sub>, y<sub>2</sub>, ... , y<sub>n</sub>}
+
+Sample mean: 1/n sigma y<sub>i</sub>  
+Properties: sigma (y<sub>i</sub> - mean) = 0
+
+Also, affine transformation preserves linear combinations (i.e. the arithmetic mean changes accordingly by the affine transformation)
+
+__Median__: the middle most observations  
+arrange the data set in ascending order and pick the middle one. e.g. 1, 3, 7, 13, 25. Median is 7.
+
+Median is not too sensitive with extreme values.
+
+__Quartiles__: Q1: lower quartile, Q3: upper quartile
+
+__Percentiles__: Instead of dividing into 4 parts, the data is divided into 100 parts.
+
+Eg. p=0.25, m = (n+1) * p, n is the number of observations
+
+__Mode__: Observation that occurs with the maximum frequency
+
+St.Petersburg's Paradox. We care about averages (expected values), but also risk. Variability is a very important property of a data set. E.g. Country A 0 0 0 1000 and Country B 250 250 250 250
+Goalie A 0 6 0 6 0 6 0 6 Goalie B 3 3 3 3 3 3 3 
+
+Measures of Volatility
+===
+
+__Range__: Max - Min
+
+__Interquartile Range (IQR)__: IQR = Q3 - Q1
+
+__Sample Variance and Sample Standard Deviation__: 
+
+__Sample Variance__: s<sup>2</sup> = 1/(n-1) sigma (y<sub>i</sub> - y average)<sup>2</sup> is approximatey the average of the squared deviation from the mean
+
+__Standard Deviation__: s = positive square root of s^2, the sample variance
+
+__Mean Absolute Deviation(MAD)__: 1/n sigma abs(y<sub>i</sub> - y average)
+
+Say a data set of x<sub>i</sub> is transformed by an affine transformation y<sub>i</sub> = a + bx<sub>i</sub>. Then s<sup>2</sup> of y = b<sup>2</sup>s<sup>2</sup>. And the standard deviation is multiplied by the absolute value of b.
+
+<br />
+
+May 9, 2016 - Lecture 3
+---
+
++ Practice problems with solutions on LEARN
++ <= Wednesday's class for the TQ1 next week
+
+**Today**
+
++ Measures of Symmetry  
++ Measures of Kurtosis  
++ Applications  
++ Measures of Association  
++ Graphical Measures  
+
+Objective: To figure out the shape of our sample
+
++ Centre: sample mean  
++ Variability: This measures how much the data set is spread out across the centre; how volatile the data set is; Use s<sup>2</sup>, variance; Standard deviation is the sqrt(variance)  
+    + If y=a+bx, s<sup>2</sup><sub>y</sub> = b^2s^2_x s_y = abs(b)s_x  
+    + The variance treats data on either side of the mean symmetrically
++ 
+
+
+  </div>
+
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//dzklavier.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77018906-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+
+    <footer class="site-footer">
+
+  <style>
+    .footer-col-3 p, .contact-list {
+      font-size: 1rem;
+    } 
+  </style>
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list social-media-list">
+          <li>Dadi "D.Z." Zhang</li>
+          <li><a href="mailto:d236zhan@uwaterloo.ca">d236zhan@uwaterloo.ca</a></li>
+          
+          <li>
+            <a href="https://github.com/dzeedzed"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">dzeedzed</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
