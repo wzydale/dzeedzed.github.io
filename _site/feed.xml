@@ -6,9 +6,28 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 07 May 2016 00:15:17 -0400</pubDate>
-    <lastBuildDate>Sat, 07 May 2016 00:15:17 -0400</lastBuildDate>
+    <pubDate>Sun, 08 May 2016 21:00:53 -0400</pubDate>
+    <lastBuildDate>Sun, 08 May 2016 21:00:53 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>JobMine Updates - Spring 2016</title>
+        <description>&lt;h1 id=&quot;may-7-2016&quot;&gt;May 7, 2016&lt;/h1&gt;
+
+&lt;p&gt;Shortlisted 28 job postings on JobMine.&lt;/p&gt;
+
+&lt;h1 id=&quot;may-8-2016&quot;&gt;May 8, 2016&lt;/h1&gt;
+
+&lt;p&gt;Added 5 more. Now most jobs on my shortlist are dev jobs.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 May 2016 02:20:00 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/05/08/Jobmine.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/05/08/Jobmine.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>Courses I Plan to Take at UWaterloo (BCS &amp; Data Science)</title>
@@ -1087,7 +1106,17 @@ Propositions are represented by &lt;strong&gt;formulas&lt;/strong&gt;. A formula
 
 &lt;p&gt;&lt;strong&gt;Some terminology for expressions&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Two expressions a and b are &lt;strong&gt;equal&lt;/strong&gt; written as a=b, iff they are of the same length, say n, and if n&amp;gt;0,&lt;/p&gt;
+&lt;p&gt;Two expressions a and b are &lt;strong&gt;equal&lt;/strong&gt; written as a=b, iff they are of the same length, say n, and if n&amp;gt;0, then for all i in [1…n] the i-th symbol of a is the same as the i-th symbol of b.&lt;/p&gt;
+
+&lt;p&gt;We write ab to mean the &lt;strong&gt;concatenation&lt;/strong&gt; of two expressions a and b.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formal Definition of Concatenation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If a is an expression of length i and b is an expression of length j, then ab is an expression of length i+j. We have the k-th symbol of ab is:
+    + if k &amp;lt;= i, the k-th symbol of a
+    + if k &amp;gt; i, the (k - i)-th symbol of b&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition of “Formula”&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Let P be a set of propositional variables. We define the set of formulas over P inductively as follows.&lt;/p&gt;
 
@@ -1111,7 +1140,8 @@ Propositions are represented by &lt;strong&gt;formulas&lt;/strong&gt;. A formula
   &lt;li&gt;(not (r ^ q)) (rule 2, from #3)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;From the definition, we see that there are six kinds of formulas:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The 6 Kinds of Formulas&lt;/strong&gt;
+From the definition, we see that there are six kinds of formulas:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;A propositional variable = ATOM&lt;/li&gt;
@@ -1132,7 +1162,73 @@ Propositions are represented by &lt;strong&gt;formulas&lt;/strong&gt;. A formula
 
 &lt;p&gt;Definition: A &lt;strong&gt;truth evaluation&lt;/strong&gt; is a function (P -&amp;gt; {T, F}) with the set of all proposition symbols as domain and {F, T} as range. A truth eval assigns a value to every propositional variable. If t(p) = T, then we say “t makes p true”, if t(p) = F, then we say “t makes p false”. A propositional variable has no intrinsic meaning. It gets a meaning only via an evaluation.&lt;/p&gt;
 
-&lt;p&gt;-&amp;gt; : “Truth is Preserved”&lt;/p&gt;
+&lt;p&gt;Formally, a connective represents a function from truth values to truth values. The connective (not) is unary; it maps one value to one value. The other connectives are binary, they map two values to one value.&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; : “Truth is Preserved”; if there is not truth to preserve, the meaning is T. T-&amp;gt;F is F because truth is not preserved.&lt;br /&gt;
+E.g. “If everyone is a child, then the moon is made of blue cheese” comes out true (seems non-sensical, but propositional logic gives &lt;strong&gt;every formula&lt;/strong&gt; a meaning)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Summary of the Value of a Formula&lt;/strong&gt;
+Fix a truth evaluation t. Every formula phi has a value under t, denoted phi&lt;sup&gt;t&lt;/sup&gt;, determined as follows:
+1. p&lt;sup&gt;t&lt;/sup&gt; = t(p)
+2. (not phi)&lt;sup&gt;t&lt;/sup&gt; =
+    + T if phi&lt;sup&gt;t&lt;/sup&gt; = F
+    + F if phi&lt;sup&gt;t&lt;/sup&gt; = T
+3. (phi ^ eta)&lt;sup&gt;t&lt;/sup&gt; = 
+    + T if phi&lt;sup&gt;t&lt;/sup&gt; = eta&lt;sup&gt;t&lt;/sup&gt; = T
+    + F otherwise
+4. (phi v eta)&lt;sup&gt;t&lt;/sup&gt; = 
+    + T if phi&lt;sup&gt;t&lt;/sup&gt; = T or if eta&lt;sup&gt;t&lt;/sup&gt; = T
+    + F otherwise
+5. (phi -&amp;gt; eta)&lt;sup&gt;t&lt;/sup&gt; = 
+    + T if phi&lt;sup&gt;t&lt;/sup&gt; = F or if eta&lt;sup&gt;t&lt;/sup&gt; = T
+    + F otherwise
+6. (phi &amp;lt;-&amp;gt; eta)&lt;sup&gt;t&lt;/sup&gt; = 
+    + T if phi&lt;sup&gt;t&lt;/sup&gt; = eta&lt;sup&gt;t&lt;/sup&gt;
+    + F otherwise&lt;/p&gt;
+
+&lt;p&gt;The value of a formula comes from the values of its variables, combined as given by its connectives. The valuation t is necessary. WIthout a valuation, a formula has no value.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unique Readability of Formulae&lt;/strong&gt;
+We have defined the semantics of a formula forom its ysyntax. Is this &lt;strong&gt;well-defined&lt;/strong&gt;? Or can a formula get two different meanings, i.e. ambiguous?&lt;/p&gt;
+
+&lt;p&gt;Theorem. Every formula has a unique derivation as a well-formed formula. That is, each formula has exactly one of the six forms:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;an atom&lt;/li&gt;
+  &lt;li&gt;(not phi)&lt;/li&gt;
+  &lt;li&gt;(phi ^ eta)&lt;/li&gt;
+  &lt;li&gt;(phi v eta)&lt;/li&gt;
+  &lt;li&gt;(phi -&amp;gt; eta)&lt;/li&gt;
+  &lt;li&gt;(phi &amp;lt;-&amp;gt; eta)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We prove this by mathematical induction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Review of Induction&lt;/strong&gt;
+Suppose P names a property. We write P(2) to mean “2 has property P”, or “P holds for 2”.&lt;/p&gt;
+
+&lt;p&gt;A statement “every natural number has property P” corresponds to a sequence of statements:&lt;br /&gt;
+P(0), P(1), P(2), P(3),…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Principles of Mathematical Induction&lt;/strong&gt;
+Suppose we establish two things: that
+    + 0 has property P, and that
+    + whenever any number has property P, then the next number also has property P.
+Then we may conclude that every natural number has property P.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Techniques&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To talk about something, give it a name.&lt;br /&gt;
+E.g. property P, number k&lt;/li&gt;
+  &lt;li&gt;A formula is a textual object. We can subsitute one symbol or expression for another&lt;/li&gt;
+  &lt;li&gt;The induction principle gives a template:
+    &lt;ul&gt;
+      &lt;li&gt;proof has 2 parts: basis and inductive step&lt;/li&gt;
+      &lt;li&gt;In the inductive step, hypothesize P(k) and prove P(k+1)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;may-6-2016---tutorial-1&quot;&gt;May 6, 2016 - Tutorial 1&lt;/h2&gt;
 
@@ -1295,32 +1391,6 @@ c&lt;sub&gt;n&lt;/sub&gt;  = 0 as n approaches infinity&lt;/li&gt;
         
         
         <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Go Tutorial 2&amp;#58 The Basics (Part 1 - Etiquettes)</title>
-        <description>&lt;p&gt;So starting from this tutorial, you will learn the basic etiquettes and rules of Go. Trust me, Go is way easier to learn than chess (at least the basics).&lt;/p&gt;
-
-&lt;h2 id=&quot;etiquettes&quot;&gt;Etiquettes&lt;/h2&gt;
-
-&lt;p&gt;So etiquettes are huge in Go. Basically be humble, respect your opponent, don’t brag or showboat when you win. But there are also a bunch of formalities you need to keep in mind while playing Go. Typically, these etiquettes are strictly followed in Japan by all Japanese players, while in China they only serve as a general guideline. However, in the professional world, all the players practice these etiquettes without fail.&lt;/p&gt;
-
-&lt;h3 id=&quot;before-game&quot;&gt;Before Game:&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Nigiri (Chinese: 猜子 caizi, lit. “guessing stones”; Japanese: ニギリ nigiri, lit. “grabbing (stones)”):&lt;/strong&gt; There needs to be a fair way to decide who plays first (black), if the two players are of the same rank, and Nigiri is the answer. If both players are of the same rank, the game is said to be Tagai-sen (Chinese: 互先 huxian, lit. “mutually first”; Japanese: 互い先, tagaisen, lit. “mutually first”).&lt;/p&gt;
-
-&lt;p&gt;Nigiri is equivalent to flipping a coin. How it works is this: One player (almost always the older of the two players) grabs a handful of white (always) stones and puts his clinched hand on the centre of the Go board. The other player would have to guess the parity (odd or even) of the number of stones hidden in the fist of the player, by placing either one (for odd) or two (for even) black stone(s) on the Go board.&lt;/p&gt;
-
-&lt;p&gt;The first player would then release all the white stones in his hand, and both players would count them. If the player guesses the parity correctly, then it is customary for him/her to take black stones (although under some rules, such as Ing or in amateur games, the player can also choose his/her preferred color instead. I’ve only done that once, choosing white instead of black after I won the Nigiri. But I was later scolded by my teacher later. This is not recommended)&lt;/p&gt;
-
-&lt;p&gt;If the players are not of the same rank, the player with the lower rank automatically gets to play black if their ranks differ by 1 or 2, and if the rank discrepency exceeds 2, then there is a set of rules for giving out handicap stones. Also,&lt;/p&gt;
-</description>
-        <pubDate>Sun, 17 Apr 2016 22:37:00 -0400</pubDate>
-        <link>http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</link>
-        <guid isPermaLink="true">http://dzed.me/gotutorials/2016/04/17/basic-rules-1.html</guid>
-        
-        
-        <category>gotutorials</category>
         
       </item>
     
