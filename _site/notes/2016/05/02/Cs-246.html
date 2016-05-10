@@ -624,6 +624,171 @@ egrep <span class="s2">"^</span><span class="nv">$1</span><span class="s2">$"</s
 
 <p>In bash, the pound symbol (#) starts a comment.</p>
 
+<p><br /></p>
+
+<h2 id="may-10-2016---lecture-3">May 10, 2016 - Lecture 3</h2>
+
+<p>Review:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep pattern file
+</code></pre>
+</div>
+
+<p>prints all lines in file that contain a match to pattern</p>
+
+<p><strong>Shell Scripts Review</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash  #"Shebang line"  </span>
+date  
+whoami  
+<span class="nb">pwd</span>
+</code></pre>
+</div>
+
+<p>To run the script in the current directory:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./myscript
+</code></pre>
+</div>
+
+<p><strong>Variables</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>x=1 #NO SPACES  
+echo $x #Use $ when fetching the value of a variable
+# No $ when setting a var ($ = "fetch the value of")
+# Good practice: ${x} - brace brackets, good style
+# All vars contain strings, e.g. x is the STRING 1, not the number/int
+</code></pre>
+</div>
+
+<p>E.g.<br />
+    dir = ~/cs246
+    echo ${dir}
+    /u/bmlushma/cs246 # get the absolute path
+    ls ${dir} # contents of cs246</p>
+
+<p>There are some global variables:<br />
+    env # environment variables
+    echo ${PATH} # list of directories (where the shell looks for programs)</p>
+
+<p>When you type a command, the shell searches the list in order for a matching program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo * # prints all files in the current directory
+echo "*" - suppresses globbing pattern
+echo '*' - suppresses globbing pattern
+echo "$PATH" # expands the quotes, $-expansion happens
+echo '$PATH' # absolutely literally
+</code></pre>
+</div>
+
+<p><strong>Special Variables for Scripts</strong><br />
+    $1, $2, … # command-line arguments</p>
+
+<p>E.g. check whether a word is in the dictionary</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./isItAWord hello
+
+#!/bin/bash
+
+egrep "^$1$" /usr/share/dict/words # prints the word if found, prints nothing if not
+</code></pre>
+</div>
+
+<p>E.g. a good password is not in the dictionary</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>egrep "^$1$"/usr/share/dict/words &gt; /dev/null # to black hole, suppress output
+# we could store the out in a variable
+x=$egrep ...
+</code></pre>
+</div>
+
+<p>Note: every program returns a status code when finished: egrep returns 0 if found, 1 if not found (general convention in UNIX: 0 means success, non-0 means failure)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$? # status of the most recently executed command
+
+if [ $? -eq 0]; then # the first square bracket is the name of a program, and what's inside the square brackets are its arguments
+    echo Bad password
+else 
+    echo Maybe a good password
+fi
+</code></pre>
+</div>
+
+<p>We want to verify that the user has inputted the correct number of arguments, and print a usage message if it’s wrong</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+usage<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">"usage: </span><span class="nv">$0</span><span class="s2"> password"</span> <span class="c"># $0 is the name of the script/program as it was typed</span>
+<span class="o">}</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-ne 1 <span class="o">]</span>; <span class="k">then</span> <span class="c"># $# is the number of arguments</span>
+    usage
+    <span class="nb">exit </span>1
+<span class="k">fi
+
+</span>egrep ... <span class="c"># as established above</span>
+</code></pre>
+</div>
+
+<p>Now this is a good program that can also check if the input is valid.</p>
+
+<p>The general structure of conditional statements is as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if [ cond ]; then
+    ...
+elif [ cond ]; then
+    ...
+else
+    ...
+fi
+</code></pre>
+</div>
+
+<p>Comparisons to other conditions: Check the Linux reference sheet</p>
+
+<p><strong>Loops</strong></p>
+
+<p>Loops: print the numbers from 1 to $1</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">x</span><span class="o">=</span>1
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$x</span> -le <span class="nv">$1</span> <span class="o">]</span>, <span class="k">do
+    </span><span class="nb">echo</span> <span class="nv">$x</span>
+    <span class="nv">x</span><span class="o">=</span><span class="k">$((</span>x+1<span class="k">))</span> <span class="c"># $(()) for arithmetic</span>
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<p>Looping over a list, e.g. rename all .cpp to .cc</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="k">for </span>name <span class="k">in</span> <span class="k">*</span>.cpp; <span class="k">do</span> <span class="c"># for ... in sets the variable to each word in the given list</span>
+    mv <span class="k">${</span><span class="nv">name</span><span class="k">}</span> <span class="k">${</span><span class="nv">name</span><span class="p">%cpp</span><span class="k">}</span>cc <span class="c"># value of name, without trailing cpp</span>
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<p>e.g. how many times does word $1 occur in the file $2?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">x</span><span class="o">=</span>0
+<span class="k">for </span>word <span class="k">in</span> <span class="k">$(</span>cat <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span><span class="k">)</span>; <span class="k">do</span> <span class="c">#good idea - enclose vars in double quotes, prevent bad input</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$word</span> <span class="o">==</span> <span class="nv">$1</span> <span class="o">]</span>; <span class="k">then</span> <span class="c">#String equality == instead of -eq</span>
+        <span class="nv">x</span><span class="o">=</span><span class="k">$((</span>x+1<span class="k">))</span>
+    <span class="k">fi
+done
+</span><span class="nb">echo</span> <span class="nv">$x</span>
+</code></pre>
+</div>
+
+<p>e.g. Payday is the last Friday of the month. When is this month’s payday?</p>
+
+<p>2 tasks here: compute date and fomat the answer</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cal | awk '{print $6}' | egrep "[0-9]" | tail -1
+</code></pre>
+</div>
 
   </div>
 

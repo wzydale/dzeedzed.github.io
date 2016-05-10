@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 May 2016 21:08:17 -0400</pubDate>
-    <lastBuildDate>Mon, 09 May 2016 21:08:17 -0400</lastBuildDate>
+    <pubDate>Tue, 10 May 2016 16:20:11 -0400</pubDate>
+    <lastBuildDate>Tue, 10 May 2016 16:20:11 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -1170,6 +1170,171 @@ egrep &lt;span class=&quot;s2&quot;&gt;&quot;^&lt;/span&gt;&lt;span class=&quot;
 
 &lt;p&gt;In bash, the pound symbol (#) starts a comment.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-10-2016---lecture-3&quot;&gt;May 10, 2016 - Lecture 3&lt;/h2&gt;
+
+&lt;p&gt;Review:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep pattern file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;prints all lines in file that contain a match to pattern&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell Scripts Review&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash  #&quot;Shebang line&quot;  &lt;/span&gt;
+date  
+whoami  
+&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To run the script in the current directory:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./myscript
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Variables&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x=1 #NO SPACES  
+echo $x #Use $ when fetching the value of a variable
+# No $ when setting a var ($ = &quot;fetch the value of&quot;)
+# Good practice: ${x} - brace brackets, good style
+# All vars contain strings, e.g. x is the STRING 1, not the number/int
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;E.g.&lt;br /&gt;
+    dir = ~/cs246
+    echo ${dir}
+    /u/bmlushma/cs246 # get the absolute path
+    ls ${dir} # contents of cs246&lt;/p&gt;
+
+&lt;p&gt;There are some global variables:&lt;br /&gt;
+    env # environment variables
+    echo ${PATH} # list of directories (where the shell looks for programs)&lt;/p&gt;
+
+&lt;p&gt;When you type a command, the shell searches the list in order for a matching program.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo * # prints all files in the current directory
+echo &quot;*&quot; - suppresses globbing pattern
+echo &#39;*&#39; - suppresses globbing pattern
+echo &quot;$PATH&quot; # expands the quotes, $-expansion happens
+echo &#39;$PATH&#39; # absolutely literally
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Special Variables for Scripts&lt;/strong&gt;&lt;br /&gt;
+    $1, $2, … # command-line arguments&lt;/p&gt;
+
+&lt;p&gt;E.g. check whether a word is in the dictionary&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./isItAWord hello
+
+#!/bin/bash
+
+egrep &quot;^$1$&quot; /usr/share/dict/words # prints the word if found, prints nothing if not
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;E.g. a good password is not in the dictionary&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;egrep &quot;^$1$&quot;/usr/share/dict/words &amp;gt; /dev/null # to black hole, suppress output
+# we could store the out in a variable
+x=$egrep ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Note: every program returns a status code when finished: egrep returns 0 if found, 1 if not found (general convention in UNIX: 0 means success, non-0 means failure)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$? # status of the most recently executed command
+
+if [ $? -eq 0]; then # the first square bracket is the name of a program, and what&#39;s inside the square brackets are its arguments
+    echo Bad password
+else 
+    echo Maybe a good password
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We want to verify that the user has inputted the correct number of arguments, and print a usage message if it’s wrong&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+usage&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;usage: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$0&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; password&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# $0 is the name of the script/program as it was typed&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;-ne 1 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# $# is the number of arguments&lt;/span&gt;
+    usage
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;egrep ... &lt;span class=&quot;c&quot;&gt;# as established above&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now this is a good program that can also check if the input is valid.&lt;/p&gt;
+
+&lt;p&gt;The general structure of conditional statements is as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if [ cond ]; then
+    ...
+elif [ cond ]; then
+    ...
+else
+    ...
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Comparisons to other conditions: Check the Linux reference sheet&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Loops&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Loops: print the numbers from 1 to $1&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt; -le &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, &lt;span class=&quot;k&quot;&gt;do
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;x+1&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# $(()) for arithmetic&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Looping over a list, e.g. rename all .cpp to .cc&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;name &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.cpp; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# for ... in sets the variable to each word in the given list&lt;/span&gt;
+    mv &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%cpp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;cc &lt;span class=&quot;c&quot;&gt;# value of name, without trailing cpp&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;e.g. how many times does word $1 occur in the file $2?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;word &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;cat &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#good idea - enclose vars in double quotes, prevent bad input&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#String equality == instead of -eq&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;x+1&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi
+done
+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$x&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;e.g. Payday is the last Friday of the month. When is this month’s payday?&lt;/p&gt;
+
+&lt;p&gt;2 tasks here: compute date and fomat the answer&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cal | awk &#39;{print $6}&#39; | egrep &quot;[0-9]&quot; | tail -1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
@@ -1469,6 +1634,91 @@ E.g. property P, number k&lt;/li&gt;
 &lt;h2 id=&quot;may-6-2016---tutorial-1&quot;&gt;May 6, 2016 - Tutorial 1&lt;/h2&gt;
 
 &lt;p&gt;A few exercises of truth tables, translations, and structural induction:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;my-10-2016---lecture-3&quot;&gt;My 10, 2016 - Lecture 3&lt;/h2&gt;
+
+&lt;h2 id=&quot;induction-continued&quot;&gt;Induction Continued&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;structural induction (proving facts about formulae)
+    &lt;ul&gt;
+      &lt;li&gt;prove unique readbility&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;equivalence (semantic)&lt;/li&gt;
+  &lt;li&gt;entailment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: The negation of an atomic proposition is no longer an atomic proposition.&lt;/p&gt;
+
+&lt;h2 id=&quot;structural-induction&quot;&gt;Structural Induction&lt;/h2&gt;
+
+&lt;p&gt;A formula (anything built according to the inductive definition of a formula (4 rules)) is not a natural number, but it suffices to prove any one of the following:
+    + For every natural number n, every formula with n or fewer &lt;strong&gt;symbols&lt;/strong&gt; has property P
+    + For every natural number n, every formula with n or fewer &lt;strong&gt;connectives&lt;/strong&gt; has property P&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem (Principle of Structural Induction): Let R be a property. Suppose that&lt;br /&gt;
+    1. For each atomic formula p, we have R(p)&lt;br /&gt;
+    2. For each formula phi, if R(phi) then R((not phi))&lt;br /&gt;
+    3. For each pair of formulae phi and eta, and each connective *, if R(phi) and R(eta) then R((phi * eta))&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Then R(phi) for every formula phi.&lt;/p&gt;
+
+&lt;p&gt;It is a special case of mathematical induction.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;br /&gt;
+&lt;strong&gt;Lemma: Every well-formed formula has an equal number of left and right parentheses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Proof: Use structural induction. The property to prove is R(phi): phi has an equal number of left and right parentheses for every formula phi&lt;/p&gt;
+
+&lt;p&gt;Base case: phi is an atom. phi has no parentheses - only a propositional variable. Thus R(phi) holds.&lt;/p&gt;
+
+&lt;p&gt;IH: Formulae phi and eta both have property R.&lt;/p&gt;
+
+&lt;p&gt;IS: We need to prove each of the formulae (not phi), (phi ^ eta), (phi v eta), (phi -&amp;gt; eta) and (phi &amp;lt;-&amp;gt; eta). WLOG, consider (phi ^ eta)&lt;/p&gt;
+
+&lt;p&gt;Notation: For any formula zeta, let op(zeta) denote the number of ‘(‘ in zeta, and let cl(zeta) denote the number of ‘)’ in zeta.&lt;/p&gt;
+
+&lt;p&gt;We calculate&lt;br /&gt;
+op((phi ^ eta)) = 1 + op(phi) + op(eta)
+= 1 + cl(phi) + cl(eta) (R(phi) and R(eta))
+= cl((phi ^ eta))&lt;/p&gt;
+
+&lt;p&gt;(Also prove the unary NOT case)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unique Readability Proof&lt;/strong&gt;&lt;br /&gt;
+Theorem: Every formula is exactly one of the six kinds, and in each case it is of that form in &lt;strong&gt;exactly one&lt;/strong&gt; way.&lt;/p&gt;
+
+&lt;p&gt;Proof:&lt;br /&gt;
+Add in more stuff to the proof (1. the first symbol of phi is either ‘(‘ or a variable; 2. phi has an equal number of ‘(‘ and ‘)’, and each proper prefix of phi has more ‘(‘ than ‘)’  (parentheses are balanced))&lt;/p&gt;
+
+&lt;p&gt;A proper prefix of phi is a non-empty expression x such that phi is xy for some non-empty expression y.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Property P(n):&lt;/strong&gt; 1, 2, and 3. phi has unique construction as a formula, which is what we are trying to prove here.&lt;/p&gt;
+
+&lt;p&gt;Aside: To Show x is unique:&lt;br /&gt;
+1) Let x’ have same properties as x&lt;br /&gt;
+2) Prove x’ = x&lt;/p&gt;
+
+&lt;p&gt;Let phi be an arbitrary formula. We prove for any natural number n, every formula phi&lt;/p&gt;
+
+&lt;p&gt;Base cases:&lt;br /&gt;
+Case 1: k=0 binary connective symbols. We prove by induction on the number of unary connective symbols (i.e. NOT) in phi
+    + Base (0 NOTs): the only possibility is phi = p, for some propositional variable p. Then phi has properties 1, 2, 3 (thus R) (2. No proper prefixes)
+    + IH: (&amp;gt; 0 NOTs):&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tautology, Contradiction, and Satisfiable&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A formula alpha is a &lt;strong&gt;tautology&lt;/strong&gt; iff for every truth eval t, alpha&lt;sup&gt;t&lt;/sup&gt; = T. Evaluates to true under any circumstances.&lt;/p&gt;
+
+&lt;p&gt;A formula alpha is a &lt;strong&gt;contradiction&lt;/strong&gt; (aka unsatisifiable) iff for every truth eval t, alpha&lt;sup&gt;t&lt;/sup&gt; = F. Evaluates to false under any circumstances.&lt;br /&gt;
+E.g. p ^ NOT p&lt;/p&gt;
+
+&lt;p&gt;A formula alpha is a &lt;strong&gt;satisfiable&lt;/strong&gt; iff it is not a contradiction. Evaluates to at least one true under all circumstances.&lt;/p&gt;
+
+&lt;p&gt;How to prove that a formula is a tautology? One method is to fill out a truth table. Can we do better? We can analyze what would happen if we did. We can use a &lt;strong&gt;valuation tree&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>

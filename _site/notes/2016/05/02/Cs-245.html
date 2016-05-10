@@ -491,6 +491,91 @@ E.g. property P, number k</li>
 
 <p>A few exercises of truth tables, translations, and structural induction:</p>
 
+<p><br /></p>
+
+<h2 id="my-10-2016---lecture-3">My 10, 2016 - Lecture 3</h2>
+
+<h2 id="induction-continued">Induction Continued</h2>
+
+<ul>
+  <li>structural induction (proving facts about formulae)
+    <ul>
+      <li>prove unique readbility</li>
+    </ul>
+  </li>
+  <li>equivalence (semantic)</li>
+  <li>entailment</li>
+</ul>
+
+<p>Note: The negation of an atomic proposition is no longer an atomic proposition.</p>
+
+<h2 id="structural-induction">Structural Induction</h2>
+
+<p>A formula (anything built according to the inductive definition of a formula (4 rules)) is not a natural number, but it suffices to prove any one of the following:
+    + For every natural number n, every formula with n or fewer <strong>symbols</strong> has property P
+    + For every natural number n, every formula with n or fewer <strong>connectives</strong> has property P</p>
+
+<p><strong>Theorem (Principle of Structural Induction): Let R be a property. Suppose that<br />
+    1. For each atomic formula p, we have R(p)<br />
+    2. For each formula phi, if R(phi) then R((not phi))<br />
+    3. For each pair of formulae phi and eta, and each connective *, if R(phi) and R(eta) then R((phi * eta))</strong></p>
+
+<p>Then R(phi) for every formula phi.</p>
+
+<p>It is a special case of mathematical induction.</p>
+
+<p>Example:<br />
+<strong>Lemma: Every well-formed formula has an equal number of left and right parentheses</strong></p>
+
+<p>Proof: Use structural induction. The property to prove is R(phi): phi has an equal number of left and right parentheses for every formula phi</p>
+
+<p>Base case: phi is an atom. phi has no parentheses - only a propositional variable. Thus R(phi) holds.</p>
+
+<p>IH: Formulae phi and eta both have property R.</p>
+
+<p>IS: We need to prove each of the formulae (not phi), (phi ^ eta), (phi v eta), (phi -&gt; eta) and (phi &lt;-&gt; eta). WLOG, consider (phi ^ eta)</p>
+
+<p>Notation: For any formula zeta, let op(zeta) denote the number of ‘(‘ in zeta, and let cl(zeta) denote the number of ‘)’ in zeta.</p>
+
+<p>We calculate<br />
+op((phi ^ eta)) = 1 + op(phi) + op(eta)
+= 1 + cl(phi) + cl(eta) (R(phi) and R(eta))
+= cl((phi ^ eta))</p>
+
+<p>(Also prove the unary NOT case)</p>
+
+<p><strong>Unique Readability Proof</strong><br />
+Theorem: Every formula is exactly one of the six kinds, and in each case it is of that form in <strong>exactly one</strong> way.</p>
+
+<p>Proof:<br />
+Add in more stuff to the proof (1. the first symbol of phi is either ‘(‘ or a variable; 2. phi has an equal number of ‘(‘ and ‘)’, and each proper prefix of phi has more ‘(‘ than ‘)’  (parentheses are balanced))</p>
+
+<p>A proper prefix of phi is a non-empty expression x such that phi is xy for some non-empty expression y.</p>
+
+<p><strong>Property P(n):</strong> 1, 2, and 3. phi has unique construction as a formula, which is what we are trying to prove here.</p>
+
+<p>Aside: To Show x is unique:<br />
+1) Let x’ have same properties as x<br />
+2) Prove x’ = x</p>
+
+<p>Let phi be an arbitrary formula. We prove for any natural number n, every formula phi</p>
+
+<p>Base cases:<br />
+Case 1: k=0 binary connective symbols. We prove by induction on the number of unary connective symbols (i.e. NOT) in phi
+    + Base (0 NOTs): the only possibility is phi = p, for some propositional variable p. Then phi has properties 1, 2, 3 (thus R) (2. No proper prefixes)
+    + IH: (&gt; 0 NOTs):</p>
+
+<p><strong>Tautology, Contradiction, and Satisfiable</strong></p>
+
+<p>A formula alpha is a <strong>tautology</strong> iff for every truth eval t, alpha<sup>t</sup> = T. Evaluates to true under any circumstances.</p>
+
+<p>A formula alpha is a <strong>contradiction</strong> (aka unsatisifiable) iff for every truth eval t, alpha<sup>t</sup> = F. Evaluates to false under any circumstances.<br />
+E.g. p ^ NOT p</p>
+
+<p>A formula alpha is a <strong>satisfiable</strong> iff it is not a contradiction. Evaluates to at least one true under all circumstances.</p>
+
+<p>How to prove that a formula is a tautology? One method is to fill out a truth table. Can we do better? We can analyze what would happen if we did. We can use a <strong>valuation tree</strong></p>
+
 
   </div>
 
