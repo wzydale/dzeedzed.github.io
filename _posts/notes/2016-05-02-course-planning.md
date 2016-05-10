@@ -33,7 +33,7 @@ CS 370 - Numerical Computation
 4A - Winter 2019
 ---
 CS 456 - Computer Networks  
-CS 343 - Concurrent and Parallel Programming
+CS 343 - Concurrent and Parallel Programming  
 CS 485 - Machine Learning: Statistical and Computational Foundations  
 
 

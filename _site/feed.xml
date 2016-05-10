@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 May 2016 15:45:11 -0400</pubDate>
-    <lastBuildDate>Mon, 09 May 2016 15:45:11 -0400</lastBuildDate>
+    <pubDate>Mon, 09 May 2016 21:08:17 -0400</pubDate>
+    <lastBuildDate>Mon, 09 May 2016 21:08:17 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -54,7 +54,7 @@ CS 370 - Numerical Computation&lt;/p&gt;
 
 &lt;h2 id=&quot;a---winter-2019&quot;&gt;4A - Winter 2019&lt;/h2&gt;
 &lt;p&gt;CS 456 - Computer Networks&lt;br /&gt;
-CS 343 - Concurrent and Parallel Programming
+CS 343 - Concurrent and Parallel Programming&lt;br /&gt;
 CS 485 - Machine Learning: Statistical and Computational Foundations&lt;/p&gt;
 
 &lt;h2 id=&quot;b---winter-2020&quot;&gt;4B - Winter 2020&lt;/h2&gt;
@@ -477,6 +477,107 @@ Mind = internal states and processes, such as thoughts and feelings&lt;/p&gt;
 
 &lt;h2 id=&quot;may-9-2016---lecture-2&quot;&gt;May 9, 2016 - Lecture 2&lt;/h2&gt;
 
+&lt;h1 id=&quot;the-socialcultural-perspective&quot;&gt;The Socialcultural Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Examines how the social environment and culturla learning influence our behaviour, thoughts, and feelings&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Social Psychology Component&lt;/strong&gt; - how the presence of other people influence our behaviour, thoughts, and feelings&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cultural Component&lt;/strong&gt; - Enduring values, beliefs, behavious, and traditions that are shared by a large group of people and passed from one generation to the next Ex. Individualism vs. Collectivism&lt;/li&gt;
+  &lt;li&gt;Asch Experiment - influence the presence of others will have on our decision-making (conformity)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;the-biological-perspective&quot;&gt;The Biological Perspective&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Examines how brain processes and other bodily functions regulate behaviour&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Behavioural Neuroscience&lt;/strong&gt; - examines brain processes and other physiological functions that underlie our behaviours, sensory experiences, emotions, and thoughts&lt;/li&gt;
+  &lt;li&gt;Notable figures: Lashley, Scoville, Milner, Hebb&lt;/li&gt;
+  &lt;li&gt;Most famous person: patient H.M. (memory loss)
+    &lt;ul&gt;
+      &lt;li&gt;to alleviate seizures related to epilepsy, had brain surgery&lt;/li&gt;
+      &lt;li&gt;no more seizures, but caused him to have amnesia (wasn’t able to create new memories)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Another example: Capgras Syndrome&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;chapter-2---studying-behaviour-scientifically&quot;&gt;Chapter 2 - Studying Behaviour Scientifically&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Scientific attitudes&lt;/li&gt;
+  &lt;li&gt;Scientific process&lt;/li&gt;
+  &lt;li&gt;Types of variables&lt;/li&gt;
+  &lt;li&gt;Correlational research&lt;/li&gt;
+  &lt;li&gt;Experimental research&lt;/li&gt;
+  &lt;li&gt;Statistics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Scientific Attitudes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kitty Genovese Murder (1964) - Bystander Apathy&lt;/li&gt;
+  &lt;li&gt;Darley &amp;amp; Latane: Why would nobody call the police? Was there something more going on here?&lt;/li&gt;
+  &lt;li&gt;Darley &amp;amp; Latane:
+    &lt;ul&gt;
+      &lt;li&gt;Rather than apaty, perhaps it was “diffusion of responsibility”&lt;/li&gt;
+      &lt;li&gt;Created an if-then question&lt;/li&gt;
+      &lt;li&gt;In an emergency, IF multiple bystanders are present, THEN the likelihood that any one bystander will intervene is reduced&lt;/li&gt;
+      &lt;li&gt;They designed an experiment to test their hypothesis&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Correlational Method&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Study relationships between variables&lt;/li&gt;
+  &lt;li&gt;Variable: anything that can be measured&lt;/li&gt;
+  &lt;li&gt;E.g. more smokes, more cancer; higher IQ, more money&lt;/li&gt;
+  &lt;li&gt;Relationship between variables is shown by a statistic, the &lt;strong&gt;correlation coefficient (r)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;r can be anything between -1.0 and +1.0 (STAT 231 amirite)&lt;/li&gt;
+  &lt;li&gt;Examples: marijuana and GPA; marijuana and junk food consumption; GPA and height&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods of Research&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Correlational Research&lt;/li&gt;
+  &lt;li&gt;Experimental&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Case Studies&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;An in-depth analysis of an individual a group, or an event&lt;/li&gt;
+  &lt;li&gt;Data may be gathered through observation, interviews, psychological tests, task performances, physiological recordings, or archival records&lt;/li&gt;
+  &lt;li&gt;Examples of key case studies: H.M., Phineas Gage&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Advantages:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Allows for the study of rare phenomenon&lt;/li&gt;
+      &lt;li&gt;A case study may challenge the validity of a theory or a widely held scientific belief&lt;/li&gt;
+      &lt;li&gt;Can be a source of new ideas and hypotheses that can be further investigated through controlled experiments&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Not just people, events as well&lt;/li&gt;
+  &lt;li&gt;Examples: Flashbulb memories (Assassination of JFK, the Callenger Explosion, Death of Diana, 9/11)&lt;/li&gt;
+  &lt;li&gt;Monumental events that impact a large group of people&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Limitations&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Poor method for determining “cause-effect”&lt;/li&gt;
+      &lt;li&gt;Case studies may not generalize to other people’s situations&lt;/li&gt;
+      &lt;li&gt;Observers may not be objective in gathering and interpreting the data&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;We should be skeptical about case studies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Hemispheric lateralization&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Our brains have left and right cerebral hemispheres&lt;/li&gt;
+  &lt;li&gt;Left brain vs. Right brain&lt;/li&gt;
+  &lt;li&gt;Lateralization - refers to the relatively greater location of a function in one hemisphere or the other&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Psych-101.html</link>
