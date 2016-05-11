@@ -1,17 +1,215 @@
----
-layout: post
-title: STAT 231 - Statistics
-date: 2016-05-02 18:56:00 -0400
-categories: notes
----
+<!DOCTYPE html>
+<html>
 
-    STAT 231 - Statistics
+  <style>
+      p, ul {
+        font-size: 1.25rem;
+      }
+  </style>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+  <title>STAT 231 - Statistics</title>
+  <meta name="description" content="    STAT 231 - Statistics    Instructor: Surya Banerjee    Location: DC 1350    Time: Mondays and Wednesdays 2:30am - 3:50pm    Tutorials: DC 1351 Mondays 5:...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Stat-231.md.xW1852">
+  <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+  <body>
+
+    <!-- 
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/homepage.css" type="text/css" rel="stylesheet"/>
+  <link href="/css/genericons/genericons.css" type="text/css" rel="stylesheet"/>
+ -->
+<!-- <header class="site-header">
+
+    <nav class="white site-header" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="" class="brand-logo">Dadi "DZ" Zhang</a>
+
+        <ul class="right hide-on-med-and-down">       
+          
+            
+            <a class="page-link" href="/blog.html">Blog</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/dreamlist.html">Dream List</a>
+            
+          
+            
+          
+            
+            <a class="page-link" href="/gotutorials.html">Go Tutorials</a>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+            <a class="page-link" href="/notes.html">Notes</a>
+            
+          
+            
+            <a class="page-link" href="/projects.html">Projects</a>
+            
+          
+        </ul>
+      </div>
+    </nav>
+    
+</header> -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+<style>
+
+/* Fade */
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: black;
+  color: white;
+}
+
+.page-link {   
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 14px;
+    padding-left: 14px;
+    margin-left: -24.5px;
+    margin-right: -24.5px;
+}
+
+
+.site-title:hover {   
+    text-decoration: none;
+}
+
+.page-link:hover {
+    text-decoration: none;
+}
+
+.site-title {
+  font-family: "Liberation Serif", serif;
+  font-size: 2rem;
+}
+
+.trigger a {
+  font-family: "Liberation Serif", serif;
+}
+
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Dadi "D.Z." Zhang</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        
+
+      <div class="trigger">
+        
+          
+          <a class="page-link hvr-fade" href="/blog.html">Blog</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/dreamlist.html">Dream List</a>
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/gotutorials.html">Go Tutorials</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link hvr-fade" href="/notes.html">Notes</a>
+          
+        
+          
+          <a class="page-link hvr-fade" href="/projects.html">Projects</a>
+          
+        
+          <a class="page-link hvr-fade" href="/resume/resume.pdf">R&eacutesum&eacute</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">STAT 231 - Statistics</h1>
+    <p class="post-meta">
+    
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+        STAT 231 - Statistics
     Instructor: Surya Banerjee
     Location: DC 1350
     Time: Mondays and Wednesdays 2:30am - 3:50pm
     Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
     Term: Spring 2016
-
+    
 
 ## May 2, 2016 - Lecture 1 ##
 
@@ -25,7 +223,7 @@ MLB: Between 1901-1941, batters with BA .400+: 11. 1941 onwards: 0. Why? Use sta
 
 Kansas Weathermen: They are correct about whether it will rain the next day about 85% of the time. Good record, right? However, it only rains about 10% of the time in Kansas. So if I go to the weather broadcasting station and say "no rain tomorrow" and then go home, I will be statistically more accuarate that these meteorologists.
 
-Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin.
+Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin. 
 
 In STAT 231, we learn how to test claims and check for correlation and causation. How can we make the leap from correlation to causation? (Recommended reading: Freakanomics)
 
@@ -71,7 +269,7 @@ There are some properties of interest:
 
 Data set: {y<sub>1</sub>, y<sub>2</sub>,..., y<sub>n</sub>}
 
-**Sample Mean:**
+**Sample Mean:** 
 
 Property: The sum of the deviations of the observations from the sample mean is 0.
 
@@ -126,7 +324,7 @@ Eg. p=0.25, m = (n+1) * p, n is the number of observations
 __Mode__: Observation that occurs with the maximum frequency
 
 St.Petersburg's Paradox. We care about averages (expected values), but also risk. Variability is a very important property of a data set. E.g. Country A 0 0 0 1000 and Country B 250 250 250 250
-Goalie A 0 6 0 6 0 6 0 6 Goalie B 3 3 3 3 3 3 3
+Goalie A 0 6 0 6 0 6 0 6 Goalie B 3 3 3 3 3 3 3 
 
 Measures of Volatility
 ===
@@ -135,7 +333,7 @@ __Range__: Max - Min
 
 __Interquartile Range (IQR)__: IQR = Q3 - Q1
 
-__Sample Variance and Sample Standard Deviation__:
+__Sample Variance and Sample Standard Deviation__: 
 
 __Sample Variance__: s<sup>2</sup> = 1/(n-1) sigma (y<sub>i</sub> - y average)<sup>2</sup> is approximatey the average of the squared deviation from the mean
 
@@ -182,8 +380,8 @@ Objective: To figure out the shape of our sample
             + if > 0, right-skewed, mean greater than median  
             + if < 0, left-skewed, mean less than median  
             + if = 0, symmetric
-
-
+            
+        
 **Applications**  
 Gould: "The median is not the message"  
 "Abdominal mesothalamia": median of life expectancy after diagnosis = 8 months  
@@ -195,7 +393,7 @@ The actual distribution is right-skewed.
 **Kurtosis**  
 Kurtosis measure how frequent extreme observations are, with respect to the Normal Distribution.
 
-Kurtosis checks whether the data set has "fatter" tails compared to the Normal distribution.
+Kurtosis checks whether the data set has "fatter" tails compared to the Normal distribution. 
 
 Kurtosis: how much "peakedness" the graph has
 
@@ -216,11 +414,11 @@ Objective: To find whether there is any evidence of association between two vari
     + If R.R. > > 1 or < < 1, evidence of association
     + But how high is too high? UNANSWERED QUESTION
     + The table = Two Way Contingency Table
-
+    
 + Numerical Variables  
 How to find a measure of association between two numerical variables?
     + Sample Correlation Coefficient r<sub>xy</sub>: the sign of r tells us the direction of the relationship, and the value of r tells us the strength of the association/relationship
-
+    
 
 E.g.   
 x<sub>i</sub> = # of beers you drink  
@@ -228,7 +426,7 @@ y<sub>i</sub> = STAT 231 mark
 Collect a data set:  
 {x1, y1},...{xn, yn}
 
-So it is most likely that if xn - x average > 0, yn - y average < 0
+So it is most likely that if xn - x average > 0, yn - y average < 0 
 
 Thus, the numerator tells us the direction of the relationship. The denominator ensures that -1 <= r<sub>xy</sub> <= 1
 
@@ -256,72 +454,91 @@ May 11, 2016 - Lecture 4
 
 A note about TQ1 will be posted on LEARN tonight -> Up to today's material (Ignore the last question on the sample quiz)
 
-## Recap ##
-+ Centre -> Sample Mean
-+ Variability -> Variance, Standard Deviation  
-+ Symmetry -> Mean - Median
-+ Kurtosis -> Compare to Normal Distribution
-+ Correlation Coefficient: r<sub>xy</sub> measures association
 
-## Reasons why we care about Graphical Summaries ##
-+ To "identify" the distribution from which the data is drawn,
-+ To find the shape of the data set
 
-## The Five Number Summary ##
-+ Minimum
-+ Q1
-+ Q2
-+ Q3
-+ Maximum
 
-These five numbers provide the rough shape of the graph
+  </div>
 
-Correlation Coefficient measures the linear association between two variables
+</article>
 
-## Graphical Summary ##
-**Histogram**: Grouped Data
-Example: Group Freq (The cohorts are called bins)  
-**Frequency Histogram**: Frequency as y-axis, and bins as x-axis (Bar graph)  
-**Density Histogram**: x-axis = bins, y-axis = densities
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
 
-  + The length(height) of each rectangle in a density histogram is chosen such that the area of the rectangle is equal to the relative frequency of the bin
-  + To construct a density histogram:
-    Find the frequency and relative frequency for each bin; Relative Frequency = frequency for the bin / total frequency
+s.src = '//dzklavier.disqus.com/embed.js';
 
-The reason why we draw density histogram is that **we want to compare our data (shape of graph) with known density functions of distributions**  
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
 
-**Box Plot**: Box and Whiskers Plot
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  + Lower end of the box/rectangle -> Q1
-  + Upper end of the box/rectangle -> Q3
-  + The line inside the box -> Median = Q2
-  + The upper whisker goes up to the maximum of the data set, that is **NOT AN OUTLIER** (extreme observations; a data point y<sub>i</sub> is an outlier if y<sub>i</sub> > Q3 + 1.5IQR or y<sub>i</sub> < Q1 - 1.5IQR; Remember IQR = Q3-Q1); The upper whisker ends at the highest value of your data set that is lower than the outliers; We mark the outliers each and every one of them separately
-  + The lower whisker goes down to the minimum of the data set, that is not an outlier
-  + The Box Plot gives us the **Five Number Summary**
-  + Reading the Box Plot sideways gives the rough shape and the skewness of the distribution
+  ga('create', 'UA-77018906-1', 'auto');
+  ga('send', 'pageview');
 
-**Empirical cdf (Cumulative Distribution Function)**  
-Definition: F(y) = # of observations <= y / Total # of observations, and the plot (y, F(y)) is called the empirical cdf.
+</script> 
 
-{1, 3, 5, 5, 9}, F(0) = 0, F(1) = 0.2, F(3) = 0.4 ... the plot of a step function
 
-  + We can find a lot of info from the empirical cdf
-  + F(median) = 1/2, we can identify any percentile
-  + The number with the biggest jump vertically on the graph is the mode of this data set
+    <footer class="site-footer">
 
-**Q-Q Plot**  
-We want to check whether our data set "resembles" a Normal Distribution. The Q-Q plot plots the alpha-th quantile of your sample to the alpha-th quantile of Z Distribution ~N(0, 1); Plots two quantiles: Sample quantiles against the theoretical quantiles
+  <style>
+    .footer-col-3 p, .contact-list {
+      font-size: 1rem;
+    } 
+  </style>
 
-{1, 2, 7, ..., 155}
+  <div class="wrapper">
 
-Z(alpha) on the x-axis, y(alpha) on the y-axis. 0 = median and mean of Z
 
-If the Q-Q Plot is a straight line, then the data resembles the Normal Distribution Z
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list social-media-list">
+          <li>Dadi "D.Z." Zhang</li>
+          <li><a href="mailto:d236zhan@uwaterloo.ca">d236zhan@uwaterloo.ca</a></li>
+          
+          <li>
+            <a href="https://github.com/dzeedzed"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">dzeedzed</span></a>
 
-Q: If we have a distribution that is normal, how do we prove that it will have a straight line Q-Q plot?  
-That is, y~N(mu, sigma^2), the Q-Q plot will be a straight line
+          </li>
+          
+        </ul>
+      </div>
 
-Proof:?
+      <div class="footer-col footer-col-2">
+        
+      </div>
 
-**Scatter Plot**  
-Scatter Plot checks for association. Just plot (xi, yi).
+      <div class="footer-col footer-col-3">
+        <p>Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

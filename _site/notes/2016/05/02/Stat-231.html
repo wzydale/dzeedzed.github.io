@@ -480,6 +480,93 @@ Collect a data set:<br />
 + Scatter Plot<br />
 + Q-Q Plot</p>
 
+<p><br /></p>
+
+<h2 id="may-11-2016---lecture-4">May 11, 2016 - Lecture 4</h2>
+
+<p>A note about TQ1 will be posted on LEARN tonight -&gt; Up to today’s material (Ignore the last question on the sample quiz)</p>
+
+<h2 id="recap">Recap</h2>
+<ul>
+  <li>Centre -&gt; Sample Mean</li>
+  <li>Variability -&gt; Variance, Standard Deviation</li>
+  <li>Symmetry -&gt; Mean - Median</li>
+  <li>Kurtosis -&gt; Compare to Normal Distribution</li>
+  <li>Correlation Coefficient: r<sub>xy</sub> measures association</li>
+</ul>
+
+<h2 id="reasons-why-we-care-about-graphical-summaries">Reasons why we care about Graphical Summaries</h2>
+<ul>
+  <li>To “identify” the distribution from which the data is drawn,</li>
+  <li>To find the shape of the data set</li>
+</ul>
+
+<h2 id="the-five-number-summary">The Five Number Summary</h2>
+<ul>
+  <li>Minimum</li>
+  <li>Q1</li>
+  <li>Q2</li>
+  <li>Q3</li>
+  <li>Maximum</li>
+</ul>
+
+<p>These five numbers provide the rough shape of the graph</p>
+
+<p>Correlation Coefficient measures the linear association between two variables</p>
+
+<h2 id="graphical-summary">Graphical Summary</h2>
+<p><strong>Histogram</strong>: Grouped Data
+Example: Group Freq (The cohorts are called bins)<br />
+<strong>Frequency Histogram</strong>: Frequency as y-axis, and bins as x-axis (Bar graph)<br />
+<strong>Density Histogram</strong>: x-axis = bins, y-axis = densities</p>
+
+<ul>
+  <li>The length(height) of each rectangle in a density histogram is chosen such that the area of the rectangle is equal to the relative frequency of the bin</li>
+  <li>To construct a density histogram:
+Find the frequency and relative frequency for each bin; Relative Frequency = frequency for the bin / total frequency</li>
+</ul>
+
+<p>The reason why we draw density histogram is that <strong>we want to compare our data (shape of graph) with known density functions of distributions</strong></p>
+
+<p><strong>Box Plot</strong>: Box and Whiskers Plot</p>
+
+<ul>
+  <li>Lower end of the box/rectangle -&gt; Q1</li>
+  <li>Upper end of the box/rectangle -&gt; Q3</li>
+  <li>The line inside the box -&gt; Median = Q2</li>
+  <li>The upper whisker goes up to the maximum of the data set, that is <strong>NOT AN OUTLIER</strong> (extreme observations; a data point y<sub>i</sub> is an outlier if y<sub>i</sub> &gt; Q3 + 1.5IQR or y<sub>i</sub> &lt; Q1 - 1.5IQR; Remember IQR = Q3-Q1); The upper whisker ends at the highest value of your data set that is lower than the outliers; We mark the outliers each and every one of them separately</li>
+  <li>The lower whisker goes down to the minimum of the data set, that is not an outlier</li>
+  <li>The Box Plot gives us the <strong>Five Number Summary</strong></li>
+  <li>Reading the Box Plot sideways gives the rough shape and the skewness of the distribution</li>
+</ul>
+
+<p><strong>Empirical cdf (Cumulative Distribution Function)</strong><br />
+Definition: F(y) = # of observations &lt;= y / Total # of observations, and the plot (y, F(y)) is called the empirical cdf.</p>
+
+<p>{1, 3, 5, 5, 9}, F(0) = 0, F(1) = 0.2, F(3) = 0.4 … the plot of a step function</p>
+
+<ul>
+  <li>We can find a lot of info from the empirical cdf</li>
+  <li>F(median) = 1/2, we can identify any percentile</li>
+  <li>The number with the biggest jump vertically on the graph is the mode of this data set</li>
+</ul>
+
+<p><strong>Q-Q Plot</strong><br />
+We want to check whether our data set “resembles” a Normal Distribution. The Q-Q plot plots the alpha-th quantile of your sample to the alpha-th quantile of Z Distribution ~N(0, 1); Plots two quantiles: Sample quantiles against the theoretical quantiles</p>
+
+<p>{1, 2, 7, …, 155}</p>
+
+<p>Z(alpha) on the x-axis, y(alpha) on the y-axis. 0 = median and mean of Z</p>
+
+<p>If the Q-Q Plot is a straight line, then the data resembles the Normal Distribution Z</p>
+
+<p>Q: If we have a distribution that is normal, how do we prove that it will have a straight line Q-Q plot?<br />
+That is, y~N(mu, sigma^2), the Q-Q plot will be a straight line</p>
+
+<p>Proof:?</p>
+
+<p><strong>Scatter Plot</strong><br />
+Scatter Plot checks for association. Just plot (xi, yi).</p>
 
   </div>
 

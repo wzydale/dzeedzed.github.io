@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 May 2016 16:20:11 -0400</pubDate>
-    <lastBuildDate>Tue, 10 May 2016 16:20:11 -0400</lastBuildDate>
+    <pubDate>Wed, 11 May 2016 15:45:32 -0400</pubDate>
+    <lastBuildDate>Wed, 11 May 2016 15:45:32 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -350,6 +350,93 @@ Collect a data set:&lt;br /&gt;
 + Scatter Plot&lt;br /&gt;
 + Q-Q Plot&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-11-2016---lecture-4&quot;&gt;May 11, 2016 - Lecture 4&lt;/h2&gt;
+
+&lt;p&gt;A note about TQ1 will be posted on LEARN tonight -&amp;gt; Up to today’s material (Ignore the last question on the sample quiz)&lt;/p&gt;
+
+&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Centre -&amp;gt; Sample Mean&lt;/li&gt;
+  &lt;li&gt;Variability -&amp;gt; Variance, Standard Deviation&lt;/li&gt;
+  &lt;li&gt;Symmetry -&amp;gt; Mean - Median&lt;/li&gt;
+  &lt;li&gt;Kurtosis -&amp;gt; Compare to Normal Distribution&lt;/li&gt;
+  &lt;li&gt;Correlation Coefficient: r&lt;sub&gt;xy&lt;/sub&gt; measures association&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reasons-why-we-care-about-graphical-summaries&quot;&gt;Reasons why we care about Graphical Summaries&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;To “identify” the distribution from which the data is drawn,&lt;/li&gt;
+  &lt;li&gt;To find the shape of the data set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-five-number-summary&quot;&gt;The Five Number Summary&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Minimum&lt;/li&gt;
+  &lt;li&gt;Q1&lt;/li&gt;
+  &lt;li&gt;Q2&lt;/li&gt;
+  &lt;li&gt;Q3&lt;/li&gt;
+  &lt;li&gt;Maximum&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These five numbers provide the rough shape of the graph&lt;/p&gt;
+
+&lt;p&gt;Correlation Coefficient measures the linear association between two variables&lt;/p&gt;
+
+&lt;h2 id=&quot;graphical-summary&quot;&gt;Graphical Summary&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Grouped Data
+Example: Group Freq (The cohorts are called bins)&lt;br /&gt;
+&lt;strong&gt;Frequency Histogram&lt;/strong&gt;: Frequency as y-axis, and bins as x-axis (Bar graph)&lt;br /&gt;
+&lt;strong&gt;Density Histogram&lt;/strong&gt;: x-axis = bins, y-axis = densities&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The length(height) of each rectangle in a density histogram is chosen such that the area of the rectangle is equal to the relative frequency of the bin&lt;/li&gt;
+  &lt;li&gt;To construct a density histogram:
+Find the frequency and relative frequency for each bin; Relative Frequency = frequency for the bin / total frequency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The reason why we draw density histogram is that &lt;strong&gt;we want to compare our data (shape of graph) with known density functions of distributions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Box Plot&lt;/strong&gt;: Box and Whiskers Plot&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lower end of the box/rectangle -&amp;gt; Q1&lt;/li&gt;
+  &lt;li&gt;Upper end of the box/rectangle -&amp;gt; Q3&lt;/li&gt;
+  &lt;li&gt;The line inside the box -&amp;gt; Median = Q2&lt;/li&gt;
+  &lt;li&gt;The upper whisker goes up to the maximum of the data set, that is &lt;strong&gt;NOT AN OUTLIER&lt;/strong&gt; (extreme observations; a data point y&lt;sub&gt;i&lt;/sub&gt; is an outlier if y&lt;sub&gt;i&lt;/sub&gt; &amp;gt; Q3 + 1.5IQR or y&lt;sub&gt;i&lt;/sub&gt; &amp;lt; Q1 - 1.5IQR; Remember IQR = Q3-Q1); The upper whisker ends at the highest value of your data set that is lower than the outliers; We mark the outliers each and every one of them separately&lt;/li&gt;
+  &lt;li&gt;The lower whisker goes down to the minimum of the data set, that is not an outlier&lt;/li&gt;
+  &lt;li&gt;The Box Plot gives us the &lt;strong&gt;Five Number Summary&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Reading the Box Plot sideways gives the rough shape and the skewness of the distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Empirical cdf (Cumulative Distribution Function)&lt;/strong&gt;&lt;br /&gt;
+Definition: F(y) = # of observations &amp;lt;= y / Total # of observations, and the plot (y, F(y)) is called the empirical cdf.&lt;/p&gt;
+
+&lt;p&gt;{1, 3, 5, 5, 9}, F(0) = 0, F(1) = 0.2, F(3) = 0.4 … the plot of a step function&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can find a lot of info from the empirical cdf&lt;/li&gt;
+  &lt;li&gt;F(median) = 1/2, we can identify any percentile&lt;/li&gt;
+  &lt;li&gt;The number with the biggest jump vertically on the graph is the mode of this data set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Q-Q Plot&lt;/strong&gt;&lt;br /&gt;
+We want to check whether our data set “resembles” a Normal Distribution. The Q-Q plot plots the alpha-th quantile of your sample to the alpha-th quantile of Z Distribution ~N(0, 1); Plots two quantiles: Sample quantiles against the theoretical quantiles&lt;/p&gt;
+
+&lt;p&gt;{1, 2, 7, …, 155}&lt;/p&gt;
+
+&lt;p&gt;Z(alpha) on the x-axis, y(alpha) on the y-axis. 0 = median and mean of Z&lt;/p&gt;
+
+&lt;p&gt;If the Q-Q Plot is a straight line, then the data resembles the Normal Distribution Z&lt;/p&gt;
+
+&lt;p&gt;Q: If we have a distribution that is normal, how do we prove that it will have a straight line Q-Q plot?&lt;br /&gt;
+That is, y~N(mu, sigma^2), the Q-Q plot will be a straight line&lt;/p&gt;
+
+&lt;p&gt;Proof:?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scatter Plot&lt;/strong&gt;&lt;br /&gt;
+Scatter Plot checks for association. Just plot (xi, yi).&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Stat-231.html</link>
