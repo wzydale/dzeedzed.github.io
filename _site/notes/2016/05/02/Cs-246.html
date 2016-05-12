@@ -303,7 +303,7 @@ executes command args + captures the output in file -&gt; called <strong>output 
 
 <p><strong>cat &lt; input.txt &gt; output.txt</strong> - sends chars from input.txt to output.txt; effectively a copy-paste action</p>
 
-<p>Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -&gt; program -&gt; stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen. 
+<p>Every process is attached to 3 streams. Stdin goes into the program, stdout and stderr come out of the program. Stdin -&gt; program -&gt; stdout and stderr. By default, stdin = keyboard, stdout, stderr = screen.
 &lt; connects stdin to file, &gt; connects stdout to file, 2&gt; stdrr. Stderr separates output stream from error messages, so that output error messages can go to different places, and that error messages don’t cut/block output files.</p>
 
 <p>Also, stdout may be <strong>buffered</strong>. System may assemble characters before displaying. However, stderr isn’t buffered, because user needs to see error messages immediately.</p>
@@ -599,7 +599,7 @@ fi
 </code></pre>
 </div>
 
-<p><strong>$?</strong> contains the return value of the last-run command. 
+<p><strong>$?</strong> contains the return value of the last-run command.
 <strong>$1</strong> retrieves the first parameter</p>
 
 <p>Create a .sh script as follows:</p>
@@ -610,7 +610,7 @@ egrep <span class="s2">"^</span><span class="nv">$1</span><span class="s2">$"</s
 
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq 0 <span class="o">]</span>; <span class="k">then</span> //-eq compares
 <span class="nb">echo </span>Bad password
-<span class="k">else 
+<span class="k">else
 </span><span class="nb">echo </span>Maybe not the worst
 <span class="k">fi</span>
 </code></pre>
@@ -708,7 +708,7 @@ x=$egrep ...
 
 if [ $? -eq 0]; then # the first square bracket is the name of a program, and what's inside the square brackets are its arguments
     echo Bad password
-else 
+else
     echo Maybe a good password
 fi
 </code></pre>
@@ -763,7 +763,7 @@ fi
 <p>Looping over a list, e.g. rename all .cpp to .cc</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="k">for </span>name <span class="k">in</span> <span class="k">*</span>.cpp; <span class="k">do</span> <span class="c"># for ... in sets the variable to each word in the given list</span>
+<span class="k">for </span>name <span class="k">in</span> <span class="se">\*</span>.cpp; <span class="k">do</span> <span class="c"># for ... in sets the variable to each word in the given list</span>
     mv <span class="k">${</span><span class="nv">name</span><span class="k">}</span> <span class="k">${</span><span class="nv">name</span><span class="p">%cpp</span><span class="k">}</span>cc <span class="c"># value of name, without trailing cpp</span>
 <span class="k">done</span>
 </code></pre>
@@ -787,6 +787,265 @@ done
 <p>2 tasks here: compute date and fomat the answer</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>cal | awk '{print $6}' | egrep "[0-9]" | tail -1
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="may-11-2016---tutorial-2">May 11, 2016 - Tutorial 2</h2>
+
+<p>Want: stdout and stderr in the same file</p>
+
+<p>printer » out 2&gt; out # works
+  printer &gt; out 2» out #doesn’t work</p>
+
+<p>#Alternatives
+  printer &amp;&gt; out
+  printer &gt; out 2&gt;&amp;1
+  printer 2&gt;out 1&gt;&amp;2</p>
+
+<p>Want: Give the top 10 most commonly used words</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>sort wordCollection</td>
+      <td>uniq -c</td>
+      <td>head # problem</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sort wordCollection</td>
+      <td>uniq -c</td>
+      <td>sort</td>
+      <td>tail # works</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sort wordCollection</td>
+      <td>uniq -c</td>
+      <td>sort -k1,1rn -k2,2</td>
+      <td>head # sort takes in arguments -k as key; 1,1 = first character r = reverse order(descending) n = sort in numerical order, 2 break ties</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sort wordCollection</td>
+      <td>uniq -c</td>
+      <td>sed ‘s_6_12_’</td>
+      <td>sort</td>
+      <td>tail # Use sed to replace 6s with 12s and then sort lexigraphically</td>
+    </tr>
+    <tr>
+      <td>sort wordCollection</td>
+      <td>uniq -c</td>
+      <td>sed ‘s_6_12_’</td>
+      <td>sort -k1,1nr -k2,2</td>
+      <td>head</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>egrep:</p>
+
+<p>^ - match beginning of line<br />
+$ - match end of a line<br />
+^$, ^a$<br />
+. - matches any single character<br />
+? - matches preceeding pattern 0 or 1 times<br />
+* - 0 or more<br />
++ - 1 or more</p>
+
+<p>Note: abc* != (abc)*
+ab, abccc, abcccccc, in comparison to abc, abcabc, abcabcabc</p>
+
+<p><br /></p>
+
+<h2 id="may-12-2016---lecture-4">May 12, 2016 - Lecture 4</h2>
+<p>Recall: compute payday (last Friday of the month); report nicely</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+answer<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -eq 31 <span class="o">]</span>; <span class="k">then</span> <span class="c"># inside a fn - $1, $2 etc are the args to the function</span>
+    <span class="nb">echo</span> <span class="s2">"This month: the 31st"</span>
+  <span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"This month: the </span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">th"</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+answer <span class="k">$(</span>cal | awk <span class="s1">'{print $6}'</span> | egrep <span class="s2">"[0-9]"</span> | tail -1<span class="k">)</span> <span class="c"># the whole thing after the dollar sign is ${1}</span>
+</code></pre>
+</div>
+
+<p>Generalize to any month:</p>
+
+<p>cal June 2016 # gives calendar for June 2016<br />
+Want: let payday June 2016 gives June 2016’s payday</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+answer<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$2</span> <span class="o">]</span>; <span class="k">then
+    </span><span class="nv">preamble</span><span class="o">=</span><span class="k">${</span><span class="nv">2</span><span class="k">}</span>
+  <span class="k">else
+    </span><span class="nv">preamble</span><span class="o">=</span><span class="s1">'This month'</span>
+  <span class="k">fi
+
+  if</span> <span class="o">[</span> <span class="nv">$1</span> -eq 31 <span class="o">]</span>; <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">preamble</span><span class="k">}</span><span class="s2">'s payday is on the 31st."</span>
+  <span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="k">${</span><span class="nv">preamble</span><span class="k">}</span><span class="s2">'s payday is on the </span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">th."</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+answer <span class="k">$(</span>cal <span class="nv">$1</span> <span class="nv">$2</span> | awk <span class="s1">'{print $6}'</span> | egrep <span class="s2">"[0-9]"</span> | tail -1<span class="k">)</span> <span class="nv">$1</span> <span class="c"># if $1 and $2 are supplied, revert back to previous behaviour</span>
+</code></pre>
+</div>
+
+<h2 id="software-engineering-testingsaka-qa-lmao">Software Engineering: Testings(aka QA lmao)</h2>
+
+<ul>
+  <li>essential part of program development</li>
+  <li>ongoing, not just at the end
+    <ul>
+      <li>begins <strong>BEFORE</strong> coding</li>
+      <li>test suites - expected behaviour</li>
+    </ul>
+  </li>
+  <li>NOT debugging - cannot debug without first testing</li>
+  <li>cannot guarantee correctness, can only prove wrongness</li>
+  <li>ideally, developer + tester should be different people</li>
+</ul>
+
+<p><strong>Human Testing</strong> - Humans look over code, find flaws, code inspection, walkthroughs<br />
+<strong>Machine Testing</strong> - Run the program on selected input, check against spec, can’t test everything - choose test cases carefully</p>
+
+<p><strong>Black/White/Grey Box Testing</strong>: no/full/some knowledge of program implementation<br />
+Start with black box, supplement with white box</p>
+
+<ul>
+  <li>various classes of input, e.g. numerical ranges, positive/negative</li>
+  <li>Boundaries of valid ranges (edge cases)</li>
+  <li>Multiple simulatenous boundaries (corner cases)</li>
+  <li>Intuition/Experience (“Ayy I’ve seen programs like that before, better try blah lmao”)</li>
+  <li>Extreme cases (e.g. integer overflow; how large can the integer get before it breaks)</li>
+</ul>
+
+<p>White box - executes all logical paths through the program</p>
+
+<ul>
+  <li>run through the true part and false branch of conditional statements</li>
+  <li>every way you can go from start to finish should be tested</li>
+  <li>make sure every function you write actually gets called</li>
+</ul>
+
+<p><strong>Performance Testing</strong> - Is the program fast enough?<br />
+<strong>Regression Testing</strong></p>
+
+<ul>
+  <li>Make sure new changes to the program don’t break old tests</li>
+  <li>test suites (ALWAYS ADD TESTS; NEVER SUBTRACT), testing scripts</li>
+</ul>
+
+<h2 id="module-2-c-ayy">Module 2: C++ (ayy)</h2>
+
+<p>Hello World in C:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+
+int main() {
+  printf("Hello World!\n");
+  return 0;
+}
+</code></pre>
+</div>
+
+<p>Hello World in C++:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  cout &lt;&lt; "Hello World" &lt;&lt; ende;
+  return 0;
+}
+</code></pre>
+</div>
+
+<p>Notes:</p>
+
+<ul>
+  <li>main MUST return int in C++</li>
+  <li>stdio.h, printf still available in C++</li>
+  <li>preferred C++ I/O: header <iostream></iostream></li>
+</ul>
+
+<p>Output:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>std::cout &lt;&lt; ___ &lt;&lt; ____ &lt;&lt; ____  
+std::ende = end-of-line
+</code></pre>
+</div>
+
+<p>Using namespace std lets you say cout and ende instead of std::cout and std::ende</p>
+
+<p>Return statement - returns status code to the shell ($?). If left out, main returns 0</p>
+
+<p><strong>Compiling C++ Programs</strong></p>
+
+<p>On the school Linux environment:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    g++-5 -std=c++14 program.cc -o program
+    (-o program is the name of the executable binary (if not specified: a.out))
+    // OR
+    g++14 program.cc -o program // if you have done A0 and made the alias
+    // Run the program by
+    ./program
+</code></pre>
+</div>
+
+<p><strong>Input/Output</strong><br />
+  3 IO streams: cout - for printing to stdout, cin - for reading from stdin, cerr - for writing to stderr</p>
+
+<p>Operators: « “put to” - Output, » “get from” - input</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  cerr &lt;&lt; x // x flows to cerr
+  cin &gt;&gt; x // input flows to x
+  // The operator points in the direction of information flow
+</code></pre>
+</div>
+
+<p>E.g. Add 2 numbers</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  int x, y;
+  cin &gt;&gt; x &gt;&gt; y; // cin ignores whitespace; gets two integers, ignoring whitespace
+  cout &lt;&lt; x+y ;
+}
+</code></pre>
+</div>
+
+<p>If the input doesn’t contain an integer next - statement fails, value of the var is undefined</p>
+
+<p>What if the input is exhaustive, before we get two ints? - Same as above</p>
+
+<p>If the read failed: cin.fail() will be TRUE<br />
+If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not until the attempted read fails</p>
+
+<p>E.g. Read all ints from stdin, echo one per line to stdout. Stop on bad input or EOF</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
+  int i;
+  while(true) {
+    cin &gt;&gt; i;
+    if (cin.fail()) break;
+    cout &lt;&lt; i &lt;&lt; ende;
+  }
+}
 </code></pre>
 </div>
 

@@ -430,16 +430,16 @@ Fix a truth evaluation t. Every formula phi has a value under t, denoted phi<sup
 2. (not phi)<sup>t</sup> =
     + T if phi<sup>t</sup> = F
     + F if phi<sup>t</sup> = T
-3. (phi ^ eta)<sup>t</sup> = 
+3. (phi ^ eta)<sup>t</sup> =
     + T if phi<sup>t</sup> = eta<sup>t</sup> = T
     + F otherwise
-4. (phi v eta)<sup>t</sup> = 
+4. (phi v eta)<sup>t</sup> =
     + T if phi<sup>t</sup> = T or if eta<sup>t</sup> = T
     + F otherwise
-5. (phi -&gt; eta)<sup>t</sup> = 
+5. (phi -&gt; eta)<sup>t</sup> =
     + T if phi<sup>t</sup> = F or if eta<sup>t</sup> = T
     + F otherwise
-6. (phi &lt;-&gt; eta)<sup>t</sup> = 
+6. (phi &lt;-&gt; eta)<sup>t</sup> =
     + T if phi<sup>t</sup> = eta<sup>t</sup>
     + F otherwise</p>
 
@@ -576,6 +576,21 @@ E.g. p ^ NOT p</p>
 
 <p>How to prove that a formula is a tautology? One method is to fill out a truth table. Can we do better? We can analyze what would happen if we did. We can use a <strong>valuation tree</strong></p>
 
+<p><br /></p>
+
+<h2 id="may-12-2016---lecture-4">May 12, 2016 - Lecture 4</h2>
+
+<ul>
+  <li>Equivalence</li>
+  <li>Entailment</li>
+  <li>Adequate sets of connectives</li>
+</ul>
+
+<p>Equivalent formulae have the same final column in their truth tables - they have the same value under any valuation.</p>
+
+<p>Recall a valuation t is a function t: P-&gt;{T, F}, i.e. a assignment of F or T to very propositional variable</p>
+
+<p>Commutativity, Associativity, Distributivity, Idempotence, Double Negation, DML,</p>
 
   </div>
 
