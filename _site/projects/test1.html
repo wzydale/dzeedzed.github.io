@@ -14,12 +14,12 @@
 
     
 
-  <title>Go Tutorials</title>
+  <title>Dadi &quot;D.Z.&quot; Zhang</title>
   <meta name="description" content="Dadi "D.Z." Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
 ">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://dzed.me/gotutorials.html">
+  <link rel="canonical" href="http://dzed.me/projects/test1.html">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
   
   <!-- Fonts -->
@@ -77,6 +77,8 @@
           
             
             <a class="page-link" href="/projects.html">Projects</a>
+            
+          
             
           
         </ul>
@@ -187,6 +189,8 @@
           <a class="page-link hvr-fade" href="/projects.html">Projects</a>
           
         
+          
+        
           <a class="page-link hvr-fade" href="/resume/resume.pdf">R&eacutesum&eacute</a>
       </div>
     </nav>
@@ -197,27 +201,257 @@
 
     <div class="page-content">
       <div class="wrapper">
-          <h1 class="page-heading">Go Tutorials</h1>
+        
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Apr 17, 2016</span>
 
-        <h2>
-          <a class="post-link" href="/gotutorials/2016/04/17/basic-rules-1.html">Go Tutorial 2&#58 The Basics (Part 1 - Etiquettes)</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Apr 16, 2016</span>
+<body onload="startGame()">
 
-        <h2>
-          <a class="post-link" href="/gotutorials/2016/04/16/introduction1.html">Go Tutorial 1&#58 What is Go?</a>
-        </h2>
-      </li>
-    
-  </ul>
+  <script type="text/javascript">
+
+  var myGamePiece;
+  var obstacles = [];
+  var score;
+
+  function startGame() {
+    myGamePiece = new component(10, 10, "red", 10, 120);
+    score = new component("30px", "Consolas", "black", 280, 40, "text");
+    myGameArea.start();
+  }
+
+  var myGameArea = {
+      canvas : document.createElement("canvas"),
+      start : function() {
+          this.canvas.width = 480;
+          this.canvas.height = 270;
+          this.context = this.canvas.getContext("2d");
+          document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+          this.frameNo = 0;
+          this.interval = setInterval(updateGameArea, 16.66667);
+
+          window.addEventListener('keydown', function(e) {
+            myGameArea.keys = (myGameArea.keys || []);
+            myGameArea.keys[e.keyCode] = true;
+          })
+          window.addEventListener('keyup', function(e) {
+            myGameArea.keys[e.keyCode] = false;
+          })
+          // window.addEventListener('mousemove', function(e) {
+          //   myGameArea.x = e.pageX;
+          //   myGameArea.y = e.pageY;
+          // })
+      },
+      clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      },
+      stop : function() {
+        clearInterval(this.interval);
+        if (confirm('GAME OVER! Your score: ' +
+        Math.max(0, Math.floor((myGameArea.frameNo -
+          myGameArea.canvas.width) / 150)+1) + '! Restart?')) {
+          obstacles = [];
+          myGameArea.keys = [];
+          startGame();
+        }
+      }
+  }
+
+  function everyInterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {
+      return true;
+    }
+    return false;
+  }
+
+  function component(width, height, color, x, y, type) {
+      this.type = type;
+      this.width = width;
+      this.height = height;
+      this.speedX = 0;
+      this.speedY = 0;
+      this.x = x;
+      this.y = y;
+      this.update = function() {
+        ctx = myGameArea.context;
+
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+      }
+      this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+      }
+      this.crashWith = function(otherObj) {
+        var left = this.x;
+        var right = this.x + (this.width);
+        var top = this.y;
+        var bottom = this.y + (this.height);
+        var oRight = otherObj.x + (otherObj.width);
+        var oLeft = otherObj.x;
+        var oTop = otherObj.y;
+        var oBottom = otherObj.y + (otherObj.height);
+        var crash = true;
+
+        if ((bottom < oTop) ||
+            (top > oBottom) ||
+            (right < oLeft) ||
+            (left > oRight)) {
+              crash = false;
+        }
+        return crash;
+      }
+  }
+
+  function moveUp() {
+    myGamePiece.speedY -= 1;
+  }
+
+  function moveDown() {
+    myGamePiece.speedY += 1;
+  }
+
+  function moveLeft() {
+    myGamePiece.speedX -= 1;
+  }
+
+  function moveRight() {
+    myGamePiece.speedX += 1;
+  }
+
+  function stopMove() {
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+  }
+
+  function updateGameArea() {
+
+    var x, y;
+    for (var i = 0; i < obstacles.length; i++) {
+      if(myGamePiece.crashWith(obstacles[i])) {
+        myGameArea.stop();
+        return;
+      }
+    }
+
+    // if the piece goes out of frame, game over
+    // leftmost
+    if (myGamePiece.x + myGamePiece.width < 0) {
+        myGameArea.stop();
+    }
+
+    // bottom
+    if (myGamePiece.y - myGamePiece.height >
+        myGameArea.canvas.height) {
+        myGameArea.stop();
+    }
+
+    // top
+    if (myGamePiece.y + myGamePiece.height < 0) {
+        myGameArea.stop();
+    }
+
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+
+    if (myGameArea.frameNo == 1 || everyInterval(150)) {
+      x = myGameArea.canvas.width;
+
+      minHeight = 20;
+      maxHeight = 200;
+      height = Math.floor(Math.random()*
+      (maxHeight - minHeight + 1) + minHeight);
+      minGap = 20;
+      maxGap = 40;
+      gap = Math.floor(Math.random()*
+      (maxGap - minGap + 1) + minGap);
+      obstacles.push(new component(10, height, "green", x, 0));
+      obstacles.push(new component(10, x - height - gap, "green",
+    x, height + gap));
+    }
+
+    for (var i = 0; i < obstacles.length; i++) {
+      obstacles[i].x += -1;
+      obstacles[i].update();
+    }
+
+    score.text = "SCORE: " + Math.max(0, Math.floor((myGameArea.frameNo -
+      myGameArea.canvas.width) / 150)+1);
+    score.update();
+
+    // Key controls
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+
+    if (myGameArea.keys && myGameArea.keys[37]) {
+        myGamePiece.speedX = -1;
+    }
+    if (myGameArea.keys && myGameArea.keys[39]) {
+        myGamePiece.speedX = 1;
+    }
+    if (myGameArea.keys && myGameArea.keys[38]) {
+        myGamePiece.speedY = -1;
+    }
+    if (myGameArea.keys && myGameArea.keys[40]) {
+        myGamePiece.speedY = 1;
+    }
+
+    // if (myGameArea.x && myGameArea.y) {
+    //     myGamePiece.x = myGameArea.x;
+    //     myGamePiece.y = myGameArea.y;
+    // }
+
+    myGamePiece.newPos();
+    myGamePiece.update();
+  }
+
+
+  </script>
+</body>
+
+<!--
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+  border: 1px solid #d3d3d3;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+function startGame() {
+  myGameArea.start();
+}
+
+var myGameArea = {
+  canvas : document.createElement("canvas"),
+  start : function() {
+      this.canvas.width = 480;
+      this.canvas.height = 270;
+      this.context = this.canvas.getContext("2d");
+      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+  }
+}
+
+</script>
+
+<p>We have created a game area! (or at least an empty canvas)</p>
+
+</body>
+</html> -->
+
+
       </div>
     </div>
 
