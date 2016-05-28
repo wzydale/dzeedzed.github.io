@@ -12,7 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
 
   <title>CS 246 - Object-Oriented Software Development</title>
   <meta name="description" content="CS 246 - Object-Oriented Software DevelopmentInstructor: Brad LushmanSection: 001Location: MC 4045Time: Tuesdays and Thursdays 10:00am - 11:20amTutorials: MC...">
@@ -20,17 +20,18 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Cs-246.html">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
-  
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 </head>
 
 
   <body>
 
-    <!-- 
+    <!--
     <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/homepage.css" type="text/css" rel="stylesheet"/>
@@ -42,7 +43,7 @@
       <div class="nav-wrapper container">
         <a id="logo-container" href="" class="brand-logo">Dadi "DZ" Zhang</a>
 
-        <ul class="right hide-on-med-and-down">       
+        <ul class="right hide-on-med-and-down">
           
             
             <a class="page-link" href="/blog.html">Blog</a>
@@ -81,7 +82,7 @@
         </ul>
       </div>
     </nav>
-    
+
 </header> -->
 
   <!-- Fonts -->
@@ -111,7 +112,7 @@
   color: white;
 }
 
-.page-link {   
+.page-link {
     padding-top: 17px;
     padding-bottom: 17px;
     padding-right: 14px;
@@ -121,7 +122,7 @@
 }
 
 
-.site-title:hover {   
+.site-title:hover {
     text-decoration: none;
 }
 
@@ -130,12 +131,12 @@
 }
 
 .site-title {
-  font-family: "Liberation Serif", serif;
+  font-family: "Raleway", serif;
   font-size: 2rem;
 }
 
 .trigger a {
-  font-family: "Liberation Serif", serif;
+  font-family: "Raleway", serif;
 }
 
 </style>
@@ -148,7 +149,7 @@
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
-        
+
 
       <div class="trigger">
         
@@ -193,6 +194,7 @@
   </div>
 
 </header>
+
 
     <div class="page-content">
       <div class="wrapper">
@@ -836,14 +838,14 @@ done
     <tr>
       <td>sort wordCollection</td>
       <td>uniq -c</td>
-      <td>sed ‘s_6_12_’</td>
+      <td>sed ‘s_6<em>12</em>’</td>
       <td>sort</td>
       <td>tail # Use sed to replace 6s with 12s and then sort lexigraphically</td>
     </tr>
     <tr>
       <td>sort wordCollection</td>
       <td>uniq -c</td>
-      <td>sed ‘s_6_12_’</td>
+      <td>sed ‘s_6<em>12</em>’</td>
       <td>sort -k1,1nr -k2,2</td>
       <td>head</td>
     </tr>
@@ -1052,6 +1054,785 @@ If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not unti
 }
 </code></pre>
 </div>
+
+<p><br /></p>
+
+<h2 id="may-17-2016---lecture-5">May 17, 2016 - Lecture 5</h2>
+
+<p>E.g. Read all ints from stdin + echo, one per line, to stdout, stop on bad input of EOF</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
+	int i;
+	while (true) {
+		cin &gt;&gt; i;
+		if (cin.fail()) {
+			break;
+		}
+		cout &lt;&lt; i &lt;&lt; endl;
+	}
+}
+</code></pre>
+</div>
+
+<p>Recall: if read fails, cin.fail() will be true; if EOF: cin.fail() and cin.eof() both true, but not until the attepted read fails</p>
+
+<p>Note: there is an implicit conversion from cin to bool, so cin can be used as a condition. The conversion is that it’s true if fail/bad/eof bits are clear, or false if fail/bad/eof set</p>
+
+<p>E.g. v2.0</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
+	int i;
+	while (true) {
+		cin &gt;&gt; i;
+		if (!cin) { // using cin as the condition, means the same thing as the other program
+			break;
+		}
+		cout &lt;&lt; i &lt;&lt; true
+ 		}
+}
+</code></pre>
+</div>
+
+<p>Note: » is C’s right bitshift operator; a » b shifts a’s bits to the right by b spots</p>
+
+<p>E.g. 21 » 3; 21 in binary is 10101, push the last 3 digits off the cliff, so it becomes 10 in binary, which is 2; equivalent to dividing by 2 to the b-th power, ignoring remainders</p>
+
+<p>But when the left hand side is cin, this is the “get from” operator</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>operator &gt;&gt;
+ 	// inputs: LHS cin (istream), RHS data (variety of types); output: return cin (istream)
+ 	// This is why we can write: cin &gt;&gt; x &gt;&gt; y &gt;&gt; z; cin &gt;&gt; x produces cin, x gets populated, and now we get cin &gt;&gt; y &gt;&gt; z, and so on.
+</code></pre>
+</div>
+
+<p>E.g. v3.0</p>
+
+ 	int main() {
+ 		int i;
+ 		while (true) {
+ 			if (!(cin » i)) { // using it as both a condition and populating i
+ 				break;
+ 			}
+ 			cout « i « endl;
+  		}
+ 	}
+
+<p>E.g. v4.0</p>
+
+ 	int main() {
+ 		int i;
+ 		while(cin » i) { // changing the break statement into a single while loop
+ 			cout « i « endl
+ 		}
+ 	}
+
+<p>E.g. read and echo ints until EOF, skip non-integer input</p>
+
+ 	int main() {
+ 		int i;
+ 		while (true) {
+ 			if (!(cin » i)) {
+ 				if (cin.eof()) {
+ 					break;
+ 				}
+ 				cin.clear(); // clears the fail bit, so that cin is ready to read again
+ 				cin.ignore(); // throws away the next character
+ 			} else {
+ 				cout « i « endl;
+ 			}
+ 		}
+ 	}
+
+<p>Reading strings: type std::string (#include <string>)</string></p>
+
+ 	int main() {
+ 		string s;
+ 		cin » s;
+ 		cout « s « endl;
+ 	}
+
+ 	// skips leading white space;
+ 	// stops at whitespace (reads one word)
+
+<p>What if we want the hvitespace? Use getline(cin, s), it reads from the current position to next newline, into s.</p>
+
+ 	cout « 95 « endl; // prints 95
+
+<p>What if we want to print a number in hexadecimal?</p>
+
+ 	cout « hex « 95 « endl; // this will print 95 in hex, 5f
+ 	// hex is std::hex, is the I/O manipulator, reconfigures the output string, all subsequent ints are printed in hex (FOR THE REST OF ETERNITY, nah jkjk till the program terminates); A bit of an overkill?
+ 	cout « dec; // goes back to decimal
+
+ 	// Other manipulator, SEE NOTES, don’t forget
+ 	#include <iomanip>
+</iomanip>
+<p>Stream abstraction applies to other fsources of data</p>
+
+<p><strong>Files</strong> - Read from a file instead of stdin<br />
+ 	std::ifstream reads from a file<br />
+ 	std::ofstream writes to a file</p>
+
+<p>File access in C:</p>
+
+ 	#include <stdio.h>
+</stdio.h>
+ 	int main() {
+ 		char s[256];
+ 		FILE *file = fopen(“suite.txt”, “r”); // r = read mode; file is a handle
+ 		while (true) {
+ 			fscanf(file, “%255s”, s);
+ 			if (feof(file)) break;
+ 			printf(“%s\n”, s);
+ 		}
+ 		fclose(file);
+ 	}
+
+<p>File access in C++:</p>
+
+ 	#include <iostream>
+ 	#include <fstream>
+ 	using namespace std;
+</fstream></iostream>
+ 	int main() {
+ 		ifstream file{“suite.txt”}; // creating and initializing an ifstream opens the file
+ 		string s;
+ 		while (file » s) {
+ 			cout « s « endl;
+ 		}
+ 		// IMPORTANT: the file is closed when the variable (in this case, file), goes out of scope; when the program stops, it’s popped of the runtime stack, it then closes.
+ 	}
+
+<p>Anything you can do do with cin and cout, you can do with an ifstream or an ofstream. ANYTHING.</p>
+
+<p>E.g. string - attach a stream to a string and read/write it</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> #include &lt;sstream&gt; // std::istringstream and std::ostringstream read from/write to a string
+
+ int hi = ..., lo = ...;
+ ostringstream ss; // think of it as a sock
+ ss &lt;&lt; "Enter a # between" &lt;&lt; lo &lt;&lt; "and" &lt;&lt; hi; // stuffing the sock with string
+ string s = ss.str(); // cuts open the sock and gets the string
+ cout &lt;&lt; s &lt;&lt; endl;
+</code></pre>
+</div>
+
+<p>E.g. convert a string to a #</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int n;
+while (true) {
+	cout &lt;&lt; "Enter a number" &lt;&lt; endl;
+	string s;
+	cin &gt;&gt; s;
+	istringstream ss {s};
+	if (ss &gt;&gt; n) break; // stop if you get int
+	cout &lt;&lt; "I said,";
+}
+cout &lt;&lt; "You entered" &lt;&lt; n &lt;&lt; endl;
+</code></pre>
+</div>
+
+<p>Example revisited - echo numbers, skip non-numbers</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
+	string s;
+	while (cin &gt;&gt; s) {
+		istringstream ss {s};
+		int n;
+		if (ss &gt;&gt; n) {
+			cout &lt;&lt; n &lt;&lt; endl;
+		}
+	}
+}
+</code></pre>
+</div>
+
+<p>Strings:</p>
+
+<p>In C, array of char (char* or char[]), terminated by IO. Must manage own memory: get morememory when strings grow; Easy to overwrite IO and corrupt program</p>
+
+<p>In C++, strings grow as needed, and thus safer</p>
+
+<p>E.g. string s{“Hello”}; // it’s still an array (C-style string); C++ string created from C string on initialization</p>
+
+<p>String Operations: Equality Inequality, s1 == s2, s1 != s2<br />
+Comparison: s1 &lt;= s2 (lexicographical comparison)<br />
+Length: s.length()<br />
+Extract individual characters: s[0], s[1] etc.<br />
+Concatenation: s3 = s1 + s2, s3 += s4<br />
+More details: SEE NOTES</p>
+
+<p>Default Function Parameters</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>void printSuiteFile(String name = "suite.txt") { // default value
+	...
+}
+
+printSuiteFile("suite2.txt");
+printSuiteFile(); // prints from suite.txt
+</code></pre>
+</div>
+
+<p>Note: optional params must be last; if you leave out two parameters, they have to be the last two; 3,3 etc.</p>
+
+<p><br /></p>
+
+<h2 id="may-18-2016---tutorial-2">May 18, 2016 - Tutorial 2</h2>
+
+<p>##Shell Scripting##</p>
+
+<ul>
+  <li>Exit codes are important; non-zero return/exit value = ERROR</li>
+  <li>Write to the correct stream</li>
+  <li>Scoping for subroutines, anything defined befored a subroutine is visible(and modifiable) in the subroutine, except positional arguments ($1, $2, …)</li>
+</ul>
+
+<p>##Testing##</p>
+
+<ul>
+  <li>Don’t have to worry about invalid inputs</li>
+  <li>Testing is hard</li>
+  <li>Try sanity checks (“No one could make this mistake”)</li>
+  <li>Good coverage: boundary/edge and corner cases, equivalence classes, weird cases</li>
+</ul>
+
+<p><strong>Possible Test Cases</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>+ Equivalence courses: small, medium, and large values of the target
++ Boundary/edge cases: test containing 0 as target
+</code></pre>
+</div>
+
+<p>##C++ I/O##</p>
+
+<ul>
+  <li>DO NOT USE C I/O</li>
+  <li>3 default streams: cout, cerr, cin</li>
+  <li>If a read from cin fails, <strong>all subsequent reads will fail</strong></li>
+</ul>
+
+<p>##Make I/O More Robust##</p>
+
+<ul>
+  <li>Reading from cin could fail in two ways
+    <ul>
+      <li>EOF</li>
+      <li>got unexpected input</li>
+    </ul>
+  </li>
+  <li>When a read fails, a flag goes up in cin
+    <ul>
+      <li>cin.fail() will be true</li>
+      <li>Only cin.fail() will be true if it was an error</li>
+      <li>Both cin.fail() and cin.eof() will be true if it was EOF</li>
+      <li>How to clear: cin.clear() -&gt; put all cin flags down and turn it into a valid state</li>
+      <li>How to continue: cin.ignore(); order is important: clear then ignore</li>
+    </ul>
+  </li>
+  <li>If you want the entire line, use getline(cin, s)</li>
+</ul>
+
+<p>##Strings##</p>
+
+<ul>
+  <li>Encapsulates something like char* in C</li>
+  <li>Has length, insert, delete, search methods</li>
+  <li>Can be accessed like an array</li>
+  <li>include<string></string></li>
+  <li>at(index): checks for bounds and throws an exception if out of bounds</li>
+  <li></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="may-19-2016---lecture-6">May 19, 2016 - Lecture 6</h2>
+
+<p><strong>Overloading</strong></p>
+
+<p>C:</p>
+
+<p>int negInt(int n) { return -n; }
+  int negBool(bool b) { return !b; }</p>
+
+<p>C++: Functions with different parameter lists can share the same name</p>
+
+<p>int neg(int n) { return -n; }
+  int neg(bool b) { return !b; }
+  // example of overloading</p>
+
+<p>Compiler uses number of types of arguments to decide which neg is being called.</p>
+
+<p>Overloads must differ in number of type of arguments, not just on the return type. We’ve seen this before: », « (operators, could be right shift/left shift, or could be input and output; the behaviour depends on types of args)</p>
+
+<p><strong>Structs</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>struct Node {
+  int data;
+  Node \*next;
+}; // don't forget the semicolon
+
+Node n1{5, nullptr}; // nullptr is the syntax for a null pointer in C++.
+// Do not say NULL or 0 in this class!!!!!!! 0 will be always treated as a number, not pointer
+
+const Node n2 = n1; // constant struct means that its fields cannot be changed; n2 is an immutable copy of n1
+</code></pre>
+</div>
+
+<p><strong>Parameter Passing</strong></p>
+
+<p>Recall:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>void inc(int n) {
+  n = n + 1;
+  // ...
+  int x = 5;
+  inc(x);
+  cout &lt;&lt; x &lt;&lt; endl; // prints 5; call-by-value
+  // inc gets a copy of x and modifies the copy, not the original
+}
+</code></pre>
+</div>
+
+<p>Sol’n: If a function needs to modify its arugument - pass a pointer</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>void inc(int n) {
+  \*n = \*n + 1;
+  // ...
+  int x = 5;
+  inc(&amp;x); // x's address passed by value, inc changes value at that address, visible to caller
+  cout &lt;&lt; x &lt;&lt; endl; // prints 6
+}
+</code></pre>
+</div>
+
+<p>Question: Why cin » x and not cin » &amp;x?<br />
+Answer: C++ has another pointer-like type: references</p>
+
+<p><strong>References (IMPORTANT!!!)</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int y = 10;
+int &amp;z = y; // NEW. Ampersand after int. z is an **lvalue reference** to int ( which is y)
+            // Like a constant pointer, similar to int \*const z = &amp;y;
+            // (z is a constant pointer to an int; z will always point to y implied by const)
+            // (but y is not constant; you can change y however you like)
+</code></pre>
+</div>
+
+<p>References are like constant pointers with automatic dereferencing.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>z = 12; // NOT \*z = 12
+int \*p = &amp;z; // &amp;z gives the address of y. No matter what you do to z, you do it y. In all cases, z behaves exactly like y. z is an alias for y.
+</code></pre>
+</div>
+
+<p><strong>Things you CANNOT do with lvalue references</strong></p>
+
+<ul>
+  <li>leave them uninitialized, because they are constant, cannot assign later
+    <ul>
+      <li>must be initialized with something that actually has an address (an lvalue) since references are pointers</li>
+      <li>E.g.
+  int &amp;x = 3; // WRONG: WONT COMPILE, because 3 is not an address
+  int &amp;x = y + z; // WRONG
+  int &amp;x = y; // GOOD</li>
+    </ul>
+  </li>
+  <li>create pointer to a reference: int &amp;* x; // WRONG
+    <ul>
+      <li>reference to a pointer is legal: int *&amp; x;</li>
+    </ul>
+  </li>
+  <li>create a reference to a reference: int &amp;&amp; x = …; // means something different (will discuss later)</li>
+  <li>create an array of references: int &amp;a[] = {x, x, x}; // given the similarity between arrays and pointers</li>
+</ul>
+
+<p><strong>Things you CAN do with lvalue references</strong></p>
+
+<ul>
+  <li>
+    <p>Pass as function parameters:</p>
+
+    <p>void inc(int &amp;n) { // const pointer to the argument (x), thus changes to n affect x
+    n = n + 1; // no pointer dereferencing
+  }
+  int x = 5;
+  inc(x);
+  cout « x « endl; // prints 6</p>
+  </li>
+</ul>
+
+<p>Why does cin » x work? It takes x by reference</p>
+
+<p>istream &amp;operator » (istream &amp;in, int &amp;n);</p>
+
+<p><strong>Pass-by-value</strong></p>
+
+<p>E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int f(int n) {...} // copies the argument
+// if the argument is big, copying is expensive
+
+struct ReallyBig{}; // Massive struct with thousands of fields
+int f(ReallyBig rb) {...} // copying would be slow
+
+int g(ReallyBig &amp;rb) {...} // pass as reference, no copy, it's an alias, fast
+// this could change rb in the caller, in contrast to pass by value, which guarantees
+// no changes to rb itself after calling
+
+int h(const ReallyBig &amp;rb) {...} // pass constant reference, no copy, fast, and the parameter cannot be changed
+</code></pre>
+</div>
+
+<p>Advice: prefer pass-by-const-reference over pass-by-value for anything larger than an int, unless the function needs to make a copy anyway - then maybe pass by value. DEFAULT SHOULD BE PASS-BY-CONST-REF. Sizeof reference is same as size of a pointer</p>
+
+<p>Also:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int f(int &amp;n) {...}
+int g(const int &amp;n) {...}
+
+f(5); // LMAO FAILS WON'T COMPILE, because 5 does not have an address; can't initialize an lvalue reference (n) to a literal value;
+// if n changes, can't change the literal 5
+g(5); // OK; since n can never be changed, the compiler will allow this
+// How though? The compiler creates a temporary location to hold 5, so that n has something to point at
+</code></pre>
+</div>
+
+<p>That’s why const ref is so CRITICALLY IMPORTANT.</p>
+
+<p><strong>Dynamic Memory Allocation</strong></p>
+
+<p>C:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int \*p = malloc(n * sizeof(int));
+free(p);
+// Don't use these though
+</code></pre>
+</div>
+
+<p>C++: new/delete</p>
+
+<p>E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>struct Node {
+  int data;
+  Node \*next;
+}
+
+Node \*np = new Node; // allocates a Node on the heap and np points to it
+// ...
+delete np;
+// all local variables reside on the stack
+// deallocated (popped) when their scope ends
+// Allocated memory is on the heap, it stays there until you get rid of it
+// Remains allocated until delete is called
+</code></pre>
+</div>
+
+<p>If you don’t delete - MEMORY LEAK</p>
+
+<p><strong>Arrays on the heap</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Node \*myArray = new Node[10];
+// ...
+delete [] myArray; // The square brackets have to be there
+</code></pre>
+</div>
+
+<p>E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Node getMeANode() { // copy to caller's frame, expensive
+    Node n;
+    return n;
+}
+
+Node &amp;getMeANode() { // WORST. Returns a ref (essentially a pointer) to stack-allocated data, which is dead on return
+    Node n;
+    return n;
+}
+
+Node \*getMeANode() { // fast-ish and safe, not returning pointer to dead data, caller responsible for delete when done
+    Node \*np = new Node;
+    return np;
+}
+</code></pre>
+</div>
+
+<p>Considering all options, do No.1.</p>
+
+<p><strong>Operator Overloading</strong></p>
+
+<p>Give our own meanings to C++ operators for types we create</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>struct Vec {
+    int x, y;
+}
+
+Vec operator+(const Vec &amp;v1, const Vec &amp;v2) {
+  Vec v{v1.x+v2.x, v1.y+v2.y}
+  return v;
+}
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="may-24-2016---lecture-7">May 24, 2016 - Lecture 7</h2>
+
+<p>##Preprocessor Variables##</p>
+
+<ul>
+  <li>We can also define preprocessor symbols via the compiler; with gcc, syntax is -Dvname or -Dvname=val (-DX)</li>
+  <li><strong>ifdef</strong> and <strong>ifndef</strong> directives: these check if a preprocessor variable has been defined (a use for simply defining variables); can be used to debug; #ifdef DEBUG to conditionally print stuff out to debug code; can offload run time to compile time
+    <ul>
+      <li>syntax: <code class="highlighter-rouge">
+  g++14 -DDEBUG program.cpp // set DEBUG
+ </code>
+##Separate Compilation##</li>
+    </ul>
+  </li>
+  <li>To help readability and create modularity we can split our programs into composable modules. Each module consist of <strong>interface</strong> (type definitions and prototypes for functions, .h file, contains declarations, won’t allocate space for the variables) and <strong>implementation</strong> (full details, allocates space for variables/functions, .cpp file, contains definitions)</li>
+  <li>Example: Let’s take the vector struct and overloaded addition operator we created and put in a module so that it can be used by other files; create vec.h and vec.cpp</li>
+</ul>
+
+<p>```C++
+  // vec.h
+  struct Vec {
+    int x, y;
+  };</p>
+
+<p>Vec operator+(const Vec &amp;v1
+                const Vec &amp;v2); // constant reference to vectors, do not modify the originals</p>
+
+<p>// vec.cpp
+  #include “vec.h” // to get the struct definition from the interface file</p>
+
+<p>Vec operator+(const Vec &amp;v1, const Vec &amp;v2) {
+    return {v1.x + v2.x, v1.y + v2.y};
+  }</p>
+
+<p>// main.cpp
+  #include “vec.h”
+  using namespace std;</p>
+
+<p>int main() {
+    Vec x {1,2};
+    Vec y {3,4};
+    Vec v = x + y;
+    cout « v.x « ”, “ « v.y « endl;
+    return 0;
+  }</p>
+
+<p>```</p>
+
+<p>when compiling:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  g++14 -c vec.cpp // -c oppresses linking, creates .o (object) file
+  g++14 -c main.cpp
+  g++14 vec.o main.o -o main
+  ./main
+</code></pre>
+</div>
+
+<p>##Global Variables##</p>
+
+<ul>
+  <li>Consider we want to want to define a global variable in a module
+<code class="highlighter-rouge">C++
+  // abc.h
+  int globalNum; // Wrong - definition and declaration
+  // This won't work, every file that includeds abc.h defines a SEPARATE globalNum and the program will not link
+</code></li>
+  <li>Solution: put the variable in the .cpp file
+<code class="highlighter-rouge">C++
+  // abc.h
+  extern int globalNum; // Correct, just declaration
+  // abc.cpp
+  int globalNum;
+</code></li>
+</ul>
+
+<p>##Multiple Includes##</p>
+
+<ul>
+  <li>Always put #include guards in .h files (ifdef, define, endif)</li>
+  <li>Never put using namespace std in .h files; DO NOT USE ANY NAMESPACES WHATSOEVER!</li>
+</ul>
+
+<p>##Classes##</p>
+
+<ul>
+  <li>The big innovation of OOP - we can put functions inside of structs</li>
+  <li>A class is some struct that can contain functions</li>
+  <li>An object is an instance of a class</li>
+  <li>Member functions (aka Methods) are functions inside a class</li>
+  <li>this = pointer to the object a member function is called on; syntax: this-&gt;var; s.grade() is like calling grade(&amp;s)</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="may-26-2016---lecture-8">May 26, 2016 - Lecture 8</h2>
+
+<h2 id="classes-continued">Classes Continued</h2>
+<p>Recall: student.cpp, implemented as struct<br />
+This class:</p>
+
+<h2 id="initializing-objects">Initializing Objects</h2>
+<ul>
+  <li>When creating an object typicaly the class will have data members that need to be assigned values - initialized</li>
+  <li>As shown in the student example we could use curly braces to initialize our class, and in C++ this is true for most types - this is called <strong>Uniform Initialization</strong></li>
+  <li>Ex. Student bob {60, 70, 80} in the student.cpp example</li>
+</ul>
+
+<h2 id="constructors">Constructors</h2>
+<ul>
+  <li>Without defining how your class should be constructed C++ just takes those values and assigns them to each field in the order they were declared - this is okay, but has limitations</li>
+  <li>A better idea is to include in your class a method that does the initialization - called a <strong>constructor</strong></li>
+  <li>
+    <p>Ex. in the student.cpp example</p>
+
+    <p>Student(int assns, int mt, int final) {
+    // Debug statement here
+    this-&gt;assns = assns;
+    this-&gt;mt = mt;
+    this-&gt;final = final;
+  }
+  // default value given
+  Student(int assns=0, int mt=0, int final=0) {
+      // …
+  }</p>
+  </li>
+</ul>
+
+<h2 id="notes-on-initialization">Notes on Initialization</h2>
+<ul>
+  <li>
+    <p>Sometimes variables are initialized with the assignment operator</p>
+
+    <p>int x = 5;
+  string s = “hello”;</p>
+  </li>
+  <li>
+    <p>And sometimes with (), especially when invoking Constructors</p>
+
+    <p>int x(5);
+string s(“Hello”)
+Student bob(60, 70, 80)</p>
+  </li>
+  <li>
+    <p>An exception to this: std::vector</p>
+
+    <p>std::vector B{1,3,5} // contains elements 1,3,5
+std::vector V(5) // of size 5
+std::vector G{1} // actually contains element 1; curly brackets -&gt; element rather than size</p>
+  </li>
+  <li>
+    <p>Also,</p>
+
+    <p>int x = 2.0; // the decimal will get chopped off
+int x {2.0} // COMPILER ERROR</p>
+  </li>
+  <li>
+    <p>A class is a struct itself, an object is an actual variable of that type</p>
+  </li>
+</ul>
+
+<h2 id="default-constructor">Default Constructor</h2>
+
+<ul>
+  <li>Every class comes with a default (zero-argument) constructor which calls: you can create an object but set its values later</li>
+  <li>As soon as you declare your own constructor, you lose the default</li>
+</ul>
+
+<h3 id="section">#</h3>
+
+<ul>
+  <li>What about if our class contains a constant field or a reference field?</li>
+  <li>For example let’s consider adding an ID field to our student class, this should be a const value that never changes but is different for each initialized student object</li>
+  <li>Where to initialize them though? Struct definition (i.e. create an ID field in the struct; const int id = 0;)? In the body of the constructor?</li>
+  <li>Problem: const int should be initialized</li>
+  <li>Solution:</li>
+</ul>
+
+<h2 id="object-creation-steps">Object Creation Steps</h2>
+<ul>
+  <li>Space is allocated</li>
+  <li>Fields are constructed</li>
+  <li>Constructor body runs</li>
+  <li>The moddile step is the missing piece of the puzzle where our initialization must go!</li>
+</ul>
+
+<h2 id="mil">MIL</h2>
+<ul>
+  <li>The member initialization list is part of our constructor that specifies how to initialize object and non-static data members of our class</li>
+  <li>Can be used for any non-static memebers</li>
+  <li>Initialized in order of declaration in struct</li>
+  <li>Is more efficient, when the constructor is doing the same thing as the MIL, when there is a class inside a class (school class in student class)</li>
+  <li>
+    <p>Ex.</p>
+
+    <p>Student(): assns{assns}, mt{mt}, final{final}, id{id} {</p>
+
+    <p>}</p>
+  </li>
+</ul>
+
+<h2 id="copy-constructor">Copy Constructor</h2>
+<ul>
+  <li>What happens when you use the assignment opeartor to instantiate an object?</li>
+  <li>
+    <p>Ex.</p>
+
+    <p>Student a {60,70,80}
+  Student b = a;</p>
+  </li>
+  <li>b will be initialized via the copy constructor</li>
+  <li>All classes have an implicit copy constructor that just copies all regular data fields and calls copy constructors on all object fields</li>
+  <li>Ex.
+  #include “Node.h”
+  Node::Node(const Node &amp;in) : data(in.data) {
+    if (in.next) {
+      next = new Node(*in.next);
+    } else {
+      next = nullptr;
+    }
+  }
+  // recursively copies the nodes</li>
+</ul>
+
+<h2 id="implicit-methods">Implicit Methods</h2>
+<ul>
+  <li>Every class comes with
+    <ul>
+      <li>A default constructor</li>
+      <li>A copy constructor (just copies all fields)</li>
+      <li>A copy assignment operator</li>
+      <li>A destructor</li>
+      <li>A move constructor</li>
+      <li>A move assignmenet operator</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="notes-on-copy-constructor">Notes on Copy Constructor</h2>
+<ul>
+  <li>The copy constructor (implicit or otherwise) is called when
+    <ul>
+      <li>An object is initialized by another object</li>
+      <li>When an object is passed by value</li>
+      <li>When an object is returned by a function</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="implicit-conversion">Implicit conversion</h2>
+<ul>
+  <li>Be careful with a constructor that takes only one parameter - this will create an implicit conversion</li>
+</ul>
+
+<h2 id="destructor">Destructor</h2>
+<ul>
+  <li>Necessary if your class has any memory allocated on the heap</li>
+</ul>
 
   </div>
 

@@ -6,9 +6,40 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2016 17:26:05 -0400</pubDate>
-    <lastBuildDate>Sat, 14 May 2016 17:26:05 -0400</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Fri, 27 May 2016 23:29:04 -0400</pubDate>
+    <lastBuildDate>Fri, 27 May 2016 23:29:04 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>My Intramural Stats</title>
+        <description>&lt;h2 id=&quot;casual-slopitch---team-individuals-1-king-louis-and-his-faithful-knights&quot;&gt;Casual Slopitch - Team: Individuals 1 (King Louis and His Faithful Knights)&lt;/h2&gt;
+
+&lt;h1 id=&quot;may-19-2016---14-13-views&quot;&gt;May 19, 2016 - 14-13 Views&lt;/h1&gt;
+
+&lt;p&gt;2B -&amp;gt; 1B (PO) -&amp;gt; C -&amp;gt; RF&lt;br /&gt;
+Batted 9th: 3-3, 2B, 2 1B, 2 RBI, R&lt;/p&gt;
+
+&lt;h1 id=&quot;may-25-2016---8-9-tsr&quot;&gt;May 25, 2016 - 8-9 TSR&lt;/h1&gt;
+
+&lt;p&gt;1B (DP, unassisted) -&amp;gt; 3B (E5) -&amp;gt; LF&lt;br /&gt;
+Batted 7th: 1-2, 1B, FC, RBI, 2R&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;casual-7-vs-7-soccer-football---team-individuals-2&quot;&gt;Casual 7 vs. 7 Soccer (Football) - Team: Individuals 2&lt;/h2&gt;
+
+&lt;h1 id=&quot;may-17-2016---0-6-team-hunnies&quot;&gt;May 17, 2016 - 0-6 Team Hunnies&lt;/h1&gt;
+
+&lt;p&gt;RB -&amp;gt; CB -&amp;gt; DM&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 May 2016 23:00:00 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/05/27/Intramurals.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/05/27/Intramurals.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
     
       <item>
         <title>JobMine Updates - Spring 2016</title>
@@ -160,7 +191,7 @@ y&lt;sub&gt;i&lt;/sub&gt; = f(x&lt;sub&gt;i&lt;/sub&gt;) is a transformation.&lt
 &lt;h2 id=&quot;may-4-2016---lecture-2&quot;&gt;May 4, 2016 - Lecture 2&lt;/h2&gt;
 
 &lt;p&gt;Lecture notes will be posted every weekend.&lt;br /&gt;
-Practice questions (with solutions) will be osted this week. First tutuorial quiz on May 17 (T), 2016 (11:25am).&lt;/p&gt;
+Practice questions (with solutions) will be posted this week. First tutuorial quiz on May 17 (T), 2016 (11:25am).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Outline&lt;/strong&gt;&lt;/p&gt;
 
@@ -437,6 +468,205 @@ That is, y~N(mu, sigma^2), the Q-Q plot will be a straight line&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Scatter Plot&lt;/strong&gt;&lt;br /&gt;
 Scatter Plot checks for association. Just plot (xi, yi).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-16-2016---lecture-5&quot;&gt;May 16, 2016 - Lecture 5&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;PPDAC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;typical problem: we have a population of observations, the characteristics of the population is unknown&lt;/li&gt;
+  &lt;li&gt;We draw a sample, and based on the sample observations infer properties about the population (statistical inference)&lt;/li&gt;
+  &lt;li&gt;Examples: 1. we want to find the approval rating of Trump among likely US voters; 2. Average income of a starting math undergraduate career in Canada; 3. Does a regular intake of Vitamin C reduce the duration of a flu? 4. Are Canadian Jeopardy contestants better than Americans?&lt;/li&gt;
+  &lt;li&gt;PPDAC approach gives you an algorithm to tackle statistical problems that are mentioned above; PPDAC = Problem, Plan, Data, Analysis, Conclusion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem: Descriptive, Causative, Predictive&lt;/strong&gt;&lt;br /&gt;
+  + Descriptive: We are interested in some unknown characteristic of the population (e.g. Trump)
+  + Causative: Whether a variable X causes a variable Y to change (e.g. Vitamin C)
+  + Predictive: To estimate the future values of some variable (e.g. predicting Blackberry stock prices)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Target Population&lt;/strong&gt;: the population of interest (e.g. All likely US voters in the Trump example)&lt;br /&gt;
+&lt;strong&gt;Unit&lt;/strong&gt;: each member of the population&lt;br /&gt;
+&lt;strong&gt;Variate&lt;/strong&gt;: a characteristic of the unit (e.g. whether the voter approves or disapproves of Trump)&lt;br /&gt;
+&lt;strong&gt;Attribute&lt;/strong&gt;: a function of the variate (e.g. Proportion of approvals = Attribute)&lt;/p&gt;
+
+&lt;p&gt;For the income of math undergrad problem, each individual income is the variate.&lt;br /&gt;
+Average income is the attribute.&lt;/p&gt;
+
+&lt;p&gt;Typically, we want to find some attributes of the population.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plan&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Study Population&lt;/strong&gt;: the set of observations from which your sample is drawn&lt;br /&gt;
+Example: Suppose we are doing phone interviews -&amp;gt; study population would be all voters with a phone; In medical tests, study population might not be a subset of the target population&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Experimental Plan: Some of the variates can be controlled by the analyst with dependent and independent variables&lt;/li&gt;
+  &lt;li&gt;Observational Plan: The variates are not under the analyst’s control&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Analysis&lt;/strong&gt;&lt;br /&gt;
+Setting up a statistical model: we assume that the data is drawn from known distribution with unknown parameters.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bias: systematic error -&amp;gt; make sure the data is not biased&lt;/li&gt;
+  &lt;li&gt;Measurement error: random error -&amp;gt; measured value - actual value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Population parameters, usually Greek letters, are unknown. Sample parameters, usually Latin letters, are known (sample mean, sample variance).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Random Sampling&lt;/strong&gt;&lt;br /&gt;
+Sampling protocol: we want the sample to represent the population&lt;br /&gt;
+Sampling techniques: methods of drawing the “right” sample&lt;br /&gt;
+Errors: The difference between the target and the study populations = &lt;strong&gt;Study Error&lt;/strong&gt;; Difference between the study population and the sample = &lt;strong&gt;Sampling Error&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Difference in the value of the attribute between the Total Population and the Study Population is the study error. Difference in the value of the attribute between the Study Population and the Sample is the sampling error. We want to quantify the sampling error.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;br /&gt;
+We want to make sure that the conclusion is understood by non-statisticians&lt;/p&gt;
+
+&lt;p&gt;##The Theory of Estimation##
+&lt;strong&gt;Method of Maximum Likelihood&lt;/strong&gt;&lt;br /&gt;
+Based on our sample, what is the mostly likely value of the unknown parameter? This is a question every statistician asks. Example: We have a biased coin. The probability of getting a head is either 1/2 or 1/3. Toss the coin 100 times and we see 25 heads. We choose the value of the parameter that maximizes the probability of observing your sample.&lt;/p&gt;
+
+&lt;p&gt;Suppose Y is a discrete distribution with a pf f and an unknown parameter theta. Data = {y1, …, yn}.&lt;br /&gt;
+L(theta; y1, … , yn) = Likelihood Function = P(Y1 = y1, Y2 = y2, … , Yn = yn) as a function of theta; the chance of observing the sample&lt;/p&gt;
+
+&lt;p&gt;E.g. Number of accidents ~ Poi(mu), with mu unknown. Sample is {1, 0, 2, 5, 7}. Based on the sample, what is the MLE (Maximum Likelihood Estimate) for mu? Use the pf for the Poisson distribution to calculate the probability of observing each unit in the sample. Multiply them together. The value of mu that maximizes L above is called the MLE. In the above example, L = e^-5mu* mu^15 / 1!0!…7!. In order to maximize it, take the log(base e) function and maximize the log function. Take derivatives and equate it to zero, solve for mu (MLE). log L = l = log-likelihood function. In the above example, mu = 3&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-18-2016---lecture-6&quot;&gt;May 18, 2016 - Lecture 6&lt;/h2&gt;
+
+&lt;p&gt;##Estimation##&lt;/p&gt;
+
+&lt;p&gt;We are interested in some unknown characteristics (attributes) of the population. We draw a random, independent sample from this population {y1,…,yn}. Based on these sample observations, we want to come up with the best estimate for the unknown characterstic g(y1,…,yn) will be my best guess for theta.&lt;/p&gt;
+
+&lt;p&gt;Some starting points&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ usually, all statistical inference problems start with some estimation of some parameter.
++ {y1,...,yn} -&amp;gt; sample
++ we think of the data points {y1,...,yn} as outcomes of some random variable Y (statistical model); We assume that the data is drawn from some distribution with unknown parameters
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Example: toss a coin; objective: estimate pi = P(head). Each data point yi can be thought of as an outcome of Yi. The distribution of Yi is called the &lt;strong&gt;Statistical Model&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;##Steps Involving Estimation##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Identify the distribution from which your data set is drawn&lt;/li&gt;
+  &lt;li&gt;Construct the likelihood function L(theta; y1,…,yn) = P(Y1=y1,…Yn=yn) = Probability of observing your sample = P(Y1=y1)&lt;em&gt;…&lt;/em&gt;P(Yn=yn)&lt;/li&gt;
+  &lt;li&gt;Find the MLE (best guess for the unknown parameter). Theta hat is that value of theta that maximizes the likelihood function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example 1: To estimate the approval rating of Trump. Approved Rating = pi (Population proportion, unknown). Sample = {YYNNNNYNNN} Given this sample, what is pi hat, the MLE for pi? Y is either Yes with probability pi, or No with probability 1-pi&lt;/p&gt;
+
+&lt;p&gt;L(pi; y1,…yn) = pi&lt;em&gt;pi&lt;/em&gt;(1-pi)&lt;em&gt;…&lt;/em&gt;(1-pi) = pi^3 * (1-pi)^7 is the Maximum Likelihood Function. The value of pi that maximizes the function is pi hat = MLE. The log likelihood function is l(pi) = 3ln(pi) + 7ln(1-pi), take derivative, find maximum value of pi = 0.3&lt;/p&gt;
+
+&lt;p&gt;Example 2: Objective: To estimate mu, the average number of hits on your blog in an hour. A sample of n hours {y1,…,yn}. What is mu hat, the MLE for mu? We will assume that the data is drawn from a Poisson distribution. L(mu, y1,…yn) = P(Y=y1)*…P(Y=yn). Calculating mu hat, we get mu hat = 1/n(sigma yi) = y average&lt;/p&gt;
+
+&lt;p&gt;Example 3: To estimate pi = prob that a Canadian contestant wins Jeopardy. Sample = {y1,…,yn} yi = number of shows contestant i appeared in. Sample = {1,2,1,3,5}. The data in this problem is drawn from a Geometric distribution. P(Y=2) = pi(1-pi). P(Y=4) = pi^3(1-pi). L(pi; y1,…yn) = pi^[(sigma yi)-n] * (1-pi)^n. Take log derivatives and equate it to zero. Get pi hat.&lt;/p&gt;
+
+&lt;p&gt;Example 4: To estimate the proportion of southpaws at UW.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Strategy 1: Go interview people till we get 10 left handers, interviewed 100 people
++ Strategy 2: Go interview 100 people and 10 of them are left handers
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Strategy 1: pi = proportion of left handers. L(pi) = C^99_9&lt;em&gt;pi^9&lt;/em&gt;(1-pi)^90 * pi&lt;br /&gt;
+Strategy 2: L(pi) = C^100_10&lt;em&gt;pi^10&lt;/em&gt;(1-pi)^90&lt;/p&gt;
+
+&lt;p&gt;So pi hat in both cases are 1/10.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some Final Points&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For complete analysis, we have to make sure theta hat is indeed the maximum (check the 2nd order condition)&lt;/li&gt;
+  &lt;li&gt;L(theta; y1,…,yn) = P(Y1=y1)&lt;em&gt;…&lt;/em&gt;P(Yn=yn) = f(y1)*…*f(yn). f = distribution function = pi(f(yi))&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Since the likelihood function is a product of the probabilities, the value can be really small for large sample sizes.&lt;br /&gt;
+R(theta) = Relative Likelihood Function = L(theta)/L(theta hat), where theta hat = MLE. The graph of R(theta) against theta is bell-shaped, maximized at theta hat. 0&amp;lt;=R(theta)&amp;lt;=1, R hits its maximum at theta = theta hat = MLE&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-25-2016---lecture-7-2016&quot;&gt;May 25, 2016 - Lecture 7, 2016&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Syllabus for the Midterm&lt;/strong&gt;: &amp;lt;= End of this week + STAT 230; Fall 2015 Midterm and practice problems posted (solutions will be posted this Friday)&lt;/p&gt;
+
+&lt;p&gt;##Today##
++ Overview of statistical modelling, estimatation and the MLE calculation
++ Likelihood functions and the MLE for continuous r.v.s
++ Invariance property of the MLE
++ Special case -&amp;gt; Uniform distribution&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul the Octopus Problem&lt;/strong&gt;&lt;br /&gt;
++ Toss a coin 100 times. Your friend “guesses” right 70 times. Is there evidence that your friend has ESP?
++ What is the attribute of interest? (What do we care about the population we are looking at?)
++ We are trying to find pi, the probability(your friend will guess right); it is unknown
++ y = number of successes in 100 trials, y = 70 -&amp;gt; outcome of some r.v. Y. Data points are not just numbers, but outcomes of a random experiment
++ We need to construct a statistical model (assuption on the distribution Y)
++ In this case, Y~Bin(100, pi)&lt;/p&gt;
+
+&lt;p&gt;##Statistical Model##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Construct the likelihood function&lt;/li&gt;
+  &lt;li&gt;L(pi) = C^100_70 pi^70(1-pi)^30&lt;/li&gt;
+  &lt;li&gt;Find the MLE(we choose pi hat which maximizes L(pi)), pi hat = 0.7&lt;/li&gt;
+  &lt;li&gt;We choose that value of the parameter that maximizes the chance of what we observed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Formal Definition&lt;/strong&gt;: Yi = f(theta;yi), i=1,…,n, f=distribution function, Yi’s are independent, {y1,…,yn} -&amp;gt; data set&lt;/p&gt;
+
+&lt;p&gt;L(theta;y1,y2,…,yn) = n Pi i=1 f(theta;yi) Product of the Distribution functions evaluated at the sample points&lt;/p&gt;
+
+&lt;p&gt;Example: {y1,…,yn} is independently drawn from yi&lt;br /&gt;
+f(y;theta) = (1-theta)^y * theta; y = 0,1,2,…&lt;/p&gt;
+
+&lt;p&gt;##Continuous Distributions##&lt;/p&gt;
+
+&lt;p&gt;Definition: Model: Yi~f(yi;theta) where Yi is a continuous random variable with unknown parameter theta&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Objective: To estimate mu = average lifetime of a lightbulb produced by a company. An independent sample {y1,…,yn} is drawn. Based on this sample, what is mu hat?&lt;/p&gt;
+
+&lt;p&gt;Model: Yi~Exp(mu), i=1,..,n, Yi’s are independent; L(mu, yi,…,yn) = i/mu^n e^(-1/u sigma yi). Take ln, take derivative, equate to zero; get mu hat = y average&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Objective: To estimate mu = population average IQ of UW Math students; sigma^2 = variance of the IQ&lt;/p&gt;
+
+&lt;p&gt;An independent sample {y1,y2…,yn} is drawn. Based on the sample, what are sigma^2 hat and mu hat?&lt;/p&gt;
+
+&lt;p&gt;Solution: Model: Yi~N(mu, sigma^2), assuming normality, i=1,…,n, Yi’s independent&lt;/p&gt;
+
+&lt;p&gt;Likelihood function: Take partial derivatives: first with respect to mu, get mu hat = y average (If the distribution is Normal, then y average is the MLE for mu); then take partial derivative with respect to sigma, get sigma^2 hat = 1/n sigma(yi - y average)^2. The MLE for population mean is the sample mean, but the population variance is NOT the sample variance (which is 1/n-1 instead of 1/n)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Suppose {y1,…,yn} is drawn from a random variable with density function f(theta;y) = 2y/theta e^(-(y^2)/theta), with y&amp;gt;0, theta&amp;gt;0. L(theta) = (2^n(y1y2…yn))/theta^n e^(-1/theta sigma yi^2), take ln, l(theta) - ln K - nln(theta) - 1/theta sigma yi^2. Take derivative, get theta hat = 1/n sigma yi^2&lt;/p&gt;
+
+&lt;p&gt;##Invariance Property##&lt;/p&gt;
+
+&lt;p&gt;Result: If theta hat is the MLE (best guess for theta) for theta, then g(theta hat) is the MLE for g(theta) for any continuous g&lt;/p&gt;
+
+&lt;p&gt;Example: The scores of STAT231 are normally distributed with mean mu and variance sigma^2. Find the estimate for the 95-th percentile of the population. Looking at the Z table, 95-th percentile corresponds to 1.64. &lt;br /&gt;
+P(Y&amp;lt;=x) = 0.95&lt;br /&gt;
+P((Y-mu)/sigma &amp;lt;= (x-mu)/sigma) = 0.95&lt;br /&gt;
+P(Z&amp;lt;=x-mu/sigma) = 0.95&lt;br /&gt;
+x-mu/sigma = 1.64&lt;br /&gt;
+x = mu + 1.64 sigma&lt;/p&gt;
+
+&lt;p&gt;MLE for the 95th percentile = mu hat + 1.64 sigma hat. Find mu hat and sigma hat, plug in, done.&lt;/p&gt;
+
+&lt;p&gt;Example: Suppose we toss a coin 60 times, and we observe 20 successes (heads). Find the MLE for the variance of this distribution. pi hat = 1/3&lt;br /&gt;
+Var = n&lt;em&gt;pi(1-pi), Mean = n&lt;/em&gt;pi&lt;/p&gt;
+
+&lt;p&gt;##Uniform Distribution##&lt;/p&gt;
+
+&lt;p&gt;Yi~U[0,theta], theta is unknown. {yi,…,yn} What is theta hat? U[a,b], pf = 1/(b-a). f(y;theta) = 1/theta if 0&amp;lt;y&amp;lt;theta and 0 otherwise. Then L(theta) = 1/theta^n if 0&amp;lt;=yi&amp;lt;=theta for all i (or can be written as “if theta &amp;gt;= max{yi,…,yn}”), or 0 otherwise. But the graph is not continuous at max{y1,…,yn}. MLE theta hat = max{y1,…,yn}&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Stat-231.html</link>
@@ -646,7 +876,7 @@ Mind = internal states and processes, such as thoughts and feelings&lt;/p&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Not just people, events as well&lt;/li&gt;
-  &lt;li&gt;Examples: Flashbulb memories (Assassination of JFK, the Callenger Explosion, Death of Diana, 9/11)&lt;/li&gt;
+  &lt;li&gt;Examples: Flashbulb memories (Assassination of JFK, the Challenger Explosion, Death of Diana, 9/11)&lt;/li&gt;
   &lt;li&gt;Monumental events that impact a large group of people&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Limitations&lt;/strong&gt;:
     &lt;ul&gt;
@@ -665,6 +895,43 @@ Mind = internal states and processes, such as thoughts and feelings&lt;/p&gt;
   &lt;li&gt;Left brain vs. Right brain&lt;/li&gt;
   &lt;li&gt;Lateralization - refers to the relatively greater location of a function in one hemisphere or the other&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-16-2016---lecture-3&quot;&gt;May 16, 2016 - Lecture 3&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Neural Bases of Behaviour&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Brain: 3 lbs, mass of tissue made of neurons&lt;/li&gt;
+  &lt;li&gt;Neurons = building blocks of the nervous system&lt;/li&gt;
+  &lt;li&gt;100 Billion neurons at birth&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Neuron Structures etc.&lt;/strong&gt; - Soma, Dendrites, axons, myelin sheath, node of Ranvier&lt;br /&gt;
+&lt;strong&gt;Synaptic Transmission&lt;/strong&gt; - synaptic vesicles, axon terminal, postsynaptic membrane&lt;/p&gt;
+
+&lt;p&gt;##Brain##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cerebral Cortex: outermost layer
+    &lt;ul&gt;
+      &lt;li&gt;Many connections&lt;/li&gt;
+      &lt;li&gt;frontal (motor cortex, complex cognition), temporal (auditory, language), occipital (visual), parietal (sensory)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Broca’s and Wernicke’s Area&lt;/li&gt;
+  &lt;li&gt;Aphasia (Broca’s, Wernicke’s) - Partial/Total loss of the ability to communicate&lt;/li&gt;
+  &lt;li&gt;Neural Plasticity - the ability for neurons to change in structure and function; brain alterations begin in the uterus and continues throughout life; impacted by genetic factors and environment&lt;/li&gt;
+  &lt;li&gt;Synesthesia - one type of stimulation evokes the sensation of another&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-27-2016---term-test-1-review&quot;&gt;May 27, 2016 - Term Test 1 Review&lt;/h2&gt;
+&lt;p&gt;## Chapter 1 ##&lt;/p&gt;
+
+&lt;p&gt;Psychology = scientific study of behaviour (actions/responses that we can directly observe) and the mind (internal states and processes; must be inferred)&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Psych-101.html</link>
@@ -800,31 +1067,65 @@ Term: Spring 2016
   &lt;li&gt;Idealized romance - Beginning and Ending&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;african-american-music&quot;&gt;African American Music&lt;/h2&gt;
+
+&lt;p&gt;Where black culture emerges from and how characteristics map onto emerging culture after slavery ends&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do not get rock’n roll without the slave trade&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;strong&gt;North American Slave Trade (1619-1863)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;1619, First African slaves sold in North America&lt;/li&gt;
+  &lt;li&gt;Sahara essentially divides Africa into two:
+    &lt;ol&gt;
+      &lt;li&gt;Northern Africa - more associated with Middle East&lt;/li&gt;
+      &lt;li&gt;South Sub-Saharan Africa&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Majority of North American slaves came from South Sub-Saharan West Africa&lt;/li&gt;
+  &lt;li&gt;Despite salvers’ attempts to extinguish slav culture, some aspects such as music, survived, in fact music was omnipresent&lt;/li&gt;
   &lt;li&gt;Where Rock ‘n Roll began&lt;/li&gt;
   &lt;li&gt;Work songs:
     &lt;ul&gt;
-      &lt;li&gt;Used to pass time, set pace, or coordinate work&lt;/li&gt;
-      &lt;li&gt;Song leader&lt;/li&gt;
-      &lt;li&gt;“Floating pool of verse”&lt;/li&gt;
-      &lt;li&gt;E.g. “Old Alabama” (1947)&lt;/li&gt;
+      &lt;li&gt;Used to pass time, set pace, or coordinate group work for efficiency (i.e. synchronize axe swings)&lt;/li&gt;
+      &lt;li&gt;Help saving lives: by slowing pace, work songs made the group seem at the same pace, making it hard for owners to distinguish sick/slackers&lt;/li&gt;
+      &lt;li&gt;“Floating pool of verse”: floating verse created by song leader - majority were men, highly valued; had many fragmented verses, made songs up on the spot&lt;/li&gt;
+      &lt;li&gt;E.g. “Old Alabama” (1947): Slavery ended 12 years before recording technology, therefore we are not listening to slaves but rather a prison gang; this recording is by prisoners in 1947; song leader initiates and everyone joins in; not just a song, more like a game to keep spirits up - had to discern verse from syllables of song leader&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Folk Music:
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;folk-music&quot;&gt;Folk Music&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Performed by amateurs (derived from the French word for lovers, amore; means “doing it for free”, not paid)&lt;/li&gt;
+  &lt;li&gt;For self or community entertainment&lt;/li&gt;
+  &lt;li&gt;Oral tradition - passed down generationally via experience&lt;/li&gt;
+  &lt;li&gt;More concern with tradition than innovation (lacking “self-consciousness”)
     &lt;ul&gt;
-      &lt;li&gt;Performed by amateurs (derived from the French word for lovers; means “doing it for free”)&lt;/li&gt;
-      &lt;li&gt;For self or community entertainment&lt;/li&gt;
-      &lt;li&gt;Oral tradition&lt;/li&gt;
-      &lt;li&gt;More concern with tradition than innovation (lacking “self-consciousness”)&lt;/li&gt;
+      &lt;li&gt;Not professionalization - quest for innovation, to stand out to get noticed; folk culture contrasts this, it focuses on continuity of tradition&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;African Retentions:
     &lt;ul&gt;
-      &lt;li&gt;Interest in percussive and distorted timbres&lt;/li&gt;
-      &lt;li&gt;Value in the Ecstatic and the Cathartic&lt;/li&gt;
-      &lt;li&gt;Rhythmic complexity - syncopation&lt;/li&gt;
+      &lt;li&gt;Interest in percussion and distorted timbres
+        &lt;ul&gt;
+          &lt;li&gt;Timbre(tamber) (physical/audible): quality of an instrument that allows identification&lt;/li&gt;
+          &lt;li&gt;West African culture has a focus on percussion (drums, but anything that is struck)&lt;/li&gt;
+          &lt;li&gt;Distortion: unintended alteration of your signal - West African Perspective: seen as an overflow of intensity/investment of energy&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Value in the Ecstatic and the Cathartic: Sweat means energy&lt;/li&gt;
+      &lt;li&gt;Rhythmic complexity - syncopation
+        &lt;ul&gt;
+          &lt;li&gt;Indian music has complex notes and rhythms - no chords or harmonies&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
       &lt;li&gt;Use of “riffs”, a small, self-contained, music gesture that is repeated over and over, becomes the basis of a longer composition (opposite: motif)&lt;/li&gt;
       &lt;li&gt;Use of “call and response” -&amp;gt; West African perspective: no difference between performer and audience. Audience sing and dance with performer (in contrast to Western concert); E.g. YouTube video “Pop Song”, Jon Lajoie&lt;/li&gt;
     &lt;/ul&gt;
@@ -895,6 +1196,189 @@ Term: Spring 2016
       &lt;li&gt;Network radio began to change patterns of consumption form regional to national&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-rise-of-the-record-industry&quot;&gt;The Rise of the Record Industry&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The record industry concerned - needs to find new markets&lt;/li&gt;
+  &lt;li&gt;Ralph Peer - worked for Okeh Records&lt;/li&gt;
+  &lt;li&gt;Finding songs (repertoire) and artists (A&amp;amp;R guy - artists and repertoire)&lt;/li&gt;
+  &lt;li&gt;1920 - “Crazy Blues” - Mamie Smith
+    &lt;ul&gt;
+      &lt;li&gt;due to institutionalizedracism - black people did not record music&lt;/li&gt;
+      &lt;li&gt;first significant recording by AA artists despite origin in 1877&lt;/li&gt;
+      &lt;li&gt;song was a minor hit - purchased by white people despite racism&lt;/li&gt;
+      &lt;li&gt;black community did not have a lot of purchasing power, thus they were not a targeted market&lt;/li&gt;
+      &lt;li&gt;not a Blues song, much more associated to Jazz. Jazz is closely linked to popular music up to post-war&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Market research in popular music
+    &lt;ul&gt;
+      &lt;li&gt;most radio music is TPA&lt;/li&gt;
+      &lt;li&gt;Ignored black cultural and southern rural white culture, thought culture was artistically and economically insignificant&lt;/li&gt;
+      &lt;li&gt;Peer decided to used records to play what radio did not&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Introduction of “Hillbilly”: Carve that Possum - Uncle Dave Macon, 1927
+    &lt;ul&gt;
+      &lt;li&gt;Uncle Dave Macon and the Fruit Jar Drinkers&lt;/li&gt;
+      &lt;li&gt;Early origin of country (music of Southeastern states, now called blue bratz) and western&lt;/li&gt;
+      &lt;li&gt;More energy/intensity, very hard, on beat&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-19-2016---lecture-3&quot;&gt;May 19, 2016 - Lecture 3&lt;/h2&gt;
+
+&lt;h3 id=&quot;introduction-of-race&quot;&gt;Introduction of “Race”&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How Long Blues, 1928, Leroy Carr and Scrapper Blackwell; beginning of guitar solo
+    &lt;ul&gt;
+      &lt;li&gt;First recording of AA artists and Blues (1890s, maybe 1880s)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Included different styles. The most important one was that it included the next style of Blues: City Blues = music made by country blues artists after they moved to the cities; Relaxed style&lt;/li&gt;
+  &lt;li&gt;Instruments had to be louder in city than in country, therefore main instrument went from solo acoustic guitar to piano&lt;/li&gt;
+  &lt;li&gt;Black and Southern cultures exposed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;television&quot;&gt;Television&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First demonstration in 1927&lt;/li&gt;
+  &lt;li&gt;Experimental and low-resolution broadcasts through the 1930s&lt;/li&gt;
+  &lt;li&gt;Network broadcasts begin in 1939&lt;/li&gt;
+  &lt;li&gt;By 1945 - 6 stations&lt;/li&gt;
+  &lt;li&gt;WWII: TV not helpful towards war effort&lt;/li&gt;
+  &lt;li&gt;By 1955 - 411 stations&lt;/li&gt;
+  &lt;li&gt;Major nextworks move to Television
+    &lt;ul&gt;
+      &lt;li&gt;Televion was a better medium for commercials&lt;/li&gt;
+      &lt;li&gt;Commercials were primary revenue source for networks&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Major networks switching mediums led to more independent, local stations&lt;/li&gt;
+  &lt;li&gt;First “Black Appeal” radio station - WDIA Memphis, 1948; 2 pharmacists bought a radio station&lt;/li&gt;
+  &lt;li&gt;By 1954, 200 BA radio stations are on the air&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Who is listening? Extended Adolescence&lt;br /&gt;
+Transistor Radio&lt;/p&gt;
+
+&lt;h3 id=&quot;gospel&quot;&gt;Gospel&lt;/h3&gt;
+
+&lt;p&gt;The sacred music of black culture, from the culture following the civil war -&amp;gt; spiritual&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ray Charles(Robinson), 1930-2004&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Born in Albany, GA&lt;/li&gt;
+  &lt;li&gt;Blind at age 7, learns music in a school for the blind&lt;/li&gt;
+  &lt;li&gt;1952 Atlantic Records&lt;/li&gt;
+  &lt;li&gt;Success with white audiences - heightened level of intensity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Chicago Electric Blues&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Muddy Waters, 1913-1983
+    &lt;ul&gt;
+      &lt;li&gt;Born in Mississippi&lt;/li&gt;
+      &lt;li&gt;Played guitar and harmonica&lt;/li&gt;
+      &lt;li&gt;Emulated Robert Johnson&lt;/li&gt;
+      &lt;li&gt;Moved to Chicago in the early 1940s&lt;/li&gt;
+      &lt;li&gt;Switched to electric guitar, 1945&lt;/li&gt;
+      &lt;li&gt;1946, records for Aristocrat Records (would later become Chess Records)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hoochie Coochie Man (1954, Willie Dixon)
+    &lt;ul&gt;
+      &lt;li&gt;Verse chorus (modified 12-bar blues)&lt;/li&gt;
+      &lt;li&gt;Stop Time&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-26-2016---lecture-4&quot;&gt;May 26, 2016 - Lecture 4&lt;/h2&gt;
+
+&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Crossover hits: works done by black artists but were popular on the charts;&lt;/li&gt;
+  &lt;li&gt;White teenagers listened to a lot Black music&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cover-versions-1954-1956&quot;&gt;Cover Versions: 1954-1956&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“white” versions of “black” records; did not violate copyright laws; quite legal; crossover-&amp;gt;pop chart-&amp;gt;within a week or two the same song performed by white artists would be on the chart with it simultaneously-&amp;gt;to appease white parents&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Richard Wayne Penniman “Little Richard” **&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Born 1932, Macon, GA&lt;/li&gt;
+  &lt;li&gt;First big hit: “Tutti Frutti”&lt;/li&gt;
+  &lt;li&gt;Released late 1955 on Specialty Records (lyrics revised by Dorothy LaBostrie; she replaced some sexual lyrics with less controversial words)&lt;/li&gt;
+  &lt;li&gt;“Crossover” hit: #2 R&amp;amp;B, #17 Pop on Billboard&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Pat Boone **&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Born 1934&lt;/li&gt;
+  &lt;li&gt;Was just breaking as a popstar in 1955&lt;/li&gt;
+  &lt;li&gt;Early 1956, released a cover of “Tutti Frutti”&lt;/li&gt;
+  &lt;li&gt;No R&amp;amp;B, #10 Pop&lt;/li&gt;
+  &lt;li&gt;Outsold Little Richard with white audiences&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** What was changed? **&lt;/p&gt;
+
+&lt;p&gt;** Cover Versions: “Sh-Boom” **&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Chords (black, original) and The Crew Cuts (white, cover);&lt;/li&gt;
+  &lt;li&gt;The Chords: June 1954/Cat Records(independent) (AABA pattern), crossover hit on the pop charts&lt;/li&gt;
+  &lt;li&gt;The Crew Cuts: July 1954/Mercury Records (AABA,Sh-Boom(A), Sh-Boom(A),BA, still retained the AABA structure; deliberately repeated the AABA pattern to appeal to white middle class audiences, will sound more familiar; Changes:)&lt;/li&gt;
+  &lt;li&gt;The Chords: Form: 1x through AABA, with interludes; Voice: distorted - use of lower octave in B; Solo: Sax - distorted timbre, sexual metaphor&lt;/li&gt;
+  &lt;li&gt;The Crew Cuts: Form: 2x through AABA - clearly stated; Voice: Clean, no use of lower octave; Solo: No solo - repeats of “Sh-boom” group vocal - timpani joke (cartoon reference)&lt;/li&gt;
+  &lt;li&gt;Racist? Or a continuation of TPA traditions? Record companies -&amp;gt; simply business&lt;/li&gt;
+  &lt;li&gt;The Chords: #3 R&amp;amp;B / #5 Pop&lt;/li&gt;
+  &lt;li&gt;The Crew Cuts: no R&amp;amp;B / #1 Pop for 9 weeks - Song of the Year (not The Chords)&lt;/li&gt;
+  &lt;li&gt;Both white and black artists performing in this new style: a mix of pop, C&amp;amp;W, and R&amp;amp;B, targeted teenagers - Rock ‘n Roll (term attributed to Alan Freed; term goes at least back to the 1800s out of Black culture)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Bill Haley and the Comets **&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Born in 1925&lt;/li&gt;
+  &lt;li&gt;Originally “Bill Haley and the Saddlemen”&lt;/li&gt;
+  &lt;li&gt;Western Swing (Jazz beats)&lt;/li&gt;
+  &lt;li&gt;Changes to “Bill Haley and the Comets” in 1952&lt;/li&gt;
+  &lt;li&gt;Early hits with “Crazy Man, Crazy” and “Shake, Rattle, and Roll”&lt;/li&gt;
+  &lt;li&gt;** 1954, Rock Around The Clock **
+    &lt;ul&gt;
+      &lt;li&gt;Becomes popular in 1955 in the midst of fear of black culture on white teenagers&lt;/li&gt;
+      &lt;li&gt;Film “Blackboard Jungle”&lt;/li&gt;
+      &lt;li&gt;12 bar blues&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Elvis Presley (1935-1977) **&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Born in Tupelo, Mississippi&lt;/li&gt;
+  &lt;li&gt;1953 - 18 years old, Sam Phillips/Sun Records (independent, 2 employees)&lt;/li&gt;
+  &lt;li&gt;Spring 1954 - Records with Scotty Moore (Guitar) and Bill Black (Bass); White artists did not use drums in 1954&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
@@ -1573,14 +2057,14 @@ done
     &lt;tr&gt;
       &lt;td&gt;sort wordCollection&lt;/td&gt;
       &lt;td&gt;uniq -c&lt;/td&gt;
-      &lt;td&gt;sed ‘s_6_12_’&lt;/td&gt;
+      &lt;td&gt;sed ‘s_6&lt;em&gt;12&lt;/em&gt;’&lt;/td&gt;
       &lt;td&gt;sort&lt;/td&gt;
       &lt;td&gt;tail # Use sed to replace 6s with 12s and then sort lexigraphically&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;sort wordCollection&lt;/td&gt;
       &lt;td&gt;uniq -c&lt;/td&gt;
-      &lt;td&gt;sed ‘s_6_12_’&lt;/td&gt;
+      &lt;td&gt;sed ‘s_6&lt;em&gt;12&lt;/em&gt;’&lt;/td&gt;
       &lt;td&gt;sort -k1,1nr -k2,2&lt;/td&gt;
       &lt;td&gt;head&lt;/td&gt;
     &lt;/tr&gt;
@@ -1789,6 +2273,785 @@ If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not unti
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-17-2016---lecture-5&quot;&gt;May 17, 2016 - Lecture 5&lt;/h2&gt;
+
+&lt;p&gt;E.g. Read all ints from stdin + echo, one per line, to stdout, stop on bad input of EOF&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int main() {
+	int i;
+	while (true) {
+		cin &amp;gt;&amp;gt; i;
+		if (cin.fail()) {
+			break;
+		}
+		cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Recall: if read fails, cin.fail() will be true; if EOF: cin.fail() and cin.eof() both true, but not until the attepted read fails&lt;/p&gt;
+
+&lt;p&gt;Note: there is an implicit conversion from cin to bool, so cin can be used as a condition. The conversion is that it’s true if fail/bad/eof bits are clear, or false if fail/bad/eof set&lt;/p&gt;
+
+&lt;p&gt;E.g. v2.0&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int main() {
+	int i;
+	while (true) {
+		cin &amp;gt;&amp;gt; i;
+		if (!cin) { // using cin as the condition, means the same thing as the other program
+			break;
+		}
+		cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; true
+ 		}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Note: » is C’s right bitshift operator; a » b shifts a’s bits to the right by b spots&lt;/p&gt;
+
+&lt;p&gt;E.g. 21 » 3; 21 in binary is 10101, push the last 3 digits off the cliff, so it becomes 10 in binary, which is 2; equivalent to dividing by 2 to the b-th power, ignoring remainders&lt;/p&gt;
+
+&lt;p&gt;But when the left hand side is cin, this is the “get from” operator&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;operator &amp;gt;&amp;gt;
+ 	// inputs: LHS cin (istream), RHS data (variety of types); output: return cin (istream)
+ 	// This is why we can write: cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z; cin &amp;gt;&amp;gt; x produces cin, x gets populated, and now we get cin &amp;gt;&amp;gt; y &amp;gt;&amp;gt; z, and so on.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;E.g. v3.0&lt;/p&gt;
+
+ 	int main() {
+ 		int i;
+ 		while (true) {
+ 			if (!(cin » i)) { // using it as both a condition and populating i
+ 				break;
+ 			}
+ 			cout « i « endl;
+  		}
+ 	}
+
+&lt;p&gt;E.g. v4.0&lt;/p&gt;
+
+ 	int main() {
+ 		int i;
+ 		while(cin » i) { // changing the break statement into a single while loop
+ 			cout « i « endl
+ 		}
+ 	}
+
+&lt;p&gt;E.g. read and echo ints until EOF, skip non-integer input&lt;/p&gt;
+
+ 	int main() {
+ 		int i;
+ 		while (true) {
+ 			if (!(cin » i)) {
+ 				if (cin.eof()) {
+ 					break;
+ 				}
+ 				cin.clear(); // clears the fail bit, so that cin is ready to read again
+ 				cin.ignore(); // throws away the next character
+ 			} else {
+ 				cout « i « endl;
+ 			}
+ 		}
+ 	}
+
+&lt;p&gt;Reading strings: type std::string (#include &lt;string&gt;)&lt;/string&gt;&lt;/p&gt;
+
+ 	int main() {
+ 		string s;
+ 		cin » s;
+ 		cout « s « endl;
+ 	}
+
+ 	// skips leading white space;
+ 	// stops at whitespace (reads one word)
+
+&lt;p&gt;What if we want the hvitespace? Use getline(cin, s), it reads from the current position to next newline, into s.&lt;/p&gt;
+
+ 	cout « 95 « endl; // prints 95
+
+&lt;p&gt;What if we want to print a number in hexadecimal?&lt;/p&gt;
+
+ 	cout « hex « 95 « endl; // this will print 95 in hex, 5f
+ 	// hex is std::hex, is the I/O manipulator, reconfigures the output string, all subsequent ints are printed in hex (FOR THE REST OF ETERNITY, nah jkjk till the program terminates); A bit of an overkill?
+ 	cout « dec; // goes back to decimal
+
+ 	// Other manipulator, SEE NOTES, don’t forget
+ 	#include &lt;iomanip&gt;
+&lt;/iomanip&gt;
+&lt;p&gt;Stream abstraction applies to other fsources of data&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Files&lt;/strong&gt; - Read from a file instead of stdin&lt;br /&gt;
+ 	std::ifstream reads from a file&lt;br /&gt;
+ 	std::ofstream writes to a file&lt;/p&gt;
+
+&lt;p&gt;File access in C:&lt;/p&gt;
+
+ 	#include &lt;stdio.h&gt;
+&lt;/stdio.h&gt;
+ 	int main() {
+ 		char s[256];
+ 		FILE *file = fopen(“suite.txt”, “r”); // r = read mode; file is a handle
+ 		while (true) {
+ 			fscanf(file, “%255s”, s);
+ 			if (feof(file)) break;
+ 			printf(“%s\n”, s);
+ 		}
+ 		fclose(file);
+ 	}
+
+&lt;p&gt;File access in C++:&lt;/p&gt;
+
+ 	#include &lt;iostream&gt;
+ 	#include &lt;fstream&gt;
+ 	using namespace std;
+&lt;/fstream&gt;&lt;/iostream&gt;
+ 	int main() {
+ 		ifstream file{“suite.txt”}; // creating and initializing an ifstream opens the file
+ 		string s;
+ 		while (file » s) {
+ 			cout « s « endl;
+ 		}
+ 		// IMPORTANT: the file is closed when the variable (in this case, file), goes out of scope; when the program stops, it’s popped of the runtime stack, it then closes.
+ 	}
+
+&lt;p&gt;Anything you can do do with cin and cout, you can do with an ifstream or an ofstream. ANYTHING.&lt;/p&gt;
+
+&lt;p&gt;E.g. string - attach a stream to a string and read/write it&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; #include &amp;lt;sstream&amp;gt; // std::istringstream and std::ostringstream read from/write to a string
+
+ int hi = ..., lo = ...;
+ ostringstream ss; // think of it as a sock
+ ss &amp;lt;&amp;lt; &quot;Enter a # between&quot; &amp;lt;&amp;lt; lo &amp;lt;&amp;lt; &quot;and&quot; &amp;lt;&amp;lt; hi; // stuffing the sock with string
+ string s = ss.str(); // cuts open the sock and gets the string
+ cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;E.g. convert a string to a #&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int n;
+while (true) {
+	cout &amp;lt;&amp;lt; &quot;Enter a number&quot; &amp;lt;&amp;lt; endl;
+	string s;
+	cin &amp;gt;&amp;gt; s;
+	istringstream ss {s};
+	if (ss &amp;gt;&amp;gt; n) break; // stop if you get int
+	cout &amp;lt;&amp;lt; &quot;I said,&quot;;
+}
+cout &amp;lt;&amp;lt; &quot;You entered&quot; &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Example revisited - echo numbers, skip non-numbers&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int main() {
+	string s;
+	while (cin &amp;gt;&amp;gt; s) {
+		istringstream ss {s};
+		int n;
+		if (ss &amp;gt;&amp;gt; n) {
+			cout &amp;lt;&amp;lt; n &amp;lt;&amp;lt; endl;
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Strings:&lt;/p&gt;
+
+&lt;p&gt;In C, array of char (char* or char[]), terminated by IO. Must manage own memory: get morememory when strings grow; Easy to overwrite IO and corrupt program&lt;/p&gt;
+
+&lt;p&gt;In C++, strings grow as needed, and thus safer&lt;/p&gt;
+
+&lt;p&gt;E.g. string s{“Hello”}; // it’s still an array (C-style string); C++ string created from C string on initialization&lt;/p&gt;
+
+&lt;p&gt;String Operations: Equality Inequality, s1 == s2, s1 != s2&lt;br /&gt;
+Comparison: s1 &amp;lt;= s2 (lexicographical comparison)&lt;br /&gt;
+Length: s.length()&lt;br /&gt;
+Extract individual characters: s[0], s[1] etc.&lt;br /&gt;
+Concatenation: s3 = s1 + s2, s3 += s4&lt;br /&gt;
+More details: SEE NOTES&lt;/p&gt;
+
+&lt;p&gt;Default Function Parameters&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void printSuiteFile(String name = &quot;suite.txt&quot;) { // default value
+	...
+}
+
+printSuiteFile(&quot;suite2.txt&quot;);
+printSuiteFile(); // prints from suite.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Note: optional params must be last; if you leave out two parameters, they have to be the last two; 3,3 etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-18-2016---tutorial-2&quot;&gt;May 18, 2016 - Tutorial 2&lt;/h2&gt;
+
+&lt;p&gt;##Shell Scripting##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Exit codes are important; non-zero return/exit value = ERROR&lt;/li&gt;
+  &lt;li&gt;Write to the correct stream&lt;/li&gt;
+  &lt;li&gt;Scoping for subroutines, anything defined befored a subroutine is visible(and modifiable) in the subroutine, except positional arguments ($1, $2, …)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Testing##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Don’t have to worry about invalid inputs&lt;/li&gt;
+  &lt;li&gt;Testing is hard&lt;/li&gt;
+  &lt;li&gt;Try sanity checks (“No one could make this mistake”)&lt;/li&gt;
+  &lt;li&gt;Good coverage: boundary/edge and corner cases, equivalence classes, weird cases&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Possible Test Cases&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Equivalence courses: small, medium, and large values of the target
++ Boundary/edge cases: test containing 0 as target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##C++ I/O##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DO NOT USE C I/O&lt;/li&gt;
+  &lt;li&gt;3 default streams: cout, cerr, cin&lt;/li&gt;
+  &lt;li&gt;If a read from cin fails, &lt;strong&gt;all subsequent reads will fail&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Make I/O More Robust##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reading from cin could fail in two ways
+    &lt;ul&gt;
+      &lt;li&gt;EOF&lt;/li&gt;
+      &lt;li&gt;got unexpected input&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a read fails, a flag goes up in cin
+    &lt;ul&gt;
+      &lt;li&gt;cin.fail() will be true&lt;/li&gt;
+      &lt;li&gt;Only cin.fail() will be true if it was an error&lt;/li&gt;
+      &lt;li&gt;Both cin.fail() and cin.eof() will be true if it was EOF&lt;/li&gt;
+      &lt;li&gt;How to clear: cin.clear() -&amp;gt; put all cin flags down and turn it into a valid state&lt;/li&gt;
+      &lt;li&gt;How to continue: cin.ignore(); order is important: clear then ignore&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If you want the entire line, use getline(cin, s)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Strings##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Encapsulates something like char* in C&lt;/li&gt;
+  &lt;li&gt;Has length, insert, delete, search methods&lt;/li&gt;
+  &lt;li&gt;Can be accessed like an array&lt;/li&gt;
+  &lt;li&gt;include&lt;string&gt;&lt;/string&gt;&lt;/li&gt;
+  &lt;li&gt;at(index): checks for bounds and throws an exception if out of bounds&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-19-2016---lecture-6&quot;&gt;May 19, 2016 - Lecture 6&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Overloading&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;C:&lt;/p&gt;
+
+&lt;p&gt;int negInt(int n) { return -n; }
+  int negBool(bool b) { return !b; }&lt;/p&gt;
+
+&lt;p&gt;C++: Functions with different parameter lists can share the same name&lt;/p&gt;
+
+&lt;p&gt;int neg(int n) { return -n; }
+  int neg(bool b) { return !b; }
+  // example of overloading&lt;/p&gt;
+
+&lt;p&gt;Compiler uses number of types of arguments to decide which neg is being called.&lt;/p&gt;
+
+&lt;p&gt;Overloads must differ in number of type of arguments, not just on the return type. We’ve seen this before: », « (operators, could be right shift/left shift, or could be input and output; the behaviour depends on types of args)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Structs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct Node {
+  int data;
+  Node \*next;
+}; // don&#39;t forget the semicolon
+
+Node n1{5, nullptr}; // nullptr is the syntax for a null pointer in C++.
+// Do not say NULL or 0 in this class!!!!!!! 0 will be always treated as a number, not pointer
+
+const Node n2 = n1; // constant struct means that its fields cannot be changed; n2 is an immutable copy of n1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Parameter Passing&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Recall:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void inc(int n) {
+  n = n + 1;
+  // ...
+  int x = 5;
+  inc(x);
+  cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; endl; // prints 5; call-by-value
+  // inc gets a copy of x and modifies the copy, not the original
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Sol’n: If a function needs to modify its arugument - pass a pointer&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;void inc(int n) {
+  \*n = \*n + 1;
+  // ...
+  int x = 5;
+  inc(&amp;amp;x); // x&#39;s address passed by value, inc changes value at that address, visible to caller
+  cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; endl; // prints 6
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Question: Why cin » x and not cin » &amp;amp;x?&lt;br /&gt;
+Answer: C++ has another pointer-like type: references&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;References (IMPORTANT!!!)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int y = 10;
+int &amp;amp;z = y; // NEW. Ampersand after int. z is an **lvalue reference** to int ( which is y)
+            // Like a constant pointer, similar to int \*const z = &amp;amp;y;
+            // (z is a constant pointer to an int; z will always point to y implied by const)
+            // (but y is not constant; you can change y however you like)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;References are like constant pointers with automatic dereferencing.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;z = 12; // NOT \*z = 12
+int \*p = &amp;amp;z; // &amp;amp;z gives the address of y. No matter what you do to z, you do it y. In all cases, z behaves exactly like y. z is an alias for y.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Things you CANNOT do with lvalue references&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;leave them uninitialized, because they are constant, cannot assign later
+    &lt;ul&gt;
+      &lt;li&gt;must be initialized with something that actually has an address (an lvalue) since references are pointers&lt;/li&gt;
+      &lt;li&gt;E.g.
+  int &amp;amp;x = 3; // WRONG: WONT COMPILE, because 3 is not an address
+  int &amp;amp;x = y + z; // WRONG
+  int &amp;amp;x = y; // GOOD&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;create pointer to a reference: int &amp;amp;* x; // WRONG
+    &lt;ul&gt;
+      &lt;li&gt;reference to a pointer is legal: int *&amp;amp; x;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;create a reference to a reference: int &amp;amp;&amp;amp; x = …; // means something different (will discuss later)&lt;/li&gt;
+  &lt;li&gt;create an array of references: int &amp;amp;a[] = {x, x, x}; // given the similarity between arrays and pointers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Things you CAN do with lvalue references&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Pass as function parameters:&lt;/p&gt;
+
+    &lt;p&gt;void inc(int &amp;amp;n) { // const pointer to the argument (x), thus changes to n affect x
+    n = n + 1; // no pointer dereferencing
+  }
+  int x = 5;
+  inc(x);
+  cout « x « endl; // prints 6&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Why does cin » x work? It takes x by reference&lt;/p&gt;
+
+&lt;p&gt;istream &amp;amp;operator » (istream &amp;amp;in, int &amp;amp;n);&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pass-by-value&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;E.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int f(int n) {...} // copies the argument
+// if the argument is big, copying is expensive
+
+struct ReallyBig{}; // Massive struct with thousands of fields
+int f(ReallyBig rb) {...} // copying would be slow
+
+int g(ReallyBig &amp;amp;rb) {...} // pass as reference, no copy, it&#39;s an alias, fast
+// this could change rb in the caller, in contrast to pass by value, which guarantees
+// no changes to rb itself after calling
+
+int h(const ReallyBig &amp;amp;rb) {...} // pass constant reference, no copy, fast, and the parameter cannot be changed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Advice: prefer pass-by-const-reference over pass-by-value for anything larger than an int, unless the function needs to make a copy anyway - then maybe pass by value. DEFAULT SHOULD BE PASS-BY-CONST-REF. Sizeof reference is same as size of a pointer&lt;/p&gt;
+
+&lt;p&gt;Also:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int f(int &amp;amp;n) {...}
+int g(const int &amp;amp;n) {...}
+
+f(5); // LMAO FAILS WON&#39;T COMPILE, because 5 does not have an address; can&#39;t initialize an lvalue reference (n) to a literal value;
+// if n changes, can&#39;t change the literal 5
+g(5); // OK; since n can never be changed, the compiler will allow this
+// How though? The compiler creates a temporary location to hold 5, so that n has something to point at
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That’s why const ref is so CRITICALLY IMPORTANT.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dynamic Memory Allocation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;C:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int \*p = malloc(n * sizeof(int));
+free(p);
+// Don&#39;t use these though
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;C++: new/delete&lt;/p&gt;
+
+&lt;p&gt;E.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct Node {
+  int data;
+  Node \*next;
+}
+
+Node \*np = new Node; // allocates a Node on the heap and np points to it
+// ...
+delete np;
+// all local variables reside on the stack
+// deallocated (popped) when their scope ends
+// Allocated memory is on the heap, it stays there until you get rid of it
+// Remains allocated until delete is called
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you don’t delete - MEMORY LEAK&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Arrays on the heap&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Node \*myArray = new Node[10];
+// ...
+delete [] myArray; // The square brackets have to be there
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;E.g.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Node getMeANode() { // copy to caller&#39;s frame, expensive
+    Node n;
+    return n;
+}
+
+Node &amp;amp;getMeANode() { // WORST. Returns a ref (essentially a pointer) to stack-allocated data, which is dead on return
+    Node n;
+    return n;
+}
+
+Node \*getMeANode() { // fast-ish and safe, not returning pointer to dead data, caller responsible for delete when done
+    Node \*np = new Node;
+    return np;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Considering all options, do No.1.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Operator Overloading&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Give our own meanings to C++ operators for types we create&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct Vec {
+    int x, y;
+}
+
+Vec operator+(const Vec &amp;amp;v1, const Vec &amp;amp;v2) {
+  Vec v{v1.x+v2.x, v1.y+v2.y}
+  return v;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-24-2016---lecture-7&quot;&gt;May 24, 2016 - Lecture 7&lt;/h2&gt;
+
+&lt;p&gt;##Preprocessor Variables##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can also define preprocessor symbols via the compiler; with gcc, syntax is -Dvname or -Dvname=val (-DX)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ifdef&lt;/strong&gt; and &lt;strong&gt;ifndef&lt;/strong&gt; directives: these check if a preprocessor variable has been defined (a use for simply defining variables); can be used to debug; #ifdef DEBUG to conditionally print stuff out to debug code; can offload run time to compile time
+    &lt;ul&gt;
+      &lt;li&gt;syntax: &lt;code class=&quot;highlighter-rouge&quot;&gt;
+  g++14 -DDEBUG program.cpp // set DEBUG
+ &lt;/code&gt;
+##Separate Compilation##&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To help readability and create modularity we can split our programs into composable modules. Each module consist of &lt;strong&gt;interface&lt;/strong&gt; (type definitions and prototypes for functions, .h file, contains declarations, won’t allocate space for the variables) and &lt;strong&gt;implementation&lt;/strong&gt; (full details, allocates space for variables/functions, .cpp file, contains definitions)&lt;/li&gt;
+  &lt;li&gt;Example: Let’s take the vector struct and overloaded addition operator we created and put in a module so that it can be used by other files; create vec.h and vec.cpp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;```C++
+  // vec.h
+  struct Vec {
+    int x, y;
+  };&lt;/p&gt;
+
+&lt;p&gt;Vec operator+(const Vec &amp;amp;v1
+                const Vec &amp;amp;v2); // constant reference to vectors, do not modify the originals&lt;/p&gt;
+
+&lt;p&gt;// vec.cpp
+  #include “vec.h” // to get the struct definition from the interface file&lt;/p&gt;
+
+&lt;p&gt;Vec operator+(const Vec &amp;amp;v1, const Vec &amp;amp;v2) {
+    return {v1.x + v2.x, v1.y + v2.y};
+  }&lt;/p&gt;
+
+&lt;p&gt;// main.cpp
+  #include “vec.h”
+  using namespace std;&lt;/p&gt;
+
+&lt;p&gt;int main() {
+    Vec x {1,2};
+    Vec y {3,4};
+    Vec v = x + y;
+    cout « v.x « ”, “ « v.y « endl;
+    return 0;
+  }&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;when compiling:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  g++14 -c vec.cpp // -c oppresses linking, creates .o (object) file
+  g++14 -c main.cpp
+  g++14 vec.o main.o -o main
+  ./main
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##Global Variables##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider we want to want to define a global variable in a module
+&lt;code class=&quot;highlighter-rouge&quot;&gt;C++
+  // abc.h
+  int globalNum; // Wrong - definition and declaration
+  // This won&#39;t work, every file that includeds abc.h defines a SEPARATE globalNum and the program will not link
+&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Solution: put the variable in the .cpp file
+&lt;code class=&quot;highlighter-rouge&quot;&gt;C++
+  // abc.h
+  extern int globalNum; // Correct, just declaration
+  // abc.cpp
+  int globalNum;
+&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Multiple Includes##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Always put #include guards in .h files (ifdef, define, endif)&lt;/li&gt;
+  &lt;li&gt;Never put using namespace std in .h files; DO NOT USE ANY NAMESPACES WHATSOEVER!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;##Classes##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The big innovation of OOP - we can put functions inside of structs&lt;/li&gt;
+  &lt;li&gt;A class is some struct that can contain functions&lt;/li&gt;
+  &lt;li&gt;An object is an instance of a class&lt;/li&gt;
+  &lt;li&gt;Member functions (aka Methods) are functions inside a class&lt;/li&gt;
+  &lt;li&gt;this = pointer to the object a member function is called on; syntax: this-&amp;gt;var; s.grade() is like calling grade(&amp;amp;s)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-26-2016---lecture-8&quot;&gt;May 26, 2016 - Lecture 8&lt;/h2&gt;
+
+&lt;h2 id=&quot;classes-continued&quot;&gt;Classes Continued&lt;/h2&gt;
+&lt;p&gt;Recall: student.cpp, implemented as struct&lt;br /&gt;
+This class:&lt;/p&gt;
+
+&lt;h2 id=&quot;initializing-objects&quot;&gt;Initializing Objects&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;When creating an object typicaly the class will have data members that need to be assigned values - initialized&lt;/li&gt;
+  &lt;li&gt;As shown in the student example we could use curly braces to initialize our class, and in C++ this is true for most types - this is called &lt;strong&gt;Uniform Initialization&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Ex. Student bob {60, 70, 80} in the student.cpp example&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;constructors&quot;&gt;Constructors&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Without defining how your class should be constructed C++ just takes those values and assigns them to each field in the order they were declared - this is okay, but has limitations&lt;/li&gt;
+  &lt;li&gt;A better idea is to include in your class a method that does the initialization - called a &lt;strong&gt;constructor&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ex. in the student.cpp example&lt;/p&gt;
+
+    &lt;p&gt;Student(int assns, int mt, int final) {
+    // Debug statement here
+    this-&amp;gt;assns = assns;
+    this-&amp;gt;mt = mt;
+    this-&amp;gt;final = final;
+  }
+  // default value given
+  Student(int assns=0, int mt=0, int final=0) {
+      // …
+  }&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;notes-on-initialization&quot;&gt;Notes on Initialization&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sometimes variables are initialized with the assignment operator&lt;/p&gt;
+
+    &lt;p&gt;int x = 5;
+  string s = “hello”;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;And sometimes with (), especially when invoking Constructors&lt;/p&gt;
+
+    &lt;p&gt;int x(5);
+string s(“Hello”)
+Student bob(60, 70, 80)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;An exception to this: std::vector&lt;/p&gt;
+
+    &lt;p&gt;std::vector B{1,3,5} // contains elements 1,3,5
+std::vector V(5) // of size 5
+std::vector G{1} // actually contains element 1; curly brackets -&amp;gt; element rather than size&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Also,&lt;/p&gt;
+
+    &lt;p&gt;int x = 2.0; // the decimal will get chopped off
+int x {2.0} // COMPILER ERROR&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A class is a struct itself, an object is an actual variable of that type&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;default-constructor&quot;&gt;Default Constructor&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Every class comes with a default (zero-argument) constructor which calls: you can create an object but set its values later&lt;/li&gt;
+  &lt;li&gt;As soon as you declare your own constructor, you lose the default&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;#&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What about if our class contains a constant field or a reference field?&lt;/li&gt;
+  &lt;li&gt;For example let’s consider adding an ID field to our student class, this should be a const value that never changes but is different for each initialized student object&lt;/li&gt;
+  &lt;li&gt;Where to initialize them though? Struct definition (i.e. create an ID field in the struct; const int id = 0;)? In the body of the constructor?&lt;/li&gt;
+  &lt;li&gt;Problem: const int should be initialized&lt;/li&gt;
+  &lt;li&gt;Solution:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;object-creation-steps&quot;&gt;Object Creation Steps&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Space is allocated&lt;/li&gt;
+  &lt;li&gt;Fields are constructed&lt;/li&gt;
+  &lt;li&gt;Constructor body runs&lt;/li&gt;
+  &lt;li&gt;The moddile step is the missing piece of the puzzle where our initialization must go!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mil&quot;&gt;MIL&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The member initialization list is part of our constructor that specifies how to initialize object and non-static data members of our class&lt;/li&gt;
+  &lt;li&gt;Can be used for any non-static memebers&lt;/li&gt;
+  &lt;li&gt;Initialized in order of declaration in struct&lt;/li&gt;
+  &lt;li&gt;Is more efficient, when the constructor is doing the same thing as the MIL, when there is a class inside a class (school class in student class)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ex.&lt;/p&gt;
+
+    &lt;p&gt;Student(): assns{assns}, mt{mt}, final{final}, id{id} {&lt;/p&gt;
+
+    &lt;p&gt;}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;copy-constructor&quot;&gt;Copy Constructor&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What happens when you use the assignment opeartor to instantiate an object?&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ex.&lt;/p&gt;
+
+    &lt;p&gt;Student a {60,70,80}
+  Student b = a;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;b will be initialized via the copy constructor&lt;/li&gt;
+  &lt;li&gt;All classes have an implicit copy constructor that just copies all regular data fields and calls copy constructors on all object fields&lt;/li&gt;
+  &lt;li&gt;Ex.
+  #include “Node.h”
+  Node::Node(const Node &amp;amp;in) : data(in.data) {
+    if (in.next) {
+      next = new Node(*in.next);
+    } else {
+      next = nullptr;
+    }
+  }
+  // recursively copies the nodes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implicit-methods&quot;&gt;Implicit Methods&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Every class comes with
+    &lt;ul&gt;
+      &lt;li&gt;A default constructor&lt;/li&gt;
+      &lt;li&gt;A copy constructor (just copies all fields)&lt;/li&gt;
+      &lt;li&gt;A copy assignment operator&lt;/li&gt;
+      &lt;li&gt;A destructor&lt;/li&gt;
+      &lt;li&gt;A move constructor&lt;/li&gt;
+      &lt;li&gt;A move assignmenet operator&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;notes-on-copy-constructor&quot;&gt;Notes on Copy Constructor&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The copy constructor (implicit or otherwise) is called when
+    &lt;ul&gt;
+      &lt;li&gt;An object is initialized by another object&lt;/li&gt;
+      &lt;li&gt;When an object is passed by value&lt;/li&gt;
+      &lt;li&gt;When an object is returned by a function&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implicit-conversion&quot;&gt;Implicit conversion&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Be careful with a constructor that takes only one parameter - this will create an implicit conversion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;destructor&quot;&gt;Destructor&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Necessary if your class has any memory allocated on the heap&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
@@ -2221,128 +3484,6 @@ E.g. p ^ NOT p&lt;/p&gt;
         <pubDate>Tue, 26 Apr 2016 18:20:00 -0400</pubDate>
         <link>http://dzed.me/blog/2016/04/26/what-i-did-before-uni.html</link>
         <guid isPermaLink="true">http://dzed.me/blog/2016/04/26/what-i-did-before-uni.html</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>The Chronicle of My First Year @ UW</title>
-        <description>&lt;p&gt;I wrote the last exam (GER 101) of my first year at Waterloo two days ago. I was busy moving out or rez yesterday, and I just got some of my 1B marks on Quest. Thought I should write a blog post to wrap up my first year at UW. It was pretty lit: met a bunch of cool kids, joined a handful of clubs, played intramurals, pulled an (almost) all-nighter, got smashed twice, and had tons of fun in (some of) my classes while studying my butt off in the process.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/1a-snow.jpg&quot; alt=&quot;RCH&quot; /&gt;
-&lt;small&gt;RCH (left) is my favorite building, because it’s always empty late at night (I’m looking at you, QNC), and I can enjoy a few hours of solitary studying time there every day.&lt;/small&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;The transition from high school to university was easier and smoother than I thought. Before coming to university, I heard a lot of scary things about the workload in first year, especially many MATH 135 horror stories. But everything turned out fine, thankfully. And I honestly really like the campus. There is something I like about the campus being enclosed by Ring Road and constantly patrolled by geese. It’s not as big and nice as UBC, but it feels intimate.&lt;/p&gt;
-
-&lt;p&gt;The university residence I picked (UWP) was not that nice though. The room is really small and the walls aren’t soundproof. There was also a pretty serious ant infection in our unit, which was really annoying. But living on campus in first year was definitely worth it! Because there are so many co-op sequences in Math and Engineering, some of us will eventually be off-stream (i.e. I will be on co-op while some friends will have a study term, and vice versa), and first year is really (sadly) our only chance to meet people from all sequences.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;a&quot;&gt;1A&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/1a-welcome.jpg&quot; alt=&quot;Warrior Welcome&quot; /&gt;
-&lt;small&gt;I am not gonna lie, I was pretty pumped after the ceremony!&lt;/small&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;As a frequent lurker on &lt;a href=&quot;http://www.reddit.com/r/uwaterloo&quot;&gt;/r/uwaterloo&lt;/a&gt; even before I got accepted into UW, I thought I had a pretty good idea of what my first semester would be like. But you have to actually experience it to know what it’s really like. Almost lost my voice during Orientation Week from constantly screaming, laughing, and cheering. Exploring campus and bantering about baseball with people in my orientation group were great.&lt;/p&gt;
-
-&lt;p&gt;I still remember on the first day of classes I woke up an hour before my first lecture and wore a black Waterloo hoodie feeling like a smarty. After my first midterm, I finally realized that I am not in high school anymore. I also learned that sprinting from MC to PAS in 10 minutes is not fun, and that employer info sessions are where I get free sunglasses, keychains, and T-shirts (JK people actually go there for the free food).&lt;/p&gt;
-
-&lt;p&gt;I played in the intramural slo-pitch league and in my first game, struck out with the bases loaded (2-4 for the day though). For some weird reason, I started a habit of working on my CS assignments on Friday night till 3 in the morning in Grand Commons, and waking up at 3pm the next day still feeling exhausted. I went to Mr. Paninos for real and really loved their beef noodles, and then proceeded to eat there for the rest of the week. NOT a good idea. I feel like throwing up whenever I see a Panino meme on Reddit now. I tried out almost all the restaurants in the plaza (RIP Panda King I will miss you forever), and fell in love with the $1.99 BK nuggets. I felt like a total noob.&lt;/p&gt;
-
-&lt;p&gt;I worked really hard this term. Got the wake-up call after my first midterm, started doing assignments the day they were assigned and reading relevant materials the day before class. So I managed to get decent grades, but I think I should’ve gone out more and tried to meet more people.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/1a-schedule.jpg&quot; alt=&quot;1A Schedule&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;math-135&quot;&gt;MATH 135&lt;/h3&gt;
-
-&lt;p&gt;I can say that I thoroughly enjoyed this course. Did pretty well, and getting 98% on my second-ever university exam was an amazing feeling. Had to Work through hard proof assignment questions like there’s no tomorrow though. I was really keen and sat in the first row every single class. That’s my philosophy: always sit in the front. Proving something like there are infinite number of primes and whether 2&lt;sup&gt;63&lt;/sup&gt;+3&lt;sup&gt;315&lt;/sup&gt; is divisble by 7 were definitely highlights of this course as well. The prof, Ian, was awesome and made the class very enjoyable for me. The final was not hard and similar to the sample final they gave us. Carmen Bruni’s final exam Twitch stream on MATH 135 was the icing on the cake.&lt;/p&gt;
-
-&lt;h3 id=&quot;math-137&quot;&gt;MATH 137&lt;/h3&gt;
-
-&lt;p&gt;Mike Eden literally taught this course in sarcasm. Hilarious prof. I already learned derivatives and integrations back in high school so this course is mostly review, but this course was still pretty interesting. I like how Eden asked us to never forget to write “By Limit Laws”, but then promptly forgot it himself while doing examples. Midterm was unexpectedly hard, but the final was alright.&lt;/p&gt;
-
-&lt;h3 id=&quot;cs-135&quot;&gt;CS 135&lt;/h3&gt;
-&lt;p&gt;I didn’t really enjoy coding in Racket (a dialect of Scheme) until after the second midterm. But boy, foldr and lambdas are love. Functional programming is something truly special and amazing, I have to say. When recursion becomes your second nature, you will really appreciate its elegance. The assignments are really wordy though, and don’t even get me started on lambda tracing. It’s just so tedious. Dr Racket became a meme on the CS 135 Facebook group, and Dave Tompkins (a.k.a Quest God, Dancin’ DJ Dave) achieved celebrity status for his dank CS jokes.&lt;/p&gt;
-
-&lt;h3 id=&quot;engl-109&quot;&gt;ENGL 109&lt;/h3&gt;
-&lt;p&gt;A fairly standard communication course. Apparently starting from this year (Fall 2015) all Math and CS kids have to take two communication courses before they graduate, which I think is a good idea. This course is mostly essay writing (we wrote 3 major essays over the term, and some smaller written exercises), and the prof was very enthusiastic about teaching. I really liked the technical report assignment, where I got to talk about the differences between objected-oriented and functional programming using layperson’s terms.&lt;/p&gt;
-
-&lt;h3 id=&quot;econ-101&quot;&gt;ECON 101&lt;/h3&gt;
-&lt;p&gt;Oh the fabled “ultimate bird course”. Its honestly not that birdy, you still need to put in the effort to read the study guide and do the multiple choice questions in order to do well on exams. But yes, it’s mostly rote memoriztaion, though some concepts like game theory are very interesting. I think it did teach me some economic literacy.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;b&quot;&gt;1B&lt;/h2&gt;
-
-&lt;p&gt;I felt a lot relaxed and confident after my 1A term, so I signed up for 6 courses this term. It was definitely more work than I anticipated, but it was worth it. I met a lot of people in the UWCLEC Russian Club and had tons of fun. We would all bring food and drinks to the Russian tutor’s place in UWP and have small potlucks basically.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/1b-schedule.jpg&quot; alt=&quot;1B Schedule&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;math-136&quot;&gt;MATH 136&lt;/h3&gt;
-
-&lt;p&gt;MEME 136! MATH 136 will always be a part of me: Yongqiang “Yeezus” Zhao, the definition of a basis (“Whaaaat, is the definition of a baaaasis?” “A linearly independent spanning set!” “Wow, that was beautiful!”), “plug into a matrix and row reduce”, Wolfram Alpha, and Dan Wolczuk (a.k.a Dr Dan).&lt;/p&gt;
-
-&lt;p&gt;I even compiled a “MATH 136 in a nutshell” (basically all the catchphrases we use while proving theorems):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“It is intuitively obvious that…”&lt;/li&gt;
-  &lt;li&gt;“Clearly/Obviously”&lt;/li&gt;
-  &lt;li&gt;“Immediately true by inspection, as required. ∎”&lt;/li&gt;
-  &lt;li&gt;“Without loss of generality (WLOG Moite)”&lt;/li&gt;
-  &lt;li&gt;“Similarly, same argument applies”&lt;/li&gt;
-  &lt;li&gt;“By the System-Rank Theorem”&lt;/li&gt;
-  &lt;li&gt;“Trivial” you know what’s trivial? c&lt;sub&gt;1&lt;/sub&gt; = c&lt;sub&gt;2&lt;/sub&gt;  = c&lt;sub&gt;3&lt;/sub&gt;  = … =
-c&lt;sub&gt;n&lt;/sub&gt;  = 0 as n approaches infinity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Oh fun times. Linear algebra gets extremely abstract sometimes, but in the end everything made sense.&lt;/p&gt;
-
-&lt;h3 id=&quot;math-138&quot;&gt;MATH 138&lt;/h3&gt;
-
-&lt;p&gt;I also made a “MATH 138 in a nutshell”:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“Eventually, for large n, an/bn &amp;lt; 1” Hand-wavvvvvy&lt;/li&gt;
-  &lt;li&gt;“Counterexample: let an = 1/n, bn = 1/n, cn = 1/n…”&lt;/li&gt;
-  &lt;li&gt;“Upper bound of error, by Taylor’s Inequality is above 9001, since 9001 &amp;gt;= (0.0001)^5*(1/e)^6/6!” Yo you gotta have le equal sign bruh&lt;/li&gt;
-  &lt;li&gt;“It diverges since it is the harmonic series” Jordy Hams be like first published in 1962&lt;/li&gt;
-  &lt;li&gt;“It converges since it is the alternating harmonic series”&lt;/li&gt;
-  &lt;li&gt;“By IBP/Ratio Test/Limit Comparison Test”&lt;/li&gt;
-  &lt;li&gt;“(2n-1)(2n-3)…(5)(3)(1) for n from 0 to infinity”&lt;/li&gt;
-  &lt;li&gt;“DO NOT EVALUATE THE INTEGRAL” PRAISE THE LORD&lt;/li&gt;
-  &lt;li&gt;“DO NOT USE L’HOPITAL’S RULE” U WOT M8&lt;/li&gt;
-  &lt;li&gt;“Use the washer/disk method”&lt;/li&gt;
-  &lt;li&gt;“Include all initial conditions”&lt;/li&gt;
-  &lt;li&gt;“1+½^2+⅓^2+… = pi&lt;sup&gt;2&lt;/sup&gt;/6” (TRIGGERED)&lt;/li&gt;
-  &lt;li&gt;“It is a telescoping series…”&lt;/li&gt;
-  &lt;li&gt;RATIO TEST RETURNS 1 and LIMIT COMPARISON TEST RETURNS INFINITY -&amp;gt; TURBOTRIGGERED&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Calculus 2: basically a continuation of MATH 137 (Calculus 1). Lots of sequences, series, and Taylor polynomials, mixed with some easy proofs. Probably my last calculus class in undergrad, if I choose not to take upper year Statistics courses.&lt;/p&gt;
-
-&lt;h3 id=&quot;cs-136&quot;&gt;CS 136&lt;/h3&gt;
-&lt;p&gt;Fairly easy intro course to C. Definitely not as fun as CS 135 to be honest. We learned some basic data structures (Arrays, binary trees, linked lists etc.), algorithms (Quicksort, mergesort), and the C memory model. Assignments were pretty boring and tedious, and memory leaks caused me some trouble. The Russian Club afterparties would sometimes turn into code parties (awks). Only fun stuff I remember about this course is that my prof was basically constanly bashing the slides for poor style and code quality.&lt;/p&gt;
-
-&lt;h3 id=&quot;engl-119&quot;&gt;ENGL 119&lt;/h3&gt;
-&lt;p&gt;ENGL 119 wasn’t interesting at all. Did learn some useful presentation techniques and aspects of technical writing, but it was so disorganized. Second mandatory communication course. Now I think about it, I should’ve sticked it out and kept Public Speaking.&lt;/p&gt;
-
-&lt;h3 id=&quot;ger-101&quot;&gt;GER 101&lt;/h3&gt;
-&lt;p&gt;Pretty chill class. Prof was chill. Kinda felt like a high school French class. The video project was awesome. We had to move two monitors back and forth for three straight days, and we didn’t have a tripod or anything fancy to film it properly, but it was worth it. I feel that I could’ve learned more German from this class (I really liked the in-class activities). Midterm and final were both very short and easy.&lt;/p&gt;
-
-&lt;h3 id=&quot;stat-230&quot;&gt;STAT 230&lt;/h3&gt;
-&lt;p&gt;My favorite course this term by far. Really enjoyed learning all the random variable distributions and argument counting techniques. This course made me interested in data science, analytics, and just statistics in general. Diana is a great prof, and we made the negative binomial distribution into a meme. The final was way harder than I anticipated, but still managed a decent overall mark.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 25 Apr 2016 00:44:00 -0400</pubDate>
-        <link>http://dzed.me/blog/2016/04/25/Official-End-of-First-Year.html</link>
-        <guid isPermaLink="true">http://dzed.me/blog/2016/04/25/Official-End-of-First-Year.html</guid>
         
         
         <category>blog</category>
