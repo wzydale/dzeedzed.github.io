@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 28 May 2016 14:44:41 -0400</pubDate>
-    <lastBuildDate>Sat, 28 May 2016 14:44:41 -0400</lastBuildDate>
+    <pubDate>Mon, 30 May 2016 15:42:34 -0400</pubDate>
+    <lastBuildDate>Mon, 30 May 2016 15:42:34 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -600,11 +600,13 @@ R(theta) = Relative Likelihood Function = L(theta)/L(theta hat), where theta hat
 
 &lt;p&gt;&lt;strong&gt;Syllabus for the Midterm&lt;/strong&gt;: &amp;lt;= End of this week + STAT 230; Fall 2015 Midterm and practice problems posted (solutions will be posted this Friday)&lt;/p&gt;
 
-&lt;p&gt;##Today##
-+ Overview of statistical modelling, estimatation and the MLE calculation
-+ Likelihood functions and the MLE for continuous r.v.s
-+ Invariance property of the MLE
-+ Special case -&amp;gt; Uniform distribution&lt;/p&gt;
+&lt;h2 id=&quot;today&quot;&gt;Today&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Overview of statistical modelling, estimatation and the MLE calculation&lt;/li&gt;
+  &lt;li&gt;Likelihood functions and the MLE for continuous r.v.s&lt;/li&gt;
+  &lt;li&gt;Invariance property of the MLE&lt;/li&gt;
+  &lt;li&gt;Special case -&amp;gt; Uniform distribution&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Paul the Octopus Problem&lt;/strong&gt;&lt;br /&gt;
 + Toss a coin 100 times. Your friend “guesses” right 70 times. Is there evidence that your friend has ESP?
@@ -614,7 +616,7 @@ R(theta) = Relative Likelihood Function = L(theta)/L(theta hat), where theta hat
 + We need to construct a statistical model (assuption on the distribution Y)
 + In this case, Y~Bin(100, pi)&lt;/p&gt;
 
-&lt;p&gt;##Statistical Model##&lt;/p&gt;
+&lt;h2 id=&quot;statistical-model&quot;&gt;Statistical Model&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Construct the likelihood function&lt;/li&gt;
@@ -630,7 +632,7 @@ R(theta) = Relative Likelihood Function = L(theta)/L(theta hat), where theta hat
 &lt;p&gt;Example: {y1,…,yn} is independently drawn from yi&lt;br /&gt;
 f(y;theta) = (1-theta)^y * theta; y = 0,1,2,…&lt;/p&gt;
 
-&lt;p&gt;##Continuous Distributions##&lt;/p&gt;
+&lt;h2 id=&quot;continuous-distributions&quot;&gt;Continuous Distributions&lt;/h2&gt;
 
 &lt;p&gt;Definition: Model: Yi~f(yi;theta) where Yi is a continuous random variable with unknown parameter theta&lt;/p&gt;
 
@@ -667,6 +669,107 @@ Var = n&lt;em&gt;pi(1-pi), Mean = n&lt;/em&gt;pi&lt;/p&gt;
 &lt;p&gt;##Uniform Distribution##&lt;/p&gt;
 
 &lt;p&gt;Yi~U[0,theta], theta is unknown. {yi,…,yn} What is theta hat? U[a,b], pf = 1/(b-a). f(y;theta) = 1/theta if 0&amp;lt;y&amp;lt;theta and 0 otherwise. Then L(theta) = 1/theta^n if 0&amp;lt;=yi&amp;lt;=theta for all i (or can be written as “if theta &amp;gt;= max{yi,…,yn}”), or 0 otherwise. But the graph is not continuous at max{y1,…,yn}. MLE theta hat = max{y1,…,yn}&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-30-2016---lecture-8&quot;&gt;May 30, 2016 - Lecture 8&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Interval Estimation&lt;/strong&gt;: Likelihood function -&amp;gt; likelihood intervals, sampling distribution -&amp;gt; confidence intervals&lt;/p&gt;
+
+&lt;h2 id=&quot;the-theory-of-estimation&quot;&gt;The Theory of Estimation&lt;/h2&gt;
+
+&lt;p&gt;Problem: theta = unknown population attribute of interest; {y1,…,yn} -&amp;gt; sample drawn from the population; based on the sample, theta hat(y1,…,yn) which is our ESTIMATE for theta&lt;/p&gt;
+
+&lt;h3 id=&quot;method-of-maximum-likelihood&quot;&gt;Method of Maximum Likelihood&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Identify the distribution from which the data is drawn (&lt;strong&gt;Modelling&lt;/strong&gt;)&lt;/li&gt;
+  &lt;li&gt;Construct the likelihood function, calculate the log likelihood function, take derivatives to find the maximum likelihood estimate&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Example: Y1,…,Yn ~ N(mu, sigma^2). Data set: {y1,…,yn}. Objective: Estimate mu&lt;br /&gt;
+Alternative Method - &lt;strong&gt;Method of Least Squares&lt;/strong&gt; (more practical, do not care about distribution. only care about how accurate the prediction is): Choose mu hat such that the sum of SQUARED errors is minimized. Min sigma[(yi-mu)^2]&lt;/p&gt;
+
+&lt;p&gt;2 sigma(yi-mu)(-1) = 0&lt;br /&gt;
+sigma(yi-mu) = 0&lt;br /&gt;
+mu = y average&lt;/p&gt;
+
+&lt;p&gt;For the Normal problem, MLE and LS estimate for mu are the same&lt;/p&gt;
+
+&lt;h2 id=&quot;interval-estimation&quot;&gt;Interval Estimation&lt;/h2&gt;
+
+&lt;p&gt;Obejective: We have an unknown parameter theta. We want to estimate the random interval [A, B] which would contain theta with a “high” probability (that is pre-specified/defined)&lt;/p&gt;
+
+&lt;p&gt;Example: Margin of Error for opinion polls&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Method 1&lt;/strong&gt;: Through the likelihood function&lt;br /&gt;
+Definition: A 100p % likelihood interval (p is in (0,1)) for an unknown parameter theta is given by&lt;/p&gt;
+
+&lt;p&gt;{theta: R(theta) &amp;gt;= p}, where R(theta) = Relative Likelihood Function&lt;/p&gt;
+
+&lt;p&gt;Example: p=0.5, you want a 50% likelihood interval; so {theta: R(theta) &amp;gt;= 0.5}; Draw a horizontal line at y=0.5, the line intersects the RLF graph at points a and b [a,b] = 50% likelihood interval&lt;/p&gt;
+
+&lt;p&gt;Question: If theta_0 belongs to the 20% likelihood interval, does it belong to the 10% likelihood interval? Yes.&lt;/p&gt;
+
+&lt;p&gt;Question: Does theta hat (MLE) belong to all likelihood intervals? Yes.&lt;/p&gt;
+
+&lt;p&gt;Suppose theta_0 belongs to the 30% likelihood interval -&amp;gt; means that the likelihood function, evaluated at theta_0, is at least 30% of the likelihood function evaluated at the MLE. L(theta_0)/L(theta hat) &amp;gt;= 0.3 =&amp;gt; L(theta_0) &amp;gt;= 0.3 L(theta hat)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Method 2 - Method of Sampling Distributions&lt;/strong&gt;: Method 1 is not an ＩＮＴＵＩＴＩＶＥ interpretation&lt;/p&gt;
+
+&lt;p&gt;Steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Identify the ＰＩＶＯＴＡＬ ＤＩＳＴＲＩＢＵＴＩＯＮ from your model&lt;/li&gt;
+  &lt;li&gt;Find the endpoints of your pivotal distribution and rearrange to construct the &lt;strong&gt;coverage interval&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Estimate the coverage interval using your sample -&amp;gt; &lt;strong&gt;confidence interval&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Notations: Y bar (a random variable from which sample means , y bar, are drawn), y bar (sample mean, known), and mu (population mean, unknown)&lt;/p&gt;
+
+&lt;p&gt;Example: A population of 1, 2, 3, 4, 5&lt;br /&gt;
+A sample of size 2 is drawn with replacement from this population&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mu = 3 (usually unknown)&lt;/li&gt;
+  &lt;li&gt;y bar: {1, 3} -&amp;gt; 2; {1, 1} -&amp;gt; 1; depends on sampling&lt;/li&gt;
+  &lt;li&gt;Y bar: random variable from drawing y bars by graphing the frequency of each&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Capital letters = random variables = &lt;strong&gt;Estimators&lt;/strong&gt;&lt;br /&gt;
+Lowercase letters = &lt;strong&gt;Estimates&lt;/strong&gt; from the sample -&amp;gt; known numbers&lt;br /&gt;
+Greek letters = Population parameters -&amp;gt; unknown parameters&lt;/p&gt;
+
+&lt;p&gt;Example: Objective: To construct a 95% confidence interval for the average IQ of UW professors. {y1,…,yn}, n=25, sigma yi = 2200. We know that the IQs are normally distributed with a variance of sigma^2 = 49 (unrealistic, because sigma^2 is known but not mu). Construct a 95% confidence interval for mu&lt;/p&gt;
+
+&lt;p&gt;Model: Yi ~ N(mu, 49). i = 1,…,25 are independent&lt;/p&gt;
+
+&lt;p&gt;Y bar ~ N(mu, 49/25) since Y bar ~ N(mu, sigma^2 / n)&lt;/p&gt;
+
+&lt;p&gt;(Y bar - mu) / 7/5 = z ~ N(0, 1) PIVOT&lt;/p&gt;
+
+&lt;p&gt;Go to the Z-table and find the 95% interval. Find 0.975. a = 1.96&lt;/p&gt;
+
+&lt;p&gt;P(-1.96 &amp;lt; z &amp;lt; 1.96) = 0.95&lt;br /&gt;
+P(-1.96 &amp;lt; (Y bar - mu) / 7/5 &amp;lt; 1.96) = 0.95&lt;/p&gt;
+
+&lt;p&gt;So mu &amp;gt; Y bar - 1.96&lt;em&gt;7/5, and mu &amp;lt; Y bar + 1.96&lt;/em&gt;7/5, and these two numbers make up the bounds of the coverage interval. [y bar - 1.96&lt;em&gt;7/5, y bar + 1.96&lt;/em&gt;7/5] since y bar is known is the confidence interval&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;General Rules to estimate mu when sigma is known&lt;/strong&gt;:
+(Y bar - Z* sigma/sqrt(n), Y bar + Z* sigma/sqrt(n)) is the coverage interval. Sub y for Y, confidence interval&lt;/p&gt;
+
+&lt;p&gt;Suppose we had a 99% coverage, then Z* will increase (to 2.58).&lt;/p&gt;
+
+&lt;p&gt;Suppose we want the 95% confidence interval to be of fixed length y bar +- A.&lt;/p&gt;
+
+&lt;p&gt;Two problems:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sigma is usually not known&lt;/li&gt;
+  &lt;li&gt;The population might not be normal&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Central Limit Theorem: Suppose n is large, and Y1,…,Yn, are drawn from a distribution with mean mu and variance signma^2, then Y bar is approximately Y bar ~N(mu, sigma^2 / n)&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Stat-231.html</link>
@@ -950,7 +1053,90 @@ Mind = internal states and processes, such as thoughts and feelings&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Cognitive Perspective&lt;/strong&gt;: nature of the mind and how mental processes influence behaviour; humans = information processors whose actions are governed by thought; structuralism + functionalism; Hermann Ebbinghaus: studied memory; Gestalt (whole/organization) psychology -&amp;gt; examines how elements of experience are organized into wholes (greater than the sum of its parts); Jean Piaget: children’s thinking processes become more sophisticated with age&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Modern Cognitive Perspective&lt;/strong&gt;: study of mental processes; processes by which people reason and make decisions, devise solutions to problems, form perceptions and mental images; Elizabeth Loftus: memory and how we distort it; Cognitive neuroscience: electrical recording and brain-imaging to examine brain activity during cognitive tasks;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Modern Cognitive Perspective&lt;/strong&gt;: study of mental processes; processes by which people reason and make decisions, devise solutions to problems, form perceptions and mental images; Elizabeth Loftus: memory and how we distort it; Cognitive neuroscience: electrical recording and brain-imaging to examine brain activity during cognitive tasks; Social constructivism: reality is our own mental creation, the product of a shared way of thinking among members of social groups&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sociocultural Perspective&lt;/strong&gt;: exami nes how the social environment and cultural learning influence our behaviour, thoughts, and feelings; culture = enduring values, beliefs, behaviours, and traditions that are shared by a large group of people and passed down generationally; norms = rules that specify what behaviour is acceptable and expected for members; cultural psychology: how culture is transmitted to its members and examines psychological similarities and differences; individualism: emphasis on personal goals and self-identity based on one’s own attributes and achievements; collectivism: individual goals are subordinated to those of the group; Asch Experiement: conformity&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Biological Perspective&lt;/strong&gt;: how brain processes and other bodily functions regulate behaviour; Behavioural neuroscience: brain processes and other physiological functions that underlie our behaviour, sensory experiences, emotions, and thoughts; Karl Lashley, Donald Hebb: brain’s role in leraning, trained rats to run mazes, mapped brain regions involved in specific psychological functions&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;chapter-2&quot;&gt;Chapter 2&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Correlational Method&lt;/strong&gt;: Study relationships among variables; behaviours, events, characteristics; e.g. more smokes, more cancer; correlation coefficienct (r)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Case Studies&lt;/strong&gt;: in-depth analysis of an individual, group, or event; data may be gathered through observation, interviews, psychological tests, task performances, physiologicla recordings, or archival records; e.g. H.M., David from the Capgras Delusion video (Capgras = irrational belief that a familiar person or place has been replaced with an exact duplicate), Phineas Gage&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Experimental&lt;/strong&gt;: experimental group and control group&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Naturalistic Observation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Survey Research&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;chapter-3&quot;&gt;Chapter 3&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Phineas Gage&lt;/strong&gt;: Damaged ventromedial frontal lobe -&amp;gt; change in personality&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Brain&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cerebral Cortex: outermost layer of brain, many connections to other areas
+    &lt;ul&gt;
+      &lt;li&gt;Frontal: complex cognition, motor cortex&lt;/li&gt;
+      &lt;li&gt;Temporal: auditory, language&lt;/li&gt;
+      &lt;li&gt;Occipital: visual&lt;/li&gt;
+      &lt;li&gt;Parietal: sensory&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Neurons:
+    &lt;ul&gt;
+      &lt;li&gt;Cell body (Soma): contains biochemical structure that keep the neuron alive&lt;/li&gt;
+      &lt;li&gt;Dendrites: antennae that collect messages from other neurons&lt;/li&gt;
+      &lt;li&gt;Axon: covered by myelin sheath, conducts electrical impulses away from the cell body to other neurons, muscles, or glands&lt;/li&gt;
+      &lt;li&gt;Synaptic Transmission: synthesis of neurotransmitter -&amp;gt; storage in synaptic vesicles -&amp;gt; release into synaptic space -&amp;gt; binding to receptor sites -&amp;gt; deactivation through reuptake or breakdown&lt;/li&gt;
+      &lt;li&gt;Broca’s and Wernicke’s Area: Broca’s (expressive) aphasia: trouble speaking fluently but comprehension is preserved; Wernicke’s (fluent) aphasia: unable to understand language in its written or spoken form&lt;/li&gt;
+      &lt;li&gt;Neural plasticity: ability of neurons to change in structure and function; impacted by genetic factors and environment; greater number of synapses results in quicker and more complete recovery&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Synesthesia: one type of stimulation evokes the sensation of another; possible explanations: cross connections of the senses at the neural level, OR we are all born with it, as brain develops it fades and changes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Motivation&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Olds and Miller (1953) - mistakenly placed an electrode into a rat’s hypothalamus&lt;/li&gt;
+  &lt;li&gt;Started repeating the previous activity in hopes of receiving the stimulation again&lt;/li&gt;
+  &lt;li&gt;Found the pleasure centre of the brain = Nucleus Accumbens&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Human Aggression, Criminal Behaviour, and the Frontal Cortex&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Psychopathy: emotional dysfunction and antisocial behaviour; extreme form of antisocial personality disorder&lt;/li&gt;
+  &lt;li&gt;PCL-R (Psychopathy checklist): shallow affect (superficial emotional responsiveness), callousness and lack of empathy, parasitic lifestyle, poor behavioural controls, and sexual promiscuity&lt;/li&gt;
+  &lt;li&gt;Train Dilemma&lt;/li&gt;
+  &lt;li&gt;Face recognition: some believe face recognition is based on dedicated brain mechanisms&lt;/li&gt;
+  &lt;li&gt;Face-inversion effect: inversion harms the ability to recognize faces much more than it does other objects&lt;/li&gt;
+  &lt;li&gt;Prosopagnasia = “face blindness” -&amp;gt; gives us first hand knowledge, demonstration that there is a specialized area of the brain that handles these types of processes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;chapter-4&quot;&gt;Chapter 4&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Jim Twins&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chrmosomes and Genes&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Hippocrates - suggested that semem contains some sort of design for the formation of offspring&lt;/li&gt;
+      &lt;li&gt;Gregor Mendel - garden peas -&amp;gt; modern genetic theory&lt;/li&gt;
+      &lt;li&gt;Dominant and recessive genes&lt;/li&gt;
+      &lt;li&gt;Genetic Influences: genotype = the specific genetic makeup of an individual, phenotype = observable characteristics&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Psych-101.html</link>
