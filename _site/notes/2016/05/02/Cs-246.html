@@ -1834,6 +1834,520 @@ int x {2.0} // COMPILER ERROR</p>
   <li>Necessary if your class has any memory allocated on the heap</li>
 </ul>
 
+<p><br /></p>
+
+<h2 id="may-31-2016---lecture-9">May 31, 2016 - Lecture 9</h2>
+
+<h2 id="recall">Recall</h2>
+
+<ul>
+  <li>
+    <p>Copy constructor</p>
+
+    <div class="language-c++ highlighter-rouge"><pre class="highlight"><code>  <span class="n">Node</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}}};</span>
+  <span class="n">Node</span> <span class="n">m</span> <span class="o">=</span> <span class="o">*</span><span class="n">n</span><span class="p">;</span> <span class="c1">// copy ctor
+</span>  <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="err">\</span><span class="o">*</span><span class="n">n</span><span class="p">};</span> <span class="c1">// copy ctor
+</span></code></pre>
+    </div>
+  </li>
+  <li>Simple copy of fields -&gt; only the first node actually copied (shallow copy)</li>
+  <li>
+    <p>If you want a deep copy (copy the whole list), must write your own copy constructor</p>
+
+    <div class="language-c++ highlighter-rouge"><pre class="highlight"><code>  <span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+      <span class="c1">// ...
+</span>      <span class="n">Node</span> <span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">:</span>
+    <span class="n">data</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">},</span>
+    <span class="n">next</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="o">?</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="err">\</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">};</span> <span class="c1">// recursively copies the rest of the list
+</span>  <span class="p">};</span>
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<p>The copy constructor is called:</p>
+
+<ol>
+  <li>When an object is initialized with another object (same class)</li>
+  <li>When an object is passed by value</li>
+  <li>When an object is return ed by a function</li>
+</ol>
+
+<p>There are exceptions to all 3.</p>
+
+<p>Note: Careful with chars that can take ONE argument</p>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="n">Node</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span> <span class="p">{</span><span class="n">d</span><span class="p">},</span> <span class="n">next</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">}</span> <span class="p">{}</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="c1">//Single-argument ctors create implicit conversions
+</span>
+<span class="n">Node</span> <span class="n">n</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Node</span> <span class="n">n</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+<span class="c1">// but also
+</span><span class="n">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="c1">// You can also do this now
+</span><span class="kt">int</span> <span class="nf">f</span> <span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="c1">// You can do this because 4 is implicitly converted to Node
+// How converting C string to C++ string makes sense; generally not a good idea though
+</span></code></pre>
+</div>
+
+<p>Danger: accidentally pass an int to a function expecting a Node
+  + Compiler does not signal an error
+  + Potential errors not caught</p>
+
+<p>Good idea: disable the implicit conversion</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="k">explicit</span> <span class="n">Node</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span> <span class="p">{</span><span class="n">d</span><span class="p">},</span> <span class="n">next</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">}</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="c1">// Now these are still fine
+</span><span class="n">Node</span> <span class="n">n</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Node</span> <span class="n">n</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+<span class="c1">// But these are not
+</span><span class="n">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">f</span> <span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h2 id="destructors">Destructors</h2>
+
+<p>When an obect is destroyed a method called the destructor runs
+  + Stack-allocated: goes out of scope
+  + Heap-allocated: is deleted</p>
+
+<p><strong>Specifically</strong>:</p>
+
+<ol>
+  <li>The destructor body runs</li>
+  <li>Destructor is called on all the fields (called in reverse declaration order; if declared from top to bottom, then destroyed from bottom to top)</li>
+  <li>Space is deallocated</li>
+</ol>
+
+<p>Class comes with a destructor (just calls destructors for all fields that are objects)</p>
+
+<p>When do we need to write one?</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">*</span><span class="n">np</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}}};</span>
+</code></pre>
+</div>
+
+<p>If np goes out of scope, the pointer is reclaimed (it was on the stack), the memory is leaked.</p>
+
+<p>If we say delete np; it calls *np’s destructor, which doesn’t do anything (it only frees the very first node (1), 2, 3 are leaked)</p>
+
+<p>Write a destructor to ensure the whole list is freed:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="o">~</span><span class="n">Node</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// tilda has the connotation of negation; NOT; opposite of constructor
+</span>
+    <span class="k">delete</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// recursively calls
+</span>    <span class="c1">// *next's destructor, thus the whole list is deallocated*
+</span>    <span class="c1">// do not need to check nullptr
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="copy-assignment-operator">Copy Assignment Operator</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Student</span> <span class="n">billy</span> <span class="p">{</span><span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">};</span>
+<span class="n">Student</span> <span class="n">jane</span> <span class="p">{</span><span class="n">billy</span><span class="p">};</span> <span class="c1">// copy constructor
+</span><span class="n">Student</span> <span class="n">joey</span><span class="p">;</span> <span class="c1">// default constructor
+</span><span class="n">joey</span> <span class="o">=</span> <span class="n">billy</span><span class="p">;</span> <span class="c1">// copy, but not construction
+// Above is copy assignment operator, uses compiler-supplied default
+</span></code></pre>
+</div>
+
+<p>You need to write your own copy assignmennt operator when there is heap-allocated memory</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="n">Node</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// returns Node &amp; so that cascading works
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+    <span class="c1">// next = other.next would be wrong (shallow copy)
+</span>    <span class="c1">// because that's what the default one does
+</span>    <span class="k">delete</span> <span class="n">next</span><span class="p">;</span> <span class="c1">// otherwise it leaks, because the old object could point to real data
+</span>    <span class="c1">// in order to replace the old data, need to delete old data
+</span>    <span class="n">next</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="o">?</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="c1">// DANGEROUS STILL //*
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Very dangerous.<br />
+Why?</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="n">n</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}}};</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// deletes n, then tries to copy n to n, UNDEFINED BEHAVIOUR
+</span>
+<span class="c1">// For example:
+</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span> <span class="c1">// where p and q points to the same address
+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>When writing operator=, ALWAYS watch for self-assignment</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>  <span class="c1">//*
+</span>  <span class="p">}</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">next</span><span class="p">;</span>
+    <span class="n">next</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="o">?</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">;</span> <span class="c1">//*
+</span>    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Better:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+  <span class="n">next</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">next</span> <span class="o">?</span> <span class="p">{</span><span class="k">new</span> <span class="n">Node</span><span class="p">{</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">};</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+  <span class="k">delete</span> <span class="n">tmp</span><span class="p">;</span>
+  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Above works even if other is in my list, if new fails, Node will still be ain a valid state</p>
+
+<h2 id="alternative---idiom">Alternative - idiom</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;utility&gt;
+</span>
+<span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">;</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">other</span><span class="p">);</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">Node</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">other</span><span class="p">;</span> <span class="c1">// copy other
+</span>    <span class="n">swap</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span> <span class="c1">// swap with my old data
+</span>    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="c1">// tmp deallocated, frees my old data
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Rvalues + Rvalue references</p>
+
+<p>Recall: an levalue is anything an address, an lvalue reference (&amp;) is always initialized by an lvalue</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="n">n</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}};</span>
+<span class="n">Node</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// copy ctor
+</span><span class="n">Node</span> <span class="n">m2</span><span class="p">;</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// copy assignment operator
+</span>
+<span class="n">Node</span> <span class="nf">plusOne</span><span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="n">p</span><span class="p">;</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Node</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">plusOne</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// What runs? What is other here?
+// Compiler creates a temporary object to hold the result of plusOne, so other has something to point at
+// copy ctor deep copies data drom the temp object
+</span></code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="june-2-2016---lecture-10">June 2, 2016 - Lecture 10</h2>
+
+<ul>
+  <li>Need to be able to tell whether other is a reference to a temporary object or a standalone object</li>
+  <li>C++: rvalue reference Node&amp;&amp; is a reference be a temporary object (aka rvalue) of type Node</li>
+  <li>Version of the ctor that takes a Node&amp;&amp;</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>    <span class="n">Node</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    <span class="c1">// ... called a move ctor
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>What should it do? Steal other’s data.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
+<span class="n">Node</span> <span class="p">(</span><span class="n">Node</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">data</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">},</span>
+    <span class="n">next</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="p">{</span> <span class="c1">// steal data
+</span>        <span class="n">other</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span> <span class="c1">// other will be destroyed, so point to null so that the Nodes it points to won't get destroyed
+</span>    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Similarly:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="n">m</span><span class="p">;</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">addOne</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// Assignment from temporary
+</span></code></pre>
+</div>
+
+<p>More assignment operator:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// steal other's data
+</span>    <span class="c1">// destroy my old data
+</span>    <span class="c1">// so we can just swap without copy
+</span>
+    <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">;</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+
+    <span class="c1">// temp object will be destroyed and take our old data with it
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>If you don’t define move ctor/move assignment operator, copy versions will be used.<br />
+If the move ctor/move assignment operator is defined, it will replace calls to the copy ctor/copy assignment operator where the argument is a temporary (an rvalue).</p>
+
+<h2 id="copymove-elision">Copy/Move Elision</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Vec</span> <span class="nf">makeAVec</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span> <span class="c1">// invokes basic ctor
+</span><span class="p">}</span>
+
+<span class="n">Vec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">makeAvec</span><span class="p">();</span> <span class="c1">// what operations run here? copy ctor? move ctor? 
+// Not sure, in g++: just the basic ctor, no cpy ctor, no move ctor
+</span></code></pre>
+</div>
+
+<p>In some circumstances, the compiler is allowed to skip calling copy/move ctors (but doesn’t have to). In the example above, makeAVec writes its result ({0,0}) directly into the space occupied by v in the caller, rather than copy it later</p>
+
+<p>Example:
+```c++
+void doSomething(Vec v) { // pass-by-value copy ctor</p>
+
+<p>}</p>
+
+<p>doSomething(makeAVec());
+```</p>
+
+<ul>
+  <li>result of makeAVec() written directly into the parameter - no copy</li>
+  <li>This is allowed, even if dropping ctor calls would change the behaviour of the program (e.g. if the ctors print something)</li>
+  <li>In this course, you are not expect edt oknow the eact circumstances under which copy/move elision is allowed</li>
+</ul>
+
+<p>If you need all of the ctors to run:
+<code class="highlighter-rouge">
+g++14 -fno-elide-constructors
+</code>
+But this can slow down your program considerably.</p>
+
+<p>In summary: <strong>Rule of 5 (Big 5)</strong></p>
+
+<p>If you need a custom version of any one of:
+    1. copy ctor
+    2. copy assignment operator
+    3. destructor
+    4. move ctor
+    5. move assignment operator
+Then you usually need a custom version of all 5. Because the circumstances you need to create one of them, will probably mean that these also apply to the other 4.</p>
+
+<p>Notice: operator= is a member function, not a standalone function. When an operator is a member, “this” plays the role of the LHS argument.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="c1">// ...
+</span>    <span class="n">Vec</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">x</span><span class="o">+</span><span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+    <span class="p">}</span>
+    <span class="n">Vec</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">y</span><span class="p">};</span> <span class="c1">// implements v*k
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>How do we do k*v? Can’t be a member-first arg not vec. Must be a non-member (as before)</p>
+
+<p>I/O operators:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>    <span class="n">ostream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="err">''</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>What’s wrong? It makes Vec the LHS and ostream the RHS. Use as v « cout</p>
+
+<p>So define «, » as standalone functions.</p>
+
+<p>Certain operators must be members:
+    + operator=
+    + operator[]
+    + operator()
+    + operator-&gt;
+    + operatorT (where T is a type)</p>
+
+<h2 id="arrays-of-objects">Arrays of Objects</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">Vec</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">x</span><span class="p">{</span><span class="n">x</span><span class="p">},</span> <span class="n">y</span><span class="p">{</span><span class="n">y</span><span class="p">}</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">Vec</span> <span class="o">*</span><span class="n">vp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">// ERROR 
+</span><span class="n">Vec</span> <span class="n">moreVectors</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span> <span class="c1">// ERROR
+</span></code></pre>
+</div>
+
+<p>These want to call the default ctor on each item, but there isn’t one. Thus cannot initialize.</p>
+
+<p><strong>Options:</strong></p>
+
+<ol>
+  <li>Provide a default ctor</li>
+  <li>For stack arrays:</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Vec</span> <span class="n">moreVecs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{...};</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>For heap arrays, create an array of pointers</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Vec</span> <span class="o">**</span><span class="n">vp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="o">*</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="n">vp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">vp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span> <span class="c1">// etc...
+// then delete
+</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="n">vp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">delete</span> <span class="p">[]</span> <span class="n">vp</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h2 id="separate-compilation-for-classes">Separate Compilation for Classes</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// Node.h
+</span>
+<span class="cp">#ifndef _NODE_H_
+#define _NODE_H_
+</span>
+<span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">explicit</span> <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="o">=</span><span class="n">nullptr</span><span class="p">);</span>
+    <span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#endif
+</span>
+<span class="c1">// Node.cc
+</span>
+<span class="cp">#include "Node.h"
+</span>
+<span class="c1">// Prefix with Node::
+// Double colon :: = scope resolution operator
+</span>
+<span class="n">Node</span><span class="o">::</span><span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">{</span><span class="n">data</span><span class="p">},</span> <span class="n">next</span><span class="p">{</span><span class="n">next</span><span class="p">}</span> <span class="p">{}</span>
+<span class="n">Node</span><span class="o">::</span><span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">data</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">},</span> <span class="n">next</span><span class="p">{}</span> <span class="p">{}</span>
+
+<span class="c1">// Node::___ means ____ in the context of struct Node
+// :: is like . for classes
+// . where LHS is a class (or namespace), not an object 
+</span>
+</code></pre>
+</div>
+
+<h2 id="const-objects">Const Objects</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="p">{...}</span>    
+</code></pre>
+</div>
+
+<p>Const objects arise often, especially in params.<br />
+What is a const object? - Fields cannot change.</p>
+
+<p>Can we call methods on a const object?<br />
+Issue: method might change fields (violate const)</p>
+
+<p>A: Yes. We can call methods that promise not to mofidy fields</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">assns</span><span class="p">,</span> <span class="n">mt</span><span class="p">,</span> <span class="n">final</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">grade</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// doesn't modify fields, so declare it const
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Compiler checks that const methods don’t modify fields. Only const methods can be called on const objects.</p>
+
+<p>Now consider: Want to collect usage stats on Student obj</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span>  <span class="p">{</span>
+    <span class="c1">// ...
+</span>    <span class="kt">int</span> <span class="n">numMethodCalls</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="nf">grade</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// now can't call on const Students
+</span>        <span class="o">++</span><span class="n">numMethodCalls</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>But mutating numMethod calls affect only the <strong>physical constness</strong> of the object (actual bit pattern), not its <strong>logical constness</strong> (whether it acts like a constant).</p>
+
+<p>Want to update numMethodCalls, even if the object is const.
+Solution: Declare the field mutable</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>    <span class="k">mutable</span> <span class="kt">int</span> <span class="n">numMethodCalls</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// can be changed, even if the object is const
+</span>
+    <span class="kt">float</span> <span class="nf">grade</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">numMethodCalls</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
   </div>
 
 </article>

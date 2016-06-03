@@ -876,6 +876,62 @@ P(-1.96 &lt; (Y bar - mu) / 7/5 &lt; 1.96) = 0.95</p>
 
 <p>Central Limit Theorem: Suppose n is large, and Y1,…,Yn, are drawn from a distribution with mean mu and variance signma^2, then Y bar is approximately Y bar ~N(mu, sigma^2 / n)</p>
 
+<p><br /></p>
+
+<h2 id="june-1-2016---lecture-9">June 1, 2016 - Lecture 9</h2>
+
+<h2 id="today-1">Today</h2>
+
+<ul>
+  <li>Confidence interval for mu from a normal population with known sigma (population SD)</li>
+  <li>Confidence interval for Binomial</li>
+  <li>Confidence interval for Exponential (when n is large)</li>
+  <li>The chi-squared distribution chi^2_k</li>
+  <li>The T distribution</li>
+</ul>
+
+<p>Example: (pre-specified) 99% CI</p>
+
+<p><strong>Example 1:</strong> The incomes of UW grads are Normally distributed with mean mu, and SD sigma = $5000</p>
+
+<p>Object: To fund the 99% for mu, i.e. we want to construct a random interval [A, B], such that P(A &lt; mu &lt; B) = 0.99 (This is called the coverage interval, and 0.99 is called the coverage probability or level of confidence)</p>
+
+<p>A sample of 64 UW grads are drawn at random {y1,…,y64}, y bar = 60000, sigma = 7000. What is your CI?</p>
+
+<p><strong>Example 2:</strong> November 16, an exit poll is conducted with a random sample of 1000 US voters and 530 of them voted for Trump. Pi = Proportion of total votes Trump will get. We want to construct a 95% CI for pi.</p>
+
+<p><strong>Confidence Interval Approach</strong>: construct the pivotal distribution based on your estimator or a function of it; mu = population mean, y bar = sample mean = a number, Y bar = r.v. from which y bar is drawn. The distribution of Y bar is the pivot.</p>
+
+<p>Example 2: pi = population proportion, pi hat = 530/1000 = 0.53 (Estimate), pi tilda (pivot) = r.v. from which pi hat is drawn</p>
+
+<p>An estimate is a number, an estimator is a random variable.</p>
+
+<p>Construct a coverage interval from the pivot. This interval will contain the parameter with the given probability. Estimate this interval using your sample -&gt; Confidence Interval</p>
+
+<p>Example 1: Model: Yi ~ N(mu, 5000^2), i=1,…,64; Yi’s independent</p>
+
+<p>Y1,…,Yn ~ N(mu, sigma^2), Y bar ~ N(mu, sigma^2/n). So in this case, Y bar ~ N(mu, 5000^2/64)</p>
+
+<p>(Y bar - mu) / (5000/8) = Z ~ N(0,1) is the pivotal distribution; Z-table -&gt; 0.995, a=2.58. P(-2.58 &lt;= Z &lt;= 2.58) = 0.99. Plug (Y bar - mu) / (5000/8) = Z back in, we get mu &gt;= Y bar - 2.58 * 5000 / 8 and mu &lt;= Y bar + 2.58 * 5000 / 8. So P(Y bar - 2.58 * 5000 / 8 &lt; mu &lt; Y bar + 2.58 * 5000 / 8) = 0.99. This interval is the coverage interval.  [60000 +- 2.58 * 5000 / 8]</p>
+
+<p>NOTE: It is not true that the above interval contains mu with probability 0.99</p>
+
+<h2 id="general-rule">General Rule</h2>
+<p>If the population is normal, and the variance is known, then the CI for mu is given [y bar += z* sigma/sqrt(n)]. So z = from the z0table, y bar = sample mean, r = population standard deviation, n = sample size. The interval will be wider if the level of confidence increase</p>
+
+<p>Example 2: pi, pi hat = 0.53, pi tilda = estimator</p>
+
+<p><strong>Theorem - Central Limit Theorem</strong><br />
+If n is “large”, then pi</p>
+
+<p>Y1,…,Yn ~ N(mu, sigma^2), Y bar ~ N(mu, sigma^2/n). Let n be large, Y1,…,Yn have mean mu and variance sigma^2. Then (Y bar - mu) / (sigma/sqrt(n)) approximately equals Z for large n</p>
+
+<p>Find the two points for the pivot, between [-a, a] the probability is 0.95, a = 1.96</p>
+
+<p>Example: Y1,…,Y100 ~ Exp(mu); {y1,…,y100} -&gt; Data. Find the 95% CI for mu.</p>
+
+<p>By CLT, (Y bar - mu) / (mu/sqrt(n)) = Z ~ N(0,1)</p>
+
   </div>
 
 </article>
