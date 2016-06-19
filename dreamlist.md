@@ -5,16 +5,18 @@ title: Dream List
 
 ## TRAVEL: ##
 * Visit Fukuoka, Japan again
-* Visit the capital of every single Canadian province (~~Victoria~~, Edmonton, Regina, Winnipeg, ~~Toronto~~, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit) and Ottawa and Montréal
+* Visit the capital of every single Canadian province (~~Victoria~~, Edmonton, Regina, Winnipeg, ~~Toronto~~, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit), Ottawa, Gatineau, and Montréal
 * Visit Germany
 * Visit Norway
 * Go to JavaZone Conference in Oslo, Norway (5990 kr as of 29 Feb 2016)
 * Go to I kveld med Ylvis Live
 * Go to a Hozier concert
 * Go to a Yakult Swallows game in Tokyo
+* ~~Go to a Jays game~~ (vs. Cleveland Indians, September 1, 2015)
 * Go to a Jays playoff game
 * Go to a match at Old Trafford in Manchester
 * Go to a game at Busch Stadium in St. Louis
+* Go to a World Series game
 * Reach South Pole
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1mXY1W7pOUcyTMIsOVxOeeqRkcP0" 
@@ -29,7 +31,7 @@ frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscre
 
 ## WATERLOO: ##
 
-* Find a co-op job before my 20th birthday
+* ~~Find a co-op job before my 20th birthday~~ (Software Engineer at Gemalto, offered June 17, 2016; matched June 20, 2016)
 * Pull an all-nighter
 * ~~Go to a hackathon~~ ([WaterlooHacks, January 22-24, 2016](https://waterloohacks.io))
 * ~~Win a hackathon~~ ([MyoMuse @ WaterlooHacks, January 22-24, 2016](http://news.communitech.ca/news/communitech/myo-music-app-wins-waterloo-hacks/))
@@ -37,7 +39,8 @@ frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscre
 * Speak only English for an entire week
 * Cook for an entire week
 * Not skip any classes for the entire term
-* Wear a Blue Jays T-shirt to an interview
+* ~~Wear a Blue Jays T-shirt to an interview~~ (WeMesh, May 31, 2016)
+* ~~Wear shorts to an interview~~ (PharmAchieve, June 3, 2016)
 * Get so drunk that I don't remember anything
 * Play in intramural baseball and have a BA of .400 over 30+ PA
 * Make a diving catch in a baseball game
