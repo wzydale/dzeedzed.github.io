@@ -973,7 +973,7 @@ int main() {
 using namespace std;
 
 int main() {
-  cout &lt;&lt; "Hello World" &lt;&lt; ende;
+  cout &lt;&lt; "Hello World" &lt;&lt; endl;
   return 0;
 }
 </code></pre>
@@ -990,11 +990,11 @@ int main() {
 <p>Output:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>std::cout &lt;&lt; ___ &lt;&lt; ____ &lt;&lt; ____  
-std::ende = end-of-line
+std::endl = end-of-line
 </code></pre>
 </div>
 
-<p>Using namespace std lets you say cout and ende instead of std::cout and std::ende</p>
+<p>Using namespace std lets you say cout and endl instead of std::cout and std::endl</p>
 
 <p>Return statement - returns status code to the shell ($?). If left out, main returns 0</p>
 
@@ -1049,7 +1049,7 @@ If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not unti
   while(true) {
     cin &gt;&gt; i;
     if (cin.fail()) break;
-    cout &lt;&lt; i &lt;&lt; ende;
+    cout &lt;&lt; i &lt;&lt; endl;
   }
 }
 </code></pre>
@@ -1080,16 +1080,16 @@ If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not unti
 
 <p>E.g. v2.0</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
-	int i;
-	while (true) {
-		cin &gt;&gt; i;
-		if (!cin) { // using cin as the condition, means the same thing as the other program
-			break;
-		}
-		cout &lt;&lt; i &lt;&lt; true
- 		}
-}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cin</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// using cin as the condition, means the same thing as the other program
+</span>			<span class="k">break</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -1107,170 +1107,198 @@ If we got an EOF: cin.fail() and cin.eof() will be both TRUE; cin.eof() not unti
 
 <p>E.g. v3.0</p>
 
- 	int main() {
- 		int i;
- 		while (true) {
- 			if (!(cin » i)) { // using it as both a condition and populating i
- 				break;
- 			}
- 			cout « i « endl;
-  		}
- 	}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// using it as both a condition and populating i
+</span>      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>E.g. v4.0</p>
 
- 	int main() {
- 		int i;
- 		while(cin » i) { // changing the break statement into a single while loop
- 			cout « i « endl
- 		}
- 	}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// changing the break statement into a single while loop
+</span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>E.g. read and echo ints until EOF, skip non-integer input</p>
 
- 	int main() {
- 		int i;
- 		while (true) {
- 			if (!(cin » i)) {
- 				if (cin.eof()) {
- 					break;
- 				}
- 				cin.clear(); // clears the fail bit, so that cin is ready to read again
- 				cin.ignore(); // throws away the next character
- 			} else {
- 				cout « i « endl;
- 			}
- 		}
- 	}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">cin</span><span class="p">.</span><span class="n">eof</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">cin</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span> <span class="c1">// clears the fail bit, so that cin is ready to read again
+</span>      <span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span> <span class="c1">// throws away the next character
+</span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<p>Reading strings: type std::string (#include <string>)</string></p>
+<p>E.g. Reading strings: type std::string (#include <string>)</string></p>
 
- 	int main() {
- 		string s;
- 		cin » s;
- 		cout « s « endl;
- 	}
-
- 	// skips leading white space;
- 	// stops at whitespace (reads one word)
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// skips leading white space;
+// stops at whitespace (reads one word)
+</span></code></pre>
+</div>
 
 <p>What if we want the hvitespace? Use getline(cin, s), it reads from the current position to next newline, into s.</p>
 
- 	cout « 95 « endl; // prints 95
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">95</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 95
+</span></code></pre>
+</div>
 
 <p>What if we want to print a number in hexadecimal?</p>
 
- 	cout « hex « 95 « endl; // this will print 95 in hex, 5f
- 	// hex is std::hex, is the I/O manipulator, reconfigures the output string, all subsequent ints are printed in hex (FOR THE REST OF ETERNITY, nah jkjk till the program terminates); A bit of an overkill?
- 	cout « dec; // goes back to decimal
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">hex</span> <span class="o">&lt;&lt;</span> <span class="mi">95</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// this will print 95 in hex, 5f
+// hex is std::hex, is the I/O manipulator, reconfigures the
+// output string, all subsequent ints are printed in hex
+// (FOR THE REST OF ETERNITY, nah jkjk till the program terminates); A bit of an overkill?
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dec</span><span class="p">;</span> <span class="c1">// goes back to decimal
+</span>
+<span class="c1">// Other manipulator, SEE NOTES, don't forget #include &lt;iomanip&gt;
+</span></code></pre>
+</div>
 
- 	// Other manipulator, SEE NOTES, don’t forget
- 	#include <iomanip>
-</iomanip>
 <p>Stream abstraction applies to other fsources of data</p>
 
 <p><strong>Files</strong> - Read from a file instead of stdin<br />
- 	std::ifstream reads from a file<br />
- 	std::ofstream writes to a file</p>
+	std::ifstream reads from a file<br />
+	std::ofstream writes to a file</p>
 
 <p>File access in C:</p>
 
- 	#include <stdio.h>
-</stdio.h>
- 	int main() {
- 		char s[256];
- 		FILE *file = fopen(“suite.txt”, “r”); // r = read mode; file is a handle
- 		while (true) {
- 			fscanf(file, “%255s”, s);
- 			if (feof(file)) break;
- 			printf(“%s\n”, s);
- 		}
- 		fclose(file);
- 	}
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+	<span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"suite.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span> <span class="c1">// r = read mode; file is a handle
+</span>	<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"%255s"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">feof</span><span class="p">(</span><span class="n">file</span><span class="p">))</span> <span class="k">break</span><span class="p">;</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>File access in C++:</p>
 
- 	#include <iostream>
- 	#include <fstream>
- 	using namespace std;
-</fstream></iostream>
- 	int main() {
- 		ifstream file{“suite.txt”}; // creating and initializing an ifstream opens the file
- 		string s;
- 		while (file » s) {
- 			cout « s « endl;
- 		}
- 		// IMPORTANT: the file is closed when the variable (in this case, file), goes out of scope; when the program stops, it’s popped of the runtime stack, it then closes.
- 	}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ifstream</span> <span class="n">file</span><span class="p">{</span><span class="s">"suite.txt"</span><span class="p">};</span> <span class="c1">// creating and initializing an ifstream opens the file
+</span>	<span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">file</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="c1">// IMPORTANT: the file is closed when the variable (in this case, file), goes out of scope; when the program stops, it's popped of the runtime stack, it then closes.
+</span><span class="p">}</span>
+</code></pre>
+</div>
 
 <p>Anything you can do do with cin and cout, you can do with an ifstream or an ofstream. ANYTHING.</p>
 
 <p>E.g. string - attach a stream to a string and read/write it</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> #include &lt;sstream&gt; // std::istringstream and std::ostringstream read from/write to a string
-
- int hi = ..., lo = ...;
- ostringstream ss; // think of it as a sock
- ss &lt;&lt; "Enter a # between" &lt;&lt; lo &lt;&lt; "and" &lt;&lt; hi; // stuffing the sock with string
- string s = ss.str(); // cuts open the sock and gets the string
- cout &lt;&lt; s &lt;&lt; endl;
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;sstream&gt;
+</span><span class="c1">// std::istringstream and std::ostringstream
+// read from/write to a string
+</span>
+<span class="kt">int</span> <span class="n">hi</span> <span class="o">=</span> <span class="p">...,</span> <span class="n">lo</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">ostringstream</span> <span class="n">ss</span><span class="p">;</span> <span class="c1">// think of it as a sock
+</span><span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a # between"</span> <span class="o">&lt;&lt;</span> <span class="n">lo</span> <span class="o">&lt;&lt;</span> <span class="s">"and"</span> <span class="o">&lt;&lt;</span> <span class="n">hi</span><span class="p">;</span> <span class="c1">// stuffing the sock with string
+</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span> <span class="c1">// cuts open the sock and gets the string
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </code></pre>
 </div>
 
 <p>E.g. convert a string to a #</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int n;
-while (true) {
-	cout &lt;&lt; "Enter a number" &lt;&lt; endl;
-	string s;
-	cin &gt;&gt; s;
-	istringstream ss {s};
-	if (ss &gt;&gt; n) break; // stop if you get int
-	cout &lt;&lt; "I said,";
-}
-cout &lt;&lt; "You entered" &lt;&lt; n &lt;&lt; endl;
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">istringstream</span> <span class="n">ss</span> <span class="p">{</span><span class="n">s</span><span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> <span class="c1">// stop if you get int
+</span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I said,"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You entered"</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </code></pre>
 </div>
 
 <p>Example revisited - echo numbers, skip non-numbers</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int main() {
-	string s;
-	while (cin &gt;&gt; s) {
-		istringstream ss {s};
-		int n;
-		if (ss &gt;&gt; n) {
-			cout &lt;&lt; n &lt;&lt; endl;
-		}
-	}
-}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">istringstream</span> <span class="n">ss</span> <span class="p">{</span><span class="n">s</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<p>Strings:</p>
+<h2 id="strings">Strings</h2>
 
 <p>In C, array of char (char* or char[]), terminated by IO. Must manage own memory: get morememory when strings grow; Easy to overwrite IO and corrupt program</p>
 
-<p>In C++, strings grow as needed, and thus safer</p>
+<p><strong>In C++, strings grow as needed, and are thus safer.</strong></p>
 
-<p>E.g. string s{“Hello”}; // it’s still an array (C-style string); C++ string created from C string on initialization</p>
+<p>E.g.</p>
 
-<p>String Operations: Equality Inequality, s1 == s2, s1 != s2<br />
-Comparison: s1 &lt;= s2 (lexicographical comparison)<br />
-Length: s.length()<br />
-Extract individual characters: s[0], s[1] etc.<br />
-Concatenation: s3 = s1 + s2, s3 += s4<br />
-More details: SEE NOTES</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">string</span> <span class="n">s</span><span class="p">{</span><span class="s">"Hello"</span><span class="p">};</span> <span class="c1">// it's still an array (C-style string);
+// C++ string created from C string on initialization
+</span></code></pre>
+</div>
+
+<p><strong>String Operations:</strong></p>
+
+<ul>
+  <li>Equality Inequality, s1 == s2, s1 != s2</li>
+  <li>Comparison: s1 &lt;= s2 (lexicographical comparison)</li>
+  <li>Length: s.length()</li>
+  <li>Extract individual characters: s[0], s[1] etc.</li>
+  <li>Concatenation: s3 = s1 + s2, s3 += s4</li>
+  <li>More details: SEE NOTES</li>
+</ul>
 
 <p>Default Function Parameters</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>void printSuiteFile(String name = "suite.txt") { // default value
-	...
-}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">printSuiteFile</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"suite.txt"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// default value, must be last
+</span>  <span class="p">...</span>
+<span class="p">}</span>
 
-printSuiteFile("suite2.txt");
-printSuiteFile(); // prints from suite.txt
-</code></pre>
+<span class="n">printSuiteFile</span><span class="p">(</span><span class="s">"suite2.txt"</span><span class="p">);</span>
+<span class="n">printSuiteFile</span><span class="p">();</span> <span class="c1">// prints from suite.txt
+</span></code></pre>
 </div>
 
 <p>Note: optional params must be last; if you leave out two parameters, they have to be the last two; 3,3 etc.</p>
@@ -1279,7 +1307,7 @@ printSuiteFile(); // prints from suite.txt
 
 <h2 id="may-18-2016---tutorial-2">May 18, 2016 - Tutorial 2</h2>
 
-<p>##Shell Scripting##</p>
+<h2 id="shell-scripting">Shell Scripting</h2>
 
 <ul>
   <li>Exit codes are important; non-zero return/exit value = ERROR</li>
@@ -1287,7 +1315,7 @@ printSuiteFile(); // prints from suite.txt
   <li>Scoping for subroutines, anything defined befored a subroutine is visible(and modifiable) in the subroutine, except positional arguments ($1, $2, …)</li>
 </ul>
 
-<p>##Testing##</p>
+<h2 id="testing">Testing</h2>
 
 <ul>
   <li>Don’t have to worry about invalid inputs</li>
@@ -1298,12 +1326,12 @@ printSuiteFile(); // prints from suite.txt
 
 <p><strong>Possible Test Cases</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>+ Equivalence courses: small, medium, and large values of the target
-+ Boundary/edge cases: test containing 0 as target
-</code></pre>
-</div>
+<ul>
+  <li>Equivalence courses: small, medium, and large values of the target</li>
+  <li>Boundary/edge cases: test containing 0 as target</li>
+</ul>
 
-<p>##C++ I/O##</p>
+<h2 id="c-io">C++ I/O</h2>
 
 <ul>
   <li>DO NOT USE C I/O</li>
@@ -1311,7 +1339,7 @@ printSuiteFile(); // prints from suite.txt
   <li>If a read from cin fails, <strong>all subsequent reads will fail</strong></li>
 </ul>
 
-<p>##Make I/O More Robust##</p>
+<h2 id="make-io-more-robust">Make I/O More Robust</h2>
 
 <ul>
   <li>Reading from cin could fail in two ways
@@ -1332,7 +1360,7 @@ printSuiteFile(); // prints from suite.txt
   <li>If you want the entire line, use getline(cin, s)</li>
 </ul>
 
-<p>##Strings##</p>
+<h2 id="strings-1">Strings</h2>
 
 <ul>
   <li>Encapsulates something like char* in C</li>
@@ -1340,7 +1368,7 @@ printSuiteFile(); // prints from suite.txt
   <li>Can be accessed like an array</li>
   <li>include<string></string></li>
   <li>at(index): checks for bounds and throws an exception if out of bounds</li>
-  <li></li>
+  <li>[index]: does not check for bounds</li>
 </ul>
 
 <p><br /></p>
@@ -1349,16 +1377,20 @@ printSuiteFile(); // prints from suite.txt
 
 <p><strong>Overloading</strong></p>
 
-<p>C:</p>
+<p>C: Functions with different parameter lists cannot share the same name</p>
 
-<p>int negInt(int n) { return -n; }
-  int negBool(bool b) { return !b; }</p>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">negInt</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">-</span><span class="n">n</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span> <span class="nf">negBool</span><span class="p">(</span><span class="n">bool</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+</code></pre>
+</div>
 
 <p>C++: Functions with different parameter lists can share the same name</p>
 
-<p>int neg(int n) { return -n; }
-  int neg(bool b) { return !b; }
-  // example of overloading</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">neg</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">-</span><span class="n">n</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span> <span class="nf">neg</span><span class="p">(</span><span class="n">bool</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="c1">// example of overloading
+</span></code></pre>
+</div>
 
 <p>Compiler uses number of types of arguments to decide which neg is being called.</p>
 
@@ -1366,43 +1398,45 @@ printSuiteFile(); // prints from suite.txt
 
 <p><strong>Structs</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>struct Node {
-  int data;
-  Node \*next;
-}; // don't forget the semicolon
-
-Node n1{5, nullptr}; // nullptr is the syntax for a null pointer in C++.
-// Do not say NULL or 0 in this class!!!!!!! 0 will be always treated as a number, not pointer
-
-const Node n2 = n1; // constant struct means that its fields cannot be changed; n2 is an immutable copy of n1
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span> <span class="c1">// don't forget the semicolon
+</span>
+<span class="n">Node</span> <span class="n">n1</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">};</span> <span class="c1">// nullptr is the syntax for a null pointer in C++.
+// Do not say NULL or 0 in this class!!!!!!!
+// 0 will be always treated as a number, not pointer
+</span>
+<span class="k">const</span> <span class="n">Node</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">n1</span><span class="p">;</span> <span class="c1">// constant struct means that its fields
+// cannot be changed; n2 is an immutable copy of n1
+</span></code></pre>
 </div>
 
 <p><strong>Parameter Passing</strong></p>
 
 <p>Recall:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>void inc(int n) {
-  n = n + 1;
-  // ...
-  int x = 5;
-  inc(x);
-  cout &lt;&lt; x &lt;&lt; endl; // prints 5; call-by-value
-  // inc gets a copy of x and modifies the copy, not the original
-}
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">inc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// ...
+</span><span class="p">}</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">inc</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 5; call-by-value
+// inc gets a copy of x and modifies the copy, not the original
+</span></code></pre>
 </div>
 
 <p>Sol’n: If a function needs to modify its arugument - pass a pointer</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>void inc(int n) {
-  \*n = \*n + 1;
-  // ...
-  int x = 5;
-  inc(&amp;x); // x's address passed by value, inc changes value at that address, visible to caller
-  cout &lt;&lt; x &lt;&lt; endl; // prints 6
-}
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">inc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// ...
+</span><span class="p">}</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">inc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="c1">// x's address passed by value, inc changes value at that address, visible to caller
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 6
+</span></code></pre>
 </div>
 
 <p>Question: Why cin » x and not cin » &amp;x?<br />
@@ -1410,19 +1444,22 @@ Answer: C++ has another pointer-like type: references</p>
 
 <p><strong>References (IMPORTANT!!!)</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int y = 10;
-int &amp;z = y; // NEW. Ampersand after int. z is an **lvalue reference** to int ( which is y)
-            // Like a constant pointer, similar to int \*const z = &amp;y;
-            // (z is a constant pointer to an int; z will always point to y implied by const)
-            // (but y is not constant; you can change y however you like)
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// NEW. Ampersand after int.
+// z is an lvalue reference to int (which is y)
+// Reference is like a constant pointer, similar to int *const z = &amp;y;
+// (z is a constant pointer to an int; z will always point to y implied by const)
+// (but y is not constant; you can change y however you like)
+</span></code></pre>
 </div>
 
 <p>References are like constant pointers with automatic dereferencing.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>z = 12; // NOT \*z = 12
-int \*p = &amp;z; // &amp;z gives the address of y. No matter what you do to z, you do it y. In all cases, z behaves exactly like y. z is an alias for y.
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">z</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// NOT *z = 12
+</span><span class="kt">int</span> <span class="err">\</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">;</span> <span class="c1">// &amp;z gives the address of y.
+// No matter what you do to z, you do it y.
+// In all cases, z behaves exactly like y. z is an alias for y.
+</span></code></pre>
 </div>
 
 <p><strong>Things you CANNOT do with lvalue references</strong></p>
@@ -1431,11 +1468,15 @@ int \*p = &amp;z; // &amp;z gives the address of y. No matter what you do to z, 
   <li>leave them uninitialized, because they are constant, cannot assign later
     <ul>
       <li>must be initialized with something that actually has an address (an lvalue) since references are pointers</li>
-      <li>E.g.
-  int &amp;x = 3; // WRONG: WONT COMPILE, because 3 is not an address
-  int &amp;x = y + z; // WRONG
-  int &amp;x = y; // GOOD</li>
+      <li>E.g.</li>
     </ul>
+
+    <div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// WRONG: WONT COMPILE!
+// because 3 is not an address, it's a constant literal
+</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">;</span> <span class="c1">// WRONG!
+</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// GOOD
+</span></code></pre>
+    </div>
   </li>
   <li>create pointer to a reference: int &amp;* x; // WRONG
     <ul>
@@ -1449,17 +1490,17 @@ int \*p = &amp;z; // &amp;z gives the address of y. No matter what you do to z, 
 <p><strong>Things you CAN do with lvalue references</strong></p>
 
 <ul>
-  <li>
-    <p>Pass as function parameters:</p>
-
-    <p>void inc(int &amp;n) { // const pointer to the argument (x), thus changes to n affect x
-    n = n + 1; // no pointer dereferencing
-  }
-  int x = 5;
-  inc(x);
-  cout « x « endl; // prints 6</p>
-  </li>
+  <li>Pass as function parameters:</li>
 </ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">inc</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// const pointer to the argument (x), thus changes to n affect x
+</span>  <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// no pointer dereferencing
+</span><span class="p">}</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">inc</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 6
+</span></code></pre>
+</div>
 
 <p>Why does cin » x work? It takes x by reference</p>
 
@@ -1469,32 +1510,34 @@ int \*p = &amp;z; // &amp;z gives the address of y. No matter what you do to z, 
 
 <p>E.g.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int f(int n) {...} // copies the argument
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{...}</span> <span class="c1">// copies the argument
 // if the argument is big, copying is expensive
-
-struct ReallyBig{}; // Massive struct with thousands of fields
-int f(ReallyBig rb) {...} // copying would be slow
-
-int g(ReallyBig &amp;rb) {...} // pass as reference, no copy, it's an alias, fast
+</span>
+<span class="k">struct</span> <span class="n">ReallyBig</span><span class="p">{};</span> <span class="c1">// Massive struct with thousands of fields
+</span><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="n">ReallyBig</span> <span class="n">rb</span><span class="p">)</span> <span class="p">{...}</span> <span class="c1">// copying would be slow
+</span>
+<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="n">ReallyBig</span> <span class="o">&amp;</span><span class="n">rb</span><span class="p">)</span> <span class="p">{...}</span> <span class="c1">// pass as reference, no copy, it's an alias, fast
 // this could change rb in the caller, in contrast to pass by value, which guarantees
 // no changes to rb itself after calling
-
-int h(const ReallyBig &amp;rb) {...} // pass constant reference, no copy, fast, and the parameter cannot be changed
-</code></pre>
+</span>
+<span class="kt">int</span> <span class="nf">h</span><span class="p">(</span><span class="k">const</span> <span class="n">ReallyBig</span> <span class="o">&amp;</span><span class="n">rb</span><span class="p">)</span> <span class="p">{...}</span> <span class="c1">// pass constant reference, no copy, fast, and the parameter cannot be changed
+</span></code></pre>
 </div>
 
 <p>Advice: prefer pass-by-const-reference over pass-by-value for anything larger than an int, unless the function needs to make a copy anyway - then maybe pass by value. DEFAULT SHOULD BE PASS-BY-CONST-REF. Sizeof reference is same as size of a pointer</p>
 
 <p>Also:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int f(int &amp;n) {...}
-int g(const int &amp;n) {...}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="p">{...}</span>
 
-f(5); // LMAO FAILS WON'T COMPILE, because 5 does not have an address; can't initialize an lvalue reference (n) to a literal value;
+<span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// LMAO FAILS WON'T COMPILE, because 5 does not have an address;
+// can't initialize an lvalue reference (n) to a literal value;
 // if n changes, can't change the literal 5
-g(5); // OK; since n can never be changed, the compiler will allow this
+</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// OK; since n can never be changed, the compiler will allow this
 // How though? The compiler creates a temporary location to hold 5, so that n has something to point at
-</code></pre>
+</span></code></pre>
 </div>
 
 <p>That’s why const ref is so CRITICALLY IMPORTANT.</p>
@@ -1503,74 +1546,78 @@ g(5); // OK; since n can never be changed, the compiler will allow this
 
 <p>C:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>int \*p = malloc(n * sizeof(int));
-free(p);
-// Don't use these though
-</code></pre>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="c1">// Don't use these in this course though
+</span></code></pre>
 </div>
 
 <p>C++: new/delete</p>
 
 <p>E.g.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>struct Node {
-  int data;
-  Node \*next;
-}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
 
-Node \*np = new Node; // allocates a Node on the heap and np points to it
+<span class="n">Node</span> <span class="o">*</span><span class="n">np</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">;</span> <span class="c1">// allocates a Node on the heap and np points to it
 // ...
-delete np;
-// all local variables reside on the stack
+</span><span class="k">delete</span> <span class="n">np</span><span class="p">;</span>
+<span class="c1">// all local variables reside on the stack
 // deallocated (popped) when their scope ends
 // Allocated memory is on the heap, it stays there until you get rid of it
 // Remains allocated until delete is called
-</code></pre>
+</span></code></pre>
 </div>
 
 <p>If you don’t delete - MEMORY LEAK</p>
 
 <p><strong>Arrays on the heap</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Node \*myArray = new Node[10];
-// ...
-delete [] myArray; // The square brackets have to be there
-</code></pre>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">*</span><span class="n">myArray</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="c1">// ...
+</span><span class="k">delete</span> <span class="p">[]</span> <span class="n">myArray</span><span class="p">;</span> <span class="c1">// The square brackets have to be there
+</span></code></pre>
 </div>
 
 <p>E.g.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Node getMeANode() { // copy to caller's frame, expensive
-    Node n;
-    return n;
-}
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="nf">getMeANode</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// copy to caller's frame, expensive
+</span>    <span class="n">Node</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
 
-Node &amp;getMeANode() { // WORST. Returns a ref (essentially a pointer) to stack-allocated data, which is dead on return
-    Node n;
-    return n;
-}
+<span class="n">Node</span> <span class="o">&amp;</span><span class="n">getMeANode</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// WORST. Returns a ref (essentially a pointer) to
+</span>  <span class="c1">// stack-allocated data, which is dead on return
+</span>    <span class="n">Node</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
 
-Node \*getMeANode() { // fast-ish and safe, not returning pointer to dead data, caller responsible for delete when done
-    Node \*np = new Node;
-    return np;
-}
+<span class="n">Node</span> <span class="o">*</span><span class="n">getMeANode</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// fast-ish and safe, not returning pointer to dead data
+</span>  <span class="c1">// caller responsible for delete when done
+</span>    <span class="n">Node</span> <span class="o">*</span><span class="n">np</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
 <p>Considering all options, do No.1.</p>
 
-<p><strong>Operator Overloading</strong></p>
+<p><strong>Operator Overloading</strong><br />
+Give our own meanings to C++ operators for types we create</p>
 
-<p>Give our own meanings to C++ operators for types we create</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>struct Vec {
-    int x, y;
-}
-
-Vec operator+(const Vec &amp;v1, const Vec &amp;v2) {
-  Vec v{v1.x+v2.x, v1.y+v2.y}
-  return v;
-}
+<span class="n">Vec</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Vec</span> <span class="n">v</span><span class="p">{</span><span class="n">v1</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">v2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v1</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">v2</span><span class="p">.</span><span class="n">y</span><span class="p">}</span>
+  <span class="k">return</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
@@ -1578,87 +1625,101 @@ Vec operator+(const Vec &amp;v1, const Vec &amp;v2) {
 
 <h2 id="may-24-2016---lecture-7">May 24, 2016 - Lecture 7</h2>
 
-<p>##Preprocessor Variables##</p>
+<h2 id="preprocessor-variables">Preprocessor Variables</h2>
 
 <ul>
   <li>We can also define preprocessor symbols via the compiler; with gcc, syntax is -Dvname or -Dvname=val (-DX)</li>
   <li><strong>ifdef</strong> and <strong>ifndef</strong> directives: these check if a preprocessor variable has been defined (a use for simply defining variables); can be used to debug; #ifdef DEBUG to conditionally print stuff out to debug code; can offload run time to compile time
     <ul>
-      <li>syntax: <code class="highlighter-rouge">
+      <li>syntax:
+  <code class="highlighter-rouge">
   g++14 -DDEBUG program.cpp // set DEBUG
- </code>
-##Separate Compilation##</li>
+ </code></li>
     </ul>
   </li>
+</ul>
+
+<h2 id="separate-compilation">Separate Compilation</h2>
+<ul>
   <li>To help readability and create modularity we can split our programs into composable modules. Each module consist of <strong>interface</strong> (type definitions and prototypes for functions, .h file, contains declarations, won’t allocate space for the variables) and <strong>implementation</strong> (full details, allocates space for variables/functions, .cpp file, contains definitions)</li>
   <li>Example: Let’s take the vector struct and overloaded addition operator we created and put in a module so that it can be used by other files; create vec.h and vec.cpp</li>
 </ul>
 
-<p>```C++
-  // vec.h
-  struct Vec {
-    int x, y;
-  };</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// vec.h
+</span><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
 
-<p>Vec operator+(const Vec &amp;v1
-                const Vec &amp;v2); // constant reference to vectors, do not modify the originals</p>
+<span class="n">Vec</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v1</span>
+              <span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v2</span><span class="p">);</span> <span class="c1">// constant reference to vectors, do not modify the originals
+</span>
+<span class="c1">// ---------------------------------------
+// vec.cpp
+</span><span class="cp">#include "vec.h"
+</span><span class="c1">// to get the struct definition from the interface file
+</span>
+<span class="n">Vec</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span><span class="n">v1</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">v2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v1</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">v2</span><span class="p">.</span><span class="n">y</span><span class="p">};</span>
+<span class="p">}</span>
 
-<p>// vec.cpp
-  #include “vec.h” // to get the struct definition from the interface file</p>
+<span class="c1">// main.cpp
+</span><span class="cp">#include "vec.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<p>Vec operator+(const Vec &amp;v1, const Vec &amp;v2) {
-    return {v1.x + v2.x, v1.y + v2.y};
-  }</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Vec</span> <span class="n">x</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">};</span>
+  <span class="n">Vec</span> <span class="n">y</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">};</span>
+  <span class="n">Vec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>// main.cpp
-  #include “vec.h”
-  using namespace std;</p>
-
-<p>int main() {
-    Vec x {1,2};
-    Vec y {3,4};
-    Vec v = x + y;
-    cout « v.x « ”, “ « v.y « endl;
-    return 0;
-  }</p>
-
-<p>```</p>
-
-<p>when compiling:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>  g++14 -c vec.cpp // -c oppresses linking, creates .o (object) file
-  g++14 -c main.cpp
-  g++14 vec.o main.o -o main
-  ./main
 </code></pre>
 </div>
 
-<p>##Global Variables##</p>
+<p>when compiling:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>g++14 -c vec.cpp // -c oppresses linking, creates .o (object) file
+g++14 -c main.cpp
+g++14 vec.o main.o -o main
+./main
+</code></pre>
+</div>
+
+<h2 id="global-variables">Global Variables</h2>
 
 <ul>
-  <li>Consider we want to want to define a global variable in a module
-<code class="highlighter-rouge">C++
-  // abc.h
-  int globalNum; // Wrong - definition and declaration
-  // This won't work, every file that includeds abc.h defines a SEPARATE globalNum and the program will not link
-</code></li>
-  <li>Solution: put the variable in the .cpp file
-<code class="highlighter-rouge">C++
-  // abc.h
-  extern int globalNum; // Correct, just declaration
-  // abc.cpp
-  int globalNum;
-</code></li>
+  <li>Consider we want to want to define a global variable in a module</li>
 </ul>
 
-<p>##Multiple Includes##</p>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// abc.h
+</span><span class="kt">int</span> <span class="n">globalNum</span><span class="p">;</span> <span class="c1">// Wrong - definition and declaration
+// This won't work, every file that includeds abc.h
+// defines a SEPARATE globalNum and the program will not link
+</span></code></pre>
+</div>
+
+<ul>
+  <li>Solution: put the variable in the .cpp file</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// abc.h
+</span><span class="k">extern</span> <span class="kt">int</span> <span class="n">globalNum</span><span class="p">;</span> <span class="c1">// Correct, just declaration
+// extern keyword
+// -------------------------
+// abc.cpp
+</span><span class="kt">int</span> <span class="n">globalNum</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h2 id="multiple-includes">Multiple Includes</h2>
 
 <ul>
   <li>Always put #include guards in .h files (ifdef, define, endif)</li>
   <li>Never put using namespace std in .h files; DO NOT USE ANY NAMESPACES WHATSOEVER!</li>
 </ul>
 
-<p>##Classes##</p>
+<h2 id="classes">Classes</h2>
 
 <ul>
   <li>The big innovation of OOP - we can put functions inside of structs</li>
@@ -2138,7 +2199,7 @@ If the move ctor/move assignment operator is defined, it will replace calls to t
     <span class="k">return</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span> <span class="c1">// invokes basic ctor
 </span><span class="p">}</span>
 
-<span class="n">Vec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">makeAvec</span><span class="p">();</span> <span class="c1">// what operations run here? copy ctor? move ctor? 
+<span class="n">Vec</span> <span class="n">v</span> <span class="o">=</span> <span class="n">makeAvec</span><span class="p">();</span> <span class="c1">// what operations run here? copy ctor? move ctor?
 // Not sure, in g++: just the basic ctor, no cpy ctor, no move ctor
 </span></code></pre>
 </div>
@@ -2222,11 +2283,11 @@ Then you usually need a custom version of all 5. Because the circumstances you n
     <span class="n">Vec</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span><span class="o">:</span>
     <span class="n">x</span><span class="p">{</span><span class="n">x</span><span class="p">},</span> <span class="n">y</span><span class="p">{</span><span class="n">y</span><span class="p">}</span>
     <span class="p">{</span>
-        
+
     <span class="p">}</span>
 <span class="p">};</span>
 
-<span class="n">Vec</span> <span class="o">*</span><span class="n">vp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">// ERROR 
+<span class="n">Vec</span> <span class="o">*</span><span class="n">vp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vec</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">// ERROR
 </span><span class="n">Vec</span> <span class="n">moreVectors</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span> <span class="c1">// ERROR
 </span></code></pre>
 </div>
@@ -2288,7 +2349,7 @@ Then you usually need a custom version of all 5. Because the circumstances you n
 
 <span class="c1">// Node::___ means ____ in the context of struct Node
 // :: is like . for classes
-// . where LHS is a class (or namespace), not an object 
+// . where LHS is a class (or namespace), not an object
 </span>
 </code></pre>
 </div>
@@ -2346,7 +2407,6 @@ Solution: Declare the field mutable</p>
 <span class="p">}</span>
 </code></pre>
 </div>
-
 
   </div>
 
