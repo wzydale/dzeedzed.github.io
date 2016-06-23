@@ -1840,25 +1840,31 @@ int x {2.0} // COMPILER ERROR</p>
 <h2 id="copy-constructor">Copy Constructor</h2>
 <ul>
   <li>What happens when you use the assignment opeartor to instantiate an object?</li>
-  <li>
-    <p>Ex.</p>
+  <li>Ex.</li>
+</ul>
 
-    <p>Student a {60,70,80}
-  Student b = a;</p>
-  </li>
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Student</span> <span class="n">a</span> <span class="p">{</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">}</span>
+<span class="n">Student</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<ul>
   <li>b will be initialized via the copy constructor</li>
   <li>All classes have an implicit copy constructor that just copies all regular data fields and calls copy constructors on all object fields</li>
-  <li>Ex.
-  #include “Node.h”
-  Node::Node(const Node &amp;in) : data(in.data) {
-    if (in.next) {
-      next = new Node(*in.next);
-    } else {
-      next = nullptr;
-    }
-  }
-  // recursively copies the nodes</li>
+  <li>Ex.</li>
 </ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include "Node.h"
+</span><span class="n">Node</span><span class="o">::</span><span class="n">Node</span><span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">)</span> <span class="o">:</span> <span class="n">data</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="o">*</span><span class="n">in</span><span class="p">.</span><span class="n">next</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">next</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// recursively copies the nodes
+</span></code></pre>
+</div>
 
 <h2 id="implicit-methods">Implicit Methods</h2>
 <ul>
@@ -1902,29 +1908,29 @@ int x {2.0} // COMPILER ERROR</p>
 <h2 id="recall">Recall</h2>
 
 <ul>
-  <li>
-    <p>Copy constructor</p>
-
-    <div class="language-c++ highlighter-rouge"><pre class="highlight"><code>  <span class="n">Node</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}}};</span>
-  <span class="n">Node</span> <span class="n">m</span> <span class="o">=</span> <span class="o">*</span><span class="n">n</span><span class="p">;</span> <span class="c1">// copy ctor
-</span>  <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="err">\</span><span class="o">*</span><span class="n">n</span><span class="p">};</span> <span class="c1">// copy ctor
-</span></code></pre>
-    </div>
-  </li>
-  <li>Simple copy of fields -&gt; only the first node actually copied (shallow copy)</li>
-  <li>
-    <p>If you want a deep copy (copy the whole list), must write your own copy constructor</p>
-
-    <div class="language-c++ highlighter-rouge"><pre class="highlight"><code>  <span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
-      <span class="c1">// ...
-</span>      <span class="n">Node</span> <span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">:</span>
-    <span class="n">data</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">},</span>
-    <span class="n">next</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="o">?</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="err">\</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">};</span> <span class="c1">// recursively copies the rest of the list
-</span>  <span class="p">};</span>
-</code></pre>
-    </div>
-  </li>
+  <li>Copy constructor</li>
 </ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}}};</span>
+<span class="n">Node</span> <span class="n">m</span> <span class="o">=</span> <span class="o">*</span><span class="n">n</span><span class="p">;</span> <span class="c1">// copy ctor
+</span><span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="o">*</span><span class="n">n</span><span class="p">};</span> <span class="c1">// copy ctor
+</span></code></pre>
+</div>
+
+<ul>
+  <li>Simple copy of fields -&gt; only the first node actually copied (shallow copy)</li>
+  <li>If you want a deep copy (copy the whole list), must write your own copy constructor</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+	<span class="c1">// ...
+</span>	<span class="n">Node</span> <span class="p">(</span><span class="k">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">:</span>
+    <span class="n">data</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">},</span>
+    <span class="n">next</span> <span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="o">?</span> <span class="k">new</span> <span class="n">Node</span> <span class="p">{</span><span class="o">*</span><span class="n">other</span><span class="p">.</span><span class="n">next</span><span class="p">}</span> <span class="o">:</span> <span class="n">nullptr</span><span class="p">};</span>
+    <span class="c1">// recursively copies the rest of the list
+</span><span class="p">};</span>
+</code></pre>
+</div>
 
 <p>The copy constructor is called:</p>
 
