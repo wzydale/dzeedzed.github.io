@@ -219,6 +219,8 @@ Term: Spring 2016
 </code></pre>
 </div>
 
+<p><strong>Shoutout to Brian Forbes, <a href="http://www.yufeiyang.me">Steven Yang</a>, and <a href="http://ziqizhou.com">Ziqi Zhou</a>!</strong></p>
+
 <h2 id="may-3-2016---lecture-1">May 3, 2016 - Lecture 1</h2>
 
 <p><strong>Grading Scheme</strong></p>
@@ -2275,12 +2277,15 @@ Then you usually need a custom version of all 5. Because the circumstances you n
 
 <p>So define «, » as standalone functions.</p>
 
-<p>Certain operators must be members:
-    + operator=
-    + operator[]
-    + operator()
-    + operator-&gt;
-    + operatorT (where T is a type)</p>
+<p>Certain operators must be members:</p>
+
+<ul>
+  <li>operator=</li>
+  <li>operator[]</li>
+  <li>operator()</li>
+  <li>operator-&gt;</li>
+  <li>operatorT (where T is a type)</li>
+</ul>
 
 <h2 id="arrays-of-objects">Arrays of Objects</h2>
 
@@ -2410,6 +2415,1613 @@ Solution: Declare the field mutable</p>
         <span class="o">++</span><span class="n">numMethodCalls</span><span class="p">;</span>
         <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="june-7-2016---lecture-11">June 7, 2016 - Lecture 11</h2>
+
+<h2 id="static-fields-and-methods">Static Fields and Methods</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+  <span class="k">mutable</span> <span class="kt">int</span> <span class="n">nCalls</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">grade</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">nCalls</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// blah blah blah
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>nCalls tracks the number of times a method was called on a <strong>particular object</strong>. What if we want the number of calls over all Student objects? Or what if we want to know how many Students were created?</p>
+
+<h3 id="static-members">Static Members</h3>
+
+<ul>
+  <li>Associated with the class itself, NOT any particular object</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="k">static</span> <span class="kt">int</span> <span class="n">numInstances</span><span class="p">;</span>
+  <span class="n">Student</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">numInstances</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// in .cc file
+</span><span class="kt">int</span> <span class="n">Student</span><span class="o">::</span><span class="n">numInstances</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p><strong>NOTE</strong>: Static fields MUST be defined external to the class</p>
+
+<h3 id="static-member-functions">Static Member Functions</h3>
+
+<ul>
+  <li>Don’t depend on any particular instance (no “this” parameter) (not methods)</li>
+  <li>Can only access static fields and call other static member functions</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="k">static</span> <span class="kt">int</span> <span class="n">numInstances</span><span class="p">;</span>
+  <span class="k">static</span> <span class="kt">void</span> <span class="nf">printNumInstances</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">numInstances</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// main
+</span><span class="n">Student</span> <span class="n">billy</span> <span class="p">{};</span>
+<span class="n">Student</span> <span class="n">jane</span> <span class="p">{};</span>
+<span class="n">Student</span><span class="o">::</span><span class="n">printNumInstances</span><span class="p">();</span> <span class="c1">// prints 2
+</span></code></pre>
+</div>
+
+<h2 id="invariants-and-encapsulation">Invariants and Encapsulation</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+  <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">n</span><span class="p">);</span>
+  <span class="o">~</span><span class="n">Node</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// main
+</span>
+<span class="n">Node</span> <span class="n">n1</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="n">Node</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">}};</span>
+<span class="n">Node</span> <span class="n">n2</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="n">nullptr</span><span class="p">};</span>
+<span class="n">Node</span> <span class="n">n3</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n2</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What happens when these go out of scope? n3’s destructor tries to delete &amp;n2, which is on the stack, not on the heap! Thus, UNDEFINED BEHAVIOUR!</p>
+
+<p>Class Node relies on an assumption, called an <strong>invariant</strong>, a statement that shold always be true. In this case, the invariant is that next is either:</p>
+
+<ul>
+  <li>a nullptr, or</li>
+  <li>a valid pointer to the heap</li>
+</ul>
+
+<p>But we cannot guarantee this invariant. Because we cannot control the user, we cannot guarantee any invariant because the user can interfere. For example, in a stack implementation, the invaraint is: last item pushed is the first item popped. If you cannot rely on variants, it would be hard to reason about programs</p>
+
+<p>To solve: Encapsulation - we want clients to treat objects as “black boxes” (or capsules)</p>
+
+<ul>
+  <li>Implementation details are sealed away</li>
+  <li>Can only interact via the provided methods</li>
+  <li>Can create an abstraction, regain us control</li>
+</ul>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Vec</span> <span class="p">{</span>
+  <span class="n">Vec</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// by default, public
+</span><span class="nl">private:</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// can only be accessed from inside Vec
+</span><span class="nl">public:</span>
+  <span class="n">vec</span> <span class="n">Operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span> <span class="c1">// anyone can access
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>In general, we want fields to be private, and only methods should be public. Introducing class:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Vec</span> <span class="p">{</span> <span class="c1">// constructors etc are public
+</span>  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// private by default now
+</span><span class="nl">public:</span>
+  <span class="n">Vec</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+  <span class="n">Vec</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Only difference between struct and class: default visibility, otherwise completely identical</p>
+
+<p>Now we fix the linked list class</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// list.h
+</span>
+<span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Node</span><span class="p">;</span> <span class="c1">// private nested class
+</span>  <span class="n">Node</span> <span class="o">*</span><span class="n">theList</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">addToFront</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="n">ith</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+  <span class="o">~</span><span class="n">List</span><span class="p">();</span>
+  <span class="c1">// ... etc etc
+</span><span class="p">};</span>
+
+<span class="c1">// list.cc
+</span><span class="cp">#include "list.h"
+</span><span class="k">struct</span> <span class="n">List</span><span class="o">::</span><span class="n">Node</span> <span class="p">{</span>
+  <span class="c1">// nested class
+</span>  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+  <span class="n">Node</span><span class="p">(</span><span class="kt">int</span> <span class="n">d</span><span class="p">,</span> <span class="n">Node</span> <span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// MIL
+</span>
+  <span class="p">}</span>
+  <span class="o">~</span><span class="n">Node</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">List</span><span class="o">::</span><span class="n">addToFront</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">theList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">theList</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">List</span><span class="o">::</span><span class="n">ith</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">cur</span> <span class="o">=</span> <span class="n">theList</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">cur</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">List</span><span class="o">::~</span><span class="n">List</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">delete</span> <span class="n">theList</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Only List can create/manipulate Node objects, thus we can guarantee the invariance that next is either a nullptr or a valid pointer to the heap. BUT, now we can’t traverse the entire list in linear time. Repeated calling ith(int i) to traverse the whole list -&gt; O(n<sup>2</sup>) time. On the other hand, we can’t expose the Nodes or we will lose encapsulation</p>
+
+<h2 id="se-topic-design-patterns">SE Topic: Design Patterns</h2>
+
+<ul>
+  <li>Certain problems arise frequently</li>
+  <li>Keep track of good solutions and use them in similiar situations</li>
+  <li>Good Solutions Hall of Fame</li>
+  <li>If you have a situation like this, then this technique may solve it</li>
+</ul>
+
+<p>In this case, we use the <strong>Iterator Pattern</strong>.</p>
+
+<ul>
+  <li>Create a class that manages access to nodes (abstraction of a pointer)</li>
+  <li>Walk through the list without exposing the next pointers</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Node</span><span class="p">;</span> <span class="c1">// nested inner class
+</span>  <span class="n">Node</span> <span class="o">*</span><span class="n">theList</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">class</span> <span class="nc">Iterator</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="k">explicit</span> <span class="n">Iterator</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">:</span> <span class="n">p</span><span class="p">{</span><span class="n">p</span><span class="p">}</span> <span class="p">{}</span>
+
+    <span class="kt">int</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// reference because might want to modify data
+</span>      <span class="k">return</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Iterator</span> <span class="o">&amp;</span><span class="n">opeartor</span><span class="o">++</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+      <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">Iterator</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">Iterator</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// standalone functions
+</span>  <span class="n">Iterator</span> <span class="nf">begin</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Iterator</span><span class="p">(</span><span class="n">theList</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">Iterator</span> <span class="nf">end</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Iterator</span><span class="p">(</span><span class="n">nullptr</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ... other list functions follow
+</span>
+<span class="p">};</span>
+
+<span class="c1">// client
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">List</span> <span class="n">l</span><span class="p">;</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">addToFront</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">addToFront</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">addToFront</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">List</span><span class="o">::</span><span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">l</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// prints 1 2 3
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Shortcut when writing the Iterator for loop: we can use automatic type deduction</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// auto gives x y's type
+</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">l</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// "shortercut" - Range-based for loop
+</span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">n</span> <span class="o">:</span> <span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Range-based for loop: available for all classes with:</p>
+
+<ul>
+  <li>Methods begin, end that produce Iterators</li>
+  <li>Iterator must support !=, prefix ++, unary *</li>
+</ul>
+
+<p>If we want to modify list items(or save copying):</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">n</span> <span class="o">:</span> <span class="n">l</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// use reference
+</span>  <span class="o">++</span><span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="june-9-2016---lecture-12">June 9, 2016 - Lecture 12</h2>
+
+<p>But List client can create Iterators directly by doing the following:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">List</span><span class="o">::</span><span class="n">Iterator</span><span class="p">{</span><span class="n">nullptr</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>This violates encapsulation as the client should be calling begin and end, which we provide.</p>
+
+<p>We could preserve encapsulation by:</p>
+
+<ul>
+  <li>Making Iterator’s constructor private
+    <ul>
+      <li>Then client cannot call List::Iterator</li>
+      <li>But then neither can List</li>
+    </ul>
+  </li>
+  <li><strong>Solution</strong>: give list privileged access to Iterator -&gt; make it a <strong>friend</strong></li>
+</ul>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="k">class</span> <span class="nc">Iterator</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="k">explicit</span> <span class="n">Iterator</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="c1">// ... Iterator functions
+</span>    <span class="c1">// friend
+</span>    <span class="k">friend</span> <span class="k">class</span> <span class="nc">List</span><span class="p">;</span> <span class="c1">// List now has access to all members of Iterator
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Now, List can still create Iterators, but client can only create Iterators by calling begin and end.</p>
+
+<p><strong>NOTE</strong>: Give your classes as few friends as possible, because it weakens encapsulation. Once again, we want to keep fields private.</p>
+
+<p>What if you want to give clients access to fields? “Getters” and “Setters” methods</p>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Vec</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">getX</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">setY</span><span class="p">(</span><span class="kt">int</span> <span class="n">newY</span><span class="p">)</span> <span class="p">{</span> <span class="n">y</span> <span class="o">=</span> <span class="n">newY</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What about operator «? It needs x and y, but it cannot be a member function</p>
+
+<ul>
+  <li>If getX, getY are defined, then we are ok</li>
+  <li>But if you don’t want to provide getX and getY, make operator« a friend function that is standalone</li>
+</ul>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// .h file
+</span>
+<span class="k">class</span> <span class="nc">Vec</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="k">friend</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// .cc file
+</span>
+<span class="n">ostream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vec</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="tools-topic-make">Tools Topic: Make</h2>
+
+<p><strong>Separate Compilation</strong>: lectures/c++/tools/example1</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>g++14 -c list.cc
+g++14 -c node.cc
+g++14 -c iter.cc
+g++14 -c main.cc
+g++14 main.o iter.o node.o list.o -o myprogram
+</code></pre>
+</div>
+
+<p>Why do we do this? So we don’t have to recompile files that haven’t changed.</p>
+
+<p>But how do we keep track of what’s changed and what hasn’t? Let Linux help you with <strong>make</strong>. We can create a Makefile that says which files depend on which other files. Refer to /lectures/c++/tools/example1/Makefile</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>myprogram: main.o list.o node.o iter.o # (myprogram depends on these)
+  g++-5 -std=c++14 main.o list.o node.o iter.o -o myprogram # (tab in the beginning)
+</code></pre>
+</div>
+
+<p>Then from the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>make # builds the whole project
+# Now change iter.cc
+make # recompiles iter.cc and then relinks myprogram
+</code></pre>
+</div>
+
+<p>Command <strong>make</strong>: builds the first target (myprogram) in the Makefile. And what does myprogram depend on? main.o, list.o, node.o, iter.o. So make recursively builds these if necessary. Make uses a dependency graph.</p>
+
+<p>For example, iter.cc changes, then iter.cc is now newer than iter.o (by checking the last modified date and time). Thus make rebuilds iter.o. Now iter.o is newer than myprogram, thus make rebuilds myprogram</p>
+
+<p>Make can also build specific targets, for example make node.o</p>
+
+<p>Common practice: put a target clean: at the bottom of the Makefile to remove all binaries</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">clean </span><span class="c">#</span><span class="nf"> (to avoid a file called clean if present)</span>
+<span class="nl">clean</span><span class="o">:</span>
+  <span class="err">rm</span> <span class="err">*.o</span> <span class="err">myprogram</span>
+</code></pre>
+</div>
+
+<p>To do a full rebuild:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>make clean
+make
+</code></pre>
+</div>
+
+<p>Now we can generalize with variables. In the Makefile:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>CXX = g++-5
+CXXFLAGS = -std=c++14 -Wall # (turns on all warnings)
+</code></pre>
+</div>
+
+<p>E.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>iter.o: iter.cc iter.h
+${CXX} ${CXXFLAGS} -c iter.cc
+</code></pre>
+</div>
+
+<p>Shortcut: for any make of the form</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>x.o: x.cc a.h b.h
+</code></pre>
+</div>
+
+<p>We can leave out the build command and make would guess that the build command is ${CXX} ${CXXFLAGS}, so we can just write</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="o">-</span><span class="n">c</span> <span class="n">x</span><span class="p">.</span><span class="n">cc</span> <span class="o">-</span><span class="n">o</span> <span class="n">x</span><span class="p">.</span><span class="n">o</span>
+</code></pre>
+</div>
+
+<p>Biggest problems:</p>
+
+<ul>
+  <li>Writing dependencies</li>
+  <li>Maintaining them if they change</li>
+</ul>
+
+<p>Can get help from g++:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>g++14 -MMD -c iter.cc
+</code></pre>
+</div>
+
+<p>This creates iter.o <strong>and</strong> iter.d, and iter.d contains:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>iter.o: iter.cc list.h node.h
+</code></pre>
+</div>
+
+<p>Now just include iter.d in the Makefile:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>CXX = g++-5
+CXXFLAGS = -std=c++14 -Wall -MMD
+OBJECTS = main.o list.o iter.o node.o
+DEPENDS = ${OBJECTS:.o=.d}
+EXEC = myprogram
+
+${EXEC}:${OBJECTS}
+  ${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
+
+-include ${DEPENDS}
+</code></pre>
+</div>
+
+<p>As the project expands, just add .o files to the Makefile</p>
+
+<h2 id="system-modelling">System Modelling</h2>
+
+<p>Building an object-oriented system involves identifying abstractions and formalizing the relationships among items. It helps to map out relationships. A popular standard is the Unified Modelling Language (UML). Modelling a class, write its name, fields (optional), and methods (optional), and use + to denote public and - to denote private</p>
+
+<h3 id="relationship-composition">Relationship: Composition</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Vec</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Vec</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Basis</span> <span class="p">{</span>
+  <span class="n">Vec</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// client
+</span><span class="n">Basis</span> <span class="n">b</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>This will not compile because Basis cannot initialize v1, v2, because the default constructor for b calls default constructors for v1, v2, which do not exist.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Basis</span> <span class="p">{</span>
+  <span class="n">Vec</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Basis</span><span class="p">()</span><span class="o">:</span> <span class="n">v1</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="n">v2</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="p">{}</span> <span class="c1">// default constructor, now it will compile
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Embedding one object (v1) into another (b), called <strong>composition</strong>. The relationship between Basis and Vec is called “owns-a”, as a Basis “owns a” two Vecs.</p>
+
+<p>If A owns a B, then typically:</p>
+
+<ul>
+  <li>B has no identity outside of A</li>
+  <li>If A is destroyed, then B is destroyed</li>
+  <li>If A is copied, then B is copied (deep copy)</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="june-14-2016---lecture-13">June 14, 2016 - Lecture 13</h2>
+
+<p>A car owns 4 wheels</p>
+
+<ul>
+  <li>A wheel is a part of a car</li>
+  <li>Destroy the car -&gt; Destroy the wheels</li>
+  <li>Copy the car -&gt; Copy the wheels</li>
+  <li><strong>Implementation: Composition of classes</strong></li>
+  <li>UML: A -&gt; B  (filled arrow), means A owns some number of B’s, can annotate with multiplicities</li>
+</ul>
+
+<h3 id="relationship-aggregation">Relationship: Aggregation</h3>
+
+<ul>
+  <li>Compare parts in a car (“owns a”) vs. car parts in a catalogue</li>
+  <li>A “has a” relationship (aggregation): the catalogue contains the partsm but the parts have an independent existence</li>
+  <li>If “A has B”, then typically:
+    <ul>
+      <li>B has an existence apart from its association with A</li>
+      <li>If A is destroyed, then B lives on</li>
+      <li>If A is copied, B is not (shallow copy) - copies of A share the same B</li>
+    </ul>
+  </li>
+  <li><strong>Implementation: Pointer fields</strong></li>
+</ul>
+
+<p>E.g. Parts in a catalogue, ducks in a pond; UML: Pond -&gt; Duck (hollow arrow)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Pond</span> <span class="p">{</span>
+  <span class="n">Duck</span> <span class="o">*</span><span class="n">ducks</span><span class="p">[</span><span class="n">maxDucks</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Car</span> <span class="p">{</span>
+  <span class="n">Person</span> <span class="o">*</span><span class="n">driver</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="specializationgeneralization-inheritance">Specialization/Generalization (Inheritance)</h2>
+
+<p>Suppose you want to track your collection of books</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Book</span><span class="p">(...);</span> <span class="c1">// ctor
+</span>  <span class="c1">// other functions
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>For textbooks, we also want the <strong>topic</strong>:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Text</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">topic</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Text</span><span class="p">(...);</span> <span class="c1">// Text ctor
+</span>  <span class="c1">// other functions
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>For comic books, we want the <strong>hero</strong>:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Comic</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">hero</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Comic</span><span class="p">(...);</span> <span class="c1">// Comic ctor
+</span>  <span class="c1">// other functions
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>This is okay, but it doesn’t capture relationships among Book, Text, and Comic. And how do we create an array (or other collection) with a mix of these?</p>
+
+<p>We could:</p>
+
+<ol>
+  <li>Use a union - *BAD (subverts the type system)**</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">union</span> <span class="n">BookTypes</span><span class="p">{</span><span class="n">Book</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span> <span class="n">Test</span> <span class="o">*</span><span class="n">t</span><span class="p">;</span> <span class="n">Comic</span> <span class="o">*</span><span class="n">c</span><span class="p">;};</span>
+<span class="n">BookTypes</span> <span class="n">myBooks</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>Array of void * <strong>BAD (pointer to anything)</strong></li>
+</ol>
+
+<p>Rather, observe that Text and Comic are kinds of Books - Books with extra features.</p>
+
+<p>C++ - model with Inheritance</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// Base class (superclass)
+</span><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Book</span><span class="p">(...);</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="c1">// derived classes (or subclasses)
+</span><span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">topic</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Text</span><span class="p">(...);</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Comic</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">hero</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Comic</span><span class="p">(...);</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Derived classes <strong>inherit</strong> fields and methods from the base class, so Text, Comic get title, author, numPages fields. Any method that can be invoked on Book can be called on Text and Comic.</p>
+
+<p>Who can see these members?</p>
+
+<ul>
+  <li>title, author, numPages - private in Book; Text and Comic cannot see them, even subclasses can’t see them</li>
+</ul>
+
+<p>How do we initialize Text? Need title, author, numPages (these are needed to initialize the Book part) and topic (specific to Text)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">topic</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Text</span><span class="p">(</span><span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">string</span> <span class="n">author</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numPages</span><span class="p">,</span> <span class="n">string</span> <span class="n">topic</span><span class="p">)</span> <span class="o">:</span>
+  <span class="n">title</span><span class="p">{</span><span class="n">title</span><span class="p">},</span> <span class="n">author</span><span class="p">{</span><span class="n">author</span><span class="p">},</span> <span class="n">numPages</span><span class="p">{</span><span class="n">numPages</span><span class="p">},</span> <span class="n">topic</span><span class="p">{</span><span class="n">topic</span><span class="p">}</span> <span class="p">{}</span>
+  <span class="c1">// WRONG!!!
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Wrong for 2 reasons:</p>
+
+<ul>
+  <li>title etc are not accessible to Text</li>
+  <li>Once again, when an object is constructed:
+    <ol>
+      <li>space is allocated</li>
+      <li>superclass part is constructed (NEW!)</li>
+      <li>fields constructed</li>
+      <li>constructor body runs</li>
+    </ol>
+  </li>
+</ul>
+
+<p>And in this case, superclass cannot be constructed because Book has no default constructor.</p>
+
+<p><strong>Fix:</strong> invoke Book’s constructor in Text’s MIL</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">topic</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Text</span><span class="p">(</span><span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">string</span> <span class="n">author</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numPages</span><span class="p">,</span> <span class="n">string</span> <span class="n">topic</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">Book</span><span class="p">{</span><span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">,</span> <span class="n">numPages</span><span class="p">},</span> <span class="n">topic</span><span class="p">{</span><span class="n">topic</span><span class="p">}</span> <span class="p">{}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p><strong>NOTE:</strong> If a superclass has no default constructor, subclass must invoke a superclass constructor in its MIL. Good reasons to keep superclass’s fields inaccessible to subclasses. If you want to give subclasses access to certain members, use <strong>protected</strong> access:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="k">protected</span><span class="o">:</span>
+    <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span> <span class="c1">// accessible to Book and its subclasses
+</span>  <span class="nl">public:</span>
+    <span class="n">Book</span><span class="p">(...);</span>
+    <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="c1">// subclasses
+</span><span class="k">class</span> <span class="nc">Text</span><span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="nl">public:</span>
+    <span class="c1">// ...
+</span>    <span class="kt">void</span> <span class="n">addAuthor</span><span class="p">(</span><span class="n">string</span> <span class="n">newAuthor</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">author</span> <span class="o">+=</span> <span class="n">newAuthor</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Note: Not a good idea to give subclasses unlimited access to fields; <strong>Better</strong> - make fields private, but provide protected accessors</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">author</span><span class="p">,</span> <span class="n">title</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+<span class="k">protected</span><span class="o">:</span>
+  <span class="n">string</span> <span class="n">getTitle</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="n">setAuthor</span><span class="p">(</span><span class="n">string</span> <span class="n">newAuthor</span><span class="p">);</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Book</span><span class="p">(...);</span> <span class="c1">// ctor
+</span>  <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Relationship among Book, Text, and Comic is called “is a”: A Text is a Book; A Comic is a Book. UML: Text-&gt;(hollow)Book&lt;-(hollow)Comic. Implement “is a” by public inheritance.</p>
+
+<p>Now consider the method isItHeavy. When is a Book heavy?</p>
+
+<ul>
+  <li>For ordinary Books, &gt; 200 pages</li>
+  <li>For Texts, &gt; 500 pages</li>
+  <li>For Comics, &gt; 30 pages</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">numPages</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Text</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">numPages</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Comic</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">numPages</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// =====================
+// client
+</span><span class="n">Book</span> <span class="n">b</span> <span class="p">{</span><span class="s">"A small book"</span><span class="p">,</span> <span class="s">"1Q84"</span><span class="p">,</span> <span class="mi">50</span><span class="p">};</span>
+<span class="n">Comic</span> <span class="n">c</span> <span class="p">{</span><span class="s">"A big comic"</span><span class="p">,</span> <span class="s">"Waterloo Memers"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">"Mr Paninos"</span><span class="p">};</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// false, it's a small Book as 50 &lt; 200
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">isItHeavy</span><span class="p">;</span> <span class="c1">// true, it's a big comic as 40 &gt; 30
+</span></code></pre>
+</div>
+
+<p>Since public inheritance means “is a”, we can do:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Comic</span><span class="p">{</span><span class="s">"A big comic"</span><span class="p">,</span> <span class="s">"Balkan Chevaps"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">"We Deliver"</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p><strong>Question:</strong> Is b heavy? b.isItHeavy() returns true or false? Which isItHeavy() run, Book::isItHeavy or Comic::isItHeavy?</p>
+
+<p><strong>Answer:</strong> No, it is not heavy. Book::isItHeavy is what runs. Why? Book contains 3 fields: title, author, numPages, while Comic contains 4 fields: title, author, numPages, and hero. Thus,</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Comic</span> <span class="p">{...};</span>
+</code></pre>
+</div>
+
+<p>tries to create a Comic object when there’s only space for a Book. Comic is then <strong>sliced (“hero” field is chopped off)</strong>. Comic is coerced (forced) into a Book. Basically, Book b = Comic {…} converts a Comic into a Book and Book::isItHeavy runs.</p>
+
+<p>When accessing objects through pointers, <strong>slicing is unnecessary and does not occur</strong>.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Comic</span> <span class="n">c</span> <span class="p">{</span><span class="s">"friend5ever"</span><span class="p">,</span> <span class="s">"Sedra Smith"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">"RealisticAFMStudent"</span><span class="p">};</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="n">Comic</span> <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pc</span><span class="o">-&gt;</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// true; 40 &gt; 30, heavy Comic
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pb</span><span class="o">-&gt;</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// false, 40 &lt; 200, not heavy Book
+// same behaviour as the slicing example, Book::isItHeavy runs as pointer is Book
+</span></code></pre>
+</div>
+
+<p>Still, Book::isItHeavy runs when we access pb-&gt;isItHeavy(). Some objects behaves differently, depending on what type of pointer points to it.</p>
+
+<p><br /></p>
+
+<h2 id="june-16-2016---lecture-14">June 16, 2016 - Lecture 14</h2>
+
+<p>Compiler uses the type of the pointer (or type of the reference) to decide which isItHeavy to run. It does not consider the actual type of the object. So a Comic is a Comic only if a comic pointer points to it. Pointer »&gt; Actual object.</p>
+
+<p>Then, how do you make Comic act like a Comic, even when pointed at by a Book pointer? <strong>Solution: declare the method virtual</strong>.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="c1">// ... fields
+</span><span class="nl">protected:</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Book</span><span class="p">(...);</span>
+  <span class="k">virtual</span> <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// use of virtual here
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Comic</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="n">bool</span> <span class="n">isItHeavy</span><span class="p">()</span> <span class="k">const</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// override keyword in virtual function
+</span><span class="p">};</span>
+
+<span class="c1">// =================
+// client
+</span><span class="n">Comic</span> <span class="n">c</span> <span class="p">{</span><span class="s">"RealisticMathStudent"</span><span class="p">,</span> <span class="s">"UWGo"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">"Quest God"</span><span class="p">};</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">rb</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+<span class="n">Comic</span> <span class="o">&amp;</span><span class="n">pc</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="n">Book</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pb</span><span class="o">-&gt;</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// true, Comic::isItHeavy
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rb</span><span class="p">.</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// true, Comic::isItHeavy
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pc</span><span class="o">-&gt;</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// true, Comic::isItHeavy
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">isItHeavy</span><span class="p">();</span> <span class="c1">// FALSE, Book::isItHeavy
+</span></code></pre>
+</div>
+
+<h3 id="virtual-and-polymorphism">Virtual and Polymorphism</h3>
+
+<p><strong>Virtual Methods</strong>: chosen based on the actual types of the object at <strong>runtime</strong></p>
+
+<p>E.g. My book collection</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="o">*</span><span class="n">myBooks</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">myBooks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isItHeavy</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="c1">// This uses Book::isItHeavy for Books, Text::isItHeavy for Texts
+</span>  <span class="c1">// and Comic::isItHeavy for Comics
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>It accommodates multiple types under one abstraction -&gt; <strong>Polymorphism</strong></p>
+
+<p>Note: This is why a function</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">istream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>can be passed an ifstream, because ifstream is a subclass of istream.</p>
+
+<p><strong>DANGER</strong></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">One</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">One</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">:</span> <span class="n">x</span><span class="p">{</span><span class="n">x</span><span class="p">},</span> <span class="n">y</span><span class="p">{</span><span class="n">y</span><span class="p">}</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Two</span> <span class="o">:</span> <span class="k">public</span> <span class="n">One</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Two</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">:</span> <span class="n">One</span><span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">},</span> <span class="n">z</span><span class="p">{</span><span class="n">z</span><span class="p">}</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">One</span> <span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// ===============
+// clientdas
+</span><span class="n">Two</span> <span class="n">myArray</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}];</span>
+<span class="n">f</span><span class="p">(</span><span class="n">myArray</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p><strong>Data Misaligned</strong>: MyArray is originally [1 2 3][4, 5, 6]; after calling f, it becomes [6 7 8][9 5 6].</p>
+
+<p>Note: NEVER use arrays of objects polymorphically. If you want polymorphism, use an array of pointers</p>
+
+<h3 id="destructor-revisited">Destructor Revisited</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">X</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span><span class="o">:</span> <span class="n">x</span><span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">]}</span> <span class="p">{}</span>
+  <span class="o">~</span><span class="n">X</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Y</span> <span class="o">:</span> <span class="k">public</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Y</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span><span class="o">:</span> <span class="n">X</span><span class="p">{</span><span class="n">n</span><span class="p">},</span> <span class="n">y</span><span class="p">{</span><span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">m</span><span class="p">]}</span> <span class="p">{}</span>
+  <span class="o">~</span><span class="n">Y</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// =================
+// client
+</span><span class="n">X</span> <span class="o">*</span><span class="n">myX</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Y</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+<span class="k">delete</span> <span class="n">myX</span><span class="p">;</span> <span class="c1">// LEAKS!
+</span></code></pre>
+</div>
+
+<p><strong>Why?</strong> The last line calls ~X, not ~Y, so only x, but not y, is freed.<br />
+To ensure that deletion through a superclass pointer calls the subclass destructor, <strong>declare the destructor virtual</strong>.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">X</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="k">virtual</span> <span class="o">~</span><span class="n">X</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p><strong>ALWAYS</strong> make the destructor virtual in classes that are meant to have subclasses, even if the virtual destructor does nothing. If a class is NOT meant to have subclassses, declare the destructor <strong>final</strong>.</p>
+
+<h3 id="pure-virtual-methods-and-abstract-classes">Pure Virtual Methods and Abstract Classes</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span> <span class="c1">// there are 2 kinds of Students, regular and co-op
+</span><span class="nl">protected:</span>
+  <span class="kt">int</span> <span class="n">numCourses</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// ...
+</span>  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">fees</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Regular</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Student</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">fees</span><span class="p">()</span> <span class="k">const</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// virtual - override
+</span>  <span class="c1">// regular fees
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Coop</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Student</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">fees</span><span class="p">()</span> <span class="k">const</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// virtual - override
+</span>  <span class="c1">// coop fees
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What do we put for Student::fees? We don’t know, because every Student should be either regular or co-op.</p>
+
+<p>We can explicitly given Student::fees <strong>NO implementation</strong> -&gt; <strong>pure virtual method</strong></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">fees</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// =0, NO IMPLEMENTATION
+</span>  <span class="c1">// Called pure virtual method = no implementation
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>A class with a <strong>pure virtual method cannot be instantiated</strong>, and the class is called an <strong>abstract class</strong>. Its purpose is to organize subclasses.</p>
+
+<p>Subclasses of abstract classes are abstract as well, <strong>unless they implement ALL pure virtual methods.</strong> Non-abstract classes are called <strong>concrete classes</strong>.</p>
+
+<p>UML: virtual and pure virtual methods: italics; abstract class: class name in italics; protected: #</p>
+
+<h3 id="inheritance-and-copymove">Inheritance and Copy/Move</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// Defines all copy/move operators here
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// DOES NOT define copy/move operators
+</span><span class="p">};</span>
+
+<span class="c1">// ===============
+// client
+</span><span class="n">Text</span> <span class="n">t</span> <span class="p">{</span><span class="s">"Algorithms"</span><span class="p">,</span> <span class="s">"CLRS"</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s">"CS"</span><span class="p">};</span>
+<span class="n">Text</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span> <span class="c1">// No copy ctor in Text, what happens?
+// calls Book's copy ctor,
+// then goes field by field (i.e. default behaviour) for the Text part
+// same for other opeartors
+</span></code></pre>
+</div>
+
+<p>To write your own:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// copy ctor
+</span><span class="n">Text</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="k">const</span> <span class="n">Text</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">:</span> <span class="n">Book</span><span class="p">{</span><span class="n">other</span><span class="p">},</span> <span class="n">topic</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">topic</span><span class="p">}</span> <span class="p">{}</span>
+
+<span class="c1">// copy assignment opor
+</span><span class="n">Text</span> <span class="o">&amp;</span><span class="n">Text</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Text</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Book</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">other</span><span class="p">);</span> <span class="c1">// superclass copy assignment
+</span>  <span class="n">topic</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">topic</span><span class="p">;</span> <span class="c1">// assign field
+</span>  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// move ctor
+</span><span class="n">Text</span><span class="o">::</span><span class="n">Text</span><span class="p">(</span><span class="n">Text</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">Book</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">)},</span> <span class="n">topic</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">topic</span><span class="p">)}</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// move assignment opor
+</span><span class="n">Text</span> <span class="o">&amp;</span><span class="n">Text</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Text</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Book</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">));</span>
+  <span class="n">topic</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">topic</span><span class="p">);</span>
+  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Note</strong>: Even though other “points” at an rvalue, other itself is an lvalue. std::move(x) forces lvalue x to be treated as an rvalue, so that move versions of operators can run</p>
+
+<p><br /></p>
+
+<h2 id="june-21-2016---lecture-15">June 21, 2016 - Lecture 15</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Text</span> <span class="n">t1</span><span class="p">{...};</span>
+<span class="n">Text</span> <span class="n">t2</span><span class="p">{...};</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">pb1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">t1</span><span class="p">;</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">pb2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">t2</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>What if we do</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="n">pb1</span> <span class="o">=</span> <span class="o">*</span><span class="n">pb2</span><span class="p">;</span> <span class="c1">// ?
+</span></code></pre>
+</div>
+
+<p>Then Book::operator= runs, <strong>partial assignment</strong> - copies only the Book part. How do we fix this? Try making operator= virtual.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="c1">// ...
+</span>  <span class="k">virtual</span> <span class="n">Book</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">);</span> <span class="c1">// make the copy assignment opor virtual
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="n">Text</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// override - virtual in subclass
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Note: different return types, but parameter types must be the same or it’s not an override, and thus WILL NOT COMPILE.</p>
+
+<p>Thus assignment of a Book object to a Text variable would be allowed.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Text</span> <span class="n">t</span> <span class="p">{...};</span>
+<span class="n">Book</span> <span class="n">b</span> <span class="p">{...};</span>
+<span class="n">Text</span> <span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">;</span>
+<span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="o">*</span><span class="n">pb</span><span class="p">;</span> <span class="c1">// uses a book to assign to a text, BAD
+</span>
+<span class="c1">// ALSO
+</span><span class="n">Comic</span> <span class="n">c</span> <span class="p">{...};</span>
+<span class="n">Comic</span> <span class="o">*</span><span class="n">pc</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+<span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="o">*</span><span class="n">pc</span><span class="p">;</span> <span class="c1">// BAD
+</span></code></pre>
+</div>
+
+<p>If operator= is non-virtual -&gt; partial assignment through base class pointers -&gt; BAD<br />
+If operator= is virtual -&gt; compiler allows mixed assignment -&gt; BAD</p>
+
+<p>Recommendation: All superclasses should be <strong>abstract</strong>.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AbstractBook</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">numPages</span><span class="p">;</span>
+<span class="k">protected</span><span class="o">:</span>
+  <span class="n">AbstractBook</span> <span class="o">&amp;</span><span class="n">opeartor</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">AbsratctBook</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">);</span>
+  <span class="c1">// prevents assignment through base class pointers from compiling
+</span>  <span class="c1">// but implementation still available to subclasses
+</span><span class="nl">public:</span>
+  <span class="n">AbsratctBook</span><span class="p">(...);</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">AbsratctBook</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// "be abstract"
+</span>  <span class="c1">// need at least one pure virtual method to make it abstract
+</span>  <span class="c1">// if you don't have any, make dtor pure virtual
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">NormalBook</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AbstractBook</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">NormalBook</span><span class="p">(...);</span>
+  <span class="o">~</span><span class="n">NormalBook</span><span class="p">();</span>
+  <span class="n">NormalBook</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">NormalBook</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AbstractBook</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// ============
+// client
+</span><span class="o">*</span><span class="n">pb1</span> <span class="o">=</span> <span class="o">*</span><span class="n">pb2</span><span class="p">;</span> <span class="c1">// DOES NOT COMPILE
+</span></code></pre>
+</div>
+
+<p><strong>Prevents mixed &amp; partial assignment</strong>.<br />
+Note: virtual destructor must always be implemented, even if it is pure virtual.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">AbsratctBook</span><span class="o">::~</span><span class="n">AbstractBook</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<h2 id="templates">Templates</h2>
+
+<p>Huge topic - just the highlights here</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Node</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">theList</span><span class="p">;</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">List</span><span class="o">::</span><span class="n">Node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p><strong>Question:</strong> what if you want to store something else? Whole new class? Nah.</p>
+
+<p><strong>Templates</strong>: class parameterized by a type</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Stack</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">cap</span><span class="p">;</span>
+  <span class="n">T</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="n">Stack</span><span class="p">(){...}</span>
+<span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">){...}</span>
+<span class="n">T</span> <span class="n">top</span><span class="p">(){...}</span>
+<span class="kt">void</span> <span class="n">pop</span><span class="p">(){...}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Node</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="n">Node</span> <span class="o">*</span><span class="n">theList</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">class</span> <span class="nc">Iterator</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="k">explicit</span> <span class="nf">Iterator</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">:</span> <span class="n">p</span><span class="p">{</span><span class="n">p</span><span class="p">}</span> <span class="p">{}</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">T</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// ...
+</span>  <span class="p">};</span>
+
+  <span class="n">T</span> <span class="nf">ith</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="nf">addToFront</span><span class="p">(</span><span class="n">T</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// ==================
+// client
+</span><span class="n">List</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">l1</span><span class="p">;</span>
+<span class="n">List</span> <span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">t2</span><span class="p">;</span>
+<span class="n">t1</span><span class="p">.</span><span class="n">addToFront</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">t2</span><span class="p">.</span><span class="n">addToFront</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">l1</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">l1</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Compiler specializes template at the source code level, before compilation begins. Refer to /string/istream/ostream templates.</p>
+
+<h2 id="the-standard-template-library-stl">The Standard Template Library (STL)</h2>
+
+<p>Large number of useful templates</p>
+
+<p>E.g. dynamic length arrays: vectors</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;vector&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span> <span class="c1">// vector&lt;int&gt; v(4,5) = {5,5,5,5};
+</span><span class="n">v</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span> <span class="c1">// {4,5,6}
+</span><span class="n">v</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span> <span class="c1">// {4,5,6,7}
+</span></code></pre>
+</div>
+
+<p>Looping over vectors:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// OR
+</span><span class="k">for</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">i</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// To iterate in reverse
+</span><span class="k">for</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span>
+
+<span class="c1">// To remove last element
+</span><span class="n">v</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+
+<span class="c1">// Use iterators to remove items from inside the vector
+</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span> <span class="c1">// erase element 0
+</span><span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// erase element 3
+// returns an iterator to first item after the erase
+</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span> <span class="c1">// erase item pointed to by it
+</span><span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// erase last item
+</span>
+<span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// i-th element of v; unchecked: out of bounds -&gt; undefined behaviour
+</span><span class="n">v</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="c1">// checked version of v[i], what happens if i is out of bounds
+</span></code></pre>
+</div>
+
+<p><strong>Question</strong>: What should happen?</p>
+
+<p>Problem: Vector can detect the error, but doesn’t know whatto do about it</p>
+
+<p>C Solution: function returns a status code, or set the global variable errno; encourages programmers to ignore error checks</p>
+
+<p>C++ Solution: when an error condition occurs, the function raises an exception</p>
+
+<p><br /></p>
+
+<h2 id="june-23-2016---lecture-16">June 23, 2016 - Lecture 16</h2>
+
+<h2 id="exceptions">Exceptions</h2>
+
+<p>What happens? By default, execution stops. But we can write <strong>handler</strong> to <strong>catch</strong> exceptions and deal with them. vector <T>::at throws exception out_of_range.</T></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdexcept&gt;
+</span><span class="c1">// ...
+</span><span class="n">try</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// statements that may raise an exception
+</span>  <span class="c1">// go in the try block
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">out_of_range</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"range error</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Consider:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="n">out_of_range</span> <span class="p">{</span><span class="s">"f"</span><span class="p">};</span> <span class="c1">// raise an exception
+</span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">g</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">try</span> <span class="p">{</span>
+    <span class="n">h</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">out_of_range</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>What happens?</p>
+
+<p>main calls h, h calls g, g calls f, f throws, g has no handler for out_of_range, control goes back through the call chain (unwinds the stack) until a handler is found. Control goes all the way back to main, main handles the exception.</p>
+
+<p>If no one handles the exception, program terminates.</p>
+
+<p>What is out_of_range? It’s a class.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">throw</span> <span class="n">out_of_range</span> <span class="p">{</span><span class="s">"f"</span><span class="p">};</span> <span class="c1">// invokes a ctor with arg "f" and throws it
+// "f" is auxiliary information
+</span></code></pre>
+</div>
+
+<p>To examine auxiliary information:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">try</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">out_of_range</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ex</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints "f"
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>A handler might do part of the recovery job - execute some corrective code and raise another exception:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">try</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">someErrorType</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="k">throw</span> <span class="n">someOtherError</span><span class="p">(...);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Or throw the same exception:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">try</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">someErrorType</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="k">throw</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The difference between throw and throw s. Throw is used when an actual type of s is retained (most cases), it rethrows the same exception object it caught; throw s: s may be a subtype of someErrorType, throw rethrows a new exception of type someErrorType.</p>
+
+<p>A handler can act as a catch-all:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">try</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span> <span class="c1">// catches all exceptions
+</span>  <span class="c1">// ...
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>You can throw anything you want - doesn’t have to be objects</p>
+
+<p>Define your own classes (or use appropriate existing ones) for errors. E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BadInput</span><span class="p">();</span>
+
+<span class="n">try</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n">BadInput</span><span class="p">{};</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">BadInput</span> <span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// catch by ref to prevent slicing
+</span>  <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="c1">// ...
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Note:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BaseExn</span><span class="p">{};</span>
+<span class="k">class</span> <span class="nc">DerivedExn</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseExn</span><span class="p">{};</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">DerivedExn</span> <span class="n">d</span><span class="p">;</span>
+  <span class="n">BaseExn</span> <span class="o">&amp;</span><span class="n">b</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span> <span class="c1">// BaseExn type
+</span>  <span class="k">throw</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">try</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="n">f</span><span class="p">();</span>
+  <span class="c1">// ...
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">DerivedExn</span> <span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ... DerivedExn handler
+</span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">BaseExn</span> <span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ... BaseExn handler
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Which handler runs? BaseExn handler runs, as the type of the reference (i.e. the static type of the object) determines the handler.</p>
+
+<p>Some standard exceptions:</p>
+
+<ul>
+  <li>length_error - attempting to resize strings/vectors that are too long</li>
+  <li>bad-alloc - new fails</li>
+  <li>ios::failure - I/O streams fail; refer to lectures/c++/exceptions</li>
+</ul>
+
+<p><strong>NEVER NEVER NEVER let a destructor throw an exception</strong></p>
+
+<ul>
+  <li>If the dtor was executed during stack unwinding while dealing with another exception, you now have two active unhandled exceptions, and the program will terminate immediately</li>
+</ul>
+
+<h2 id="design-patterns-continued">Design Patterns (Continued)</h2>
+
+<p><strong>Guiding Principle</strong>:</p>
+
+<ul>
+  <li>Program with interfaces not implementations</li>
+  <li>Abstract base classes define the interface</li>
+  <li>Work with pointers to an abstract base class and call their methods</li>
+  <li>Concrete subclasses can be swapped in and out</li>
+  <li>Abstracting over a variety of behaviours</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="k">class</span> <span class="nc">Iterator</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AbstractIterator</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Set</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="k">class</span> <span class="nc">Iterator</span> <span class="o">:</span> <span class="k">public</span> <span class="n">AbstractIterator</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">AbstractIterator</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">AbstractIterator</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">++</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(...)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">AbstractIterator</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Then you can write code that operates over iteartors:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">foreach</span><span class="p">(</span><span class="n">AbstractIterator</span> <span class="n">start</span><span class="p">,</span> <span class="n">AbstractIterator</span> <span class="n">end</span><span class="p">,</span> <span class="n">T</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">start</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">start</span><span class="p">);</span> <span class="c1">// f must be a callible entity
+</span>    <span class="o">++</span><span class="n">start</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// this works over both Lists and Sets
+</span>
+<span class="n">List</span> <span class="n">l</span><span class="p">;</span>
+<span class="n">foreach</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">l</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">someFunction</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p><br /></p>
+
+<h2 id="june-28-2016---lecture-17">June 28, 2016 - Lecture 17</h2>
+
+<h2 id="observer-design-pattern">Observer Design Pattern</h2>
+
+<p>aka <strong>publish-subscribe model</strong></p>
+
+<p>Publisher/Subject - source of data, generates data; Subscribers/Observers - receive data and react to it.</p>
+
+<p>Sequence of the model calls:</p>
+
+<ol>
+  <li>Subject’s state is updated()</li>
+  <li>Subject::notifyObservers() -&gt; calls each observer’s notify();</li>
+  <li>Each observer calls ConcreteSubject::getState() to react accordingly</li>
+</ol>
+
+<p>E.g. horse races; subject publishes winners, observers (individual betters) declare victory when their horse wins.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Subject</span> <span class="p">{</span>
+  <span class="n">vector</span> <span class="o">&lt;</span><span class="n">Observers</span> <span class="o">*&gt;</span> <span class="n">observers</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">attach</span><span class="p">(</span><span class="n">Observer</span> <span class="o">*</span><span class="n">ob</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">observers</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">ob</span><span class="p">);</span> <span class="c1">// add to observers
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">detach</span><span class="p">(</span><span class="n">Observer</span> <span class="o">*</span><span class="n">ob</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// remove
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">notifyObservers</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">ob</span><span class="p">;</span> <span class="n">observers</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">ob</span><span class="o">-&gt;</span><span class="n">notify</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">Subject</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// make class abstract
+</span><span class="p">};</span>
+
+<span class="n">Subject</span><span class="o">::~</span><span class="n">Subject</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// dtor must have user-defined implementation (since declared pure virtual)
+</span>
+<span class="k">class</span> <span class="nc">Observer</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="n">notify</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">Observer</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Horserace</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Subject</span> <span class="p">{</span>
+  <span class="n">ifstream</span> <span class="n">in</span><span class="p">;</span> <span class="c1">// get data from that file
+</span>  <span class="n">string</span> <span class="n">winner</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Horserace</span><span class="p">(</span><span class="n">string</span> <span class="n">source</span><span class="p">)</span> <span class="o">:</span> <span class="n">in</span><span class="p">{</span><span class="n">source</span><span class="p">};</span>
+  <span class="n">bool</span> <span class="n">race</span><span class="p">();</span> <span class="c1">// true if there was a race, false if EOF
+</span>  <span class="n">string</span> <span class="nf">getState</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">winner</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Bettor</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Observer</span> <span class="p">{</span>
+  <span class="n">Horserace</span> <span class="o">*</span><span class="n">subject</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">myHorse</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Bettor</span><span class="p">(...)</span> <span class="p">...</span> <span class="p">{</span>
+    <span class="n">subject</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">notify</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">winner</span> <span class="o">=</span> <span class="n">subject</span><span class="o">-&gt;</span><span class="n">getState</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">winner</span> <span class="o">==</span> <span class="n">myHorse</span> <span class="o">?</span> <span class="s">"Win"</span> <span class="o">:</span> <span class="s">"Lose"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// main
+</span><span class="n">Horserace</span> <span class="n">hr</span><span class="p">;</span>
+<span class="n">Bettor</span> <span class="n">Larry</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="s">"Larry"</span><span class="p">,</span> <span class="s">"Pig4"</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">hr</span><span class="p">.</span><span class="n">race</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">hr</span><span class="p">.</span><span class="n">notifyObservers</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Simplifications</strong>:</p>
+
+<ol>
+  <li>If only one type of subject, could merge Subject and ConcreteSubject</li>
+  <li>If state is trivial (so that just let notify tells you all you need to know), then don’t need getState()</li>
+  <li>If subject = observer (e.g. cell in a grid in a spreadsheet), could merge these classes</li>
+</ol>
+
+<h2 id="decorator-pattern">Decorator Pattern</h2>
+
+<ul>
+  <li>Want to add features to an object at runtime</li>
+</ul>
+
+<p>E.g. Operating System: basic window, then add menu, then add scrollbar, and we want to change these at runtime</p>
+
+<p>class component - interface - operations</p>
+
+<p>You will provide</p>
+
+<p>ConcreteComponent - implements the interface</p>
+
+<p>Decorators all inherit from Decorator, which inherits Component. Thus every Decorator is a Component and every Decorator has a Component</p>
+
+<p>A window with a scrollbar is a window, and has a pointer to the underlying plain window. Windw with scrollbar and menu is a window and has a pointer to a pointer to a window with scrollbar, which has a pointer to a plain window</p>
+
+<p><br /></p>
+
+<h2 id="june-29-2016---tutorial">June 29, 2016 - Tutorial</h2>
+
+<p>protected: acts like private, but subclasses can access superclass fields; within the hierarchy</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Computer</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">makeCall</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Making call"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Testing"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">Smartphone</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Computer</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">makeCall</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Mobile"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">testCall</span><span class="p">(</span><span class="n">Computer</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">test</span><span class="p">();</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">makeCall</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Smartphone</span> <span class="n">lmao</span><span class="p">;</span>
+  <span class="n">testCall</span><span class="p">(</span><span class="n">lmao</span><span class="p">);</span>
+  <span class="n">Computer</span> <span class="o">*</span><span class="n">laptop</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Smartphone</span><span class="p">;</span>
+  <span class="n">laptop</span><span class="o">-&gt;</span><span class="n">makeCall</span><span class="p">();</span>
+  <span class="n">lmao</span><span class="p">.</span><span class="n">makeCall</span><span class="p">();</span>
+  <span class="n">lmao</span><span class="p">.</span><span class="n">test</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
 </div>
