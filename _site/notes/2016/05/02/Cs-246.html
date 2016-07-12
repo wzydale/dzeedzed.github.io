@@ -3257,7 +3257,8 @@ ${EXEC}:${OBJECTS}
 
 <h3 id="virtual-and-polymorphism">Virtual and Polymorphism</h3>
 
-<p><strong>Virtual Methods</strong>: chosen based on the actual types of the object at <strong>runtime</strong></p>
+<p><strong>Virtual Methods</strong>: chosen based on the actual types of the object at <strong>runtime</strong><br />
+<strong>Dynamic Dispatch</strong>: the process of virtual methods being resolved to the correct one at runtime is known as dynamic dispatch. It is the process of chossing which method to call at runtime based on the type of a value. We use this by putting <strong>virtual</strong> in the superclass.</p>
 
 <p>E.g. My book collection</p>
 
@@ -4025,6 +4026,1062 @@ Note: virtual destructor must always be implemented, even if it is pure virtual.
 <span class="p">}</span>
 </code></pre>
 </div>
+
+<p><br /></p>
+
+<h2 id="june-30-2016---lecture-18">June 30, 2016 - Lecture 18</h2>
+
+<p><strong>Midterm got curved</strong>: Original average 49%, avergae after adjustment 66%</p>
+
+<h2 id="design-pattern-template-method-pattern">Design Pattern: Template Method Pattern</h2>
+
+<p>We want subclasses to override superclass behaviour, but some aspects must stay the same</p>
+
+<ul>
+  <li>A design pattern where we override some behaviour from a superclass, but not all of it - the superclass is used as a template for the subclass</li>
+</ul>
+
+<p>E.g. There are red and green turtles.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// superclass
+</span><span class="k">class</span> <span class="nc">Turtle</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">draw</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// method to draw turtle and its components
+</span>    <span class="n">drawHead</span><span class="p">();</span>
+    <span class="n">drawShell</span><span class="p">();</span>
+    <span class="n">drawFeet</span><span class="p">();</span>
+    <span class="c1">// note not virtual as the class is not abstract
+</span>    <span class="c1">// thus not open for overriding
+</span>    <span class="c1">// subclasses cannot change the fact that draw must
+</span>    <span class="c1">// draw head, shell, and feet
+</span>  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">drawHead</span><span class="p">();</span> <span class="c1">// not virtual, cannot override
+</span>  <span class="kt">void</span> <span class="n">drawFeet</span><span class="p">();</span> <span class="c1">// not virtual, cannot override
+</span>  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">drawShell</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// pure virtual
+</span>  <span class="c1">// enables subclasses to override this method
+</span>  <span class="c1">// gives subclasses a little bit of control
+</span>  <span class="c1">// but not total control
+</span><span class="p">};</span>
+
+<span class="c1">// subclass
+</span><span class="k">class</span> <span class="nc">RedTurtle</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">drawShell</span><span class="p">()</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// virtual - override
+</span>  <span class="c1">// draw red shell
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">GreenTurtle</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">drawShell</span><span class="p">()</span> <span class="n">override</span><span class="p">;</span> <span class="c1">// draw green shell
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Class Turtle is like a boilerplate or a template, a fill-in-the-blank form. Has absolutely nothing to do with standard template library (STL). Subclasses cannot change the way a turtle is drawn, i.e. head, shell, feet, but they <strong>can</strong> change the way the shell is drawn.</p>
+
+<p>Note: In the Turtle class, drawShell() is a private virtual function, but it is perfectly legal to override, not to call. Subclasses have to call their own drawShell().</p>
+
+<p>Extension: The Non-Virtual Interface (NVI) Idiom</p>
+
+<p>A public virtual method is really two things:</p>
+
+<ul>
+  <li>public: thus an interface to the client
+    <ul>
+      <li>indicates provided behaviour with pre/post conditions</li>
+    </ul>
+  </li>
+  <li>virtual: thus an interace to subclasses
+    <ul>
+      <li>a “hook” to insert specialized behaviour</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Hard to separate these ideas if they are tied to the same function</p>
+
+<p>What if you later want to separate the customizable behaviour into 2 functions, maybe with some unchanging code in between? Without changing the public interface?</p>
+
+<p>How can you make sure overriding functions respect pre/post conditions?</p>
+
+<p><strong>The NVI idiom says:</strong></p>
+
+<ul>
+  <li>All public methods should be non-virtual</li>
+  <li>All virtual methods should be private, or at least, protected</li>
+  <li>Exception: Destructor</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DigitalMedia</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">play</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// In NVI:
+// doPlay is a pass through function
+</span><span class="k">class</span> <span class="nc">DigitalMedia</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">play</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// so we can control what happens here
+</span>    <span class="n">doPlay</span><span class="p">();</span>
+    <span class="c1">// and here
+</span>    <span class="c1">// and not gonna be any slower, because the compiler will optimize as it sees fit
+</span>  <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">doPlay</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>So now we can add before and after code.</p>
+
+<p>E.g. Check copyright so I don’t get sued, update play count after the function call, or add another hook: showArt() = 0;</p>
+
+<p>Extends Template Method - puts <strong>EVERY</strong> virtual function inside a template method.</p>
+
+<h2 id="stl---maps--dictionaries">STL - Maps = Dictionaries</h2>
+
+<p>E.g. “Arrays” that map string sto ints</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;map&gt;
+</span>
+<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
+<span class="n">m</span><span class="p">[</span><span class="s">"abc"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">m</span><span class="p">[</span><span class="s">"def"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">[</span><span class="s">"ghi"</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 0
+// if key not present, it is inserted
+// and value is default-constructed (for ints: 0)
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">[</span><span class="s">"abc"</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints 1
+</span>
+<span class="n">m</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">"def"</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// the number is either 0 or 1
+</span>  <span class="c1">// 0 means not found, and 1 means found
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Iterating over a map: sorted key order</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">p</span> <span class="o">:</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="c1">// first is key, second is value
+</span>  <span class="c1">// p's type is std::pair&lt;string, int&gt;&amp; (&lt;utility&gt;)
+</span>  <span class="c1">// also, p.first and p.second are fields, not methods
+</span>  <span class="c1">// not private fields?
+</span>  <span class="c1">// Because no invariant, we can just expose the fields
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="tools-debugger-gdb">Tools: Debugger GDB</h2>
+
+<p>To use: compile with -g (enable debugging information)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>g++14 -g myfile.cc
+</code></pre>
+</div>
+
+<p>To run the debugger:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gdb ./a.out
+</code></pre>
+</div>
+
+<p>Commands:</p>
+
+<ul>
+  <li>r (run):
+    <ul>
+      <li>runs the program</li>
+      <li>if the program crashes, it tells you the error</li>
+    </ul>
+  </li>
+  <li>bt (backtrace): prints the chain of functions that got you here</li>
+  <li>l (list): lists the source surrounding the current point of execution; gives you context</li>
+  <li>p (print): prints the value of a variable or expression</li>
+  <li>q (quit)</li>
+</ul>
+
+<p>Not all bugs are segfaults though.</p>
+
+<p>Breakpoints: tell gdb to stop the program so you can see what is going on.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>break f
+</code></pre>
+</div>
+
+<p>This says break when entering function f. Or,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>break myfile.cc:15
+</code></pre>
+</div>
+
+<p>This says break on line 15.</p>
+
+<ul>
+  <li>s (step): runs one line</li>
+  <li>c (continue): runs until the next breakpoint</li>
+</ul>
+
+<h2 id="design-pattern-visitor-pattern">Design Pattern: Visitor Pattern</h2>
+
+<p>For implementing <strong>double dispatch</strong>.</p>
+
+<p>Virtual method - chosen based on the actual type (at runtime) of the receiving object.</p>
+
+<p>What if we want to choose based on two objects?</p>
+
+<p>UML: Turtle -&gt; (hollow) Enemy &lt;-(hollow) Bullet<br />
+Stick -&gt; (hollow) Weapon &lt;-(hollow) Rock</p>
+
+<p>We want something like virtual void(Enemy, Weapon)::strike(); (not C++ though)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Enemy</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Weapon</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Enemy</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// each of these only does half the job
+</span></code></pre>
+</div>
+
+<p>Trick to get dispatch on both:</p>
+
+<ul>
+  <li>Combine overriding with overloading</li>
+</ul>
+
+<p><strong>Override</strong> the virtual beStruckBy function:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Enemy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// pure virtual
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Turtle</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Enemy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">strike</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span> <span class="c1">// compiler knows *this is a Turtle
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Bullet</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Enemy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">strike</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span> <span class="c1">// compiler knows *this is a Bullet
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Now <strong>overload</strong> strike that takes in both Turtle ref and a Bullet ref:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Weapon</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Turtle</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Bullet</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Stick</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Weapon</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Turtle</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// strike a Turtle with a Stick
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Bullet</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// strike a Bullet with a Stick
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Rock</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Weapon</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Turtle</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// strike a Turtle with a Rock
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Bullet</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// strike a Turtle with a Rock
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// ===================
+// client
+</span><span class="n">Enemy</span> <span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bullet</span><span class="p">;</span>
+<span class="n">Weapon</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rock</span><span class="p">;</span>
+<span class="n">e</span><span class="o">-&gt;</span><span class="n">beStruckBy</span><span class="p">(</span><span class="o">*</span><span class="n">w</span><span class="p">);</span> <span class="c1">// strike a Bullet with a Rock
+</span></code></pre>
+</div>
+
+<p>beStruckBy is a <strong>virtual method</strong>, so Bullet::beStruckBy() runs. That calls Weapon::strike, and *this is bullet, so Bullet version gets chosen by compiler. The virtual method resolves to Rock::strike(Bullet &amp;).</p>
+
+<p><br /></p>
+
+<h2 id="july-5-2016---lecture-19">July 5, 2016 - Lecture 19</h2>
+
+<p>Recall: <strong>Visitor Pattern</strong></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Enemy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Turtle</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Enemy</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">beStruckBy</span><span class="p">(</span><span class="n">Weapon</span> <span class="o">&amp;</span><span class="n">w</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="n">w</span><span class="p">.</span><span class="n">strike</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Weapon</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Turtle</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Bullet</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Stick</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Weapon</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Turtle</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="c1">// strike Turtle with Stick
+</span>  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">strike</span><span class="p">(</span><span class="n">Bullet</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="c1">// strike Bullet with Stick
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Note:</strong> Visitor can be used to add functionality to existing classes without changing or recompiling the classes themselves.</p>
+
+<p>E.g. Add a visitor to the Book hierarchy</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">accept</span><span class="p">(</span><span class="n">BookVisitor</span> <span class="o">&amp;</span><span class="n">bv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">bv</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Text</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="kt">void</span> <span class="n">accept</span><span class="p">(</span><span class="n">BookVisitor</span> <span class="o">&amp;</span><span class="n">bv</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="n">bv</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Comic</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Book</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="nl">public:</span>
+  <span class="kt">void</span> <span class="n">accept</span><span class="p">(</span><span class="n">BookVisitor</span> <span class="o">&amp;</span><span class="n">bv</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="n">bv</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// BookVisitor
+</span>
+<span class="k">class</span> <span class="nc">BookVisitor</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Book</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Text</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Comic</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>In this example</strong>, accept is beStruckBy, visit is strike, Book is Enemy, and BookVisitor is Weapon.</p>
+
+<p>Application: Track how many of each kind of book I have: Books (by author), Texts (by topic), and Comics (by hero). Use a <strong>map&lt;string, int&gt;</strong>.</p>
+
+<p>Could add virtual void updateMap(…) to each class. Valid.</p>
+
+<p>Or write a visitor:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Catalogue</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BookVisitor</span> <span class="p">{</span>
+  <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">theCat</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">getCatalogue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">theCat</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Book</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">theCat</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">getAuthor</span><span class="p">()];</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Text</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">theCat</span><span class="p">[</span><span class="n">t</span><span class="p">.</span><span class="n">getTopic</span><span class="p">()];</span>
+  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Comic</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="n">override</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">theCat</span><span class="p">[</span><span class="n">c</span><span class="p">.</span><span class="n">getHero</span><span class="p">()];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Won't compile
+</span></code></pre>
+</div>
+
+<p>Won’t compile! Why?</p>
+
+<p>Book includes BookVisitor -&gt; includes Text -&gt; includes Book</p>
+
+<ul>
+  <li>Circular include dependency</li>
+  <li>Book has an #include guard - won’t be included</li>
+  <li>Text doesn’t know what Book is</li>
+  <li>Are these includes really needed?</li>
+</ul>
+
+<h2 id="compilation-dependencies">Compilation Dependencies</h2>
+
+<p>When does a compilantion dependency exist? (i.e. when do you need an include?)</p>
+
+<p>Consider:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="n">A</span> <span class="n">myA</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">D</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="n">A</span> <span class="o">*</span><span class="n">myA</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">E</span> <span class="p">{</span>
+  <span class="n">A</span> <span class="n">f</span><span class="p">(</span><span class="n">A</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p><strong>IMPORTANT DISCUSSION</strong>: Which of them requires an include? Which of them can get away with a forward declaration?</p>
+
+<p>Answer: B and C need an include (#include “a.h”), D and E do not. Compiler needs to know how big A is to know how big B and C is (B has an A inside it, C also has an A inside it).</p>
+
+<p>For B and C, there is a compilation dependency. We need to know how big A is to know how big B and C are.</p>
+
+<p>For D, you can forware declare (class A;), because all pointers are the same size. The compiler knows how big D is, it does not need to know how big A is.</p>
+
+<p>For E, you can forward declare (class A;). Functions don’t contribute to the size of E. The function declaration is good enough for type checking. A is just mentioned for type checking.</p>
+
+<p>If there is no compilation dependency necessitated by the code, then do not create one with extra #includes.</p>
+
+<p>When class A changes, only A, B, C need to recompile.</p>
+
+<p>Different story when you look at .cc implementation files. In the implementations of D and E:</p>
+
+<p>d.cc</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include "a.h"
+</span>
+<span class="kt">void</span> <span class="n">D</span><span class="o">::</span><span class="n">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">myA</span><span class="o">-&gt;</span><span class="n">someMethod</span><span class="p">();</span>
+  <span class="c1">// need to know about class A here - a true compilation dependency
+</span>  <span class="c1">// needs to include a.h here, but not in E's header.
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Do the #include in the .cc, not in .h, where possible. Because including .h files in .cc, there would never be a cycle, because you never include .cc files. Reduces compilation cycle errors.</p>
+
+<p>Now we will fix the visitor.</p>
+
+<p>Now consider the XWindow class:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">XWindow</span> <span class="p">{</span>
+  <span class="n">Display</span> <span class="o">*</span><span class="n">d</span><span class="p">;</span>
+  <span class="n">Window</span> <span class="n">w</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">GC</span> <span class="n">gc</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">colours</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+  <span class="c1">// private data above
+</span>  <span class="c1">// Yet we can look at it
+</span>  <span class="c1">// Do we know what it all means? Nei.
+</span>  <span class="c1">// Do we care? Nei.
+</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">//...
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What if I add or change a private member? Then all clients would have to recompile. That’s cumbersome! Would be better to hide these details away.</p>
+
+<p><strong>Solution:</strong> pimpl idiom (pointer to implementation): create a second class XWindowImpl.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">// XWindowImpl.h
+</span><span class="cp">#include &lt;X11/Xlib.h&gt;
+</span>
+<span class="k">struct</span> <span class="n">XWindowImpl</span> <span class="p">{</span>
+  <span class="n">Display</span> <span class="o">*</span><span class="n">d</span><span class="p">;</span>
+  <span class="n">Window</span> <span class="n">w</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">GC</span> <span class="n">gc</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">colours</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">};</span>
+
+
+<span class="c1">// window.h
+</span><span class="k">class</span> <span class="nc">XWindowImpl</span><span class="p">;</span> <span class="c1">// forward declare the Impl class
+</span>
+<span class="k">class</span> <span class="nc">XWindow</span> <span class="p">{</span>
+  <span class="c1">// No need to include Xlib or X11
+</span>  <span class="n">XWindowImpl</span> <span class="o">*</span><span class="n">pImpl</span><span class="p">;</span> <span class="c1">// No compilation dependency on XWindowImpl.h
+</span>  <span class="c1">// and clients also don't depend on XWindowImpl.h
+</span><span class="nl">public:</span>
+  <span class="c1">// ... no change
+</span><span class="p">};</span>
+
+
+<span class="c1">// window.cc
+</span><span class="cp">#include "window.h"
+#include "XWindowImpl.h"
+</span>
+<span class="n">XWindow</span><span class="o">::</span><span class="n">XWindow</span><span class="p">(...)</span> <span class="o">:</span> <span class="n">pImpl</span><span class="p">{</span><span class="k">new</span> <span class="n">XWindowImpl</span><span class="p">}</span> <span class="p">{</span>
+  <span class="c1">// MIL: need to allocate space for the pointer
+</span>  <span class="c1">// Also need to destroy pImpl in the dtor
+</span>  <span class="c1">// Other methods: replace fields (d, w, s, etc.) with pImpl-&gt;d, pImpl-&gt;w, pImpl-&gt;s, etc.
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Note:</strong> If you confine all private fields to XWindowImpl, then only window.cc needs to recompile if you change XWindow’s implementation.</p>
+
+<p>Generalization: What if there are several possible window implementations? Say XWindows and YWindows. Then make Impl struct a class.</p>
+
+<p>Window (solid diamond) (pointer)-&gt; WindowImpl &lt;- (hollow diamond) XWindowImpl, YWindowImpl</p>
+
+<p>pImpl idiom with hierarchy of implementations</p>
+
+<ul>
+  <li>called the <strong>Bridge pattern</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="july-7-2016---lecture">July 7, 2016 - Lecture</h2>
+
+<h2 id="measure-of-design-quality">Measure of Design Quality</h2>
+
+<ul>
+  <li>Coupling and cohesion</li>
+  <li>Coupling: The degree to which distinct program modules depend on each other</li>
+  <li>Low: Modules communicate via function clalls with basic params/results
+    <ul>
+      <li>Modules pass arrays/structs back and forth</li>
+      <li>Modules affect each other’s control flow</li>
+      <li>Modules share global data</li>
+    </ul>
+  </li>
+  <li>High: modules have access to each other’s implementation (friends)
+    <ul>
+      <li>High: changes to one module require greater changes to other modules</li>
+      <li>Harder to reuse individual modules</li>
+    </ul>
+  </li>
+  <li>Cohesion: how closely elements of a module are related to each other
+    <ul>
+      <li>Low
+        <ul>
+          <li>arbitrary grouping of unrelated elements (e.g. <utility>)</utility></li>
+          <li>Elements share a common theme, otherwise unrelated</li>
+          <li>Perhaps share the sane base code (e.g. <algorithm>)</algorithm></li>
+          <li>Elements manipulate state over the lifetime of an object (e.g. open/read/close a file)</li>
+          <li>Elements pass data to each other</li>
+        </ul>
+      </li>
+      <li>High
+        <ul>
+          <li>Elements cooperate to perform exactly one task</li>
+          <li>Perfect cohesion: put every single function in its separate module</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Low cohesion -&gt; poorly organized code -&gt; hard to understand and maintain</p>
+
+<p>Goal: Low coupling, high cohesion</p>
+
+<h2 id="decoupling-the-interface-mvc">Decoupling the Interface (MVC)</h2>
+
+<p>Your primary program classes should not be printing things</p>
+
+<p>E.g.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Chessboard</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="c1">// there's a line of code like this
+</span>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your move"</span><span class="p">;</span>
+  <span class="c1">// BAD DESIGN
+</span>  <span class="c1">// inhibits code reuse
+</span><span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What if we want to reuse ChessBoard, but not have it communicate via stdout?</p>
+
+<p>One solution: give the class <strong>stream</strong> objects, where it can perform input and output (I/O)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Chessboard</span> <span class="p">{</span>
+  <span class="n">istream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">;</span>
+  <span class="n">ostrema</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">ChessBoard</span><span class="p">(</span><span class="n">istream</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span> <span class="n">ostream</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">)</span> <span class="o">:</span>
+    <span class="n">in</span><span class="p">{</span><span class="n">in</span><span class="p">},</span> <span class="n">out</span><span class="p">{</span><span class="n">out</span><span class="p">}</span> <span class="p">{}</span>
+  <span class="c1">// and now we will have this code instead:
+</span>  <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"Your move"</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>What if we don’t want to use streams at all?</p>
+
+<p>But ChessBoard shouldn’t be talking or doing any communication at all. Its job is to play chess.</p>
+
+<h2 id="single-responsiblity-principle">Single-Responsiblity Principle</h2>
+
+<p>“A class should have only one reason to change”</p>
+
+<p>In the above example, game state AND communication are <strong>TWO</strong> reasons to change.</p>
+
+<p>Better solution: Communication with the ChessBoard via parameters and results, and occasionally via exceptions.</p>
+
+<p>Confine user communication to outside the game class.</p>
+
+<p>Question: Should main do all the communication, and then call ChessBoard methods?</p>
+
+<p>Answer: NO. Hard to reuse if it’s in main. Should have a class to manage interaction that is separate from the game state class</p>
+
+<h2 id="pattern---model---view---controller-mvc">Pattern - Model - View - Controller (MVC)</h2>
+
+<ul>
+  <li>Separate the distinct notions of the data (or state), the presentation of the data, and the controll of the data.</li>
+</ul>
+
+<p>Example: ChessBoard</p>
+
+<ul>
+  <li>Model: the main data you are manipulating (e.g. game state)</li>
+  <li>View: how the model is displayed to the user</li>
+  <li>Controller: how the model is manipulated</li>
+</ul>
+
+<p>Model -&gt; Controller &lt;- View</p>
+
+<p>Model:</p>
+
+<ul>
+  <li>Can have multiple views (e.g. text and graphics, or several graphics)</li>
+  <li>Doesn’t need to know about their details</li>
+  <li>Classic observer pattern (or could communicate through controller)</li>
+</ul>
+
+<p>Controller:</p>
+
+<ul>
+  <li>Mediates control flow between the model and view</li>
+  <li>Might encapsulate turn-taking, or full game rules</li>
+  <li>May communicate with user for input (or this could be the view)</li>
+</ul>
+
+<p>By decoupling presentation and control, MVC promotes reuse.</p>
+
+<h2 id="exception-safety">Exception Safety</h2>
+
+<p>Consider:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">MyClass</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">;</span>
+  <span class="n">MyClass</span> <span class="n">mc</span><span class="p">;</span>
+  <span class="n">g</span><span class="p">();</span>
+  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>No leaks.</strong> But what if g raises an exception?</p>
+
+<p>What is guaranteed?</p>
+
+<ul>
+  <li>During stack unwinding, all stack-allocated data is cleaned up - dtors run, memory reclaimed</li>
+  <li>Heap-allocated memory is not freed</li>
+</ul>
+
+<p>Therefore, if g throws, *p is leaked, mc is not.</p>
+
+<p><strong>Example Revisited</strong></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">MyClass</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">;</span>
+  <span class="n">MyClass</span> <span class="n">mc</span><span class="p">;</span>
+  <span class="n">try</span> <span class="p">{</span>
+    <span class="n">g</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+    <span class="k">throw</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Tedious, error-prone, duplication code</strong>. How else can we guarantee that something (e.g. delete p) happens no matter f exits now or exits due to an exception?</p>
+
+<p>In some languages, “finally” clauses (in Java) guarantee certain final actions. NOT IN C++.</p>
+
+<p>The only thing you can count on in C++ is that destructors for stack-allocated data will run.</p>
+
+<p>Thus, use stack-alocated data with dtors as much as possible. Use the guarantee to your advantage.</p>
+
+<p><strong>C++ Idiom: RAII - Resource Acquisition Is Initialization</strong></p>
+
+<p>Every resource should be wrapped in a stack-allocated object whose dtor destroys it.</p>
+
+<p>E.g. Files</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">ifstream</span> <span class="n">f</span><span class="p">(</span><span class="s">"file"</span><span class="p">);</span> <span class="c1">// acquiring the resource, ("file")
+</span>  <span class="c1">// initializing the object
+</span>  <span class="c1">// ...
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>File is guaranteed to be closed when f is popped from the stack (f’s dtor runs).</p>
+
+<p>The same can be done with dynamic memory.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">std</span><span class="o">::</span><span class="n">unique</span><span class="p">.</span><span class="n">ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// takes a T* in ctor
+// dtor will free the pointer
+// In-between - can dereference just like a pointer
+</span>
+<span class="cp">#include &lt;memory&gt;
+</span></code></pre>
+</div>
+
+<p>Fix f():</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// allocate MyClass on the heap
+</span>  <span class="n">MyClass</span> <span class="n">mc</span><span class="p">;</span>
+  <span class="n">g</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>This will not leak and is also safer. Also shorter.</p>
+
+<p><br /></p>
+
+<h2 id="july-12-2016---lecture">July 12, 2016 - Lecture</h2>
+
+<p>Recall:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">MyClass</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">;</span>
+  <span class="n">MyClass</span> <span class="n">mc</span><span class="p">;</span>
+  <span class="n">g</span><span class="p">();</span> <span class="c1">// a function that may throw
+</span>  <span class="k">delete</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// might leak
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>To fix using RAII</strong> with unique pointer:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="c1">// type is std::unique_ptr&lt;MyClass&gt;
+</span>  <span class="n">g</span><span class="p">();</span> <span class="c1">// might throw
+</span>  <span class="c1">// won't leak as stack destructor is called
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Difficulty:</strong></p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
+  <span class="c1">//...
+</span><span class="p">};</span>
+
+<span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span> <span class="n">p</span> <span class="p">{</span><span class="k">new</span> <span class="n">C</span> <span class="p">{...}};</span>
+<span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>What happens when a unique pointer is copied?</p>
+
+<p>We don’t want to delete the same pointer twice! Segmentation fault.</p>
+
+<p>Instead - copying is disabled for unique_ptrs.</p>
+
+<p>So the truth is: The code above WILL NOT COMPILE. Unique_ptrs can only be moved, not copied.</p>
+
+<p>We can write our own unique_ptr:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">unique</span><span class="n">_ptr</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">unique_ptr</span><span class="p">(</span><span class="n">T</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">:</span> <span class="n">ptr</span><span class="p">{</span><span class="n">p</span><span class="p">}</span> <span class="p">{}</span> <span class="c1">// ctor
+</span>  <span class="o">~</span><span class="n">unique_ptr</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// dtor
+</span>    <span class="k">delete</span> <span class="n">ptr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">unique_ptr</span><span class="p">(</span><span class="k">const</span> <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// disable copy ctor
+</span>
+  <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">// disable copy assignment
+</span>
+  <span class="c1">// but move ctor and assignment should be implemented
+</span>  <span class="c1">// just like how it is usually done
+</span>  <span class="c1">// as they don't affect the uniqueness
+</span>
+  <span class="c1">// move ctor
+</span>  <span class="n">unique_ptr</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">ptr</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">ptr</span><span class="p">}</span> <span class="p">{</span>
+    <span class="n">other</span><span class="p">.</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">nullptr</span><span class="p">;</span> <span class="c1">// free other's data
+</span>  <span class="p">}</span>
+
+  <span class="c1">// move assignment opor
+</span>  <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="n">opeartor</span><span class="o">=</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">;</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">ptr</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// dereference operator
+</span>  <span class="n">T</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// operator arrow
+</span>  <span class="n">T</span> <span class="o">*</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ptr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>If you want to be able to <strong>copy</strong> pointers, use std::shared_ptr</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(...)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="c1">// p2 popped, pointer is NOT deleted
+</span><span class="p">}</span> <span class="c1">// p1 popped, pointer IS deleted
+</span></code></pre>
+</div>
+
+<p>What is this magic? Shared pointers maintain a <strong>reference count</strong> (keep track among themselves the number of pointers pointing to the same object; reference count is a count of all shared_ptrs pointing at the same object). If the pointer realizes that itself is the only pointer pointing to an object, it will delete. i.e. Memory is freed when the last shared_ptr pointing at that object is freed.</p>
+
+<p>Therefore, use shared_ptrs and unique_ptrs instead of raw pointers as much as possible! They solve the garbage collection problem. This means dramatically fewer opporitunities for leaks.</p>
+
+<p><strong>3 levels of exception safety for a function f:</strong></p>
+
+<ol>
+  <li>Basic guarantee - if an exception occurs, the program will be in a valid state
+    <ul>
+      <li>nothing is leaked, class invariants maintained</li>
+    </ul>
+  </li>
+  <li>Strong guarantee - if an exception is raised while executing f, the state of the program will be as if f had not been run</li>
+  <li>No-throw guarantee - f will never throw or propagate an exception, because f will always succeed (it will always accomplish its task)</li>
+</ol>
+
+<p>Example:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{...};</span>
+<span class="k">class</span> <span class="nc">B</span> <span class="p">{...};</span>
+
+<span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
+  <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">method1</span><span class="p">();</span> <span class="c1">// may throw - strong guarantee
+</span>    <span class="n">b</span><span class="p">.</span><span class="n">method2</span><span class="p">();</span> <span class="c1">// may throw - strong guarantee
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Is the function f in class C (C::f) exception safe?</p>
+
+<ul>
+  <li>If a.method1() throws - nothing has happened (OK) (f does propagate method1’s exception)</li>
+  <li>If b.method2() throws - effects of method1 must be undone to offer the strong performance
+    <ul>
+      <li>Very hard or even imposible (what if method1 modified a global variable? Printed something to the screen? Launched a rocket?)</li>
+      <li>Hard to undo method1 if method1 has non-local side-effects</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Therefore, C::f is NOT exceotion safe.</p>
+
+<p>But can we make it exception safe? That will require us to make an assumption: These methods do not have non-local side-effects.</p>
+
+<p>If A::method1, B::method2 do not have non-local side effects, we can use copy and swap:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span>  <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// make temporary copies of a and b
+</span>    <span class="n">A</span> <span class="n">aTemp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">B</span> <span class="n">bTemp</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="c1">// operate on copies
+</span>    <span class="n">aTemp</span><span class="p">.</span><span class="n">method1</span><span class="p">();</span> <span class="c1">// If these methods throw, what happens to the overall picture?
+</span>    <span class="n">bTemp</span><span class="p">.</span><span class="n">method2</span><span class="p">();</span> <span class="c1">// a and b will still be intact
+</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">aTemp</span><span class="p">;</span> <span class="c1">// assign back
+</span>    <span class="n">b</span> <span class="o">=</span> <span class="n">bTemp</span><span class="p">;</span>
+    <span class="c1">// But what if copy assignment throws?
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Better if the swap was nothrow. Assigning/Copying/Moving/Swapping pointers will never and cannot throw!</p>
+
+<p>So we can rephrase the code above, using the PImpl idiom.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">struct</span> <span class="n">CImpl</span> <span class="p">{</span>
+  <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>
+  <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">CImpl</span><span class="o">&gt;</span> <span class="n">pImpl</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">make_unique</span><span class="o">&lt;</span><span class="n">CImpl</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">pImpl</span><span class="p">);</span> <span class="c1">// construct unique_ptr
+</span>    <span class="n">temp</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">.</span><span class="n">method1</span><span class="p">();</span> <span class="c1">// if it throws, original object still intact
+</span>    <span class="n">temp</span><span class="o">-&gt;</span><span class="n">b</span><span class="p">.</span><span class="n">method2</span><span class="p">();</span> <span class="c1">// if it throws, original object still intact
+</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">pImpl</span><span class="p">);</span> <span class="c1">// no throw, guaranteed
+</span>    <span class="c1">// same if you use move assignment, in the case of using an unique_ptr
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>If either A::method1 or B::method2 offers <strong>no</strong> exception safety guarantee, then <strong>neither can f</strong>. It is impossible to construct a safe function out of unsafe pieces.</p>
+
+<h2 id="exception-safety-and-the-stl-vectors">Exception Safety and the STL: Vectors</h2>
+
+<p>How does exception safety apply to the most used thing in STL, vectors?<br />
+Vectors:</p>
+
+<ul>
+  <li>encapsulate a heap-allocated array</li>
+  <li>Follows <strong>RAII</strong> - When a stack-allocated vector goes out of scope, the internal heap-allocated memory is freed</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">vector</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+  <span class="c1">// ...
+</span>  <span class="c1">// At the end of the function, v goes out of scope
+</span>  <span class="c1">// array is freed, MyClass dtor runs on all objects in the array
+</span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">vector</span><span class="o">&lt;</span><span class="n">MyClass</span> <span class="o">*&gt;</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// what if we have a vector of pointers?
+</span>  <span class="c1">// ...
+</span>  <span class="c1">// Array is freed, pointers don't have dtors
+</span>  <span class="c1">// so any objects pointed at by pointers in v are NOT deleted
+</span>  <span class="c1">// v doesn't know whether the pointers in the array own the objects they point at
+</span>  <span class="c1">// e.g. ducks and pond analogy
+</span>
+  <span class="c1">// note it's not hard to delete
+</span>  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>But we don’t want to do cleanup ourselves!
+<strong>Solution</strong>: use shared_ptrs!</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">h</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">vector</span><span class="o">&lt;</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;&gt;</span> <span class="n">v</span><span class="p">;</span>
+  <span class="c1">// ...
+</span>  <span class="c1">// array is freed, shared_ptr dtors run,
+</span>  <span class="c1">// so objects are deleted if no other shared_ptr points at them
+</span>  <span class="c1">// don't have to do any explicit deallocation
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Another topic: emplace_back</p>
+
+<ul>
+  <li>Offers the <strong>strong guarantee</strong>
+    <ul>
+      <li>If the array is full (i.e. size == cap),
+        <ul>
+          <li>allocate new array</li>
+          <li>copy the objects over (copy construction using copy ctor)
+            <ul>
+              <li>If a copy ctor throws, destroy the new array, old array is still intact, thus we can offer strong guarantee</li>
+            </ul>
+          </li>
+          <li>delete old array</li>
+        </ul>
+      </li>
+      <li>But copying an array is expensive and the old data will be thrown away! What a waste!</li>
+      <li>Why don’t we <strong>move</strong> instead of <strong>copy</strong>?
+        <ul>
+          <li>allocate new array</li>
+          <li>move objects over (move ctor)
+            <ul>
+              <li><strong>BUT! If move ctor throws, can’t offer strong guarantee, since the original is no longer intact</strong></li>
+            </ul>
+          </li>
+          <li>delete old array</li>
+        </ul>
+      </li>
+      <li>Therefore, if objects have a no-throw move, emplace_back will use move, else it will use copy (which is slower)</li>
+      <li>So your move ops should be no-throw if possible</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example: Add keyword <strong>noexcept</strong> to tell vector that your move operators are no-throw</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">MyClass</span><span class="p">(</span><span class="n">MyClass</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="n">noexcept</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+
+  <span class="n">MyClass</span><span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">MyClass</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="n">noexcept</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>This is the end of the exception safety topic.</p>
+
+<p><br /></p>
 
   </div>
 
