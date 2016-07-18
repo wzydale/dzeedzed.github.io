@@ -4572,7 +4572,7 @@ Stick -&gt; (hollow) Weapon &lt;-(hollow) Rock</p>
 
 <p><br /></p>
 
-<h2 id="july-7-2016---lecture">July 7, 2016 - Lecture</h2>
+<h2 id="july-7-2016---lecture-20">July 7, 2016 - Lecture 20</h2>
 
 <h2 id="measure-of-design-quality">Measure of Design Quality</h2>
 
@@ -4789,7 +4789,7 @@ Stick -&gt; (hollow) Weapon &lt;-(hollow) Rock</p>
 
 <p><br /></p>
 
-<h2 id="july-12-2016---lecture">July 12, 2016 - Lecture</h2>
+<h2 id="july-12-2016---lecture-21">July 12, 2016 - Lecture 21</h2>
 
 <p>Recall:</p>
 
@@ -5082,6 +5082,248 @@ Vectors:</p>
 <p>This is the end of the exception safety topic.</p>
 
 <p><br /></p>
+
+<h2 id="july-14-2016---lecture-22">July 14, 2016 - Lecture 22</h2>
+
+<p>Recall: emplace_back uses move ctor and assignment operator if they are no-throw, copy ctor if it throws. So make your move ctors and assignment operators no-throw if possible.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">MyClass</span><span class="p">(</span><span class="n">MyClass</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="n">noexcept</span> <span class="p">{</span>
+    <span class="c1">//...
+</span>    <span class="c1">// use the "noexcept" keyword to indicate no-throw
+</span>  <span class="p">}</span>
+
+  <span class="n">MyClass</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">MyClass</span> <span class="o">&amp;&amp;</span><span class="n">other</span><span class="p">)</span> <span class="n">noexcept</span> <span class="p">{</span>
+    <span class="c1">//...
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>At minimum: Moves and swaps should be noexcept (no-throw)</p>
+
+<h2 id="casting">Casting</h2>
+
+<p>Some C code!</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">Node</span> <span class="n">n</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">ip</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="c1">// cast
+// cast forces C++ to treat a Node* as an int*
+</span></code></pre>
+</div>
+
+<p>Casting: Forcing an object to be treated as another type. C-style casts should be avoided in C++.</p>
+
+<p>Advantages of C++ casts:</p>
+
+<ol>
+  <li>C++ casts are easier to search and spot (C casts are hard to locate)</li>
+  <li>Different categories of casts make code more readable (explicit); Also different casts have different intended usages</li>
+  <li>Compiler would give warnings if you are doing something dumb (provides compiler and runtime errors, expose issues)</li>
+</ol>
+
+<p>If you <strong>must</strong> cast, use a C++ cast. There are 4 kinds of casting:</p>
+
+<ol>
+  <li>static_cast - “sensible casts”</li>
+  <li>reinterpret_cast</li>
+  <li>const_cast</li>
+  <li>dynamic_cast</li>
+</ol>
+
+<p><strong>static_cast</strong> - relatively safe, sensible</p>
+
+<p>E.g. static_cast: double-&gt;int</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">;</span>
+<span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">);</span> <span class="c1">// the first one runs
+</span>
+<span class="c1">// now what if we want to run the second one?
+</span><span class="n">f</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">));</span> <span class="c1">// cast the double to int
+</span></code></pre>
+</div>
+
+<p>Superclass pointer -&gt; subclass pointer</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Text</span> <span class="p">{...};</span>
+<span class="n">Text</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>You are taking responsibility that b actually points at a Text.</p>
+
+<p><strong>reinterpret_cast</strong> - unsafe, implementation-specific, “weird” conversions</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Student</span> <span class="n">s</span><span class="p">;</span>
+<span class="n">Turtle</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">Turtle</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>It’s like making a bet. The only guaranteed thing: when you try to revert back to the old object, it will succeed.</p>
+
+<p><strong>const_cast</strong> - for converting between const and non-const; the only C++ cast that can “cast away const”</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span> <span class="c1">// g doesn't promise not the change *p
+// but suppose g doesn't actually change *p (assumption)
+</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// f promises not to change *p
+</span>  <span class="c1">// ...
+</span>  <span class="n">g</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1">// WRONG
+</span>  <span class="n">g</span><span class="p">(</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="n">p</span><span class="p">);</span> <span class="c1">// CORRECT
+</span>  <span class="c1">// casting the constness away
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>dynamic_cast</strong> - Is it safe to convert a Book* to a Text*?</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="p">...;</span> <span class="c1">// don't know the right side
+</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">pb</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">getTopic</span><span class="p">();</span> <span class="c1">// safe?
+</span></code></pre>
+</div>
+
+<p>Is it safe?</p>
+
+<p>Depends on what pb actually points at. Better to do a tentative cast, try it and see if it succeeds.</p>
+
+<p>Use dynamic_cast:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Text</span> <span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pb</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>If the cast works(i.e. pb points at a Text or a subclass of Text), then pt points at the object. If the cast fails, pt will be a nullptr. So we can check if the cast is successful by:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Book</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Text</span> <span class="o">*</span><span class="n">pt</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pb</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">pt</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="o">-&gt;</span><span class="n">getTopic</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Not a Text"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>static_cast is always faster. Sometimes static_cast costs very little, while using dynamic_cast costs a lot more during runtime.</p>
+
+<p>But all of the above operates on raw pointers. We talked about smart pointers last class, should we use casts on smart pointers? Raw pointers are more integrated into the C++ type system. But the type system doesn’t know the relationship between a shared_ptr to Book and a shared_ptr to Text (these are our own classes). But smart pointers classes have their own versions.</p>
+
+<p>The following cast shared_ptrs to shared_ptrs:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">static_pointer_cast</span>
+<span class="n">const_pointer_cast</span>
+<span class="n">dynamic_pointer_cast</span>
+</code></pre>
+</div>
+
+<p>We can use dynamic casting to make decisions at runtime based on an object’s run-time type (<strong>RTTI = runtime type information</strong>)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">whatIsIt</span><span class="p">(</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">dynamic_pointer_cast</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Text"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">dynamic_pointer_cast</span><span class="o">&lt;</span><span class="n">Comic</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Comic"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Book"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Note: dynamic casting isn’t available for everybody. It only works on classes with at least one virtual method. A superclass should always have a virtual destructor (thus a virtual method), and as dynamic casting requires to know the entire class hierarchy, it only works on classes with a virtual method.</p>
+
+<p>Note: Code like this is highly coupled to the Book class hierarchy and may indicated bad design. If I invent a new class (a subclass of Book), I have to update whatIsIt. So if whenever I add a subclass to an already existing class, I need to have knowledge of its implementation, that’s bad design.</p>
+
+<p>Better 1 - write a virtual method, so when we add a new subclass of Book (say, CookBook), and override the whatIsIt method.</p>
+
+<p>Better 2 - if the new subclass is a rare exception (i.e. not universally applicable), write a Visitor pattern. But visitor requries knowledge of the full implementation as well.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Book</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Text</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">Comic</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// say if we want to add CookBook, we need to add this
+</span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">visit</span><span class="p">(</span><span class="n">CookBook</span> <span class="o">&amp;</span><span class="n">cb</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>So visitor is still tightly coupled, but it’s a little bit better than dynamic casting.</p>
+
+<p>Dynamic casting also works on references.</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Text</span> <span class="n">t</span> <span class="p">{...};</span>
+<span class="n">Book</span> <span class="o">&amp;</span><span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="n">Text</span> <span class="o">&amp;</span><span class="n">t2</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Text</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>If b “points to” a Text, then t2 is a reference to the same Text. If not, (no such thing as a null reference) raises exception bad_cast.</p>
+
+<p>With dynamic reference casting, we can solve the polymorphic assignment problem (think back: a week after we introduced inheritance: what happens to the Big 5 when we have inheritance?)</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="n">pb1</span> <span class="o">=</span> <span class="o">*</span><span class="n">pb2</span><span class="p">;</span> <span class="c1">// when we don't have virtual methods
+// we never wrote an assignment operator
+</span></code></pre>
+</div>
+
+<p>Now we can write an assignment operator that takes in any Book and assign it to a Text:</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Text</span> <span class="o">&amp;</span><span class="n">Text</span><span class="o">::</span><span class="n">opeartor</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// virtual
+</span>  <span class="n">Text</span> <span class="o">*</span><span class="n">textOther</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Text</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">textOther</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// check for self-assignment
+</span>    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">Book</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+  <span class="n">topic</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">topic</span><span class="p">;</span>
+  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>How do I assign Text to any Book</strong> - solved.</p>
+
+<p>What if other isn’t a Text? Exception bad_cast raised, the opeartion doens’t happen, the function goes back to the caller, and the caller deals with the inappropriate use.</p>
+
+<h2 id="how-virtual-methods-work">How Virtual Methods Work</h2>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Vec</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">doSomething</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Vec2</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">doSomething</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span>  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>The two classes are virtually the same (pun intended), the only difference is the word “virtual”. What’s the actual difference?</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="n">Vec</span> <span class="n">v</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<span class="n">Vec2</span> <span class="n">w</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<span class="c1">// Do they look the same in memory?
+</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="c1">// prints
+// 8 16
+// v has size 8
+// w has size 16
+</span></code></pre>
+</div>
+
+<p>Not quite the same.</p>
 
   </div>
 
