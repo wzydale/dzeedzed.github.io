@@ -1,0 +1,388 @@
+<div class="highlighter-rouge"><pre class="highlight"><code>CS 245 - Logic and Computation
+Instructor: Collin Roberts
+Section: 003
+Location: MC 2034
+Time: Tuesdays and Thursdays 1:00pm - 2:20pm
+Tutorials: MC 2035 Fridays 8:30am - 9:20am
+Term: Spring 2016
+</code></pre>
+</div>
+
+<h2 id="may-3-2016---lecture-1">May 3, 2016 - Lecture 1</h2>
+
+<p>Section 003<br />
+Email: cd2rober@uwaterloo.ca<br />
+Office: DC 2128</p>
+
+<p>CS 245 -&gt; Formal Logic</p>
+
+<p>1) Propositional<br />
+2) Predicate (aka First-Order) &lt;= THE REAL GOAL</p>
+
+<p>Crowdmark for assignments.<br />
+Assignments DUE AT 12:00 ON WEDNESDAYS<br />
+Recommended Text: Logic in Computer Science, 2nd Ed. by Huth and Ryan</p>
+
+<p>Learn: Course Outline, Notes, Additional Notes - Roberts<br />
+Refer to the Course Schedule</p>
+
+<p><strong>Grading Scheme</strong></p>
+
+<ul>
+  <li>Assignments (10 in total, best 9 out of 10) - 20%</li>
+  <li>Midterm (4:30pm - 6:20pm, June 9, 2016) - 35 %</li>
+  <li>Final - 45%</li>
+</ul>
+
+<p>Week 1: Introduction, Basic examples, formal syntax and semantics, and properties via induction.<br />
+Reading: HR 1.1, 1.3, 1.4.2, Slides to p51</p>
+
+<h2 id="propositional-logic">Propositional Logic</h2>
+
+<p>LOGIC = systematic study of the principles of reasoning and inference</p>
+
+<ul>
+  <li>To model the computer hardware, software, and embedded systems we create/encounter, in order to reason about those objects in a rigorous manner</li>
+  <li>To understand how to develop systems that can themselves apply reason and make inferences (AI)</li>
+  <li>To define a computer required logic (Turing 1936)</li>
+  <li>CS gave the first definition of “rigorous argument” (an argument that may be checked by a machine; machine returns true if proof is correct)</li>
+</ul>
+
+<p><strong>Example:</strong> If the train arrives late and there are no taxis at the station, then John is late for his meeting.</p>
+
+<p>John is not late for his meeting.</p>
+
+<p>The train did arrive late.</p>
+
+<p><strong>Therefore</strong>, there were taxis at the station.</p>
+
+<p>Q: Is this argument <strong>valid</strong>? Why/Why not?</p>
+
+<p>Q: What is the structure of this argument?<br />
+A: If p and not q, then r. Not r. p. Therefore q.</p>
+
+<p>p = “the train arrives late”<br />
+q = “there are taxis at the station”<br />
+r = “John is late for his meeting”</p>
+
+<p>What if we reassign meanings to p, q, and r? We will get an equally valid argument.</p>
+
+<p>The factual content of statements (p, q, r) doesn’t matter. The relationships among the statements govern the argument.</p>
+
+<p>So what constitutes a “statement”?<br />
+What do logical relationships mean?</p>
+
+<p>We shall start with <strong>Propositional Logic</strong>, a basic form of logic.</p>
+
+<p>A <strong>proposition</strong> is a declarative sentence that is either <strong>true</strong> or <strong>false</strong>.</p>
+
+<p>Either the proposition is true, or the proposition is false. It is never both true and false.</p>
+
+<p>e.g. If Kathleen Wynne is a Liberal, then Stephen Harper is a Tory.</p>
+
+<p>p-&gt;q: If p then q; p is sufficient for q, q is necessary for p.</p>
+
+<p>p &lt;-&gt; q: p if and only if q (p iff q); p is equivalent to q; p exactly if q; p is necessary and sufficient for q.</p>
+
+<p><strong>Translating from English to propositional logic examples:</strong></p>
+
+<ol>
+  <li>
+    <p>She is clever and hard-working<br />
+Let p be “she is clever” and q be “she is hard-working”<br />
+Then we get (p ^ q)</p>
+  </li>
+  <li>
+    <p>If he does not study hard then he will fail<br />
+Let p be “he studies hard” and q be “he will fail”<br />
+Then we get ((NOT p) -&gt; q)</p>
+  </li>
+  <li>
+    <p>If it rains, he will be at home; otherwsie he will go to the market or to school.<br />
+Let p be “it rains”, q be “he will be at home”, r be “he will go to the market”, s be “he will go to school”<br />
+Then we get ((p -&gt; q) ^ ((NOT p) -&gt; (r v s)))</p>
+  </li>
+</ol>
+
+<p>Some sentences are not propositions:</p>
+
+<ul>
+  <li>interrogative: where shall we go to eat?</li>
+  <li>imperative: please pass the salt</li>
+  <li>ambiguous: time flies like an arrow</li>
+  <li>nonsense: uwgod</li>
+  <li>otherwise problematic: This sentence is false</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="may-5-2016">May 5, 2016</h2>
+
+<p><strong>Administrivia</strong></p>
+
+<ul>
+  <li>A01 posted, due May 11</li>
+  <li>A01 study exercises posted on Learn. Not to be handed in, extra practice</li>
+  <li>Course staff office hours posted on Learn</li>
+</ul>
+
+<p><strong>Goals for Today</strong></p>
+
+<ul>
+  <li>Up to Slide 50, at least up to truth tables</li>
+  <li>Syntax - Propositional</li>
+  <li>Semantics - Propositional</li>
+</ul>
+
+<p><strong>Atomic and Compound Propositions</strong></p>
+
+<p>In propositional logic, simple <strong>atomic</strong> propositions are the basic building blocks. We connect atomic propositions into <strong>compound</strong> propositions, and then analyze sets of interrelated propositions. Typical questions:</p>
+
+<ul>
+  <li>Does a given sequence of propositions form a valid argument?</li>
+  <li>Can all propositions in a given set be true simultaneously?</li>
+</ul>
+
+<p>First, we must answer the Q: What is a proposition?<br />
+Propositions are represented by <strong>formulas</strong>. A formula consists of a sequence of <strong>symbols</strong>. There are 3 kinds of symbols:</p>
+
+<ul>
+  <li>Propositional variables: usually lower case Latin  letters (e.g. p, q, r) perhaps with subscripts</li>
+  <li>Connectives: We shall use negation, ^(and), v(or), -&gt; and &lt;-&gt; (Others are possible)</li>
+  <li>Punctuation: Only two, ( and ) (we could avoid them)</li>
+</ul>
+
+<p>Every formula is a sequence of symbols, but not every sequence of symbols is a formula. We call an arbitrary finite sequence of symbols an <strong>expression</strong> (or <strong>string</strong>)</p>
+
+<p>An expression is a finite sequence of symbols. The <strong>length</strong> of an expression is its number of symbols. We often use a letter that is not formally a symbol in order to name an expression. For example, alpha. This is an example of a “meta-symbol”.</p>
+
+<p><strong>Some terminology for expressions</strong></p>
+
+<p>Two expressions a and b are <strong>equal</strong> written as a=b, iff they are of the same length, say n, and if n&gt;0, then for all i in [1…n] the i-th symbol of a is the same as the i-th symbol of b.</p>
+
+<p>We write ab to mean the <strong>concatenation</strong> of two expressions a and b.</p>
+
+<p><strong>Formal Definition of Concatenation</strong></p>
+
+<p>If a is an expression of length i and b is an expression of length j, then ab is an expression of length i+j. We have the k-th symbol of ab is:
+    + if k &lt;= i, the k-th symbol of a
+    + if k &gt; i, the (k - i)-th symbol of b</p>
+
+<p><strong>Definition of “Formula”</strong></p>
+
+<p>Let P be a set of propositional variables. We define the set of formulas over P inductively as follows.</p>
+
+<ol>
+  <li>An expression consisting of a single symbol of P is a formula</li>
+  <li>If phi is a formula, then the negation of phi is a formula</li>
+  <li>If phi is a formula and eta is a formula, then each of (phi and eta), (phi or eta), (phi -&gt; eta), and (phi &lt;-&gt; eta) is a formula</li>
+  <li>Nothing else is a formula</li>
+</ol>
+
+<p>(Note the use of meta-symbols phi and eta)</p>
+
+<p>The following are well-formed formulas.</p>
+
+<ol>
+  <li>p,q,r,s (rule 1)</li>
+  <li>(not p) (rule 2, from #1)</li>
+  <li>(r ^ q) (rule 3, from #1)</li>
+  <li>((not p) -&gt; s) (rule 3, from #2 and #1)</li>
+  <li>((r ^ q) v ((not p) -&gt; s)) (rule 3, from #3 and #4)</li>
+  <li>(not (r ^ q)) (rule 2, from #3)</li>
+</ol>
+
+<p><strong>The 6 Kinds of Formulas</strong>
+From the definition, we see that there are six kinds of formulas:</p>
+
+<ul>
+  <li>A propositional variable = ATOM</li>
+  <li>A formula (not phi) = NEGATION</li>
+  <li>A formula (phi ^ eta) = CONJUNCTION</li>
+  <li>A formula (phi v eta) = DISJUNCTION</li>
+  <li>A formula (phi -&gt; eta) = IMPLICATION</li>
+  <li>A formula (phi &lt;-&gt; eta) = EQUIVALENCE</li>
+</ul>
+
+<p>Q: Can a formula have two or more kinds? No.</p>
+
+<p><br /></p>
+
+<p><strong>Semantics of Propositional Logic</strong></p>
+
+<p>The <strong>semantics</strong> of a logic describes how to interpret the well-formed formulas of the logic. The semantics of propositional logic is “compositional”: the meaning of a whole formula derives from the meaning of its parts. In propositional logic, we need to give meaning to atoms, connectives, and formulae. For example, the interpretation of the formula (p ^ q) depends on three things, the meaning of p, the meaning of q, and the meaning of ^.</p>
+
+<p>Definition: A <strong>truth evaluation</strong> is a function (P -&gt; {T, F}) with the set of all proposition symbols as domain and {F, T} as range. A truth eval assigns a value to every propositional variable. If t(p) = T, then we say “t makes p true”, if t(p) = F, then we say “t makes p false”. A propositional variable has no intrinsic meaning. It gets a meaning only via an evaluation.</p>
+
+<p>Formally, a connective represents a function from truth values to truth values. The connective (not) is unary; it maps one value to one value. The other connectives are binary, they map two values to one value.</p>
+
+<p>-&gt; : “Truth is Preserved”; if there is not truth to preserve, the meaning is T. T-&gt;F is F because truth is not preserved.<br />
+E.g. “If everyone is a child, then the moon is made of blue cheese” comes out true (seems non-sensical, but propositional logic gives <strong>every formula</strong> a meaning)</p>
+
+<p><strong>Summary of the Value of a Formula</strong>
+Fix a truth evaluation t. Every formula phi has a value under t, denoted phi<sup>t</sup>, determined as follows:
+1. p<sup>t</sup> = t(p)
+2. (not phi)<sup>t</sup> =
+    + T if phi<sup>t</sup> = F
+    + F if phi<sup>t</sup> = T
+3. (phi ^ eta)<sup>t</sup> =
+    + T if phi<sup>t</sup> = eta<sup>t</sup> = T
+    + F otherwise
+4. (phi v eta)<sup>t</sup> =
+    + T if phi<sup>t</sup> = T or if eta<sup>t</sup> = T
+    + F otherwise
+5. (phi -&gt; eta)<sup>t</sup> =
+    + T if phi<sup>t</sup> = F or if eta<sup>t</sup> = T
+    + F otherwise
+6. (phi &lt;-&gt; eta)<sup>t</sup> =
+    + T if phi<sup>t</sup> = eta<sup>t</sup>
+    + F otherwise</p>
+
+<p>The value of a formula comes from the values of its variables, combined as given by its connectives. The valuation t is necessary. WIthout a valuation, a formula has no value.</p>
+
+<p><strong>Unique Readability of Formulae</strong>
+We have defined the semantics of a formula forom its ysyntax. Is this <strong>well-defined</strong>? Or can a formula get two different meanings, i.e. ambiguous?</p>
+
+<p>Theorem. Every formula has a unique derivation as a well-formed formula. That is, each formula has exactly one of the six forms:</p>
+
+<ol>
+  <li>an atom</li>
+  <li>(not phi)</li>
+  <li>(phi ^ eta)</li>
+  <li>(phi v eta)</li>
+  <li>(phi -&gt; eta)</li>
+  <li>(phi &lt;-&gt; eta)</li>
+</ol>
+
+<p>We prove this by mathematical induction.</p>
+
+<p><strong>Review of Induction</strong>
+Suppose P names a property. We write P(2) to mean “2 has property P”, or “P holds for 2”.</p>
+
+<p>A statement “every natural number has property P” corresponds to a sequence of statements:<br />
+P(0), P(1), P(2), P(3),…</p>
+
+<p><strong>Principles of Mathematical Induction</strong>
+Suppose we establish two things: that
+    + 0 has property P, and that
+    + whenever any number has property P, then the next number also has property P.
+Then we may conclude that every natural number has property P.</p>
+
+<p><strong>Techniques</strong></p>
+
+<ul>
+  <li>To talk about something, give it a name.<br />
+E.g. property P, number k</li>
+  <li>A formula is a textual object. We can subsitute one symbol or expression for another</li>
+  <li>The induction principle gives a template:
+    <ul>
+      <li>proof has 2 parts: basis and inductive step</li>
+      <li>In the inductive step, hypothesize P(k) and prove P(k+1)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="may-6-2016---tutorial-1">May 6, 2016 - Tutorial 1</h2>
+
+<p>A few exercises of truth tables, translations, and structural induction:</p>
+
+<p><br /></p>
+
+<h2 id="my-10-2016---lecture-3">My 10, 2016 - Lecture 3</h2>
+
+<h2 id="induction-continued">Induction Continued</h2>
+
+<ul>
+  <li>structural induction (proving facts about formulae)
+    <ul>
+      <li>prove unique readbility</li>
+    </ul>
+  </li>
+  <li>equivalence (semantic)</li>
+  <li>entailment</li>
+</ul>
+
+<p>Note: The negation of an atomic proposition is no longer an atomic proposition.</p>
+
+<h2 id="structural-induction">Structural Induction</h2>
+
+<p>A formula (anything built according to the inductive definition of a formula (4 rules)) is not a natural number, but it suffices to prove any one of the following:
+    + For every natural number n, every formula with n or fewer <strong>symbols</strong> has property P
+    + For every natural number n, every formula with n or fewer <strong>connectives</strong> has property P</p>
+
+<p><strong>Theorem (Principle of Structural Induction): Let R be a property. Suppose that<br />
+    1. For each atomic formula p, we have R(p)<br />
+    2. For each formula phi, if R(phi) then R((not phi))<br />
+    3. For each pair of formulae phi and eta, and each connective *, if R(phi) and R(eta) then R((phi * eta))</strong></p>
+
+<p>Then R(phi) for every formula phi.</p>
+
+<p>It is a special case of mathematical induction.</p>
+
+<p>Example:<br />
+<strong>Lemma: Every well-formed formula has an equal number of left and right parentheses</strong></p>
+
+<p>Proof: Use structural induction. The property to prove is R(phi): phi has an equal number of left and right parentheses for every formula phi</p>
+
+<p>Base case: phi is an atom. phi has no parentheses - only a propositional variable. Thus R(phi) holds.</p>
+
+<p>IH: Formulae phi and eta both have property R.</p>
+
+<p>IS: We need to prove each of the formulae (not phi), (phi ^ eta), (phi v eta), (phi -&gt; eta) and (phi &lt;-&gt; eta). WLOG, consider (phi ^ eta)</p>
+
+<p>Notation: For any formula zeta, let op(zeta) denote the number of ‘(‘ in zeta, and let cl(zeta) denote the number of ‘)’ in zeta.</p>
+
+<p>We calculate<br />
+op((phi ^ eta)) = 1 + op(phi) + op(eta)
+= 1 + cl(phi) + cl(eta) (R(phi) and R(eta))
+= cl((phi ^ eta))</p>
+
+<p>(Also prove the unary NOT case)</p>
+
+<p><strong>Unique Readability Proof</strong><br />
+Theorem: Every formula is exactly one of the six kinds, and in each case it is of that form in <strong>exactly one</strong> way.</p>
+
+<p>Proof:<br />
+Add in more stuff to the proof (1. the first symbol of phi is either ‘(‘ or a variable; 2. phi has an equal number of ‘(‘ and ‘)’, and each proper prefix of phi has more ‘(‘ than ‘)’  (parentheses are balanced))</p>
+
+<p>A proper prefix of phi is a non-empty expression x such that phi is xy for some non-empty expression y.</p>
+
+<p><strong>Property P(n):</strong> 1, 2, and 3. phi has unique construction as a formula, which is what we are trying to prove here.</p>
+
+<p>Aside: To Show x is unique:<br />
+1) Let x’ have same properties as x<br />
+2) Prove x’ = x</p>
+
+<p>Let phi be an arbitrary formula. We prove for any natural number n, every formula phi</p>
+
+<p>Base cases:<br />
+Case 1: k=0 binary connective symbols. We prove by induction on the number of unary connective symbols (i.e. NOT) in phi
+    + Base (0 NOTs): the only possibility is phi = p, for some propositional variable p. Then phi has properties 1, 2, 3 (thus R) (2. No proper prefixes)
+    + IH: (&gt; 0 NOTs):</p>
+
+<p><strong>Tautology, Contradiction, and Satisfiable</strong></p>
+
+<p>A formula alpha is a <strong>tautology</strong> iff for every truth eval t, alpha<sup>t</sup> = T. Evaluates to true under any circumstances.</p>
+
+<p>A formula alpha is a <strong>contradiction</strong> (aka unsatisifiable) iff for every truth eval t, alpha<sup>t</sup> = F. Evaluates to false under any circumstances.<br />
+E.g. p ^ NOT p</p>
+
+<p>A formula alpha is a <strong>satisfiable</strong> iff it is not a contradiction. Evaluates to at least one true under all circumstances.</p>
+
+<p>How to prove that a formula is a tautology? One method is to fill out a truth table. Can we do better? We can analyze what would happen if we did. We can use a <strong>valuation tree</strong></p>
+
+<p><br /></p>
+
+<h2 id="may-12-2016---lecture-4">May 12, 2016 - Lecture 4</h2>
+
+<ul>
+  <li>Equivalence</li>
+  <li>Entailment</li>
+  <li>Adequate sets of connectives</li>
+</ul>
+
+<p>Equivalent formulae have the same final column in their truth tables - they have the same value under any valuation.</p>
+
+<p>Recall a valuation t is a function t: P-&gt;{T, F}, i.e. a assignment of F or T to very propositional variable</p>
+
+<p>Commutativity, Associativity, Distributivity, Idempotence, Double Negation, DML,</p>
