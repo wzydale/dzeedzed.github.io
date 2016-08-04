@@ -6,8 +6,8 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Aug 2016 15:49:10 -0400</pubDate>
-    <lastBuildDate>Thu, 04 Aug 2016 15:49:10 -0400</lastBuildDate>
+    <pubDate>Thu, 04 Aug 2016 16:51:05 -0400</pubDate>
+    <lastBuildDate>Thu, 04 Aug 2016 16:51:05 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -11905,6 +11905,324 @@ ios
 // adds v to the end of w, allocateing space
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;august-4-2016---final-exam-review&quot;&gt;August 4, 2016 - Final Exam Review&lt;/h2&gt;
+
+&lt;h2 id=&quot;summaries-of-all-lectures&quot;&gt;Summaries of All Lectures&lt;/h2&gt;
+
+&lt;p&gt;Lecture 1 (May 3)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduction, grading, assignment 0, Piazza&lt;/li&gt;
+  &lt;li&gt;Options for working in Linux: install Linux, VM, ssh via Putty, XMing for XWindows&lt;/li&gt;
+  &lt;li&gt;Linux shell (bash)&lt;/li&gt;
+  &lt;li&gt;Command line vs. GUI, very briefly&lt;/li&gt;
+  &lt;li&gt;Point out Linux command handout&lt;/li&gt;
+  &lt;li&gt;cat, ls, hidden files, pwd&lt;/li&gt;
+  &lt;li&gt;Ctrl-C and Ctrl-D&lt;/li&gt;
+  &lt;li&gt;Output and input redirection&lt;/li&gt;
+  &lt;li&gt;Difference between redirecting input and filename as argument (demonstrate with wc)&lt;/li&gt;
+  &lt;li&gt;Wildcards and globbing.&lt;/li&gt;
+  &lt;li&gt;Pattern *&lt;/li&gt;
+  &lt;li&gt;Semantics of globbing (substitution performed by shell before arguments are passed to program)&lt;/li&gt;
+  &lt;li&gt;stdin, stdout, stderr; differences between stdout and stderr&lt;/li&gt;
+  &lt;li&gt;How to redirect stderr&lt;/li&gt;
+  &lt;li&gt;Pipes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 2 (May 5)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pipes continued&lt;/li&gt;
+  &lt;li&gt;echo&lt;/li&gt;
+  &lt;li&gt;$(…) notation&lt;/li&gt;
+  &lt;li&gt;Regular expressions and egrep&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Patterns:&lt;/td&gt;
+          &lt;td&gt;, [..], ?, *, ., ^, $&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Some examples&lt;/li&gt;
+  &lt;li&gt;Permissions: explain rwx for user, group, other, for files and directories&lt;/li&gt;
+  &lt;li&gt;chmod command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 3 (May 10)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Shell scripts&lt;/li&gt;
+  &lt;li&gt;Shell variables, ${} notation&lt;/li&gt;
+  &lt;li&gt;Global variable PATH&lt;/li&gt;
+  &lt;li&gt;Quotation: single vs. double&lt;/li&gt;
+  &lt;li&gt;Shell if-statements, while loops, for loops&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 4 (May 12)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bash procedures&lt;/li&gt;
+  &lt;li&gt;Testing&lt;/li&gt;
+  &lt;li&gt;Intro to C++: Hello world&lt;/li&gt;
+  &lt;li&gt;cin, cout, cerr, operator«, operator»&lt;/li&gt;
+  &lt;li&gt;cin.fail() and cin.eof()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 5 (May 17)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Implicit conversion of streams to bool&lt;/li&gt;
+  &lt;li&gt;Returning the stream from operator» and operator«; cascading input and output&lt;/li&gt;
+  &lt;li&gt;cin.clear() and cin.ignore()&lt;/li&gt;
+  &lt;li&gt;Filestreams and stringstreams&lt;/li&gt;
+  &lt;li&gt;Strings: contrast with C strings, string operations&lt;/li&gt;
+  &lt;li&gt;Default parameters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 6 (May 19)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Overloading&lt;/li&gt;
+  &lt;li&gt;Structs and nullptr&lt;/li&gt;
+  &lt;li&gt;Pass-by-value&lt;/li&gt;
+  &lt;li&gt;References&lt;/li&gt;
+  &lt;li&gt;Pass-by-reference and pass-by-const-reference&lt;/li&gt;
+  &lt;li&gt;Dynamic memory: new and delete&lt;/li&gt;
+  &lt;li&gt;Stack and heap&lt;/li&gt;
+  &lt;li&gt;Returning by value, returning references/pointers&lt;/li&gt;
+  &lt;li&gt;Begin operator overloading: + and * for a vector class&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 7 (May 24)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Operator overloading: operator» and operator«&lt;/li&gt;
+  &lt;li&gt;Preprocessor: include, convention for C headers, define, defining constants, if, ifdef, ifndef&lt;/li&gt;
+  &lt;li&gt;Applications: conditional compilation for multi-platform development, debugging output, if 0 for commenting&lt;/li&gt;
+  &lt;li&gt;Defining constants on the g++ command line&lt;/li&gt;
+  &lt;li&gt;Separate compilation: .h and .cc files, extern for global variables, #include guards&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 8 (May 26)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Put all header files in include guards and must never put a global using namespace std; in header files&lt;/li&gt;
+  &lt;li&gt;Introduction to classes&lt;/li&gt;
+  &lt;li&gt;Terminology: class, object, member function, method&lt;/li&gt;
+  &lt;li&gt;Semantics of method call wrt this pointer&lt;/li&gt;
+  &lt;li&gt;Introduce constructors&lt;/li&gt;
+  &lt;li&gt;Uniform initialization syntax explained&lt;/li&gt;
+  &lt;li&gt;Built-in default ctor, C-style initialization semantics lost when you define a ctor&lt;/li&gt;
+  &lt;li&gt;Initialization list&lt;/li&gt;
+  &lt;li&gt;Introduce copy constructor (replicate default behaviour)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 9 (May 31)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Finish copy constructor (deep copy a linked list)&lt;/li&gt;
+  &lt;li&gt;Explicit constructors&lt;/li&gt;
+  &lt;li&gt;Destructors&lt;/li&gt;
+  &lt;li&gt;operator= : cascading assignment in C, checking for self-assignment, straightforward implementation&lt;/li&gt;
+  &lt;li&gt;copy-and-swap idiom&lt;/li&gt;
+  &lt;li&gt;Introduction to rvalues: the desire to move, rather than copy, when initializing/assigning from temporary objects.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 10 (June 2)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rvalue references, move constructor, move assignment operator&lt;/li&gt;
+  &lt;li&gt;Copy/move elision&lt;/li&gt;
+  &lt;li&gt;Rule of 5&lt;/li&gt;
+  &lt;li&gt;Member operators&lt;/li&gt;
+  &lt;li&gt;Arrays of objects&lt;/li&gt;
+  &lt;li&gt;Separate compilation for classes&lt;/li&gt;
+  &lt;li&gt;Const objects/methods, mutable fields&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 11 (June 7)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Static fields and methods&lt;/li&gt;
+  &lt;li&gt;Invariants and encapsulation - public and private; fields should be private&lt;/li&gt;
+  &lt;li&gt;switch from struct to class, and explain the difference&lt;/li&gt;
+  &lt;li&gt;Fix linked list class to prevent “next” pointers in nodes from pointing at the stack&lt;/li&gt;
+  &lt;li&gt;Nested classes (public and private)&lt;/li&gt;
+  &lt;li&gt;Intro to design patterns&lt;/li&gt;
+  &lt;li&gt;Iterator pattern applied to linked list class&lt;/li&gt;
+  &lt;li&gt;Automatic type deduction&lt;/li&gt;
+  &lt;li&gt;Range-based for loops&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 12 (June 9)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Friend classes; advice to minimize friendships&lt;/li&gt;
+  &lt;li&gt;Encapsulation: get/set methods&lt;/li&gt;
+  &lt;li&gt;Friend functions, operator« as friend function&lt;/li&gt;
+  &lt;li&gt;Makefiles–basic makefile, using variables, automatic build rules, -MMD, including the .d files&lt;/li&gt;
+  &lt;li&gt;UML for standalone classes; + and - visibility&lt;/li&gt;
+  &lt;li&gt;Composition of objects: calling field ctors in initialization list (req’d if field objects don’t have default ctors)&lt;/li&gt;
+  &lt;li&gt;“Owns-a” relationship, modelling in UML (solid diamond)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 13 (June 14)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Aggregation, ptr fields, “has-a” relationship (open diamond)&lt;/li&gt;
+  &lt;li&gt;Multiplicities&lt;/li&gt;
+  &lt;li&gt;Inheritance (public): motivation, first example, basic semantics.&lt;/li&gt;
+  &lt;li&gt;Visibility under inheritance - subclass can’t see superclass private members; also means subclass can’t initialize superclass fields; calling superclass ctor in init list&lt;/li&gt;
+  &lt;li&gt;protected visibility - advice to keep fields private, provide protected accessors if subclasses need privileged access&lt;/li&gt;
+  &lt;li&gt;“Is-a” relationship in UML.&lt;/li&gt;
+  &lt;li&gt;Overriding methods in subclass (non-virtual)&lt;/li&gt;
+  &lt;li&gt;Superclass object initializable with subclass object. What happens? Superclass version of methods runs. Why? Slicing means that you only have the superclass part of the object&lt;/li&gt;
+  &lt;li&gt;Same exercise through pointers. Method call resolves the same way, though this time it’s not a technical necessity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 14 (June 16)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Virtual methods, example; define their behaviour&lt;/li&gt;
+  &lt;li&gt;Polymorphism and code that utilizes polymorphism (calling a polymorphic method over an array of ptr to base objects)&lt;/li&gt;
+  &lt;li&gt;Advice against treating arrays polymorphically&lt;/li&gt;
+  &lt;li&gt;Virtual destructor&lt;/li&gt;
+  &lt;li&gt;Pure virtual methods and abstract classes&lt;/li&gt;
+  &lt;li&gt;UML for protected, static, virtual, abstract&lt;/li&gt;
+  &lt;li&gt;Inheritance and copy/move construction/assignment: calling to superclass version&lt;/li&gt;
+  &lt;li&gt;std::move&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 15 (June 21)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inheritance and copy/move construction/assignment: assigning through base class pointers is partial assignment (subclass part not copied); if you make operator= virtual, you get full assignment, but must support assignment with right-hand sides from the full inheritance hierarchy&lt;/li&gt;
+  &lt;li&gt;Conclusion: make superclasses abstract, with a protected operator=&lt;/li&gt;
+  &lt;li&gt;Pure virtual dtor for when you have nothing else to make pure virtual; must be implemented even though it’s pure virtual&lt;/li&gt;
+  &lt;li&gt;Templates (just the basics)&lt;/li&gt;
+  &lt;li&gt;STL: vectors, iterators (forward and reverse), vector methods (push_back, pop_back, operator[], size, erase)&lt;/li&gt;
+  &lt;li&gt;C-style error-handling and why it’s bad&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 16 (June 23, Midterm today)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduction to exceptions&lt;/li&gt;
+  &lt;li&gt;Example of catching out_of_range&lt;/li&gt;
+  &lt;li&gt;Example of writing a function that throws an exception and stack unwinding (callchain.cc)&lt;/li&gt;
+  &lt;li&gt;What is out_of_range – a class; ctor takes a string, access to the string via .what()&lt;/li&gt;
+  &lt;li&gt;Catching an exception and throwing another one&lt;/li&gt;
+  &lt;li&gt;Rethrowing the same exception: throw; vs. throw s;&lt;/li&gt;
+  &lt;li&gt;Catch-all exception handlers&lt;/li&gt;
+  &lt;li&gt;You can throw anything&lt;/li&gt;
+  &lt;li&gt;Recursive fib/fact throwing examples, with timings compared to straight recursion&lt;/li&gt;
+  &lt;li&gt;Advice to catch exceptions by reference&lt;/li&gt;
+  &lt;li&gt;Exception handler chosen based on the static type, not the dynamic type, of a pointer or reference.&lt;/li&gt;
+  &lt;li&gt;Standard exception types: length_error, bad_alloc, ios::failure&lt;/li&gt;
+  &lt;li&gt;Never let a destructor throw an exception&lt;/li&gt;
+  &lt;li&gt;Design patterns continued: program to interfaces; use abstract classes&lt;/li&gt;
+  &lt;li&gt;Iterator pattern with abstract classes; abstracting over iterators&lt;/li&gt;
+  &lt;li&gt;Template function: foreach&lt;/li&gt;
+  &lt;li&gt;Start Observer pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 17 (June 28)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Observer pattern&lt;/li&gt;
+  &lt;li&gt;Decorator pattern&lt;/li&gt;
+  &lt;li&gt;Factory method pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 18 (June 30)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Template method pattern&lt;/li&gt;
+  &lt;li&gt;NVI idiom&lt;/li&gt;
+  &lt;li&gt;STL: maps (operator[], erase, count, iteration), pairs&lt;/li&gt;
+  &lt;li&gt;GDB with examples&lt;/li&gt;
+  &lt;li&gt;Visitor pattern: as double-dispatch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 19 (July 5)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Visitor pattern: as a way to add functionality to a class hierarchy without adding methods&lt;/li&gt;
+  &lt;li&gt;Visitor example won’t compile: diagnose problem (circular include dependency)&lt;/li&gt;
+  &lt;li&gt;Compilation dependencies: when to include vs. forward declare&lt;/li&gt;
+  &lt;li&gt;Scenarios: when do we need class A’s def’n: inheriting from A, composition, ptr field to A, methods that take/return A objects&lt;/li&gt;
+  &lt;li&gt;Fix visitor so it compiles and run it&lt;/li&gt;
+  &lt;li&gt;Advice to include as few .h files as possible in .h files&lt;/li&gt;
+  &lt;li&gt;Advice to include .h files into .cc files instead of .h files, whenever possible&lt;/li&gt;
+  &lt;li&gt;pimpl idiom – rewrite XWindow class to use pimpl&lt;/li&gt;
+  &lt;li&gt;Generalize pimpl to Bridge pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 20 (July 7)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Measures of design quality: coupling and cohesion&lt;/li&gt;
+  &lt;li&gt;MVC&lt;/li&gt;
+  &lt;li&gt;Exception safety: why it is necessary&lt;/li&gt;
+  &lt;li&gt;Guarantees about what happens during stack unwinding&lt;/li&gt;
+  &lt;li&gt;Advice to prefer stack-allocated objects with destructors&lt;/li&gt;
+  &lt;li&gt;RAII - example from files, unique_ptr&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 21 (July 12)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RAII - unique_ptr copy disabled, implementation&lt;/li&gt;
+  &lt;li&gt;shared_ptrs, advice to use smart pointers as much as possible&lt;/li&gt;
+  &lt;li&gt;Exception safety guarantees–basic, strong, nothrow&lt;/li&gt;
+  &lt;li&gt;Techniques for providing the strong guarantee–copy and swap, pimpl idiom, importance of no-throw swap operations&lt;/li&gt;
+  &lt;li&gt;Exception safety and STL vectors–vector’s dtor frees aray; does not free ptrs inside the vector&lt;/li&gt;
+  &lt;li&gt;Vectors of shared_ptrs&lt;/li&gt;
+  &lt;li&gt;Strong guarantee of emplace_back&lt;/li&gt;
+  &lt;li&gt;Importance of no-throw move operations; declaring functions noexcept&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 22 (July 14)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Casting: static, reinterpret, const, dynamic&lt;/li&gt;
+  &lt;li&gt;Casting on smart pointers&lt;/li&gt;
+  &lt;li&gt;Examples of using dynamic cast (on ptrs/smart ptrs) to determine run-time types&lt;/li&gt;
+  &lt;li&gt;Advice against doing this in general: prefer virtual functions or visitors&lt;/li&gt;
+  &lt;li&gt;Dynamic casting on references&lt;/li&gt;
+  &lt;li&gt;Solving the virtual operator= problem with a dynamic reference cast&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 23 (July 19)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vtables and vptrs: demonstrate that having virtual methods makes your objects bigger by the size of a pointer&lt;/li&gt;
+  &lt;li&gt;Methods not actually stored in objects; converted to ordinary functions&lt;/li&gt;
+  &lt;li&gt;Explain in detail virtual function call resolution: diagram vptrs and vtables; conclude thatvirtual function calls slower than ordinary function calls.&lt;/li&gt;
+  &lt;li&gt;Object layout in g++: vptr first, then fields&lt;/li&gt;
+  &lt;li&gt;Multiple inheritance: disambiguating ambiguous references, diamond pattern, virtual vs. nonvirtual inheritance&lt;/li&gt;
+  &lt;li&gt;Object layout under multiple inheritance&lt;/li&gt;
+  &lt;li&gt;Pointer assignment between superclasses and subclasses does not preserve addresses&lt;/li&gt;
+  &lt;li&gt;reinterpret_cast will preserve the address and is therefore especially dangerous under multiple inheritance (static_cast, dynamic_cast, and C-style cast OK)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lecture 24 (July 21)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Template functions; type argument deduction&lt;/li&gt;
+  &lt;li&gt;Abstracting iterator and function types into template arguments&lt;/li&gt;
+  &lt;li&gt;STL algorithms&lt;/li&gt;
+  &lt;li&gt;Examples: for each, count, copy, transform&lt;/li&gt;
+  &lt;li&gt;Function objects&lt;/li&gt;
+  &lt;li&gt;Lambdas&lt;/li&gt;
+  &lt;li&gt;Generalized iterators: stream iterators, inserters&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>

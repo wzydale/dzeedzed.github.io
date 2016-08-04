@@ -5882,6 +5882,324 @@ ios
 </span></code></pre>
 </div>
 
+<p><br /></p>
+
+<h2 id="august-4-2016---final-exam-review">August 4, 2016 - Final Exam Review</h2>
+
+<h2 id="summaries-of-all-lectures">Summaries of All Lectures</h2>
+
+<p>Lecture 1 (May 3)</p>
+
+<ul>
+  <li>Introduction, grading, assignment 0, Piazza</li>
+  <li>Options for working in Linux: install Linux, VM, ssh via Putty, XMing for XWindows</li>
+  <li>Linux shell (bash)</li>
+  <li>Command line vs. GUI, very briefly</li>
+  <li>Point out Linux command handout</li>
+  <li>cat, ls, hidden files, pwd</li>
+  <li>Ctrl-C and Ctrl-D</li>
+  <li>Output and input redirection</li>
+  <li>Difference between redirecting input and filename as argument (demonstrate with wc)</li>
+  <li>Wildcards and globbing.</li>
+  <li>Pattern *</li>
+  <li>Semantics of globbing (substitution performed by shell before arguments are passed to program)</li>
+  <li>stdin, stdout, stderr; differences between stdout and stderr</li>
+  <li>How to redirect stderr</li>
+  <li>Pipes</li>
+</ul>
+
+<p>Lecture 2 (May 5)</p>
+
+<ul>
+  <li>Pipes continued</li>
+  <li>echo</li>
+  <li>$(…) notation</li>
+  <li>Regular expressions and egrep</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Patterns:</td>
+          <td>, [..], ?, *, ., ^, $</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Some examples</li>
+  <li>Permissions: explain rwx for user, group, other, for files and directories</li>
+  <li>chmod command</li>
+</ul>
+
+<p>Lecture 3 (May 10)</p>
+
+<ul>
+  <li>Shell scripts</li>
+  <li>Shell variables, ${} notation</li>
+  <li>Global variable PATH</li>
+  <li>Quotation: single vs. double</li>
+  <li>Shell if-statements, while loops, for loops</li>
+</ul>
+
+<p>Lecture 4 (May 12)</p>
+
+<ul>
+  <li>Bash procedures</li>
+  <li>Testing</li>
+  <li>Intro to C++: Hello world</li>
+  <li>cin, cout, cerr, operator«, operator»</li>
+  <li>cin.fail() and cin.eof()</li>
+</ul>
+
+<p>Lecture 5 (May 17)</p>
+
+<ul>
+  <li>Implicit conversion of streams to bool</li>
+  <li>Returning the stream from operator» and operator«; cascading input and output</li>
+  <li>cin.clear() and cin.ignore()</li>
+  <li>Filestreams and stringstreams</li>
+  <li>Strings: contrast with C strings, string operations</li>
+  <li>Default parameters</li>
+</ul>
+
+<p>Lecture 6 (May 19)</p>
+
+<ul>
+  <li>Overloading</li>
+  <li>Structs and nullptr</li>
+  <li>Pass-by-value</li>
+  <li>References</li>
+  <li>Pass-by-reference and pass-by-const-reference</li>
+  <li>Dynamic memory: new and delete</li>
+  <li>Stack and heap</li>
+  <li>Returning by value, returning references/pointers</li>
+  <li>Begin operator overloading: + and * for a vector class</li>
+</ul>
+
+<p>Lecture 7 (May 24)</p>
+
+<ul>
+  <li>Operator overloading: operator» and operator«</li>
+  <li>Preprocessor: include, convention for C headers, define, defining constants, if, ifdef, ifndef</li>
+  <li>Applications: conditional compilation for multi-platform development, debugging output, if 0 for commenting</li>
+  <li>Defining constants on the g++ command line</li>
+  <li>Separate compilation: .h and .cc files, extern for global variables, #include guards</li>
+</ul>
+
+<p>Lecture 8 (May 26)</p>
+
+<ul>
+  <li>Put all header files in include guards and must never put a global using namespace std; in header files</li>
+  <li>Introduction to classes</li>
+  <li>Terminology: class, object, member function, method</li>
+  <li>Semantics of method call wrt this pointer</li>
+  <li>Introduce constructors</li>
+  <li>Uniform initialization syntax explained</li>
+  <li>Built-in default ctor, C-style initialization semantics lost when you define a ctor</li>
+  <li>Initialization list</li>
+  <li>Introduce copy constructor (replicate default behaviour)</li>
+</ul>
+
+<p>Lecture 9 (May 31)</p>
+
+<ul>
+  <li>Finish copy constructor (deep copy a linked list)</li>
+  <li>Explicit constructors</li>
+  <li>Destructors</li>
+  <li>operator= : cascading assignment in C, checking for self-assignment, straightforward implementation</li>
+  <li>copy-and-swap idiom</li>
+  <li>Introduction to rvalues: the desire to move, rather than copy, when initializing/assigning from temporary objects.</li>
+</ul>
+
+<p>Lecture 10 (June 2)</p>
+
+<ul>
+  <li>Rvalue references, move constructor, move assignment operator</li>
+  <li>Copy/move elision</li>
+  <li>Rule of 5</li>
+  <li>Member operators</li>
+  <li>Arrays of objects</li>
+  <li>Separate compilation for classes</li>
+  <li>Const objects/methods, mutable fields</li>
+</ul>
+
+<p>Lecture 11 (June 7)</p>
+
+<ul>
+  <li>Static fields and methods</li>
+  <li>Invariants and encapsulation - public and private; fields should be private</li>
+  <li>switch from struct to class, and explain the difference</li>
+  <li>Fix linked list class to prevent “next” pointers in nodes from pointing at the stack</li>
+  <li>Nested classes (public and private)</li>
+  <li>Intro to design patterns</li>
+  <li>Iterator pattern applied to linked list class</li>
+  <li>Automatic type deduction</li>
+  <li>Range-based for loops</li>
+</ul>
+
+<p>Lecture 12 (June 9)</p>
+
+<ul>
+  <li>Friend classes; advice to minimize friendships</li>
+  <li>Encapsulation: get/set methods</li>
+  <li>Friend functions, operator« as friend function</li>
+  <li>Makefiles–basic makefile, using variables, automatic build rules, -MMD, including the .d files</li>
+  <li>UML for standalone classes; + and - visibility</li>
+  <li>Composition of objects: calling field ctors in initialization list (req’d if field objects don’t have default ctors)</li>
+  <li>“Owns-a” relationship, modelling in UML (solid diamond)</li>
+</ul>
+
+<p>Lecture 13 (June 14)</p>
+
+<ul>
+  <li>Aggregation, ptr fields, “has-a” relationship (open diamond)</li>
+  <li>Multiplicities</li>
+  <li>Inheritance (public): motivation, first example, basic semantics.</li>
+  <li>Visibility under inheritance - subclass can’t see superclass private members; also means subclass can’t initialize superclass fields; calling superclass ctor in init list</li>
+  <li>protected visibility - advice to keep fields private, provide protected accessors if subclasses need privileged access</li>
+  <li>“Is-a” relationship in UML.</li>
+  <li>Overriding methods in subclass (non-virtual)</li>
+  <li>Superclass object initializable with subclass object. What happens? Superclass version of methods runs. Why? Slicing means that you only have the superclass part of the object</li>
+  <li>Same exercise through pointers. Method call resolves the same way, though this time it’s not a technical necessity</li>
+</ul>
+
+<p>Lecture 14 (June 16)</p>
+
+<ul>
+  <li>Virtual methods, example; define their behaviour</li>
+  <li>Polymorphism and code that utilizes polymorphism (calling a polymorphic method over an array of ptr to base objects)</li>
+  <li>Advice against treating arrays polymorphically</li>
+  <li>Virtual destructor</li>
+  <li>Pure virtual methods and abstract classes</li>
+  <li>UML for protected, static, virtual, abstract</li>
+  <li>Inheritance and copy/move construction/assignment: calling to superclass version</li>
+  <li>std::move</li>
+</ul>
+
+<p>Lecture 15 (June 21)</p>
+
+<ul>
+  <li>Inheritance and copy/move construction/assignment: assigning through base class pointers is partial assignment (subclass part not copied); if you make operator= virtual, you get full assignment, but must support assignment with right-hand sides from the full inheritance hierarchy</li>
+  <li>Conclusion: make superclasses abstract, with a protected operator=</li>
+  <li>Pure virtual dtor for when you have nothing else to make pure virtual; must be implemented even though it’s pure virtual</li>
+  <li>Templates (just the basics)</li>
+  <li>STL: vectors, iterators (forward and reverse), vector methods (push_back, pop_back, operator[], size, erase)</li>
+  <li>C-style error-handling and why it’s bad</li>
+</ul>
+
+<p>Lecture 16 (June 23, Midterm today)</p>
+
+<ul>
+  <li>Introduction to exceptions</li>
+  <li>Example of catching out_of_range</li>
+  <li>Example of writing a function that throws an exception and stack unwinding (callchain.cc)</li>
+  <li>What is out_of_range – a class; ctor takes a string, access to the string via .what()</li>
+  <li>Catching an exception and throwing another one</li>
+  <li>Rethrowing the same exception: throw; vs. throw s;</li>
+  <li>Catch-all exception handlers</li>
+  <li>You can throw anything</li>
+  <li>Recursive fib/fact throwing examples, with timings compared to straight recursion</li>
+  <li>Advice to catch exceptions by reference</li>
+  <li>Exception handler chosen based on the static type, not the dynamic type, of a pointer or reference.</li>
+  <li>Standard exception types: length_error, bad_alloc, ios::failure</li>
+  <li>Never let a destructor throw an exception</li>
+  <li>Design patterns continued: program to interfaces; use abstract classes</li>
+  <li>Iterator pattern with abstract classes; abstracting over iterators</li>
+  <li>Template function: foreach</li>
+  <li>Start Observer pattern</li>
+</ul>
+
+<p>Lecture 17 (June 28)</p>
+
+<ul>
+  <li>Observer pattern</li>
+  <li>Decorator pattern</li>
+  <li>Factory method pattern</li>
+</ul>
+
+<p>Lecture 18 (June 30)</p>
+
+<ul>
+  <li>Template method pattern</li>
+  <li>NVI idiom</li>
+  <li>STL: maps (operator[], erase, count, iteration), pairs</li>
+  <li>GDB with examples</li>
+  <li>Visitor pattern: as double-dispatch</li>
+</ul>
+
+<p>Lecture 19 (July 5)</p>
+
+<ul>
+  <li>Visitor pattern: as a way to add functionality to a class hierarchy without adding methods</li>
+  <li>Visitor example won’t compile: diagnose problem (circular include dependency)</li>
+  <li>Compilation dependencies: when to include vs. forward declare</li>
+  <li>Scenarios: when do we need class A’s def’n: inheriting from A, composition, ptr field to A, methods that take/return A objects</li>
+  <li>Fix visitor so it compiles and run it</li>
+  <li>Advice to include as few .h files as possible in .h files</li>
+  <li>Advice to include .h files into .cc files instead of .h files, whenever possible</li>
+  <li>pimpl idiom – rewrite XWindow class to use pimpl</li>
+  <li>Generalize pimpl to Bridge pattern</li>
+</ul>
+
+<p>Lecture 20 (July 7)</p>
+
+<ul>
+  <li>Measures of design quality: coupling and cohesion</li>
+  <li>MVC</li>
+  <li>Exception safety: why it is necessary</li>
+  <li>Guarantees about what happens during stack unwinding</li>
+  <li>Advice to prefer stack-allocated objects with destructors</li>
+  <li>RAII - example from files, unique_ptr</li>
+</ul>
+
+<p>Lecture 21 (July 12)</p>
+
+<ul>
+  <li>RAII - unique_ptr copy disabled, implementation</li>
+  <li>shared_ptrs, advice to use smart pointers as much as possible</li>
+  <li>Exception safety guarantees–basic, strong, nothrow</li>
+  <li>Techniques for providing the strong guarantee–copy and swap, pimpl idiom, importance of no-throw swap operations</li>
+  <li>Exception safety and STL vectors–vector’s dtor frees aray; does not free ptrs inside the vector</li>
+  <li>Vectors of shared_ptrs</li>
+  <li>Strong guarantee of emplace_back</li>
+  <li>Importance of no-throw move operations; declaring functions noexcept</li>
+</ul>
+
+<p>Lecture 22 (July 14)</p>
+
+<ul>
+  <li>Casting: static, reinterpret, const, dynamic</li>
+  <li>Casting on smart pointers</li>
+  <li>Examples of using dynamic cast (on ptrs/smart ptrs) to determine run-time types</li>
+  <li>Advice against doing this in general: prefer virtual functions or visitors</li>
+  <li>Dynamic casting on references</li>
+  <li>Solving the virtual operator= problem with a dynamic reference cast</li>
+</ul>
+
+<p>Lecture 23 (July 19)</p>
+
+<ul>
+  <li>vtables and vptrs: demonstrate that having virtual methods makes your objects bigger by the size of a pointer</li>
+  <li>Methods not actually stored in objects; converted to ordinary functions</li>
+  <li>Explain in detail virtual function call resolution: diagram vptrs and vtables; conclude thatvirtual function calls slower than ordinary function calls.</li>
+  <li>Object layout in g++: vptr first, then fields</li>
+  <li>Multiple inheritance: disambiguating ambiguous references, diamond pattern, virtual vs. nonvirtual inheritance</li>
+  <li>Object layout under multiple inheritance</li>
+  <li>Pointer assignment between superclasses and subclasses does not preserve addresses</li>
+  <li>reinterpret_cast will preserve the address and is therefore especially dangerous under multiple inheritance (static_cast, dynamic_cast, and C-style cast OK)</li>
+</ul>
+
+<p>Lecture 24 (July 21)</p>
+
+<ul>
+  <li>Template functions; type argument deduction</li>
+  <li>Abstracting iterator and function types into template arguments</li>
+  <li>STL algorithms</li>
+  <li>Examples: for each, count, copy, transform</li>
+  <li>Function objects</li>
+  <li>Lambdas</li>
+  <li>Generalized iterators: stream iterators, inserters</li>
+</ul>
+
   </div>
 
 </article>
