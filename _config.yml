@@ -16,16 +16,8 @@ twitter_username: dzklavier
 github_username:  dzeedzed
 
 # Build settings
-# markdown: kramdown
+markdown: kramdown
 
-# markdown: redcarpet
-#
-# redcarpet:
-#   extension:
-#     - fenced_code_clocks
-# highlighter: pygments
-
-markdown: redcarpet
 # !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
 # Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
 highlighter: pygments
