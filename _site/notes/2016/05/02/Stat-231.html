@@ -18,7 +18,6 @@
   <meta name="description" content="STAT 231 - StatisticsInstructor: Surya BanerjeeLocation: DC 1350Time: Mondays and Wednesdays 2:30am - 3:50pmTutorials: DC 1351 Mondays 5:30pm - 6:20pmTerm: S...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/syntax.css">
   <link rel="canonical" href="http://dzed.me/notes/2016/05/02/Stat-231.html">
   <link rel="alternate" type="application/rss+xml" title="Dadi "D.Z." Zhang" href="http://dzed.me/feed.xml">
 
@@ -210,13 +209,14 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <pre><code>STAT 231 - Statistics
+    <div class="highlighter-rouge"><pre class="highlight"><code>STAT 231 - Statistics
 Instructor: Surya Banerjee
 Location: DC 1350
 Time: Mondays and Wednesdays 2:30am - 3:50pm
 Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
 Term: Spring 2016
 </code></pre>
+</div>
 
 <h2 id="may-2-2016---lecture-1">May 2, 2016 - Lecture 1</h2>
 
@@ -653,10 +653,11 @@ L(theta; y1, … , yn) = Likelihood Function = P(Y1 = y1, Y2 = y2, … , Yn = yn
 
 <p>Some starting points</p>
 
-<pre><code>+ usually, all statistical inference problems start with some estimation of some parameter.
+<div class="highlighter-rouge"><pre class="highlight"><code>+ usually, all statistical inference problems start with some estimation of some parameter.
 + {y1,...,yn} -&gt; sample
 + we think of the data points {y1,...,yn} as outcomes of some random variable Y (statistical model); We assume that the data is drawn from some distribution with unknown parameters
 </code></pre>
+</div>
 
 <p>Example: toss a coin; objective: estimate pi = P(head). Each data point yi can be thought of as an outcome of Yi. The distribution of Yi is called the <strong>Statistical Model</strong>.</p>
 
@@ -678,9 +679,10 @@ L(theta; y1, … , yn) = Likelihood Function = P(Y1 = y1, Y2 = y2, … , Yn = yn
 
 <p>Example 4: To estimate the proportion of southpaws at UW.</p>
 
-<pre><code>+ Strategy 1: Go interview people till we get 10 left handers, interviewed 100 people
+<div class="highlighter-rouge"><pre class="highlight"><code>+ Strategy 1: Go interview people till we get 10 left handers, interviewed 100 people
 + Strategy 2: Go interview 100 people and 10 of them are left handers
 </code></pre>
+</div>
 
 <p>Strategy 1: pi = proportion of left handers. L(pi) = C^99_9<em>pi^9</em>(1-pi)^90 * pi<br />
 Strategy 2: L(pi) = C^100_10<em>pi^10</em>(1-pi)^90</p>

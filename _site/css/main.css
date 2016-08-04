@@ -321,9 +321,9 @@ pre {
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fff; }
+  background: #272822; }
   .highlighter-rouge .highlight {
-    background: #eef; }
+    background: #272822; }
   .highlight .c {
     color: #998;
     font-style: italic; }
