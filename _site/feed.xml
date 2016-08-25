@@ -6,54 +6,37 @@
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Aug 2016 16:51:05 -0400</pubDate>
-    <lastBuildDate>Thu, 04 Aug 2016 16:51:05 -0400</lastBuildDate>
+    <pubDate>Sat, 06 Aug 2016 00:15:30 -0400</pubDate>
+    <lastBuildDate>Sat, 06 Aug 2016 00:15:30 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
-        <title>My Intramural Stats</title>
-        <description>&lt;h2 id=&quot;casual-slopitch---team-individuals-1-king-louis-and-his-faithful-knights&quot;&gt;Casual Slopitch - Team: Individuals 1 (King Louis and His Faithful Knights)&lt;/h2&gt;
+        <title>What I Talk About When I Talk About 2A</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;“Pain is inevitable. Suffering is optional&lt;sup&gt;1&lt;/sup&gt;.”&lt;/strong&gt;&lt;br /&gt;
+        ― Haruki Murakami, What I Talk About When I Talk About Running &lt;br /&gt;
+1: The compiler will decide for you as it sees fit&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h1 id=&quot;may-19-2016---14-13-views&quot;&gt;May 19, 2016 - 14-13 Views&lt;/h1&gt;
+&lt;p&gt;This is my favorite Murakami quote. Definitely words to live by. It’s also pretty much my 2A term in a nutshell. The workload this term, in and of itself, was not terrible at all. Though after throwing in interviews, intramurals, clubs, and side projects, it got hectic quick. But this was definitely my most enjoyable semester so far. The weather was nice,&lt;/p&gt;
 
-&lt;p&gt;2B -&amp;gt; 1B (PO) -&amp;gt; C -&amp;gt; RF&lt;br /&gt;
-Batted 9th: 3-3, 2B, 2 1B, 2 RBI, R&lt;/p&gt;
+&lt;h2 id=&quot;cs-245&quot;&gt;CS 245&lt;/h2&gt;
 
-&lt;h1 id=&quot;may-25-2016---8-9-tsr&quot;&gt;May 25, 2016 - 8-9 TSR&lt;/h1&gt;
+&lt;p&gt;Ah, the fabled CS 245.&lt;/p&gt;
 
-&lt;p&gt;1B (DP, unassisted) -&amp;gt; 3B (E5) -&amp;gt; LF&lt;br /&gt;
-Batted 7th: 1-2, 1B, FC, RBI, 2R&lt;/p&gt;
+&lt;h2 id=&quot;cs-246&quot;&gt;CS 246&lt;/h2&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;stat-231&quot;&gt;STAT 231&lt;/h2&gt;
 
-&lt;h2 id=&quot;casual-7-vs-7-soccer-football---team-individuals-2&quot;&gt;Casual 7 vs. 7 Soccer (Football) - Team: Individuals 2&lt;/h2&gt;
+&lt;h2 id=&quot;math-237&quot;&gt;MATH 237&lt;/h2&gt;
 
-&lt;h1 id=&quot;may-17-2016---0-6-team-hunnies&quot;&gt;May 17, 2016 - 0-6 Team Hunnies&lt;/h1&gt;
+&lt;h2 id=&quot;psych-101&quot;&gt;PSYCH 101&lt;/h2&gt;
 
-&lt;p&gt;RB -&amp;gt; CB -&amp;gt; DM&lt;/p&gt;
+&lt;h2 id=&quot;music-140&quot;&gt;MUSIC 140&lt;/h2&gt;
 </description>
-        <pubDate>Fri, 27 May 2016 23:00:00 -0400</pubDate>
-        <link>http://dzed.me/blog/2016/05/27/Intramurals.html</link>
-        <guid isPermaLink="true">http://dzed.me/blog/2016/05/27/Intramurals.html</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>JobMine Updates - Spring 2016</title>
-        <description>&lt;h1 id=&quot;may-7-2016&quot;&gt;May 7, 2016&lt;/h1&gt;
-
-&lt;p&gt;Shortlisted 28 job postings on JobMine.&lt;/p&gt;
-
-&lt;h1 id=&quot;may-8-2016&quot;&gt;May 8, 2016&lt;/h1&gt;
-
-&lt;p&gt;Added 5 more. Now most jobs on my shortlist are dev jobs.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 May 2016 02:20:00 -0400</pubDate>
-        <link>http://dzed.me/blog/2016/05/08/Jobmine.html</link>
-        <guid isPermaLink="true">http://dzed.me/blog/2016/05/08/Jobmine.html</guid>
+        <pubDate>Fri, 05 Aug 2016 23:29:27 -0400</pubDate>
+        <link>http://dzed.me/blog/2016/08/05/2a-summary.html</link>
+        <guid isPermaLink="true">http://dzed.me/blog/2016/08/05/2a-summary.html</guid>
         
         
         <category>blog</category>
@@ -12223,6 +12206,10 @@ ios
   &lt;li&gt;Lambdas&lt;/li&gt;
   &lt;li&gt;Generalized iterators: stream iterators, inserters&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;End of course; Final exam: 9:00 AM, August 5, 2016&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 02 May 2016 18:56:00 -0400</pubDate>
         <link>http://dzed.me/notes/2016/05/02/Cs-246.html</link>
@@ -12667,6 +12654,738 @@ CS 485 - Machine Learning: Statistical and Computational Foundations&lt;/p&gt;
         <pubDate>Mon, 02 May 2016 00:00:00 -0400</pubDate>
         <link>http://dzed.me/2016/05/02/course-planning.html</link>
         <guid isPermaLink="true">http://dzed.me/2016/05/02/course-planning.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Stat 231</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;STAT 231 - Statistics
+Instructor: Surya Banerjee
+Location: DC 1350
+Time: Mondays and Wednesdays 2:30am - 3:50pm
+Tutorials: DC 1351 Mondays 5:30pm - 6:20pm
+Term: Spring 2016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;may-2-2016---lecture-1&quot;&gt;May 2, 2016 - Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;Email: s22baner@uwaterloo.ca or suryabanerjee@gmail.com&lt;/p&gt;
+
+&lt;p&gt;Course Marking Scheme: 3 Tutorial Quizzes (TQ) and 2 Midterms&lt;/p&gt;
+
+&lt;p&gt;STAT 231 is the reverse of STAT 230. E.g. We toss a coin 100 times, we get 60 heads. In STAT 230, we calculate the probability of that happening (binomial distribution, 100 and 0.5, P(X=60)) with all the parameters given (P = 0.5 to get a head for a fair coin). In STAT 231, we try to find the parameters by experiments, and try to infer what we can say about the “fairness” of the coin.&lt;/p&gt;
+
+&lt;p&gt;MLB: Between 1901-1941, batters with BA .400+: 11. 1941 onwards: 0. Why? Use statistics to find out.&lt;/p&gt;
+
+&lt;p&gt;Kansas Weathermen: They are correct about whether it will rain the next day about 85% of the time. Good record, right? However, it only rains about 10% of the time in Kansas. So if I go to the weather broadcasting station and say “no rain tomorrow” and then go home, I will be statistically more accuarate that these meteorologists.&lt;/p&gt;
+
+&lt;p&gt;Baseball Pundits: Pundits are right about the outcome of baseball games about 48% of the time. Literally worse than a coin.&lt;/p&gt;
+
+&lt;p&gt;In STAT 231, we learn how to test claims and check for correlation and causation. How can we make the leap from correlation to causation? (Recommended reading: Freakanomics)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction-to-data-analysis&quot;&gt;Introduction to Data Analysis&lt;/h2&gt;
+
+&lt;p&gt;Data can be classified into two categories: numerical and categorical (non-numerical).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Numerical Data&lt;/strong&gt; is either discrete or continuous. Discrete data (e.g. number of accidents) takes integer values, while continuous data (e.g. height, weight) measure non-integer values.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categorical Data&lt;/strong&gt; is either ordinal (if there’s an underlying order, e.g. on a scale from 1 to 10, 1 being least satisfied and 10 being most satisfied) or non-ordinal (no order, e.g. nationality, favorite color).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Transformation&lt;/strong&gt; {x&lt;sub&gt;1&lt;/sub&gt;, x&lt;sub&gt;2&lt;/sub&gt;,…, x&lt;sub&gt;n&lt;/sub&gt;}&lt;br /&gt;
+y&lt;sub&gt;i&lt;/sub&gt; = f(x&lt;sub&gt;i&lt;/sub&gt;) is a transformation.&lt;/p&gt;
+
+&lt;p&gt;An affine transformation is a linear transformation: y&lt;sub&gt;i&lt;/sub&gt; = ax&lt;sub&gt;i&lt;/sub&gt; + b&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Coding&lt;/strong&gt; is the conversion of categorical data into numerical data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;data-summaries&quot;&gt;Data Summaries&lt;/h2&gt;
+
+&lt;p&gt;We want to extract important information about data.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Numerical: come up with numbers that represent different properties of the data set&lt;/li&gt;
+  &lt;li&gt;Graphical: graph that tells us the shape of the data set&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are some properties of interest:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Centre of the data set -&amp;gt; &lt;strong&gt;Central Tendency&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How volatile is the data set -&amp;gt; &lt;strong&gt;Dispersion&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the data set is symmetric -&amp;gt; &lt;strong&gt;Measures of Symmetry&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How “fat” the tails of the data set are (i.e. the size of extrema) -&amp;gt; &lt;strong&gt;Kurtosis&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;measures-of-central-tendency&quot;&gt;Measures of Central Tendency&lt;/h2&gt;
+
+&lt;p&gt;Data set: {y&lt;sub&gt;1&lt;/sub&gt;, y&lt;sub&gt;2&lt;/sub&gt;,…, y&lt;sub&gt;n&lt;/sub&gt;}&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Mean:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Property: The sum of the deviations of the observations from the sample mean is 0.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Geometric Mean&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Harmonic Mean&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-4-2016---lecture-2&quot;&gt;May 4, 2016 - Lecture 2&lt;/h2&gt;
+
+&lt;p&gt;Lecture notes will be posted every weekend.&lt;br /&gt;
+Practice questions (with solutions) will be posted this week. First tutuorial quiz on May 17 (T), 2016 (11:25am).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Outline&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;measures of central tendency: medias, quartiles, mode&lt;/li&gt;
+  &lt;li&gt;measures of variability: range, IQR, variance&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sample -&amp;gt; Predictions about the population&lt;/p&gt;
+
+&lt;h1 id=&quot;data-summaries-1&quot;&gt;Data Summaries&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Centre: CENTRAL TENDENCY&lt;/li&gt;
+  &lt;li&gt;Variability: DISPERSION&lt;/li&gt;
+  &lt;li&gt;Tails are similar: SYMMETRY&lt;/li&gt;
+  &lt;li&gt;Frequency of Extreme Obersevations: KURTOSIS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;numerical-and-graphical-summaries&quot;&gt;Numerical and Graphical Summaries&lt;/h1&gt;
+
+&lt;p&gt;{y&lt;sub&gt;1&lt;/sub&gt;, y&lt;sub&gt;2&lt;/sub&gt;, … , y&lt;sub&gt;n&lt;/sub&gt;}&lt;/p&gt;
+
+&lt;p&gt;Sample mean: 1/n sigma y&lt;sub&gt;i&lt;/sub&gt;&lt;br /&gt;
+Properties: sigma (y&lt;sub&gt;i&lt;/sub&gt; - mean) = 0&lt;/p&gt;
+
+&lt;p&gt;Also, affine transformation preserves linear combinations (i.e. the arithmetic mean changes accordingly by the affine transformation)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Median&lt;/strong&gt;: the middle most observations&lt;br /&gt;
+arrange the data set in ascending order and pick the middle one. e.g. 1, 3, 7, 13, 25. Median is 7.&lt;/p&gt;
+
+&lt;p&gt;Median is not too sensitive with extreme values.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Quartiles&lt;/strong&gt;: Q1: lower quartile, Q3: upper quartile&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Percentiles&lt;/strong&gt;: Instead of dividing into 4 parts, the data is divided into 100 parts.&lt;/p&gt;
+
+&lt;p&gt;Eg. p=0.25, m = (n+1) * p, n is the number of observations&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mode&lt;/strong&gt;: Observation that occurs with the maximum frequency&lt;/p&gt;
+
+&lt;p&gt;St.Petersburg’s Paradox. We care about averages (expected values), but also risk. Variability is a very important property of a data set. E.g. Country A 0 0 0 1000 and Country B 250 250 250 250
+Goalie A 0 6 0 6 0 6 0 6 Goalie B 3 3 3 3 3 3 3&lt;/p&gt;
+
+&lt;h1 id=&quot;measures-of-volatility&quot;&gt;Measures of Volatility&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Range&lt;/strong&gt;: Max - Min&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Interquartile Range (IQR)&lt;/strong&gt;: IQR = Q3 - Q1&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Variance and Sample Standard Deviation&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Variance&lt;/strong&gt;: s&lt;sup&gt;2&lt;/sup&gt; = 1/(n-1) sigma (y&lt;sub&gt;i&lt;/sub&gt; - y average)&lt;sup&gt;2&lt;/sup&gt; is approximatey the average of the squared deviation from the mean&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Standard Deviation&lt;/strong&gt;: s = positive square root of s^2, the sample variance&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mean Absolute Deviation(MAD)&lt;/strong&gt;: 1/n sigma abs(y&lt;sub&gt;i&lt;/sub&gt; - y average)&lt;/p&gt;
+
+&lt;p&gt;Say a data set of x&lt;sub&gt;i&lt;/sub&gt; is transformed by an affine transformation y&lt;sub&gt;i&lt;/sub&gt; = a + bx&lt;sub&gt;i&lt;/sub&gt;. Then s&lt;sup&gt;2&lt;/sup&gt; of y = b&lt;sup&gt;2&lt;/sup&gt;s&lt;sup&gt;2&lt;/sup&gt;. And the standard deviation is multiplied by the absolute value of b.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-9-2016---lecture-3&quot;&gt;May 9, 2016 - Lecture 3&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Practice problems with solutions on LEARN&lt;/li&gt;
+  &lt;li&gt;&amp;lt;= Wednesday’s class for the TQ1 next week&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Today&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Measures of Symmetry&lt;/li&gt;
+  &lt;li&gt;Measures of Kurtosis&lt;/li&gt;
+  &lt;li&gt;Applications&lt;/li&gt;
+  &lt;li&gt;Measures of Association&lt;/li&gt;
+  &lt;li&gt;Graphical Measures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Objective: To figure out the shape of our sample&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Centre: sample mean&lt;/li&gt;
+  &lt;li&gt;Variability: This measures how much the data set is spread out across the centre; how volatile the data set is; Use s&lt;sup&gt;2&lt;/sup&gt;, variance; Standard deviation is the sqrt(variance)
+    &lt;ul&gt;
+      &lt;li&gt;If y=a+bx, s&lt;sup&gt;2&lt;/sup&gt;&lt;sub&gt;y&lt;/sub&gt; = b^2s^2_x s_y = abs(b)s_x&lt;/li&gt;
+      &lt;li&gt;The variance treats data on either side of the mean symmetrically&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Symmetry:
+    &lt;ul&gt;
+      &lt;li&gt;3 shapes:
+        &lt;ul&gt;
+          &lt;li&gt;Symmetric&lt;/li&gt;
+          &lt;li&gt;Right-skewed (mode is on the left side, mean is on the right side), long right tail&lt;/li&gt;
+          &lt;li&gt;Left-skewed (mode is on the right side, mean is on the left side), long left tail&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Measure of Skewness:
+        &lt;ul&gt;
+          &lt;li&gt;Quick estimate of skewness:&lt;br /&gt;
+  e.g. 1, 3, 5, 7, 9, 11, 13&lt;br /&gt;
+  Symmetric Data -&amp;gt; Mean = Median&lt;br /&gt;
+  e.g. 1, 3, 5, 7, 9, 11, 10&lt;sup&gt;7&lt;/sup&gt;
+  Mean » Median&lt;br /&gt;
+  Measure of Skewness = Mean - Median
+            &lt;ul&gt;
+              &lt;li&gt;if &amp;gt; 0, right-skewed, mean greater than median&lt;/li&gt;
+              &lt;li&gt;if &amp;lt; 0, left-skewed, mean less than median&lt;/li&gt;
+              &lt;li&gt;if = 0, symmetric&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Applications&lt;/strong&gt;&lt;br /&gt;
+Gould: “The median is not the message”&lt;br /&gt;
+“Abdominal mesothalamia”: median of life expectancy after diagnosis = 8 months&lt;/p&gt;
+
+&lt;p&gt;If the distribution (of frequency of death against time since diagnosis) is symmetric, then he will die within 16 months at best.&lt;/p&gt;
+
+&lt;p&gt;The actual distribution is right-skewed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kurtosis&lt;/strong&gt;&lt;br /&gt;
+Kurtosis measure how frequent extreme observations are, with respect to the Normal Distribution.&lt;/p&gt;
+
+&lt;p&gt;Kurtosis checks whether the data set has “fatter” tails compared to the Normal distribution.&lt;/p&gt;
+
+&lt;p&gt;Kurtosis: how much “peakedness” the graph has&lt;/p&gt;
+
+&lt;p&gt;For a normal distribution, kurtosis = 3. If k for your data &amp;gt; 3, then it has fatter tails compared to the normal. If it is &amp;lt; 3, then it has narrower tails.&lt;/p&gt;
+
+&lt;p&gt;Kurtosis checks whether we can apply the Normal Distribution assumption to our data set by comparing our sample kurtosis to 3.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Measures of Association&lt;/strong&gt;&lt;br /&gt;
+Objective: To find whether there is any evidence of association between two variables&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Categorical Variables
+    &lt;tr&gt;&lt;td&gt;lmao&lt;/td&gt;
+      &lt;td&gt;ayy&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;hey&lt;/td&gt;&lt;/tr&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Relative Risk&lt;/strong&gt;: measures the association between two catgorical variables; Measured by [R.R.]&lt;/li&gt;
+      &lt;li&gt;A and B are indepedent iff P(A|B) = P(A)&lt;/li&gt;
+      &lt;li&gt;If R.R. is approximately equal to 1, then there is little evidence of association&lt;/li&gt;
+      &lt;li&gt;If R.R. &amp;gt; &amp;gt; 1 or &amp;lt; &amp;lt; 1, evidence of association&lt;/li&gt;
+      &lt;li&gt;But how high is too high? UNANSWERED QUESTION&lt;/li&gt;
+      &lt;li&gt;The table = Two Way Contingency Table&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Numerical Variables&lt;br /&gt;
+How to find a measure of association between two numerical variables?
+    &lt;ul&gt;
+      &lt;li&gt;Sample Correlation Coefficient r&lt;sub&gt;xy&lt;/sub&gt;: the sign of r tells us the direction of the relationship, and the value of r tells us the strength of the association/relationship&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;E.g. &lt;br /&gt;
+x&lt;sub&gt;i&lt;/sub&gt; = # of beers you drink&lt;br /&gt;
+y&lt;sub&gt;i&lt;/sub&gt; = STAT 231 mark&lt;br /&gt;
+Collect a data set:&lt;br /&gt;
+{x1, y1},…{xn, yn}&lt;/p&gt;
+
+&lt;p&gt;So it is most likely that if xn - x average &amp;gt; 0, yn - y average &amp;lt; 0&lt;/p&gt;
+
+&lt;p&gt;Thus, the numerator tells us the direction of the relationship. The denominator ensures that -1 &amp;lt;= r&lt;sub&gt;xy&lt;/sub&gt; &amp;lt;= 1&lt;/p&gt;
+
+&lt;p&gt;The closer abs(r_xy) is to 1, the strong is the evidence of association.&lt;/p&gt;
+
+&lt;p&gt;r captures the &lt;strong&gt;linear relationship&lt;/strong&gt; between x and y. Not good in capture non-linear relationship&lt;/p&gt;
+
+&lt;p&gt;E.g. y = x&lt;sup&gt;2&lt;/sup&gt;, x=-3, y=9, x=-1, y=1, x=1, y=1, x=3, y=9.  r_xy = 0 !!! It’s a function so the two variables are associated for sure, but the Coefficient gives 0. Does not work well with quadratic relationships, or non-linear in general.&lt;/p&gt;
+
+&lt;p&gt;E.g. y = ax + b. r_xy = 1 if a &amp;gt; 0, = -1 if a &amp;lt; 0&lt;/p&gt;
+
+&lt;p&gt;Since we are going from sample to population, we can only find evidence of association. Strong correlation != Causation&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graphical Measures&lt;/strong&gt;&lt;br /&gt;
++ Density Histogram: Histogram -&amp;gt; grouped data; Density histogram -&amp;gt; area of every rectangle = relative frequency of the group
++ Empirical cdf&lt;br /&gt;
++ Box Plot&lt;br /&gt;
++ Scatter Plot&lt;br /&gt;
++ Q-Q Plot&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-11-2016---lecture-4&quot;&gt;May 11, 2016 - Lecture 4&lt;/h2&gt;
+
+&lt;p&gt;A note about TQ1 will be posted on LEARN tonight -&amp;gt; Up to today’s material (Ignore the last question on the sample quiz)&lt;/p&gt;
+
+&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Centre -&amp;gt; Sample Mean&lt;/li&gt;
+  &lt;li&gt;Variability -&amp;gt; Variance, Standard Deviation&lt;/li&gt;
+  &lt;li&gt;Symmetry -&amp;gt; Mean - Median&lt;/li&gt;
+  &lt;li&gt;Kurtosis -&amp;gt; Compare to Normal Distribution&lt;/li&gt;
+  &lt;li&gt;Correlation Coefficient: r&lt;sub&gt;xy&lt;/sub&gt; measures association&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reasons-why-we-care-about-graphical-summaries&quot;&gt;Reasons why we care about Graphical Summaries&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;To “identify” the distribution from which the data is drawn,&lt;/li&gt;
+  &lt;li&gt;To find the shape of the data set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-five-number-summary&quot;&gt;The Five Number Summary&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Minimum&lt;/li&gt;
+  &lt;li&gt;Q1&lt;/li&gt;
+  &lt;li&gt;Q2&lt;/li&gt;
+  &lt;li&gt;Q3&lt;/li&gt;
+  &lt;li&gt;Maximum&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These five numbers provide the rough shape of the graph&lt;/p&gt;
+
+&lt;p&gt;Correlation Coefficient measures the linear association between two variables&lt;/p&gt;
+
+&lt;h2 id=&quot;graphical-summary&quot;&gt;Graphical Summary&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Histogram&lt;/strong&gt;: Grouped Data
+Example: Group Freq (The cohorts are called bins)&lt;br /&gt;
+&lt;strong&gt;Frequency Histogram&lt;/strong&gt;: Frequency as y-axis, and bins as x-axis (Bar graph)&lt;br /&gt;
+&lt;strong&gt;Density Histogram&lt;/strong&gt;: x-axis = bins, y-axis = densities&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The length(height) of each rectangle in a density histogram is chosen such that the area of the rectangle is equal to the relative frequency of the bin&lt;/li&gt;
+  &lt;li&gt;To construct a density histogram:
+Find the frequency and relative frequency for each bin; Relative Frequency = frequency for the bin / total frequency&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The reason why we draw density histogram is that &lt;strong&gt;we want to compare our data (shape of graph) with known density functions of distributions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Box Plot&lt;/strong&gt;: Box and Whiskers Plot&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lower end of the box/rectangle -&amp;gt; Q1&lt;/li&gt;
+  &lt;li&gt;Upper end of the box/rectangle -&amp;gt; Q3&lt;/li&gt;
+  &lt;li&gt;The line inside the box -&amp;gt; Median = Q2&lt;/li&gt;
+  &lt;li&gt;The upper whisker goes up to the maximum of the data set, that is &lt;strong&gt;NOT AN OUTLIER&lt;/strong&gt; (extreme observations; a data point y&lt;sub&gt;i&lt;/sub&gt; is an outlier if y&lt;sub&gt;i&lt;/sub&gt; &amp;gt; Q3 + 1.5IQR or y&lt;sub&gt;i&lt;/sub&gt; &amp;lt; Q1 - 1.5IQR; Remember IQR = Q3-Q1); The upper whisker ends at the highest value of your data set that is lower than the outliers; We mark the outliers each and every one of them separately&lt;/li&gt;
+  &lt;li&gt;The lower whisker goes down to the minimum of the data set, that is not an outlier&lt;/li&gt;
+  &lt;li&gt;The Box Plot gives us the &lt;strong&gt;Five Number Summary&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Reading the Box Plot sideways gives the rough shape and the skewness of the distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Empirical cdf (Cumulative Distribution Function)&lt;/strong&gt;&lt;br /&gt;
+Definition: F(y) = # of observations &amp;lt;= y / Total # of observations, and the plot (y, F(y)) is called the empirical cdf.&lt;/p&gt;
+
+&lt;p&gt;{1, 3, 5, 5, 9}, F(0) = 0, F(1) = 0.2, F(3) = 0.4 … the plot of a step function&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We can find a lot of info from the empirical cdf&lt;/li&gt;
+  &lt;li&gt;F(median) = 1/2, we can identify any percentile&lt;/li&gt;
+  &lt;li&gt;The number with the biggest jump vertically on the graph is the mode of this data set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Q-Q Plot&lt;/strong&gt;&lt;br /&gt;
+We want to check whether our data set “resembles” a Normal Distribution. The Q-Q plot plots the alpha-th quantile of your sample to the alpha-th quantile of Z Distribution ~N(0, 1); Plots two quantiles: Sample quantiles against the theoretical quantiles&lt;/p&gt;
+
+&lt;p&gt;{1, 2, 7, …, 155}&lt;/p&gt;
+
+&lt;p&gt;Z(alpha) on the x-axis, y(alpha) on the y-axis. 0 = median and mean of Z&lt;/p&gt;
+
+&lt;p&gt;If the Q-Q Plot is a straight line, then the data resembles the Normal Distribution Z&lt;/p&gt;
+
+&lt;p&gt;Q: If we have a distribution that is normal, how do we prove that it will have a straight line Q-Q plot?&lt;br /&gt;
+That is, y~N(mu, sigma^2), the Q-Q plot will be a straight line&lt;/p&gt;
+
+&lt;p&gt;Proof:?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scatter Plot&lt;/strong&gt;&lt;br /&gt;
+Scatter Plot checks for association. Just plot (xi, yi).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-16-2016---lecture-5&quot;&gt;May 16, 2016 - Lecture 5&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;PPDAC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;typical problem: we have a population of observations, the characteristics of the population is unknown&lt;/li&gt;
+  &lt;li&gt;We draw a sample, and based on the sample observations infer properties about the population (statistical inference)&lt;/li&gt;
+  &lt;li&gt;Examples: 1. we want to find the approval rating of Trump among likely US voters; 2. Average income of a starting math undergraduate career in Canada; 3. Does a regular intake of Vitamin C reduce the duration of a flu? 4. Are Canadian Jeopardy contestants better than Americans?&lt;/li&gt;
+  &lt;li&gt;PPDAC approach gives you an algorithm to tackle statistical problems that are mentioned above; PPDAC = Problem, Plan, Data, Analysis, Conclusion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem: Descriptive, Causative, Predictive&lt;/strong&gt;&lt;br /&gt;
+  + Descriptive: We are interested in some unknown characteristic of the population (e.g. Trump)
+  + Causative: Whether a variable X causes a variable Y to change (e.g. Vitamin C)
+  + Predictive: To estimate the future values of some variable (e.g. predicting Blackberry stock prices)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Target Population&lt;/strong&gt;: the population of interest (e.g. All likely US voters in the Trump example)&lt;br /&gt;
+&lt;strong&gt;Unit&lt;/strong&gt;: each member of the population&lt;br /&gt;
+&lt;strong&gt;Variate&lt;/strong&gt;: a characteristic of the unit (e.g. whether the voter approves or disapproves of Trump)&lt;br /&gt;
+&lt;strong&gt;Attribute&lt;/strong&gt;: a function of the variate (e.g. Proportion of approvals = Attribute)&lt;/p&gt;
+
+&lt;p&gt;For the income of math undergrad problem, each individual income is the variate.&lt;br /&gt;
+Average income is the attribute.&lt;/p&gt;
+
+&lt;p&gt;Typically, we want to find some attributes of the population.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plan&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Study Population&lt;/strong&gt;: the set of observations from which your sample is drawn&lt;br /&gt;
+Example: Suppose we are doing phone interviews -&amp;gt; study population would be all voters with a phone; In medical tests, study population might not be a subset of the target population&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Experimental Plan: Some of the variates can be controlled by the analyst with dependent and independent variables&lt;/li&gt;
+  &lt;li&gt;Observational Plan: The variates are not under the analyst’s control&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Analysis&lt;/strong&gt;&lt;br /&gt;
+Setting up a statistical model: we assume that the data is drawn from known distribution with unknown parameters.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bias: systematic error -&amp;gt; make sure the data is not biased&lt;/li&gt;
+  &lt;li&gt;Measurement error: random error -&amp;gt; measured value - actual value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Population parameters, usually Greek letters, are unknown. Sample parameters, usually Latin letters, are known (sample mean, sample variance).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Random Sampling&lt;/strong&gt;&lt;br /&gt;
+Sampling protocol: we want the sample to represent the population&lt;br /&gt;
+Sampling techniques: methods of drawing the “right” sample&lt;br /&gt;
+Errors: The difference between the target and the study populations = &lt;strong&gt;Study Error&lt;/strong&gt;; Difference between the study population and the sample = &lt;strong&gt;Sampling Error&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Difference in the value of the attribute between the Total Population and the Study Population is the study error. Difference in the value of the attribute between the Study Population and the Sample is the sampling error. We want to quantify the sampling error.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;br /&gt;
+We want to make sure that the conclusion is understood by non-statisticians&lt;/p&gt;
+
+&lt;p&gt;##The Theory of Estimation##
+&lt;strong&gt;Method of Maximum Likelihood&lt;/strong&gt;&lt;br /&gt;
+Based on our sample, what is the mostly likely value of the unknown parameter? This is a question every statistician asks. Example: We have a biased coin. The probability of getting a head is either 1/2 or 1/3. Toss the coin 100 times and we see 25 heads. We choose the value of the parameter that maximizes the probability of observing your sample.&lt;/p&gt;
+
+&lt;p&gt;Suppose Y is a discrete distribution with a pf f and an unknown parameter theta. Data = {y1, …, yn}.&lt;br /&gt;
+L(theta; y1, … , yn) = Likelihood Function = P(Y1 = y1, Y2 = y2, … , Yn = yn) as a function of theta; the chance of observing the sample&lt;/p&gt;
+
+&lt;p&gt;E.g. Number of accidents ~ Poi(mu), with mu unknown. Sample is {1, 0, 2, 5, 7}. Based on the sample, what is the MLE (Maximum Likelihood Estimate) for mu? Use the pf for the Poisson distribution to calculate the probability of observing each unit in the sample. Multiply them together. The value of mu that maximizes L above is called the MLE. In the above example, L = e^-5mu* mu^15 / 1!0!…7!. In order to maximize it, take the log(base e) function and maximize the log function. Take derivatives and equate it to zero, solve for mu (MLE). log L = l = log-likelihood function. In the above example, mu = 3&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-18-2016---lecture-6&quot;&gt;May 18, 2016 - Lecture 6&lt;/h2&gt;
+
+&lt;p&gt;##Estimation##&lt;/p&gt;
+
+&lt;p&gt;We are interested in some unknown characteristics (attributes) of the population. We draw a random, independent sample from this population {y1,…,yn}. Based on these sample observations, we want to come up with the best estimate for the unknown characterstic g(y1,…,yn) will be my best guess for theta.&lt;/p&gt;
+
+&lt;p&gt;Some starting points&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ usually, all statistical inference problems start with some estimation of some parameter.
++ {y1,...,yn} -&amp;gt; sample
++ we think of the data points {y1,...,yn} as outcomes of some random variable Y (statistical model); We assume that the data is drawn from some distribution with unknown parameters
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Example: toss a coin; objective: estimate pi = P(head). Each data point yi can be thought of as an outcome of Yi. The distribution of Yi is called the &lt;strong&gt;Statistical Model&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;##Steps Involving Estimation##&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Identify the distribution from which your data set is drawn&lt;/li&gt;
+  &lt;li&gt;Construct the likelihood function L(theta; y1,…,yn) = P(Y1=y1,…Yn=yn) = Probability of observing your sample = P(Y1=y1)&lt;em&gt;…&lt;/em&gt;P(Yn=yn)&lt;/li&gt;
+  &lt;li&gt;Find the MLE (best guess for the unknown parameter). Theta hat is that value of theta that maximizes the likelihood function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example 1: To estimate the approval rating of Trump. Approved Rating = pi (Population proportion, unknown). Sample = {YYNNNNYNNN} Given this sample, what is pi hat, the MLE for pi? Y is either Yes with probability pi, or No with probability 1-pi&lt;/p&gt;
+
+&lt;p&gt;L(pi; y1,…yn) = pi&lt;em&gt;pi&lt;/em&gt;(1-pi)&lt;em&gt;…&lt;/em&gt;(1-pi) = pi^3 * (1-pi)^7 is the Maximum Likelihood Function. The value of pi that maximizes the function is pi hat = MLE. The log likelihood function is l(pi) = 3ln(pi) + 7ln(1-pi), take derivative, find maximum value of pi = 0.3&lt;/p&gt;
+
+&lt;p&gt;Example 2: Objective: To estimate mu, the average number of hits on your blog in an hour. A sample of n hours {y1,…,yn}. What is mu hat, the MLE for mu? We will assume that the data is drawn from a Poisson distribution. L(mu, y1,…yn) = P(Y=y1)*…P(Y=yn). Calculating mu hat, we get mu hat = 1/n(sigma yi) = y average&lt;/p&gt;
+
+&lt;p&gt;Example 3: To estimate pi = prob that a Canadian contestant wins Jeopardy. Sample = {y1,…,yn} yi = number of shows contestant i appeared in. Sample = {1,2,1,3,5}. The data in this problem is drawn from a Geometric distribution. P(Y=2) = pi(1-pi). P(Y=4) = pi^3(1-pi). L(pi; y1,…yn) = pi^[(sigma yi)-n] * (1-pi)^n. Take log derivatives and equate it to zero. Get pi hat.&lt;/p&gt;
+
+&lt;p&gt;Example 4: To estimate the proportion of southpaws at UW.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Strategy 1: Go interview people till we get 10 left handers, interviewed 100 people
++ Strategy 2: Go interview 100 people and 10 of them are left handers
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Strategy 1: pi = proportion of left handers. L(pi) = C^99_9&lt;em&gt;pi^9&lt;/em&gt;(1-pi)^90 * pi&lt;br /&gt;
+Strategy 2: L(pi) = C^100_10&lt;em&gt;pi^10&lt;/em&gt;(1-pi)^90&lt;/p&gt;
+
+&lt;p&gt;So pi hat in both cases are 1/10.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some Final Points&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For complete analysis, we have to make sure theta hat is indeed the maximum (check the 2nd order condition)&lt;/li&gt;
+  &lt;li&gt;L(theta; y1,…,yn) = P(Y1=y1)&lt;em&gt;…&lt;/em&gt;P(Yn=yn) = f(y1)*…*f(yn). f = distribution function = pi(f(yi))&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Since the likelihood function is a product of the probabilities, the value can be really small for large sample sizes.&lt;br /&gt;
+R(theta) = Relative Likelihood Function = L(theta)/L(theta hat), where theta hat = MLE. The graph of R(theta) against theta is bell-shaped, maximized at theta hat. 0&amp;lt;=R(theta)&amp;lt;=1, R hits its maximum at theta = theta hat = MLE&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-25-2016---lecture-7-2016&quot;&gt;May 25, 2016 - Lecture 7, 2016&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Syllabus for the Midterm&lt;/strong&gt;: &amp;lt;= End of this week + STAT 230; Fall 2015 Midterm and practice problems posted (solutions will be posted this Friday)&lt;/p&gt;
+
+&lt;h2 id=&quot;today&quot;&gt;Today&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Overview of statistical modelling, estimatation and the MLE calculation&lt;/li&gt;
+  &lt;li&gt;Likelihood functions and the MLE for continuous r.v.s&lt;/li&gt;
+  &lt;li&gt;Invariance property of the MLE&lt;/li&gt;
+  &lt;li&gt;Special case -&amp;gt; Uniform distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Paul the Octopus Problem&lt;/strong&gt;&lt;br /&gt;
++ Toss a coin 100 times. Your friend “guesses” right 70 times. Is there evidence that your friend has ESP?
++ What is the attribute of interest? (What do we care about the population we are looking at?)
++ We are trying to find pi, the probability(your friend will guess right); it is unknown
++ y = number of successes in 100 trials, y = 70 -&amp;gt; outcome of some r.v. Y. Data points are not just numbers, but outcomes of a random experiment
++ We need to construct a statistical model (assuption on the distribution Y)
++ In this case, Y~Bin(100, pi)&lt;/p&gt;
+
+&lt;h2 id=&quot;statistical-model&quot;&gt;Statistical Model&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Construct the likelihood function&lt;/li&gt;
+  &lt;li&gt;L(pi) = C^100_70 pi^70(1-pi)^30&lt;/li&gt;
+  &lt;li&gt;Find the MLE(we choose pi hat which maximizes L(pi)), pi hat = 0.7&lt;/li&gt;
+  &lt;li&gt;We choose that value of the parameter that maximizes the chance of what we observed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Formal Definition&lt;/strong&gt;: Yi = f(theta;yi), i=1,…,n, f=distribution function, Yi’s are independent, {y1,…,yn} -&amp;gt; data set&lt;/p&gt;
+
+&lt;p&gt;L(theta;y1,y2,…,yn) = n Pi i=1 f(theta;yi) Product of the Distribution functions evaluated at the sample points&lt;/p&gt;
+
+&lt;p&gt;Example: {y1,…,yn} is independently drawn from yi&lt;br /&gt;
+f(y;theta) = (1-theta)^y * theta; y = 0,1,2,…&lt;/p&gt;
+
+&lt;h2 id=&quot;continuous-distributions&quot;&gt;Continuous Distributions&lt;/h2&gt;
+
+&lt;p&gt;Definition: Model: Yi~f(yi;theta) where Yi is a continuous random variable with unknown parameter theta&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Objective: To estimate mu = average lifetime of a lightbulb produced by a company. An independent sample {y1,…,yn} is drawn. Based on this sample, what is mu hat?&lt;/p&gt;
+
+&lt;p&gt;Model: Yi~Exp(mu), i=1,..,n, Yi’s are independent; L(mu, yi,…,yn) = i/mu^n e^(-1/u sigma yi). Take ln, take derivative, equate to zero; get mu hat = y average&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Objective: To estimate mu = population average IQ of UW Math students; sigma^2 = variance of the IQ&lt;/p&gt;
+
+&lt;p&gt;An independent sample {y1,y2…,yn} is drawn. Based on the sample, what are sigma^2 hat and mu hat?&lt;/p&gt;
+
+&lt;p&gt;Solution: Model: Yi~N(mu, sigma^2), assuming normality, i=1,…,n, Yi’s independent&lt;/p&gt;
+
+&lt;p&gt;Likelihood function: Take partial derivatives: first with respect to mu, get mu hat = y average (If the distribution is Normal, then y average is the MLE for mu); then take partial derivative with respect to sigma, get sigma^2 hat = 1/n sigma(yi - y average)^2. The MLE for population mean is the sample mean, but the population variance is NOT the sample variance (which is 1/n-1 instead of 1/n)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: Suppose {y1,…,yn} is drawn from a random variable with density function f(theta;y) = 2y/theta e^(-(y^2)/theta), with y&amp;gt;0, theta&amp;gt;0. L(theta) = (2^n(y1y2…yn))/theta^n e^(-1/theta sigma yi^2), take ln, l(theta) - ln K - nln(theta) - 1/theta sigma yi^2. Take derivative, get theta hat = 1/n sigma yi^2&lt;/p&gt;
+
+&lt;p&gt;##Invariance Property##&lt;/p&gt;
+
+&lt;p&gt;Result: If theta hat is the MLE (best guess for theta) for theta, then g(theta hat) is the MLE for g(theta) for any continuous g&lt;/p&gt;
+
+&lt;p&gt;Example: The scores of STAT231 are normally distributed with mean mu and variance sigma^2. Find the estimate for the 95-th percentile of the population. Looking at the Z table, 95-th percentile corresponds to 1.64. &lt;br /&gt;
+P(Y&amp;lt;=x) = 0.95&lt;br /&gt;
+P((Y-mu)/sigma &amp;lt;= (x-mu)/sigma) = 0.95&lt;br /&gt;
+P(Z&amp;lt;=x-mu/sigma) = 0.95&lt;br /&gt;
+x-mu/sigma = 1.64&lt;br /&gt;
+x = mu + 1.64 sigma&lt;/p&gt;
+
+&lt;p&gt;MLE for the 95th percentile = mu hat + 1.64 sigma hat. Find mu hat and sigma hat, plug in, done.&lt;/p&gt;
+
+&lt;p&gt;Example: Suppose we toss a coin 60 times, and we observe 20 successes (heads). Find the MLE for the variance of this distribution. pi hat = 1/3&lt;br /&gt;
+Var = n&lt;em&gt;pi(1-pi), Mean = n&lt;/em&gt;pi&lt;/p&gt;
+
+&lt;p&gt;##Uniform Distribution##&lt;/p&gt;
+
+&lt;p&gt;Yi~U[0,theta], theta is unknown. {yi,…,yn} What is theta hat? U[a,b], pf = 1/(b-a). f(y;theta) = 1/theta if 0&amp;lt;y&amp;lt;theta and 0 otherwise. Then L(theta) = 1/theta^n if 0&amp;lt;=yi&amp;lt;=theta for all i (or can be written as “if theta &amp;gt;= max{yi,…,yn}”), or 0 otherwise. But the graph is not continuous at max{y1,…,yn}. MLE theta hat = max{y1,…,yn}&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;may-30-2016---lecture-8&quot;&gt;May 30, 2016 - Lecture 8&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Interval Estimation&lt;/strong&gt;: Likelihood function -&amp;gt; likelihood intervals, sampling distribution -&amp;gt; confidence intervals&lt;/p&gt;
+
+&lt;h2 id=&quot;the-theory-of-estimation&quot;&gt;The Theory of Estimation&lt;/h2&gt;
+
+&lt;p&gt;Problem: theta = unknown population attribute of interest; {y1,…,yn} -&amp;gt; sample drawn from the population; based on the sample, theta hat(y1,…,yn) which is our ESTIMATE for theta&lt;/p&gt;
+
+&lt;h3 id=&quot;method-of-maximum-likelihood&quot;&gt;Method of Maximum Likelihood&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Identify the distribution from which the data is drawn (&lt;strong&gt;Modelling&lt;/strong&gt;)&lt;/li&gt;
+  &lt;li&gt;Construct the likelihood function, calculate the log likelihood function, take derivatives to find the maximum likelihood estimate&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Example: Y1,…,Yn ~ N(mu, sigma^2). Data set: {y1,…,yn}. Objective: Estimate mu&lt;br /&gt;
+Alternative Method - &lt;strong&gt;Method of Least Squares&lt;/strong&gt; (more practical, do not care about distribution. only care about how accurate the prediction is): Choose mu hat such that the sum of SQUARED errors is minimized. Min sigma[(yi-mu)^2]&lt;/p&gt;
+
+&lt;p&gt;2 sigma(yi-mu)(-1) = 0&lt;br /&gt;
+sigma(yi-mu) = 0&lt;br /&gt;
+mu = y average&lt;/p&gt;
+
+&lt;p&gt;For the Normal problem, MLE and LS estimate for mu are the same&lt;/p&gt;
+
+&lt;h2 id=&quot;interval-estimation&quot;&gt;Interval Estimation&lt;/h2&gt;
+
+&lt;p&gt;Obejective: We have an unknown parameter theta. We want to estimate the random interval [A, B] which would contain theta with a “high” probability (that is pre-specified/defined)&lt;/p&gt;
+
+&lt;p&gt;Example: Margin of Error for opinion polls&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Method 1&lt;/strong&gt;: Through the likelihood function&lt;br /&gt;
+Definition: A 100p % likelihood interval (p is in (0,1)) for an unknown parameter theta is given by&lt;/p&gt;
+
+&lt;p&gt;{theta: R(theta) &amp;gt;= p}, where R(theta) = Relative Likelihood Function&lt;/p&gt;
+
+&lt;p&gt;Example: p=0.5, you want a 50% likelihood interval; so {theta: R(theta) &amp;gt;= 0.5}; Draw a horizontal line at y=0.5, the line intersects the RLF graph at points a and b [a,b] = 50% likelihood interval&lt;/p&gt;
+
+&lt;p&gt;Question: If theta_0 belongs to the 20% likelihood interval, does it belong to the 10% likelihood interval? Yes.&lt;/p&gt;
+
+&lt;p&gt;Question: Does theta hat (MLE) belong to all likelihood intervals? Yes.&lt;/p&gt;
+
+&lt;p&gt;Suppose theta_0 belongs to the 30% likelihood interval -&amp;gt; means that the likelihood function, evaluated at theta_0, is at least 30% of the likelihood function evaluated at the MLE. L(theta_0)/L(theta hat) &amp;gt;= 0.3 =&amp;gt; L(theta_0) &amp;gt;= 0.3 L(theta hat)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Method 2 - Method of Sampling Distributions&lt;/strong&gt;: Method 1 is not an ＩＮＴＵＩＴＩＶＥ interpretation&lt;/p&gt;
+
+&lt;p&gt;Steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Identify the ＰＩＶＯＴＡＬ ＤＩＳＴＲＩＢＵＴＩＯＮ from your model&lt;/li&gt;
+  &lt;li&gt;Find the endpoints of your pivotal distribution and rearrange to construct the &lt;strong&gt;coverage interval&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Estimate the coverage interval using your sample -&amp;gt; &lt;strong&gt;confidence interval&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Notations: Y bar (a random variable from which sample means , y bar, are drawn), y bar (sample mean, known), and mu (population mean, unknown)&lt;/p&gt;
+
+&lt;p&gt;Example: A population of 1, 2, 3, 4, 5&lt;br /&gt;
+A sample of size 2 is drawn with replacement from this population&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mu = 3 (usually unknown)&lt;/li&gt;
+  &lt;li&gt;y bar: {1, 3} -&amp;gt; 2; {1, 1} -&amp;gt; 1; depends on sampling&lt;/li&gt;
+  &lt;li&gt;Y bar: random variable from drawing y bars by graphing the frequency of each&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Capital letters = random variables = &lt;strong&gt;Estimators&lt;/strong&gt;&lt;br /&gt;
+Lowercase letters = &lt;strong&gt;Estimates&lt;/strong&gt; from the sample -&amp;gt; known numbers&lt;br /&gt;
+Greek letters = Population parameters -&amp;gt; unknown parameters&lt;/p&gt;
+
+&lt;p&gt;Example: Objective: To construct a 95% confidence interval for the average IQ of UW professors. {y1,…,yn}, n=25, sigma yi = 2200. We know that the IQs are normally distributed with a variance of sigma^2 = 49 (unrealistic, because sigma^2 is known but not mu). Construct a 95% confidence interval for mu&lt;/p&gt;
+
+&lt;p&gt;Model: Yi ~ N(mu, 49). i = 1,…,25 are independent&lt;/p&gt;
+
+&lt;p&gt;Y bar ~ N(mu, 49/25) since Y bar ~ N(mu, sigma^2 / n)&lt;/p&gt;
+
+&lt;p&gt;(Y bar - mu) / 7/5 = z ~ N(0, 1) PIVOT&lt;/p&gt;
+
+&lt;p&gt;Go to the Z-table and find the 95% interval. Find 0.975. a = 1.96&lt;/p&gt;
+
+&lt;p&gt;P(-1.96 &amp;lt; z &amp;lt; 1.96) = 0.95&lt;br /&gt;
+P(-1.96 &amp;lt; (Y bar - mu) / 7/5 &amp;lt; 1.96) = 0.95&lt;/p&gt;
+
+&lt;p&gt;So mu &amp;gt; Y bar - 1.96&lt;em&gt;7/5, and mu &amp;lt; Y bar + 1.96&lt;/em&gt;7/5, and these two numbers make up the bounds of the coverage interval. [y bar - 1.96&lt;em&gt;7/5, y bar + 1.96&lt;/em&gt;7/5] since y bar is known is the confidence interval&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;General Rules to estimate mu when sigma is known&lt;/strong&gt;:
+(Y bar - Z* sigma/sqrt(n), Y bar + Z* sigma/sqrt(n)) is the coverage interval. Sub y for Y, confidence interval&lt;/p&gt;
+
+&lt;p&gt;Suppose we had a 99% coverage, then Z* will increase (to 2.58).&lt;/p&gt;
+
+&lt;p&gt;Suppose we want the 95% confidence interval to be of fixed length y bar +- A.&lt;/p&gt;
+
+&lt;p&gt;Two problems:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sigma is usually not known&lt;/li&gt;
+  &lt;li&gt;The population might not be normal&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Central Limit Theorem: Suppose n is large, and Y1,…,Yn, are drawn from a distribution with mean mu and variance signma^2, then Y bar is approximately Y bar ~N(mu, sigma^2 / n)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;june-1-2016---lecture-9&quot;&gt;June 1, 2016 - Lecture 9&lt;/h2&gt;
+
+&lt;h2 id=&quot;today-1&quot;&gt;Today&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Confidence interval for mu from a normal population with known sigma (population SD)&lt;/li&gt;
+  &lt;li&gt;Confidence interval for Binomial&lt;/li&gt;
+  &lt;li&gt;Confidence interval for Exponential (when n is large)&lt;/li&gt;
+  &lt;li&gt;The chi-squared distribution chi^2_k&lt;/li&gt;
+  &lt;li&gt;The T distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example: (pre-specified) 99% CI&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt; The incomes of UW grads are Normally distributed with mean mu, and SD sigma = $5000&lt;/p&gt;
+
+&lt;p&gt;Object: To fund the 99% for mu, i.e. we want to construct a random interval [A, B], such that P(A &amp;lt; mu &amp;lt; B) = 0.99 (This is called the coverage interval, and 0.99 is called the coverage probability or level of confidence)&lt;/p&gt;
+
+&lt;p&gt;A sample of 64 UW grads are drawn at random {y1,…,y64}, y bar = 60000, sigma = 7000. What is your CI?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt; November 16, an exit poll is conducted with a random sample of 1000 US voters and 530 of them voted for Trump. Pi = Proportion of total votes Trump will get. We want to construct a 95% CI for pi.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Confidence Interval Approach&lt;/strong&gt;: construct the pivotal distribution based on your estimator or a function of it; mu = population mean, y bar = sample mean = a number, Y bar = r.v. from which y bar is drawn. The distribution of Y bar is the pivot.&lt;/p&gt;
+
+&lt;p&gt;Example 2: pi = population proportion, pi hat = 530/1000 = 0.53 (Estimate), pi tilda (pivot) = r.v. from which pi hat is drawn&lt;/p&gt;
+
+&lt;p&gt;An estimate is a number, an estimator is a random variable.&lt;/p&gt;
+
+&lt;p&gt;Construct a coverage interval from the pivot. This interval will contain the parameter with the given probability. Estimate this interval using your sample -&amp;gt; Confidence Interval&lt;/p&gt;
+
+&lt;p&gt;Example 1: Model: Yi ~ N(mu, 5000^2), i=1,…,64; Yi’s independent&lt;/p&gt;
+
+&lt;p&gt;Y1,…,Yn ~ N(mu, sigma^2), Y bar ~ N(mu, sigma^2/n). So in this case, Y bar ~ N(mu, 5000^2/64)&lt;/p&gt;
+
+&lt;p&gt;(Y bar - mu) / (5000/8) = Z ~ N(0,1) is the pivotal distribution; Z-table -&amp;gt; 0.995, a=2.58. P(-2.58 &amp;lt;= Z &amp;lt;= 2.58) = 0.99. Plug (Y bar - mu) / (5000/8) = Z back in, we get mu &amp;gt;= Y bar - 2.58 * 5000 / 8 and mu &amp;lt;= Y bar + 2.58 * 5000 / 8. So P(Y bar - 2.58 * 5000 / 8 &amp;lt; mu &amp;lt; Y bar + 2.58 * 5000 / 8) = 0.99. This interval is the coverage interval.  [60000 +- 2.58 * 5000 / 8]&lt;/p&gt;
+
+&lt;p&gt;NOTE: It is not true that the above interval contains mu with probability 0.99&lt;/p&gt;
+
+&lt;h2 id=&quot;general-rule&quot;&gt;General Rule&lt;/h2&gt;
+&lt;p&gt;If the population is normal, and the variance is known, then the CI for mu is given [y bar += z* sigma/sqrt(n)]. So z = from the z0table, y bar = sample mean, r = population standard deviation, n = sample size. The interval will be wider if the level of confidence increase&lt;/p&gt;
+
+&lt;p&gt;Example 2: pi, pi hat = 0.53, pi tilda = estimator&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem - Central Limit Theorem&lt;/strong&gt;&lt;br /&gt;
+If n is “large”, then pi&lt;/p&gt;
+
+&lt;p&gt;Y1,…,Yn ~ N(mu, sigma^2), Y bar ~ N(mu, sigma^2/n). Let n be large, Y1,…,Yn have mean mu and variance sigma^2. Then (Y bar - mu) / (sigma/sqrt(n)) approximately equals Z for large n&lt;/p&gt;
+
+&lt;p&gt;Find the two points for the pivot, between [-a, a] the probability is 0.95, a = 1.96&lt;/p&gt;
+
+&lt;p&gt;Example: Y1,…,Y100 ~ Exp(mu); {y1,…,y100} -&amp;gt; Data. Find the 95% CI for mu.&lt;/p&gt;
+
+&lt;p&gt;By CLT, (Y bar - mu) / (mu/sqrt(n)) = Z ~ N(0,1)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 02 May 2016 00:00:00 -0400</pubDate>
+        <link>http://dzed.me/2016/05/02/Stat-231.html</link>
+        <guid isPermaLink="true">http://dzed.me/2016/05/02/Stat-231.html</guid>
         
         
       </item>
