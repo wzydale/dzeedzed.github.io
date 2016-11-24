@@ -22,7 +22,7 @@ CS 341 - Algorithms
 CS 350 - Operating Systems  
 STAT 341 - Computational Statistics and Data Analysis  
 SCI 206 - The Physics of How Things Work
-BIOL 240 - Microbiology
+CO 342 - Introduction to Graph Theory
 
 3B - Spring 2018
 ---  
