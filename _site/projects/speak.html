@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+
+    <script type="text/javascript">
+
+    function speakWord(word) {
+      setInterval(function() {
+        var num = Math.floor(Math.random() * (9));
+        console.log(num);
+        var ayylmao = new SpeechSynthesisUtterance('Hello there!');
+        var utterance = new SpeechSynthesisUtterance('How are you?');
+        utterance.lang = "en-US";
+        ayylmao.lang = "en-US";
+        utterance.onend = function(event) {
+          window.speechSynthesis.speak(ayylmao);
+        }
+        window.speechSynthesis.speak(utterance);
+      }, 5000);
+    }
+
+    </script>
+
+  </head>
+
+
+  <body>
+
+      <input onclick='speakWord("Hello there. How are you?")' type='button' value='🔊 Play' />
+
+  </body>
+
+
+
+</html>

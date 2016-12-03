@@ -1,11 +1,17 @@
 ---
 layout: page
-title: Dream List
+title: Bucket List
 ---
+
+## MISC: ##
+* Eat Surströmming
+* Eat Kusaya
+* Eat a Spicy Chicken Wrap at V1 Cafe
+
 
 ## TRAVEL: ##
 * Visit Fukuoka, Japan again
-* Visit the capital of every single Canadian province (~~Victoria~~, Edmonton, Regina, Winnipeg, ~~Toronto~~, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit), Ottawa, Gatineau, and Montréal
+* Visit the capital of every single Canadian province (~~Victoria~~, Edmonton, Regina, Winnipeg, ~~Toronto~~, Québec City (Ville de Québec), Fredericton, St.John's, Charlottetown, Halifax, Whitehorse, Yellowknife, Iqaluit), ~~Ottawa~~, ~~Gatineau~~, ~~and Montréal~~
 * Visit Germany
 * Visit Norway
 * Go to JavaZone Conference in Oslo, Norway (5990 kr as of 29 Feb 2016)
@@ -14,35 +20,28 @@ title: Dream List
 * Go to a Yakult Swallows game in Tokyo
 * ~~Go to a Jays game~~ (vs. Cleveland Indians, September 1, 2015)
 * Go to a Jays playoff game
-* Go to a match at Old Trafford in Manchester
+* Go to a match at Old Trafford in Manchester, England
 * Go to a game at Busch Stadium in St. Louis
 * Go to a World Series game
 * Reach South Pole
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1mXY1W7pOUcyTMIsOVxOeeqRkcP0" 
+<iframe src="https://www.google.com/maps/d/embed?mid=1mXY1W7pOUcyTMIsOVxOeeqRkcP0"
 frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscreen></iframe>
 
-## LANGUAGES: ##
+## WATERLOO (2015-2020): ##
 
-* Can watch IKMY without subtitles
-* Can watch Skavlan without subtitles
-* Pass JLPT N2 
-* Pass JLPT N1 (maybe Dec 2017)
-
-## WATERLOO: ##
-
-* ~~Find a co-op job before my 20th birthday~~ (Software Engineer at Gemalto, offered June 17, 2016; matched June 20, 2016)
+* ~~Find a job before my 20th birthday~~ (Software Engineer at Gemalto, offered June 17, 2016; matched June 20, 2016; started September 6, 2016)
 * Pull an all-nighter
 * ~~Go to a hackathon~~ ([WaterlooHacks, January 22-24, 2016](https://waterloohacks.io))
 * ~~Win a hackathon~~ ([MyoMuse @ WaterlooHacks, January 22-24, 2016](http://news.communitech.ca/news/communitech/myo-music-app-wins-waterloo-hacks/))
 * Eat at all Plaza restaurants
-* Speak only English for an entire week
 * Cook for an entire week
 * Not skip any classes for the entire term
 * ~~Wear a Blue Jays T-shirt to an interview~~ (WeMesh, May 31, 2016)
 * ~~Wear shorts to an interview~~ (PharmAchieve, June 3, 2016)
-* Get so drunk that I don't remember anything
-* Play in intramural baseball and have a BA of .400 over 30+ PA
+* Wear suit to an interview
+* ~~Get so drunk that I don't remember anything~~ (Etobicoke, ON, December 23, 2015)
+* ~~Play in intramural baseball and have a BA of .400 over 30+ PA~~ (Spring 2016)
 * Make a diving catch in a baseball game
 * Play in intramural football/soccer and score a volley
 * Learn how to ski and snowboard
@@ -50,15 +49,21 @@ frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscre
 * Learn how to play ice hockey
 * ~~Start a blog~~
 * ~~Make a Go tutorial~~
-* Graduate (~~1A~~ ~~1B~~ 2A coop 2B coop 3A coop 3B coop 4A coop 4B)
+* Graduate (~~1A~~ ~~1B~~ ~~2A~~ coop 2B coop 3A coop 3B coop 4A coop 4B)
 * Publish 10 apps on Google Play
-* Get Dean's Honours List every term (~~1A~~ ~~1B~~ 2A coop 2B coop 3A coop 3B coop 4A coop 4B)
+* Get Dean's Honours List every term (~~1A~~ ~~1B~~ ~~2A~~ coop 2B coop 3A coop 3B coop 4A coop 4B)
 * Get Dean's Honours List with Distinction when I graduate
 
+## LANGUAGES: ##
+
+* Can watch IKMY without subtitles
+* Can watch Skavlan without subtitles
+* Pass JLPT N2
+* Pass JLPT N1 (maybe Dec 2017)
 
 ## READING: ##
-* 『色彩を持たない多崎つくると、彼の巡礼の年』
-    (Colorless Tsukuru Tazaki and His Years of Pilgrimage) - Haruki Murakami
+* ~~『色彩を持たない多崎つくると、彼の巡礼の年』~~
+    (Colorless Tsukuru Tazaki and His Years of Pilgrimage) - Haruki Murakami~~
 * 『ノルウェイの森』
   (Norwegian Wood) - Haruki Murakami
 * 『海辺のカフカ』
@@ -98,4 +103,3 @@ frameborder="0" width="740" height="500" style="border:0" zoom="0" allowfullscre
     * The Wise Man’s Fear
 * Hundred Years of Solitude - Marquez
 * 三体 (The Three-Body Problem) - Cixin Li
-
