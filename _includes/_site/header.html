@@ -1,0 +1,103 @@
+<!--
+    <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/homepage.css" type="text/css" rel="stylesheet"/>
+  <link href="/css/genericons/genericons.css" type="text/css" rel="stylesheet"/>
+ -->
+<!-- <header class="site-header">
+
+    <nav class="white site-header" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="{{ site.baseurl }}" class="brand-logo">Dadi "DZ" Zhang</a>
+
+        <ul class="right hide-on-med-and-down">
+          {% for my_page in site.pages %}
+            {% if my_page.title %}
+            <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+</header> -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Karma:500' rel='stylesheet' type='text/css'>
+
+<style>
+
+/* Fade */
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: black;
+  color: white;
+}
+
+.page-link {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 14px;
+    padding-left: 14px;
+    margin-left: -24.5px;
+    margin-right: -24.5px;
+}
+
+
+.site-title:hover {
+    text-decoration: none;
+}
+
+.page-link:hover {
+    text-decoration: none;
+}
+
+.site-title {
+  font-family: "Raleway", serif;
+  font-size: 2rem;
+}
+
+.trigger a {
+  font-family: "Raleway", serif;
+}
+
+</style>
+
+<header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+
+
+      <div class="trigger">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <a class="page-link hvr-fade" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          {% endif %}
+        {% endfor %}
+          <a class="page-link hvr-fade" href="/resume/resume.pdf">R&eacutesum&eacute</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>

@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dadi &quot;D.Z.&quot; Zhang</title>
-    <description>Dadi &quot;D.Z.&quot; Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. Worships 442.
+    <description>Dadi &quot;D.Z.&quot; Zhang | Coder. Developer. Language enthusiast. Go fanatic. Jays fan. 
 </description>
     <link>http://dzed.me/</link>
     <atom:link href="http://dzed.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Dec 2016 14:33:04 -0500</pubDate>
-    <lastBuildDate>Sat, 03 Dec 2016 14:33:04 -0500</lastBuildDate>
+    <pubDate>Wed, 04 Jan 2017 23:49:01 -0500</pubDate>
+    <lastBuildDate>Wed, 04 Jan 2017 23:49:01 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -20,7 +20,26 @@ Term: Winter 2017
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&quot;january-3-2017---lecture-1&quot;&gt;January 3, 2017 - Lecture 1&lt;/h2&gt;
+&lt;h2 id=&quot;january-3-2017---lecture-1-graph-vertex-edge-complete-graph-path-cycle-complete-bipartite-graph&quot;&gt;January 3, 2017 - Lecture 1 (Graph, Vertex, Edge, Complete Graph, Path, Cycle, Complete Bipartite Graph)&lt;/h2&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Marking Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Assignments (10%, due Fridays at 11am)&lt;/li&gt;
+  &lt;li&gt;Midterm (30%, 4:30pm, Thursday, March 2, 2017)&lt;/li&gt;
+  &lt;li&gt;Final (60%)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Topics&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Graph Theory&lt;/li&gt;
+  &lt;li&gt;Combinatorial Analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe src=&quot;/ViewerJS/#../latexNotes/math239/lec1/lec1.pdf&quot; width=&quot;1000&quot; height=&quot;900&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Sun, 20 Nov 2016 17:56:00 -0500</pubDate>
         <link>http://dzed.me/notes/2016/11/20/MATH-239.html</link>
@@ -63,6 +82,29 @@ Term: Winter 2017
 &lt;/div&gt;
 
 &lt;h2 id=&quot;january-3-2017---lecture-1&quot;&gt;January 3, 2017 - Lecture 1&lt;/h2&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Computer architecture = instruction set architecture +  computer organization&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fetch&lt;/li&gt;
+  &lt;li&gt;Decode&lt;/li&gt;
+  &lt;li&gt;Execute&lt;/li&gt;
+  &lt;li&gt;Writeback&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;On midterm: First three topics&lt;/p&gt;
+
+&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Digital design: easy; Architecture: hard (Last term MT Median: 87, Final Median: 72)&lt;/li&gt;
+  &lt;li&gt;Conceptually different&lt;/li&gt;
+  &lt;li&gt;Not mechanical&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;mips&quot;&gt;MIPS&lt;/h2&gt;
 </description>
         <pubDate>Sun, 20 Nov 2016 17:56:00 -0500</pubDate>
         <link>http://dzed.me/notes/2016/11/20/CS-251.html</link>
@@ -84,6 +126,51 @@ Term: Winter 2017
 &lt;/div&gt;
 
 &lt;h2 id=&quot;january-3-2017---lecture-1&quot;&gt;January 3, 2017 - Lecture 1&lt;/h2&gt;
+
+&lt;h2 id=&quot;course-overview&quot;&gt;Course Overview&lt;/h2&gt;
+
+&lt;p&gt;Purpose: To understand what happens when you compile and run a program&lt;/p&gt;
+
+&lt;p&gt;High-level languages (CS 241) -&amp;gt; Machine code (CS 251)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major topics:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Machine architecture and assembly language&lt;/li&gt;
+  &lt;li&gt;Assemblers, linkers, loaders&lt;/li&gt;
+  &lt;li&gt;Regualr languages and scanning&lt;/li&gt;
+  &lt;li&gt;Context-free languages and parsing&lt;/li&gt;
+  &lt;li&gt;Semantic analysis and code generation&lt;/li&gt;
+  &lt;li&gt;Runtime organization and data layout&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;marking-scheme&quot;&gt;Marking Scheme&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Assignments (25%, 10 assignments, due Fridays at 5pm)
+    &lt;ul&gt;
+      &lt;li&gt;Public and release cases&lt;/li&gt;
+      &lt;li&gt;3 release tokens which takes 12 hours to regenerate&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Midterm exam (25%, 4:30pm, Wednesday, March 1, 2017)&lt;/li&gt;
+  &lt;li&gt;Final exam (50%)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;recommended-course-texts&quot;&gt;Recommended Course Texts&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Computer Organization and Design by Patterson and Hennessy&lt;/li&gt;
+  &lt;li&gt;BoCD (Basics of Compiler Design) by Mogensen&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lecture-1&quot;&gt;Lecture 1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Ideas&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Binary, decimal, two’s complement&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Sun, 20 Nov 2016 17:56:00 -0500</pubDate>
         <link>http://dzed.me/notes/2016/11/20/CS-241.html</link>
@@ -100,11 +187,20 @@ Term: Winter 2017
 Instructor: Troy Vasiga
 Location: MC 4063
 Time: Tuesdays and Thursdays 10:00am - 11:20am
+Tutorials: Mondays 8:30am - 9:20am
 Term: Winter 2017
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;january-3-2017---lecture-1&quot;&gt;January 3, 2017 - Lecture 1&lt;/h2&gt;
+
+&lt;h2 id=&quot;marking-scheme&quot;&gt;Marking Scheme&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Final Exam - 50%&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Midterm (4:30pm, Thursday, February 16, 2017) - 25%&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Assignments - 25% (5% each, due Wednesdays at 5pm)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Sun, 20 Nov 2016 17:56:00 -0500</pubDate>
         <link>http://dzed.me/notes/2016/11/20/CS-240E.html</link>
