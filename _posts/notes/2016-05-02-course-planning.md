@@ -9,38 +9,44 @@ categories: notes top
 
 2B - Winter 2017
 ---
-CS 240 - Data Structures and Data Management  
-CS 241 - Foundations of Sequential Programs  
-CS 251 - Computer Organization and Design  
-MATH 239 - Introduction to Combinatorics  
-CO 250 - Introduction to Optimization  
-ENGL 306A - Introduction to Linguistics
++ CS 240 - Data Structures and Data Management  
++ CS 241 - Foundations of Sequential Programs  
++ CS 251 - Computer Organization and Design  
++ MATH 239 - Introduction to Combinatorics  
++ ECON 102 - Introduction to Microeconomics  
++ ENGL 306A - Introduction to Linguistics
 
 3A - Fall 2017
 ---  
-CS 341 - Algorithms  
-CS 350 - Operating Systems  
-STAT 341 - Computational Statistics and Data Analysis  
-SCI 206 - The Physics of How Things Work  
-CO 342 - Introduction to Graph Theory
++ CS 341 - Algorithms  
++ CS 350 - Operating Systems  
++ STAT 341 - Computational Statistics and Data Analysis  
++ MATH 235 - Linear Algebra II
++ BIOL 240 - Fundamentals of Microbiology  
 
 3B - Spring 2018
 ---  
-CS 486 - Introduction to Artificial Intelligence  
-STAT 440 - Computational Inference  
-CS 370 - Numerical Computation  
-
++ CS 360 - Introduction to the Theory of Computing (John Watrous)   
++ CS 370 - Numerical Computation (Christopher Batty)  
++ CS 486 - Introduction to Artificial Intelligence  
++ STAT 440 - Computational Inference  
++ STAT 333 - Applied Probability (Pengfei Li)  
++ PSYCH 256 - Introduction to Cognitive Science
 
 4A - Winter 2019
 ---
-CS 456 - Computer Networks  
-CS 343 - Concurrent and Parallel Programming  
-CS 485 - Machine Learning: Statistical and Computational Foundations  
-
++ CS 343 - Concurrent and Parallel Programming  
++ CS 454 - Distributed Systems  
++ CS 485 - Machine Learning: Statistical and Computational Foundations  
++ STAT 331 - Applied Linear Models   
++ STAT 441 - Statistical Learning - Classification (F)  
 
 4B - Winter 2020
 ---
-CS 452 - Real-time Programming  
++ CO 487 - Applied Cryptography  
++ STAT 330 - Mathematical Statistics  
++ STAT 332 - Sampling and Experimental Design   
++ MTHEL 300 - Professional Communications in Statistics and Actuarial Science
 
 
 

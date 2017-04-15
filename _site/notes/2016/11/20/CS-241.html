@@ -248,12 +248,73 @@ Term: Winter 2017
   <li>BoCD (Basics of Compiler Design) by Mogensen</li>
 </ul>
 
-<h2 id="lecture-1">Lecture 1</h2>
+<h2 id="lectures-1-2">Lectures 1, 2</h2>
 
 <p><strong>Key Ideas</strong></p>
 
 <ul>
   <li>Binary, decimal, two’s complement</li>
+  <li>Addition and subtraction</li>
+</ul>
+
+<h2 id="january-10-2017---lecture-3">January 10, 2017 - Lecture 3</h2>
+
+<ul>
+  <li>MIPS (binary) reference
+    <ul>
+      <li>For each instruction, there is a name, assembly language mnemonic, binary, and MIPS meaning</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>PC &lt;- 0
+while (1) {
+  fetch word from RAM at address in PC (RAM[PC]) into IR
+  PC &lt;- PC + 4
+  execute instruction in IR
+}
+</code></pre>
+</div>
+
+<ul>
+  <li>MIPS Assembly Language (CS241 edition) Reference
+    <ul>
+      <li>MIPS assembly language programs are text files</li>
+      <li>Each line is either NULL or contains an instruction</li>
+      <li>Each line has:
+        <ul>
+          <li>0 or more labels (placeholders, used by goto instructions)</li>
+          <li>0 or 1 instructions</li>
+          <li>Comments (optional) started by a colon</li>
+        </ul>
+      </li>
+      <li>Example:
+<code class="highlighter-rouge">assembly
+jr $3
+jr $3 ;helloWorld
+</code></li>
+      <li>Example:
+<code class="highlighter-rouge">assembly
+(blank line) NULL LINE
+foo: bar: diff: beq $1, $1, 1
+boo:
+; comment (this is a null line)
+bah: ; comment after a label
+</code></li>
+      <li>Each non-null line contains an instruction</li>
+      <li>Each instruction consists of an mnemonic and operands
+        <ul>
+          <li>Format: mnemonic [operands]</li>
+          <li>Possible mnemonics: .word, add, sub, mul, jr, jalr, etc.</li>
+          <li>Possible operands: decimal numbers, hex, ints
+            <ul>
+              <li>Up to 2<super>32</super>-1 down to -2<super>31</super></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
   </div>
